@@ -1,7 +1,7 @@
 package com.project.newboard.web.member;
 
-import com.project.newboard.login.domain.member.Member;
-import com.project.newboard.login.domain.member.MemberRepository;
+import com.project.newboard.domain.member.Member;
+import com.project.newboard.domain.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
