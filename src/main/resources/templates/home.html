@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -82,8 +83,16 @@
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
         </ul>
         <ul class="nav">
-            <li class="nav-item"><a href="views/login.html" class="nav-link link-dark px-2" >로그인</a></li>
-            <li class="nav-item"><a href="views/login.html" class="nav-link link-dark px-2">가입하기</a></li>
+            <button class="nav-item"  type="button" >
+                로그인
+            </button>
+            <button class="nav-item"  type="button" th:onclick="|location.href='@{/members/add}'|">
+                회원가입
+            </button>
+      
+           <!-- <li class="nav-item"><a th:onclick="|location.href='@{/login}'|" class="nav-link link-dark px-2" >로그인</a></li>
+            <li class="nav-item"><a th:onclick="|location.href='@{/views/add}'|"  class="nav-link link-dark px-2">가입하기</a></li>
+        -->
         </ul>
     </div>
 </nav>

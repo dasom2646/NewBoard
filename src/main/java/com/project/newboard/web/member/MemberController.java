@@ -21,13 +21,13 @@ public class MemberController {
 
     @GetMapping("/add")
     public String addForm(@ModelAttribute("member") Member member) {
-        return "views/login";
+        return "members/addMemberForm";
     }
 
     @PostMapping("/add")
     public String save(@Valid @ModelAttribute Member member, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "views/login";
+            return "views/addMemberForm";
         }
         memberRepository.save(member);
         return "redirect:/";
