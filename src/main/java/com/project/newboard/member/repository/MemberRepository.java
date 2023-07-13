@@ -1,5 +1,6 @@
-package com.project.newboard.domain.member;
+package com.project.newboard.member.repository;
 
+import com.project.newboard.member.vo.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +13,7 @@ public class MemberRepository {
     private static Map<Long, Member> store = new HashMap<>(); // static사용
     private static long sequence = 0L;
 
+    // 저장
     public Member save(Member member) {
         log.info("save: member={}", member);
         store.put(member.getId(), member);

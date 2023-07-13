@@ -1,7 +1,8 @@
-package com.project.newboard.web.login;
+package com.project.newboard.login.controller;
 
-import com.project.newboard.domain.login.LoginService;
-import com.project.newboard.domain.member.Member;
+import com.project.newboard.login.service.LoginService;
+import com.project.newboard.member.vo.Member;
+import com.project.newboard.login.LoginForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -9,8 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.validation.Valid;
 
 @Slf4j
 @Controller

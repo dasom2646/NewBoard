@@ -1,7 +1,7 @@
 package com.project.newboard;
 
-import com.project.newboard.domain.member.Member;
-import com.project.newboard.domain.member.MemberRepository;
+import com.project.newboard.member.vo.Member;
+import com.project.newboard.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,7 @@ public class TestData {
         Member member = new Member();
         member.setLoginId("test");
         member.setPassword("1234");
-        member.setName("테스터");
+        member.setUserName("테스터");
 
         memberRepository.save(member);
     }

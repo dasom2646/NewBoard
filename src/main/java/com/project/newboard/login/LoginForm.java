@@ -1,4 +1,4 @@
-package com.project.newboard.web.login;
+package com.project.newboard.login;
 
 import lombok.Data;
 

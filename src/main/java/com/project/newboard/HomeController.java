@@ -1,4 +1,4 @@
-package com.project.newboard.web;
+package com.project.newboard;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
