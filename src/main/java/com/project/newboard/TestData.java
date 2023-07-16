@@ -20,7 +20,7 @@ public class TestData {
         Member member = new Member();
         member.setLoginId("test");
         member.setPassword("1234");
-        member.setUserName("테스터");
+        member.setUsername("테스터");
 
         memberRepository.save(member);
     }

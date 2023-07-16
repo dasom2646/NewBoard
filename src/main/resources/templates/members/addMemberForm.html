@@ -37,9 +37,8 @@
     </div>
     <div>
       <label for="name">이름</label>
-      <input type="text" id="name" th:field="*{name}" class="form-control"
-             th:errorclass="field-error">
-      <div class="field-error" th:errors="*{name}" />
+      <input type="text" id="name" th:field="*{username}" class="form-control" th:errorclass="field-error">
+      <div class="field-error" th:errors="*{username}" />
     </div>
     <hr class="my-4">
     <div class="row">
