@@ -25,6 +25,7 @@ public class MemberRepository {
         return store.get(id);
     }
 
+    // 로그인 아이디로 찾기
     public Optional<Member> findByLoginId(String loginId) {
    /*     List<Member> all = findAll();
         for (Member m : all) {

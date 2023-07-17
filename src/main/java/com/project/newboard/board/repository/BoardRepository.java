@@ -23,6 +23,18 @@ public class BoardRepository {
         return board;
     }
 
+    // 게스글 찾기
+    public Board findBoardById(Long id) {
+        return inBoard.get(id);
+
+    }
+
+    // 게스글 전체 찾기
+    public List<Board> findAllBoards() {
+        return new ArrayList<>(inBoard.values());
+    }
+
+
     // 게시글 업데이드 (수정)
     public Board updateBoard(Long id) {
         return inBoard.get(id);
@@ -33,17 +45,6 @@ public class BoardRepository {
     // 게사글 삭제
     public Board deleteBoard(Long id) {
         return inBoard.get(id);
-    }
-
-    // 게스글 찾기
-    public Board findBoardById(Long id) {
-        return inBoard.get(id);
-
-    }
-
-    // 게스글 전체 찾기
-    public List<Board> findAllBoards() {
-        return new ArrayList<>(inBoard.values());
     }
 
 }
