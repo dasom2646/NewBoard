@@ -1,6 +1,6 @@
-package com.project.newboard.board.repository;
+package com.project.newboard.board.model.service;
 
-import com.project.newboard.board.vo.Board;
+import com.project.newboard.board.model.vo.Board;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +12,7 @@ import java.util.Map;
 @Slf4j
 @Repository
 
-public class BoardRepository {
+public class BoardServiceImpl {
     private static Map<Long, Board> inBoard = new HashMap<>();
     private static long sequence = 0L;
 

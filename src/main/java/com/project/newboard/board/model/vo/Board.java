@@ -1,4 +1,4 @@
-package com.project.newboard.board.vo;
+package com.project.newboard.board.model.vo;
 
 
 import lombok.Data;

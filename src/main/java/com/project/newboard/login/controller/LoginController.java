@@ -1,8 +1,8 @@
 package com.project.newboard.login.controller;
 
-import com.project.newboard.login.service.LoginService;
-import com.project.newboard.member.vo.Member;
-import com.project.newboard.login.LoginForm;
+import com.project.newboard.login.model.service.LoginService;
+import com.project.newboard.member.model.vo.Member;
+import com.project.newboard.login.model.vo.LoginVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,14 +19,14 @@ public class LoginController {
 
     // 보여지는것
     @GetMapping("/login")
-    public String loginForm(@ModelAttribute("loginForm") LoginForm form) {
+    public String loginForm(@ModelAttribute("loginForm") LoginVo form) {
         return "login/loginForm";
 
     }
 
     //실제 로그인 처리 되는 로직 @Valid 검증 넣어야함
     @PostMapping("/login")
-    public String login(@ModelAttribute LoginForm form, BindingResult bindingResult) {
+    public String login(@ModelAttribute LoginVo form, BindingResult bindingResult) {
         // 만약 바인딩 리절트에 문제가 있다면
         if (bindingResult.hasErrors()) {
             return "login/loginForm";

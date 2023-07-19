@@ -1,11 +1,11 @@
-package com.project.newboard.login;
+package com.project.newboard.login.model.vo;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
-public class LoginForm {
+public class LoginVo {
 
     @NotEmpty
     private String loginId;

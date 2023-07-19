@@ -1,7 +1,7 @@
 package com.project.newboard;
 
-import com.project.newboard.member.vo.Member;
-import com.project.newboard.member.repository.MemberRepository;
+import com.project.newboard.member.model.vo.Member;
+import com.project.newboard.member.model.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 @RequiredArgsConstructor
 public class TestData {
 
-    private final MemberRepository memberRepository;
+    private final MemberServiceImpl memberServiceImpl;
     /**
      * 테스트용 데이터 추가
      */
@@ -22,7 +22,7 @@ public class TestData {
         member.setPassword("1234");
         member.setUsername("테스터");
 
-        memberRepository.save(member);
+        memberServiceImpl.save(member);
     }
 
 }

@@ -1,7 +1,7 @@
 package com.project.newboard.member.controller;
 
-import com.project.newboard.member.vo.Member;
-import com.project.newboard.member.repository.MemberRepository;
+import com.project.newboard.member.model.vo.Member;
+import com.project.newboard.member.model.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/members")
 public class MemberController {
 
-    private final MemberRepository memberRepository; // 의존관계 주입받음
+    private final MemberServiceImpl memberServiceImpl; // 의존관계 주입받음
 
     @GetMapping("/add")
     public String addForm(@ModelAttribute("member") Member member) {
@@ -23,7 +23,7 @@ public class MemberController {
 
     @PostMapping("/add")
     public String save(@ModelAttribute Member member) {
-        memberRepository.save(member);
+        memberServiceImpl.save(member);
         return "redirect:/";
     }
 }

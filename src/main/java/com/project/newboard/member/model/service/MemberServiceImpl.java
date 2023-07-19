@@ -1,15 +1,18 @@
-package com.project.newboard.member.repository;
+package com.project.newboard.member.model.service;
 
-import com.project.newboard.member.vo.Member;
+import com.project.newboard.member.model.vo.Member;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 
 @Slf4j
-@Repository
-public class MemberRepository {
+@Service
+@RequiredArgsConstructor
+public class MemberServiceImpl  {
     private static Map<Long, Member> store = new HashMap<>(); // static사용
     private static long sequence = 0L;
 

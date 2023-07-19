@@ -1,7 +1,7 @@
-package com.project.newboard.login.service;
+package com.project.newboard.login.model.service;
 
-import com.project.newboard.member.vo.Member;
-import com.project.newboard.member.repository.MemberRepository;
+import com.project.newboard.member.model.vo.Member;
+import com.project.newboard.member.model.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class LoginService {
-    private final MemberRepository memberRepository;
+    private final MemberServiceImpl memberServiceImpl;
 
     /**
      * 로그인
@@ -18,7 +18,7 @@ public class LoginService {
      */
 
     public Member login(String loginId, String password) {
-        Optional<Member> findMemberOptional = memberRepository.findByLoginId(loginId);
+        Optional<Member> findMemberOptional = memberServiceImpl.findByLoginId(loginId);
         Member member = findMemberOptional.get(); // get하면 Optional에 안에 있는것이 꺼내짐
         if (member.getPassword().equals(password)) {
             return member;
