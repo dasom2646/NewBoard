@@ -1,57 +1,43 @@
 package com.project.newboard.member.model.service;
 
-import com.project.newboard.member.model.vo.Member;
+
+import com.project.newboard.member.model.dao.MemberDao;
+import com.project.newboard.member.model.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class MemberServiceImpl  {
-    private static Map<Long, Member> store = new HashMap<>(); // static사용
-    private static long sequence = 0L;
+public class MemberServiceImpl implements MemberService {
 
-    // 저장
-    public Member save(Member member) {
-        log.info("save: member={}", member);
-        store.put(member.getId(), member);
-        return member;
+    private final MemberDao memberDao;
+
+    // 맴버 가입
+    @Override
+    public void saveMember(MemberVo memberVo) {
+        log.info("save: member={}", memberVo);
+        memberDao.addMember(memberVo);
     }
 
-    // 멤버 찾기
-    public Member findById(Long id) {
-        return store.get(id);
+    // 맴버 로그인
+    @Override
+    public MemberVo loginMember(MemberVo memberVo) {
+        return null;
     }
 
-    // 로그인 아이디로 찾기
-    public Optional<Member> findByLoginId(String loginId) {
-   /*     List<Member> all = findAll();
-        for (Member m : all) {
-            if (m.getId().equals(loginId)) { // 파라미터로 넘어온 로그인 아이디와 같은가
-                return Optional.of(m);
-            }
-        }
-        return Optional.empty();*/
-
-        // 람다
-        return findAll().stream()
-                .filter(m -> m.getLoginId().equals(loginId))
-                .findFirst();
-
+    // 맴버 단건조회
+    @Override
+    public MemberVo findMemberById(Long id) {
+        return null;
     }
 
-
-    // 멤버 전체 찾기
-    public List<Member> findAll() {
-        return new ArrayList<>(store.values()); //  store에 있는 벨류 값(맴버)이 리스트로 변환됨
-    }
-
-    public void clearStore() {
-        store.clear(); // 테스트 초기화
+    // 맴버 목록 조회
+    @Override
+    public ArrayList<MemberVo> findAllMembers() {
+        return null;
     }
 }

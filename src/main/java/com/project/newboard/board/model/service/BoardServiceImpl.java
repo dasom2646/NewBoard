@@ -1,6 +1,5 @@
 package com.project.newboard.board.model.service;
-
-import com.project.newboard.board.model.vo.Board;
+import com.project.newboard.board.model.vo.BoardVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -13,37 +12,37 @@ import java.util.Map;
 @Repository
 
 public class BoardServiceImpl {
-    private static Map<Long, Board> inBoard = new HashMap<>();
+    private static Map<Long, BoardVo> inBoard = new HashMap<>();
     private static long sequence = 0L;
 
     // 게시판 글 생성 (저장)
-    public Board createBoard(Board board) {
-        log.info("createBoard: board={}", board);
-        inBoard.put(board.getId(), board);
-        return board;
+    public BoardVo createBoard(BoardVo boardVo) {
+        log.info("createBoard: board={}", boardVo);
+        inBoard.put(boardVo.getId(), boardVo);
+        return boardVo;
     }
 
     // 게스글 찾기
-    public Board findBoardById(Long id) {
+    public BoardVo findBoardById(Long id) {
         return inBoard.get(id);
 
     }
 
     // 게스글 전체 찾기
-    public List<Board> findAllBoards() {
+    public List<BoardVo> findAllBoards() {
         return new ArrayList<>(inBoard.values());
     }
 
 
     // 게시글 업데이드 (수정)
-    public Board updateBoard(Long id) {
+    public BoardVo updateBoard(Long id) {
         return inBoard.get(id);
 
 
     }
 
     // 게사글 삭제
-    public Board deleteBoard(Long id) {
+    public BoardVo deleteBoard(Long id) {
         return inBoard.get(id);
     }
 

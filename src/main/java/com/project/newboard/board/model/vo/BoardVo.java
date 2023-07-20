@@ -6,7 +6,7 @@ import lombok.Data;
 import javax.validation.constraints.NotEmpty;
 
 @Data
-public class Board {
+public class BoardVo {
 
     private Long id;
 

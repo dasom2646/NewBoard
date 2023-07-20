@@ -1,7 +1,7 @@
 package com.project.newboard.board.controller;
 
 import com.project.newboard.board.model.service.BoardServiceImpl;
-import com.project.newboard.board.model.vo.Board;
+import com.project.newboard.board.model.vo.BoardVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,13 +19,13 @@ public class BoardController {
     private final BoardServiceImpl boardServiceImpl;
 
     @GetMapping("/upload")
-    public String upload(@ModelAttribute("board") Board board) {
+    public String upload(@ModelAttribute("board") BoardVo boardVo) {
         return "post/postForm";
     }
 
     @PostMapping("/upload")
-    public String createBoard(@ModelAttribute Board board) {
-        boardServiceImpl.createBoard(board);
+    public String createBoard(@ModelAttribute BoardVo boardVo) {
+        boardServiceImpl.createBoard(boardVo);
         return "redirect:/";
     }
 
