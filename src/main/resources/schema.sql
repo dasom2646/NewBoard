@@ -1,5 +1,11 @@
-CREATE TABLE IF NOT EXISTS my_table
+CREATE TABLE IF NOT EXISTS member_tb
+
 (
     id INT PRIMARY KEY,
-    name VARCHAR(255)
+    user_id VARCHAR(255),
+    user_name VARCHAR(255),
+    user_pwd VARCHAR(255)
+
 );
+
+CREATE SEQUENCE IF NOT EXISTS my_sequence START WITH 1 INCREMENT BY 1;

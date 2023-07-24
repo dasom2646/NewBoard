@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.newboard.member.model.dao.MemberDao">
+    <resultMap id="memberResultSet" type="MemberVo">
+        <result property="id" column="ID"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="userName" column="USER_NAME"/>
+        <result property="userPwd" column="USER_PWD"/>
+    </resultMap>
+    
+    
+    <insert id="addMember" parameterType="MemberVo">
+        INSERT INTO MEMBER_TB ( ID
+                              , USER_ID
+                              , USER_NAME
+                              , USER_PWD)
+        VALUES (NEXTVAL('my_sequence')
+               , #{userId}
+               , #{userName}
+               , #{userPwd})
+    </insert>
+</mapper>

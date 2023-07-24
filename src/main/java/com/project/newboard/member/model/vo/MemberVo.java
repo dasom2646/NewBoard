@@ -13,9 +13,9 @@ public class MemberVo {
     private  String userId; // 로그인 ID
 
     @NotEmpty
-    private  String username; // 사용자 이름
+    private  String userName; // 사용자 이름
 
     @NotEmpty
-    private  String password;
+    private  String userPwd; // 사용자 비밀번호
 
 }
