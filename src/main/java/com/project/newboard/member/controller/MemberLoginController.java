@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Slf4j
 @Controller
 @RequiredArgsConstructor
@@ -26,12 +28,16 @@ public class MemberLoginController {
 
     }
 
-
     @PostMapping("/login")
     public String login(@ModelAttribute MemberVo memberVo) {
 
         // 로그인 성공 처리 TODO
 
         return "members/loginHome";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
     }
 }
