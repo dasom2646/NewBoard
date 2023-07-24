@@ -9,7 +9,7 @@ public interface MemberDao {
     void addMember(MemberVo memberVo);
 
     // 맴버 로그인
-    MemberVo MemberLogin(MemberVo memberVo);
+    MemberVo memberLogin(MemberVo memberVo);
 
     // 맴버 단건 조회
     MemberVo selectMember(Long id);

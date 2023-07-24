@@ -26,12 +26,12 @@ public class MemberLoginController {
 
     }
 
-    //실제 로그인 처리 되는 로직 @Valid 검증 넣어야함
+
     @PostMapping("/login")
     public String login(@ModelAttribute MemberVo memberVo) {
 
         // 로그인 성공 처리 TODO
 
-        return "redirect:/";
+        return "members/loginHome";
     }
 }

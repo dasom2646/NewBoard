@@ -22,4 +22,11 @@
                , #{userName}
                , #{userPwd})
     </insert>
+    
+    <select id="memberLogin" resultType="MemberVo">
+        SELECT *
+        FROM MEMBER_TB
+        WHERE USER_ID = #{userId}
+          AND USER_PWD = #{userPwd}
+    </select>
 </mapper>

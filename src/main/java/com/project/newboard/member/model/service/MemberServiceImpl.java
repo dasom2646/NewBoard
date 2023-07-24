@@ -19,14 +19,15 @@ public class MemberServiceImpl implements MemberService {
     // 맴버 가입
     @Override
     public void saveMember(MemberVo memberVo) {
-        log.info("save: member={}", memberVo);
+//        log.info("save: member={}", memberVo);
         memberDao.addMember(memberVo);
     }
 
     // 맴버 로그인
     @Override
     public MemberVo loginMember(MemberVo memberVo) {
-        return null;
+        log.info("login: member={}", memberVo);
+        return memberDao.memberLogin(memberVo);
     }
 
     // 맴버 단건조회
