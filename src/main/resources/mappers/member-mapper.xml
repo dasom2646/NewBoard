@@ -17,7 +17,8 @@
                               , USER_ID
                               , USER_NAME
                               , USER_PWD)
-        VALUES ( NEXTVAL('my_sequence')
+        VALUES (
+                NEXTVAL('my_sequence')
                , #{userId}
                , #{userName}
                , #{userPwd})

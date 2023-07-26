@@ -17,5 +17,21 @@
         </association>
     </resultMap>
 
+    <insert id="postUpload" parameterType="BoardVo">
+
+        INSERT INTO BOARD_TB ( BOARD_ID
+                             , BOARD_TITLE
+                             , BOARD_CONTENT
+                             , WRITER_DATE
+                             , BOARD_COUNT
+                             , MEMBER_ID)
+        VALUES (
+                NEXTVAL('my_sequence')
+               , #{boardTitle}
+               , #{boardContent}
+               , sysdate
+               , #{boardCount}
+               , #{memberVo.id})
+    </insert>
 
 </mapper>

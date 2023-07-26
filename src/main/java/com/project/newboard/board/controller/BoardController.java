@@ -14,20 +14,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/post")
+@RequestMapping("/board")
 public class BoardController {
 
     private final BoardService boardService;
 
     @GetMapping("/upload")
     public String upload(@ModelAttribute("board") BoardVo boardVo) {
-        return "post/postForm";
+        return "board/boardForm";
     }
 
     @PostMapping("/upload")
     public String postBoard(@ModelAttribute BoardVo boardVo) {
         boardService.postBoard(boardVo);
-        return "redirect:/";
+        return "board/board_list";
     }
 
 }
