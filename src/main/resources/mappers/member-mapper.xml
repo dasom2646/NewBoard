@@ -10,19 +10,19 @@
         <result property="userName" column="USER_NAME"/>
         <result property="userPwd" column="USER_PWD"/>
     </resultMap>
-    
-    
+
+
     <insert id="addMember" parameterType="MemberVo">
         INSERT INTO MEMBER_TB ( ID
                               , USER_ID
                               , USER_NAME
                               , USER_PWD)
-        VALUES (NEXTVAL('my_sequence')
+        VALUES ( NEXTVAL('my_sequence')
                , #{userId}
                , #{userName}
                , #{userPwd})
     </insert>
-    
+
     <select id="memberLogin" resultType="MemberVo">
         SELECT *
         FROM MEMBER_TB

@@ -10,9 +10,9 @@ import javax.validation.constraints.NotEmpty;
 public class BoardVo {
 
     private Long boardId; // 시퀀스
-    private String title; // 게시글 제목
-    private String content; // 게시글 내용
-    private String writerDate; // 게시글 작성일
-    private int postCount; // 게스글 번호
+    private String boardTitle; // 게시글 제목
+    private String boardContent; // 게시글 내용
+    private String writeDate; // 게시글 작성일
+    private int boardCount; // 게스글 번호
     private MemberVo memberVo; // 작성자
 }

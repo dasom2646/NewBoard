@@ -1,9 +1,10 @@
 package com.project.newboard.board.model.dao;
 
 import com.project.newboard.board.model.vo.BoardVo;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.ArrayList;
-
+@Mapper
 public interface BoardDao {
 
     // 게시판 글 등록 (저장)
