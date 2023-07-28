@@ -158,8 +158,7 @@
         <hr>
         <input type="hidden" th:field="*{writeDate}">
         <input type="hidden" th:field="*{boardCount}">
-        <input type="hidden" th:field="*{memberVo.userId}">
-        <input type="hidden" th:field="*{memberVo.userName}">
+        <input type="hidden" th:field="*{memberVo.memberId}">
         <button type="submit" class="btn btn-primary"   > 글 작성하기</button>
         <button type="button" class="btn btn-secondary" th:onclick="|location.href='@{/}'|">취소하기</button>
     </form>

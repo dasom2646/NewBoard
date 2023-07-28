@@ -5,29 +5,29 @@
 
 <mapper namespace="com.project.newboard.member.model.dao.MemberDao">
     <resultMap id="memberResultSet" type="MemberVo">
-        <result property="id" column="ID"/>
-        <result property="userId" column="USER_ID"/>
-        <result property="userName" column="USER_NAME"/>
-        <result property="userPwd" column="USER_PWD"/>
+        <result property="memberSeq" column="MEMBER_SEQ"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="memberName" column="MEMBER_NAME"/>
+        <result property="memberPwd" column="MEMBER_PWD"/>
     </resultMap>
 
 
     <insert id="addMember" parameterType="MemberVo">
-        INSERT INTO MEMBER_TB ( ID
-                              , USER_ID
-                              , USER_NAME
-                              , USER_PWD)
+        INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                              , MEMBER_ID
+                              , MEMBER_NAME
+                              , MEMBER_PWD)
         VALUES (
-                NEXTVAL('my_sequence')
-               , #{userId}
-               , #{userName}
-               , #{userPwd})
+                NEXTVAL('MEMBER_SEQ')
+               , #{memberId}
+               , #{memberName}
+               , #{memberPwd})
     </insert>
 
     <select id="memberLogin" resultType="MemberVo">
         SELECT *
-        FROM MEMBER_TB
-        WHERE USER_ID = #{userId}
-          AND USER_PWD = #{userPwd}
+        FROM TB_MEMBER
+        WHERE MEMBER_ID = #{memberId}
+          AND MEMBER_PWD = #{memberPwd}
     </select>
 </mapper>
