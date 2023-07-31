@@ -10,7 +10,7 @@ public interface MemberService {
     void saveMember(MemberVo memberVo);
 
     // 맴버 로그인
-    boolean login(String memberId, String memberPwd);
+    MemberVo loginMember(MemberVo memberVo);
 
     // 맴버 단건 조회
     MemberVo findMemberById(Long id);

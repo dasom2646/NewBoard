@@ -11,6 +11,7 @@
         <result property="memberPwd" column="MEMBER_PWD"/>
     </resultMap>
 
+
     <insert id="addMember" parameterType="MemberVo">
         INSERT INTO TB_MEMBER ( MEMBER_SEQ
                               , MEMBER_ID
@@ -23,11 +24,10 @@
                , #{memberPwd})
     </insert>
 
-    <select id="getMemberById" resultType="MemberVo">
+    <select id="memberLogin" resultType="MemberVo">
         SELECT *
         FROM TB_MEMBER
         WHERE MEMBER_ID = #{memberId}
           AND MEMBER_PWD = #{memberPwd}
     </select>
-
 </mapper>
