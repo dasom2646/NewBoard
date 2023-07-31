@@ -4,22 +4,33 @@ import com.project.newboard.member.model.service.MemberService;
 import com.project.newboard.member.model.vo.MemberVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 @Slf4j
 @Controller
-@RequiredArgsConstructor
+
 @RequestMapping("/members")
 public class MemberLoginController {
 
     private final MemberService memberService;
+
+    @Autowired
+    public MemberLoginController(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
     // 보여지는것
     @GetMapping("/login")
@@ -29,15 +40,28 @@ public class MemberLoginController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute MemberVo memberVo) {
+    public String login(@RequestParam("memberId") String memberId, @RequestParam("memberPwd") String memberPwd, HttpServletResponse response) {
+        if (memberService.login(memberId, memberPwd)) {
+            // 로그인 성공
+            // 쿠키 생성 및 추가
+            Cookie loginCookie = new Cookie("loginCookie", memberId);
+            loginCookie.setMaxAge(30 * 60); // 30분 유효시간 설정 (초 단위)
+            loginCookie.setPath("/"); // 쿠키의 유효 범위 설정
+            response.addCookie(loginCookie);
 
-        // 로그인 성공 처리 TODO
-
-        return "members/loginHome";
+            return "redirect:/loginHome"; // 로그인 성공 시 loginHome.html 페이지로 리다이렉트
+        } else {
+            return "redirect:/members/loginForm"; // 로그인 실패 시 loginForm.html 페이지로 리다이렉트
+        }
     }
+
+
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "redirect:/";
+    public ResponseEntity<String> logout(HttpServletResponse response) {
+        // 로그아웃 요청 처리
+        Cookie loginCookie = new Cookie("loggedIn", null);
+        loginCookie.setMaxAge(0); // 쿠키 만료 (0으로 설정)
+        response.addCookie(loginCookie);
+        return ResponseEntity.ok("Logout successful");
     }
 }
