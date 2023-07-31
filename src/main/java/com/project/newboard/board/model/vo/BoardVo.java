@@ -14,5 +14,6 @@ public class BoardVo {
     private String boardContent; // 게시글 내용
     private String writeDate; // 게시글 작성일
     private int boardCount; // 게스글 번호
+    private String category; // 게시글 카테고리
     private MemberVo memberVo; // 작성자
 }

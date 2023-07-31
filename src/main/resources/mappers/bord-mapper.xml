@@ -10,6 +10,7 @@
         <result property="boardContent" column="BOARD_CONTENT"/>
         <result property="writeDate" column="WRITE_DATE"/>
         <result property="boardCount" column="BOARD_COUNT"/>
+        <result column="category" property="category"/>
         <association property="memberVo" javaType="MemberVo">
             <result property="memberSeq" column="MEMBER_SEQ"/>
             <result property="memberId" column="MEMBER_ID"/>
@@ -24,6 +25,7 @@
                              , BOARD_CONTENT
                              , WRITE_DATE
                              , BOARD_COUNT
+                             , category
                              , MEMBER_SEQ)
         VALUES (
                 NEXTVAL('BOARD_SEQ')
@@ -31,6 +33,7 @@
                , #{boardContent}
                , sysdate
                , #{boardCount}
+               , #{category}
                , #{memberVo.memberSeq})
     </insert>
 

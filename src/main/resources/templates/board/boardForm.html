@@ -136,20 +136,18 @@
                 <label class="form-label" >제목 </label>
                 <input type="text"  th:field="*{boardTitle}" class="form-control" placeholder="제목을 작성해주세요">
             </div>
-          <!--  <div class="form-group mb-4">
+            <div class="form-group mb-4">
                 <label class="form-label ">카테고리</label>
-                <select name="category" class="form-select">
-                    <option value="" disabled selected style="display: none;">선택</option>
-                    <option value="">영화 리뷰</option>
-                    <option value="">오늘의 책</option>
-                    <option value="">반려동물</option>
-                    <option value="">요리 레시피</option>
-                    <option value="">육아 이야기</option>
-                    <option value="">직장인 이야기</option>
-
-                </select>
+                <select th:field="*{category}">
+        <option value="영화 리뷰">영화 리뷰</option>
+        <option value="오늘의 책">오늘의 책</option>
+        <option value="반려동물">반려동물</option>
+        <option value="요리 레시피">요리 레시피</option>
+        <option value="육아 이야기">육아 이야기</option>
+        <option value="직장인 이야기">직장인 이야기</option>
+    </select>
             </div>
-            -->
+
             <div class="form-group mb-4">
                 <label class="form-label "  >내용</label>
                 <textarea  th:field="*{boardContent}" class="form-control p-3" rows="10" placeholder="내용을 작성해주세요"></textarea>
