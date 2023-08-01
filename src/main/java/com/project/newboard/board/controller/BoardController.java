@@ -1,9 +1,7 @@
 package com.project.newboard.board.controller;
 
 import com.project.newboard.board.model.service.BoardService;
-import com.project.newboard.board.model.service.BoardServiceImpl;
 import com.project.newboard.board.model.vo.BoardVo;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,14 +34,14 @@ public class BoardController {
     @PostMapping("/upload")
     public String postBoard(@ModelAttribute BoardVo boardVo) {
         boardService.postBoard(boardVo);
-        return "board/board_list";
+        return "board/boardList";
     }
 
-    // 게시그 전체 찾기
-    @GetMapping("/board_list")
+    // 게시글 전체 찾기
+    @GetMapping("/board-list")
     public String showBoardList(Model model) {
         List<BoardVo> boards = boardService.getAllBoards();
         model.addAttribute("boards", boards);
-        return "board/board_list";
+        return "board/boardList";
     }
 }

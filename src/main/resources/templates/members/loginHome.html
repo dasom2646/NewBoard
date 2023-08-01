@@ -84,45 +84,11 @@
 
 
 <body>
+
+<div th:replace="common/header :: header"></div>
+
 <h1>로그인 성공!</h1>
 <p>안녕하세요, <span th:text="${memberName}"></span>님!</p>
-<nav class="py-2 bg-light border-bottom">
-    <div class="container d-flex flex-wrap">
-        <ul class="nav me-auto">
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
-            </li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
-        </ul>
-        <ul class="nav">
-            <button class="nav-item" type="button" th:onclick="|location.href='@{/board/upload}'|">
-                글쓰기
-            </button>
-            <button class="nav-item" type="button" th:onclick="|location.href='@{/login}'|">
-                마이페이지
-            </button>
-            <button class="nav-item" type="button" th:onclick="|location.href='@{/members/logout}'|">
-                로그아웃
-            </button>
-
-        </ul>
-    </div>
-</nav>
-
-<!-- header -->
-<header class="py-3 mb-4 border-bottom">
-    <div class="container d-flex flex-wrap justify-content-center">
-        <a href="/static" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap"/>
-            </svg>
-            <span class="fs-4">당신의 이야기가 시작되는 곳 </span>
-        </a>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-            <input type="search" class="form-control" placeholder="이야기 검색" aria-label="Search">
-        </form>
-    </div>
-</header>
 
 <!-- middle -->
 <main class="container">
@@ -225,15 +191,7 @@
     </div>
 </main>
 <!-- footer -->
-<footer class="text-muted py-5">
-    <div class="container">
-        <p class="float-end mb-1">
-            <a href="#">위로가기</a>
-        </p>
-        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-
-    </div>
-</footer>
+<div th:replace="common/footer :: footer"></div>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

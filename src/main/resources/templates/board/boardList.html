@@ -18,54 +18,14 @@
 </head>
 <body>
 
-
-<nav class="py-2 bg-light border-bottom">
-    <div class="container d-flex flex-wrap">
-        <ul class="nav me-auto">
-            <li class="nav-item"><a th:onclick="|location.href='@{/}'|" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
-            </li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
-            <li class="nav-item"><a th:onclick="|location.href='@{/board/board_list}'|" class="nav-link link-dark px-2">전체글</a></li>
-        </ul>
-        <ul class="nav">
-
-            <button class="nav-item" type="button" th:onclick="|location.href='@{/board/upload}'|">
-                글쓰기
-            </button>
-            <button class="nav-item" type="button" th:onclick="|location.href='@{/login}'|">
-                마이페이지
-            </button>
-            <button class="nav-item" type="button" th:onclick="|location.href='@{/members/add}'|">
-                로그아웃
-            </button>
-
-        </ul>
-    </div>
-</nav>
-
-
-<!-- header -->
-<header class="py-3 mb-4 border-bottom">
-    <div class="container d-flex flex-wrap justify-content-center">
-        <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap"/>
-            </svg>
-            <span class="fs-4">당신의 이야기가 시작되는 곳 </span>
-        </a>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-            <input type="search" class="form-control" placeholder="이야기 검색" aria-label="Search">
-        </form>
-    </div>
-</header>
-
+<div th:replace="common/header :: header"></div>
 
 <main>
     <div class="counseldiv2 container">
         <h3 class="counseltableh3">이야기</h3>
         <div class="d-flex">
             <div style="width: 65%;">
-<!--                <form action="" id="counselWriteForm" class="mx-auto" th:action th:object="${board}" method="post">-->
+                <!--                <form action="" id="counselWriteForm" class="mx-auto" th:action th:object="${board}" method="post">-->
                 <ul class="counseltable py-3 ps-0 mb-0 border-top border-bottom">
                     <li class="d-inline-block me-3"><a href="">최신글</a></li>
                     <li class="d-inline-block me-3"><a href="">조회수</a></li>
@@ -73,14 +33,14 @@
                     <div class="form-group mb-4">
                         <label class="form-label ">카테고리</label>
 
-<!--                        <select th:field="*{category}">-->
-<!--                            <option value="영화 리뷰">영화 리뷰</option>-->
-<!--                            <option value="오늘의 책">오늘의 책</option>-->
-<!--                            <option value="반려동물">반려동물</option>-->
-<!--                            <option value="요리 레시피">요리 레시피</option>-->
-<!--                            <option value="육아 이야기">육아 이야기</option>-->
-<!--                            <option value="직장인 이야기">직장인 이야기</option>-->
-<!--                        </select>-->
+                        <!--                        <select th:field="*{category}">-->
+                        <!--                            <option value="영화 리뷰">영화 리뷰</option>-->
+                        <!--                            <option value="오늘의 책">오늘의 책</option>-->
+                        <!--                            <option value="반려동물">반려동물</option>-->
+                        <!--                            <option value="요리 레시피">요리 레시피</option>-->
+                        <!--                            <option value="육아 이야기">육아 이야기</option>-->
+                        <!--                            <option value="직장인 이야기">직장인 이야기</option>-->
+                        <!--                        </select>-->
                     </div>
                 </ul>
                 <div>
@@ -93,7 +53,8 @@
                             <!-- 글 제목 -->
                             <h4 class="mb-3" th:text="${board.boardTitle}"></h4>
                             <!-- 글 내용 -->
-                            <p class="text-skip" th:text="${board.boardContent != null && board.boardContent.length() > 100 ? board.boardContent.substring(0, 100) + '...' : board.boardContent}"></p>
+                            <p class="text-skip"
+                               th:text="${board.boardContent != null && board.boardContent.length() > 100 ? board.boardContent.substring(0, 100) + '...' : board.boardContent}"></p>
                             <!-- 조회수 -->
                             <small class="text-secondary">
                                 조회수 <b th:text="${board.boardCount}"></b>
@@ -130,17 +91,10 @@
                 <span class="text-white fw-bold">글쓰기</span>
             </div>
         </div>
+    </div>
 </main>
 <!-- footer -->
-<footer class="text-muted py-5">
-    <div class="container">
-        <p class="float-end mb-1">
-            <a href="#">위로가기</a>
-        </p>
-        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-
-    </div>
-</footer>
+<div th:replace="common/footer :: footer"></div>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"

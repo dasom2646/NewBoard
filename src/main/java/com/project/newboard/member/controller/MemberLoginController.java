@@ -2,22 +2,14 @@ package com.project.newboard.member.controller;
 
 import com.project.newboard.member.model.service.MemberService;
 import com.project.newboard.member.model.vo.MemberVo;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.Map;
+
 
 @Slf4j
 @Controller
@@ -57,11 +49,11 @@ public class MemberLoginController {
 
 
     @GetMapping("/logout")
-    public ResponseEntity<String> logout(HttpServletResponse response) {
+    public String logout(HttpServletResponse response) {
         // 로그아웃 요청 처리
         Cookie loginCookie = new Cookie("loggedIn", null);
         loginCookie.setMaxAge(0); // 쿠키 만료 (0으로 설정)
         response.addCookie(loginCookie);
-        return ResponseEntity.ok("Logout successful");
+        return "home";
     }
 }
