@@ -3,10 +3,12 @@ package com.project.newboard.board.model.vo;
 
 import com.project.newboard.member.model.vo.MemberVo;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
+@Getter
 public class BoardVo {
 
     private Long boardSeq; // 게시판 시퀀스

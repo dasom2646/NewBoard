@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="ko">
 <head>
     <meta charset="UTF-8"/>
@@ -21,12 +22,13 @@
 <nav class="py-2 bg-light border-bottom">
     <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
+            <li class="nav-item"><a th:onclick="|location.href='@{/}'|" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
             </li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+            <li class="nav-item"><a th:onclick="|location.href='@{/board/board_list}'|" class="nav-link link-dark px-2">전체글</a></li>
         </ul>
         <ul class="nav">
+
             <button class="nav-item" type="button" th:onclick="|location.href='@{/login}'|">
                 글쓰기
             </button>
@@ -63,42 +65,45 @@
         <h3 class="counseltableh3">이야기</h3>
         <div class="d-flex">
             <div style="width: 65%;">
+<!--                <form action="" id="counselWriteForm" class="mx-auto" th:action th:object="${board}" method="post">-->
                 <ul class="counseltable py-3 ps-0 mb-0 border-top border-bottom">
                     <li class="d-inline-block me-3"><a href="">최신글</a></li>
                     <li class="d-inline-block me-3"><a href="">조회수</a></li>
+
                     <div class="form-group mb-4">
                         <label class="form-label ">카테고리</label>
-                        <select name="category" class="form-select">
-                            <option value="" disabled selected style="display: none;">선택</option>
-                            <option value="">영화 리뷰</option>
-                            <option value="">오늘의 책</option>
-                            <option value="">반려동물</option>
-                            <option value="">요리 레시피</option>
-                            <option value="">육아 이야기</option>
-                            <option value="">직장인 이야기</option>
-                        </select>
+
+<!--                        <select th:field="*{category}">-->
+<!--                            <option value="영화 리뷰">영화 리뷰</option>-->
+<!--                            <option value="오늘의 책">오늘의 책</option>-->
+<!--                            <option value="반려동물">반려동물</option>-->
+<!--                            <option value="요리 레시피">요리 레시피</option>-->
+<!--                            <option value="육아 이야기">육아 이야기</option>-->
+<!--                            <option value="직장인 이야기">직장인 이야기</option>-->
+<!--                        </select>-->
                     </div>
                 </ul>
                 <div>
-                    <a href="" class="d-inline-block py-5 border-bottom">
-                        <p class="text-secondary">카테고리</p>
-                        <h4 class="mb-3">글제목</h4>
-                        <p class="text-skip">
-                            글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용
-                        </p>
-
-                        <small class="text-secondary">조회수 <b>90</b></small>
-                    </a>
-                    <a href="" class="d-inline-block py-5 border-bottom">
-                        <p class="text-secondary">카테고리</p>
-                        <h4 class="mb-3">글제목</h4>
-                        <p class="text-skip">
-                            글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용 글내용
-                        </p>
-
-                        <small class="text-secondary">조회수 <b>90</b></small>
-                    </a>
+                    <!-- 게시글 목록을 동적으로 생성하는 반복문 -->
+                    <div th:each="board : ${boards}">
+                        <!-- 게시글 링크 -->
+                        <a th:href="@{'/board/' + ${board.boardSeq}}" class="d-inline-block py-5 border-bottom">
+                            <!-- 카테고리 -->
+                            <p class="text-secondary" th:text="${board.category}"></p>
+                            <!-- 글 제목 -->
+                            <h4 class="mb-3" th:text="${board.boardTitle}"></h4>
+                            <!-- 글 내용 -->
+                            <p class="text-skip" th:text="${board.boardContent != null && board.boardContent.length() > 100 ? board.boardContent.substring(0, 100) + '...' : board.boardContent}"></p>
+                            <!-- 조회수 -->
+                            <small class="text-secondary">
+                                조회수 <b th:text="${board.boardCount}"></b>
+                            </small>
+                        </a>
+                    </div>
                 </div>
+
+
+                <!--                </form>-->
                 <div class="pagination justify-content-center align-items-center p-3">
                     <a href="" class="small mx-3">이전 페이지</a>
                     <a href="" class="mx-3 mb-1 active">1</a>

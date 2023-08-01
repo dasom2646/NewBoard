@@ -36,5 +36,7 @@
                , #{category}
                , #{memberVo.memberSeq})
     </insert>
-
+    <select id="getAllBoards" resultType="BoardVo">
+        SELECT * FROM TB_BOARD;
+    </select>
 </mapper>

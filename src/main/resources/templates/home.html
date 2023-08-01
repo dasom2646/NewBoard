@@ -87,12 +87,13 @@
 <nav class="py-2 bg-light border-bottom">
     <div class="container d-flex flex-wrap">
         <ul class="nav me-auto">
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
+            <li class="nav-item"><a th:onclick="|location.href='@{/}'|" class="nav-link link-dark px-2 active" aria-current="page">Home</a>
             </li>
             <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+            <li class="nav-item"><a th:onclick="|location.href='@{/board/board_list}'|" class="nav-link link-dark px-2">전체글</a></li>
         </ul>
         <ul class="nav">
+
             <button class="nav-item" type="button" th:onclick="|location.href='@{/board/upload}'|">
                 글쓰기
             </button>

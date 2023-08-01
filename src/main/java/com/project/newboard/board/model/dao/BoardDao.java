@@ -4,6 +4,8 @@ import com.project.newboard.board.model.vo.BoardVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.ArrayList;
+import java.util.List;
+
 @Mapper
 public interface BoardDao {
 
@@ -14,7 +16,7 @@ public interface BoardDao {
     BoardVo selectPost(Long boardId);
 
     // 게시글 전체 조회
-    ArrayList<BoardVo> selectAllPost();
+    List<BoardVo> getAllBoards();
 
     // 조회수
     void hitsPost(Long boardId);

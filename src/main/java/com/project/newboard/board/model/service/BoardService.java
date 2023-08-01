@@ -3,6 +3,7 @@ package com.project.newboard.board.model.service;
 import com.project.newboard.board.model.vo.BoardVo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface BoardService {
 
@@ -13,7 +14,7 @@ public interface BoardService {
     BoardVo findPost(Long boardId);
 
     // 게시글 전체 조회
-    ArrayList<BoardVo> findAllPost();
+    List<BoardVo> getAllBoards();
 
     // 조회수
     void viewCount(Long boardId);
