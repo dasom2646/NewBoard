@@ -12,7 +12,7 @@ public interface MemberDao {
     void addMember(MemberVo memberVo);
 
     // 맴버 로그인
-    MemberVo getMemberById(@Param("memberId") String memberId, @Param("memberPwd") String memberPwd);
+    MemberVo getMemberById(String memberId);
 
 
     // 맴버 단건 조회

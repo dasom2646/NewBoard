@@ -11,10 +11,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 
-@Slf4j
+
 @Controller
 
-@RequestMapping("/members")
 public class MemberLoginController {
 
     private final MemberService memberService;
@@ -32,18 +31,20 @@ public class MemberLoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam("memberId") String memberId, @RequestParam("memberPwd") String memberPwd, HttpServletResponse response) {
+    public String login(@RequestParam String memberId, @RequestParam String memberPwd, HttpServletResponse response) {
+
         if (memberService.login(memberId, memberPwd)) {
-            // 로그인 성공
-            // 쿠키 생성 및 추가
-            Cookie loginCookie = new Cookie("loginCookie", memberId);
-            loginCookie.setMaxAge(30 * 60); // 30분 유효시간 설정 (초 단위)
-            loginCookie.setPath("/"); // 쿠키의 유효 범위 설정
+            // 로그인 성공 시 쿠키 생성 및 추가
+            Cookie loginCookie = new Cookie("loggedIn", "true");
+            loginCookie.setMaxAge(30 * 60);
+            loginCookie.setPath("/"); // 쿠키의 유효 범위 설정 (루트 경로에 적용)
             response.addCookie(loginCookie);
 
-            return "redirect:/loginHome"; // 로그인 성공 시 loginHome.html 페이지로 리다이렉트
+            // 로그인 성공 시 loginHome.html로 리다이렉트
+            return "redirect:/members/loginHome";
         } else {
-            return "redirect:/members/loginForm"; // 로그인 실패 시 loginForm.html 페이지로 리다이렉트
+            // 로그인 실패 시 loginForm.html 화면 유지하면서 실패 메시지 표시
+            return "redirect:/login?error";
         }
     }
 

@@ -31,10 +31,13 @@ public class MemberServiceImpl implements MemberService {
     // 맴버 로그인
     @Override
     public boolean login(String memberId, String memberPwd) {
-        MemberVo member = memberDao.getMemberById(memberId, memberPwd);
-        return member != null && member.getMemberPwd().equals(memberPwd);
+        MemberVo member = memberDao.getMemberById(memberId);
+        if (member != null) {
+            // 패스워드 비교
+            return memberPwd.equals(member.getMemberPwd());
+        }
+        return false;
     }
-
 
 
     // 맴버 단건조회
