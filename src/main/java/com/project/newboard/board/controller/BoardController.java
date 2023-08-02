@@ -16,7 +16,6 @@ import java.util.List;
 @Slf4j
 @Controller
 
-@RequestMapping("/board")
 public class BoardController {
 
     private final BoardService boardService;
@@ -27,12 +26,12 @@ public class BoardController {
     }
 
     @GetMapping("/upload")
-    public String upload(@ModelAttribute("board") BoardVo boardVo) {
+    public String upload(@ModelAttribute("boardVo") BoardVo boardVo) {
         return "board/boardForm";
     }
 
     @PostMapping("/upload")
-    public String postBoard(@ModelAttribute BoardVo boardVo) {
+    public String postBoard(@ModelAttribute("boardVo") BoardVo boardVo) {
         boardService.postBoard(boardVo);
         return "board/boardList";
     }

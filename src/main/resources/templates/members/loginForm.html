@@ -21,7 +21,7 @@
         <h2>로그인</h2>
     </div>
     <form action="/login" th:action="@{/login}" th:object="${memberVo}" method="post">
-    <div>
+        <div>
             <label for="loginId">로그인 ID</label>
             <input type="text" id="loginId" th:field="*{memberId}" class="form-control"
                    th:errorclass="field-error">
@@ -46,14 +46,14 @@
                         type="button">취소
                 </button>
 
-
-                <!-- Lottie animation -->
-                <div id="animation-container">
-                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_aesgckiv.json"
-                                   background="transparent"
-                                   speed="1" style="width: 520px; height: 520px;" loop autoplay></lottie-player>
-                </div>
             </div>
+        </div>
+        <!-- Lottie animation -->
+        <div id="animation-container">
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_aesgckiv.json"
+                           background="transparent"
+                           speed="1" style="width: 520px; height: 520px;" loop autoplay></lottie-player>
+
         </div>
 
     </form>

@@ -1,11 +1,15 @@
 package com.project.newboard.member.model.vo;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
 import javax.validation.constraints.NotEmpty;
 
 @Data
+@Getter
+@Setter
 public class MemberVo {
     private Long memberSeq; // 맴버 시퀀스
     private String memberId; // 로그인 ID
