@@ -6,10 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,10 +34,12 @@ public class BoardController {
     }
 
     // 게시글 전체 찾기
-    @GetMapping("/board-list")
-    public String showBoardList(Model model) {
+    @GetMapping("/allBoardList")
+    public String showBoardList(@ModelAttribute("boardVo") BoardVo boardVo, Model model) {
         List<BoardVo> boards = boardService.getAllBoards();
         model.addAttribute("boards", boards);
+
         return "board/boardList";
     }
+
 }
