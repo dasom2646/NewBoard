@@ -35,11 +35,10 @@ public class BoardController {
 
     // 게시글 전체 찾기
     @GetMapping("/allBoardList")
-    public String showBoardList(@ModelAttribute("boardVo") BoardVo boardVo, Model model) {
-        List<BoardVo> boards = boardService.getAllBoards();
-        model.addAttribute("boards", boards);
-
-        return "board/boardList";
+    public String showBoardList( Model model) {
+        List<BoardVo> boardList = boardService.getAllBoards();
+        model.addAttribute("boardList", boardList);
+        return "views/boardHome";
     }
 
 }
