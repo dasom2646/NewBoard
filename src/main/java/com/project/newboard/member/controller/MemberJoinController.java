@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
@@ -18,7 +17,7 @@ public class MemberJoinController {
 
     @GetMapping("/add")
     public String addForm(@ModelAttribute("memberVo") MemberVo memberVo) {
-        return "members/joinForm";
+        return "views/memberJoinForm";
     }
 
     @PostMapping("/add")

@@ -24,13 +24,13 @@ public class BoardController {
 
     @GetMapping("/upload")
     public String upload(@ModelAttribute("boardVo") BoardVo boardVo) {
-        return "board/boardForm";
+        return "views/boardForm";
     }
 
     @PostMapping("/upload")
     public String postBoard(@ModelAttribute("boardVo") BoardVo boardVo) {
         boardService.postBoard(boardVo);
-        return "board/boardList";
+        return "views/boardAllPost";
     }
 
     // 게시글 전체 찾기
@@ -40,5 +40,6 @@ public class BoardController {
         model.addAttribute("boardList", boardList);
         return "views/boardHome";
     }
+
 
 }

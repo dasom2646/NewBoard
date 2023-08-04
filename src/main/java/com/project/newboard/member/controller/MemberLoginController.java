@@ -26,7 +26,7 @@ public class MemberLoginController {
     // 보여지는것
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("memberVo") MemberVo memberVo) {
-        return "members/loginForm";
+        return "views/memberLoginForm";
 
     }
 
@@ -41,7 +41,7 @@ public class MemberLoginController {
             response.addCookie(loginCookie);
 
             // 로그인 성공 시 loginHome.html로 리다이렉트
-            return "redirect:/members/loginHome";
+            return "redirect:/views/memberLoginHome";
         } else {
             // 로그인 실패 시 loginForm.html 화면 유지하면서 실패 메시지 표시
             return "redirect:/login?error";
