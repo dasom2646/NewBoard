@@ -31,22 +31,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" th:onclick="|location.href='@{/}'|" >Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{views/faq.html}" >FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="board/about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{board/faq.html}" >FAQ</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownLogin" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">시작하기</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                            <li><a class="dropdown-item" th:onclick="|location.href='@{/login}'|">로그인</a></li>
-                            <li><a class="dropdown-item" th:onclick="|location.href='@{/add}'|">회원가입</a></li>
+                            <li><a class="dropdown-item" th:onclick="|location.href='@{/member/memberLoginForm}'|">로그인</a></li>
+                            <li><a class="dropdown-item" th:onclick="|location.href='@{/member/memberJoinForm}'|">회원가입</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
-                            <li><a class="dropdown-item" th:onclick="|location.href='@{/allBoardList}'|" >게시판</a></li>
-                            <li><a class="dropdown-item"th:onclick="|location.href='@{/allBoardList}'|">전체글</a></li>
-                            <li><a class="dropdown-item" th:onclick="|location.href='@{/upload}'|">글쓰기</a></li>
+                            <li><a class="dropdown-item" th:onclick="|location.href='@{/board/boardHome}'|" >게시판</a></li>
+                            <li><a class="dropdown-item"th:onclick="|location.href='@{/board/boardList}'|">전체글</a></li>
+                            <li><a class="dropdown-item" th:onclick="|location.href='@{/board/boardForm}'|">글쓰기</a></li>
                         </ul>
                     </li>
 
