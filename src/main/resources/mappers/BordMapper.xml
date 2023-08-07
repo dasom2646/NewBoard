@@ -11,14 +11,14 @@
 <!--        <result property="writeDate" column="WRITE_DATE"/>-->
 <!--        <result property="boardCount" column="BOARD_COUNT"/>-->
 <!--        <result column="category" property="category"/>-->
-<!--        <association property="memberVo" javaType="MemberVo">-->
+<!--        <association property="memberDto" javaType="MemberVo">-->
 <!--            <result property="memberSeq" column="MEMBER_SEQ"/>-->
 <!--            <result property="memberId" column="MEMBER_ID"/>-->
 <!--            <result property="memberName" column="MEMBER_NAME"/>-->
 <!--        </association>-->
 <!--    </resultMap>-->
 
-    <insert id="postUpload" parameterType="com.project.board.board.model.BoardVo">
+    <insert id="postUpload" parameterType="com.project.board.board.model.BoardDto">
 
         INSERT INTO TB_BOARD ( BOARD_SEQ
                              , BOARD_TITLE
@@ -34,9 +34,9 @@
                , CURRENT_TIMESTAMP
                , #{boardViews}
                , #{category}
-               , #{memberVo.memberSeq})
+               , #{memberDto.memberSeq})
     </insert>
-    <select id="getAllBoards" resultType="com.project.board.board.model.BoardVo">
+    <select id="getAllBoards" resultType="com.project.board.board.model.BoardDto">
         SELECT * FROM TB_BOARD;
     </select>
 </mapper>

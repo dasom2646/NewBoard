@@ -1,20 +1,20 @@
 package com.project.board.member.service;
 
-import com.project.board.member.model.MemberVo;
+import com.project.board.member.model.MemberDto;
 
 import java.util.List;
 
 public interface MemberService {
 
     // 맴버 가입
-    void addMember(MemberVo memberVo);
+    void addMember(MemberDto memberDto);
 
     // 맴버 로그인
     boolean isLogin(String memberId, String memberPwd);
 
-    MemberVo getMemberById(String memberId);
+    MemberDto getMemberById(String memberId);
 
-    List<MemberVo> getMemberList(MemberVo memberVo);
+    List<MemberDto> getMemberList(MemberDto memberDto);
 
     // 맴버 단건 조회
 //    MemberVo findMemberById(Long id);

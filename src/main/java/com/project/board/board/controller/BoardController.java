@@ -1,6 +1,6 @@
 package com.project.board.board.controller;
 
-import com.project.board.board.model.BoardVo;
+import com.project.board.board.model.BoardDto;
 import com.project.board.board.service.BoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -29,7 +30,8 @@ public class BoardController {
      * 게시판 메인 페이지
      */
     @GetMapping("/boardHome")
-    public String boardHome(@ModelAttribute("boardVo") BoardVo boardVo) {
+    public String boardHome(@ModelAttribute("boardDto") BoardDto boardDto) {
+
         return "views/board/boardHome";
     }
 
@@ -37,7 +39,7 @@ public class BoardController {
      * 게시글 등록 페이지
      */
     @GetMapping("/boardForm")
-    public String upload(@ModelAttribute("boardVo") BoardVo boardVo) {
+    public String boardForm(@ModelAttribute("boardDto") BoardDto boardDto) {
         return "views/board/boardForm";
     }
 
@@ -53,17 +55,18 @@ public class BoardController {
      * 게시글 등록 동작
      */
     @PostMapping("/upload")
-    public String postBoard(@ModelAttribute("boardVo") BoardVo boardVo) {
-        boardService.postBoard(boardVo);
-        return "redirect:/board/boardHome";
+    public String upload(@ModelAttribute("boardDto") BoardDto boardDto) {
+        boardService.postBoard(boardDto);
+        return "views/board/boardForm";
+//        return "redirect:/board/boardHome";
     }
 
     /**
      * 게시글 목록 페이지
      */
     @GetMapping("/boardList")
-    public String showBoardList(Model model) {
-        List<BoardVo> boardList = boardService.getAllBoards();
+    public String boardList(Model model) {
+        List<BoardDto> boardList = new ArrayList<>();
         model.addAttribute("boardList", boardList);
         return "views/board/boardList";
     }
@@ -72,7 +75,7 @@ public class BoardController {
      * 게시글 조회 페이지
      */
     @GetMapping("/boardPostView")
-    public String boardPostView(@ModelAttribute("boardVo") BoardVo boardVo) {
+    public String boardPostView(@ModelAttribute("boardVo") BoardDto boardDto) {
         return "views/board/boardPostView";
     }
 

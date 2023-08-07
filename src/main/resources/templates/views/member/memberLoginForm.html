@@ -20,7 +20,7 @@
     <div class="py-5 text-center">
         <h2>로그인</h2>
     </div>
-    <form action="/login" th:action="@{/login}" th:object="${memberVo}" method="post">
+    <form action="/login" th:action="@{/member/login}" th:object="${memberDto}" method="post">
         <div>
             <label for="loginId">로그인 ID</label>
             <input type="text" id="loginId" th:field="*{memberId}" class="form-control"

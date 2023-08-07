@@ -1,6 +1,6 @@
 package com.project.board.member.controller;
 
-import com.project.board.member.model.MemberVo;
+import com.project.board.member.model.MemberDto;
 import com.project.board.member.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,19 +28,7 @@ public class MemberLoginController {
      * 로그인 페이지
      */
     @GetMapping("/memberLoginForm")
-    public String loginForm(@ModelAttribute("memberVo") MemberVo memberVo) {
-
-        //MemberVo test = memberService.getMemberById("test");
-
-        List<MemberVo> memberList = memberService.getMemberList(memberVo);
-
-        if(memberList != null && memberList.size() > 0) {
-            System.out.println("###");
-        } else {
-            System.out.println("@@@");
-        }
-
-        log.info("테스트 계정 : {}", memberList);
+    public String loginForm(@ModelAttribute("memberDto") MemberDto memberDto) {
 
         return "views/member/memberLoginForm";
     }
@@ -51,7 +39,7 @@ public class MemberLoginController {
     @PostMapping("/login")
     public String login(@RequestParam String memberId, @RequestParam String memberPwd, HttpServletResponse response) {
 
-        log.info("111");
+//        log.info("111");
         boolean login = memberService.isLogin(memberId, memberPwd);
 
         if (!login) { // 로그인 실패 시 loginForm.html 화면 유지하면서 실패 메시지 표시
@@ -65,7 +53,7 @@ public class MemberLoginController {
         response.addCookie(loginCookie);
 
         // 로그인 성공 시 loginHome.html를 반환
-        return "views/member/memberLoginHome";
+        return "views/member/memberLoginHome2";
     }
 
     /**

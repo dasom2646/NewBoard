@@ -22,18 +22,18 @@
     <div th:replace="views/navigation"></div>
     <!-- Page Content-->
     <section class="py-5 bg-light">
-        <form action="/allBoardList" th:action="@{/allBoardList}" th:object="${boardVo}" method="get">
+        <form action="/BoardList" th:action="@{/board/boardList}" th:object="${boardDto}" method="get">
             <div class="container px-5">
                 <div class="row gx-5">
                     <div class="col-xl-8">
                         <h2 class="fw-bolder fs-5 mb-4">인기글</h2>
                         <!-- News item-->
-                        <div th:each="board : ${boards}">
+                        <div th:each="board : ${boardList}">
                             <div class="mb-4">
                                 <div class="small text-muted">게시글 날짜</div>
                                 <p th:text="${board.category}">카테고리</p>
                                 <a class="link-dark" href="#!"><h3>글제목</h3></a>
-                                <p>글내용</p>
+                                <p th:text="${board.boardContent}">글내용</p>
                                 <small>조회수 <b th:text="${board.boardViews}"></b></small>
                             </div>
                         </div>

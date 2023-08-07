@@ -1,7 +1,7 @@
 package com.project.board.board.service;
 
 import com.project.board.board.mapper.BoardMapper;
-import com.project.board.board.model.BoardVo;
+import com.project.board.board.model.BoardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -17,23 +17,21 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void postBoard(BoardVo boardVo) {
-        boardDao.postUpload(boardVo);
+    public void postBoard(BoardDto boardDto) {
+        boardDao.postUpload(boardDto);
 
     }
 
     @Override
-    public BoardVo findPost(Long boardId) {
+    public BoardDto findPost(Long boardId) {
         return null;
     }
 
     @Override
-    public List<BoardVo> getAllBoards() {
+    public List<BoardDto> getAllBoards() {
         return boardDao.getAllBoards();
     }
 
-    @Override
-    public void viewCount(Long boardId) {
 
-    }
+
 }

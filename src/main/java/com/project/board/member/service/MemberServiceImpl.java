@@ -2,7 +2,7 @@ package com.project.board.member.service;
 
 
 import com.project.board.member.mapper.MemberMapper;
-import com.project.board.member.model.MemberVo;
+import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,14 +24,14 @@ public class MemberServiceImpl implements MemberService {
 
     // 맴버 저장
     @Override
-    public void addMember(MemberVo memberVo) {
-        memberMapper.addMember(memberVo);
+    public void addMember(MemberDto memberDto) {
+        memberMapper.addMember(memberDto);
     }
 
     // 맴버 로그인
     @Override
     public boolean isLogin(String memberId, String memberPwd) {
-        MemberVo member = memberMapper.getMemberById(memberId);
+        MemberDto member = memberMapper.getMemberById(memberId);
         if (member != null) {
             // 패스워드 비교
             return memberPwd.equals(member.getMemberPwd());
@@ -41,13 +41,13 @@ public class MemberServiceImpl implements MemberService {
 
     //맴버 조회
     @Override
-    public MemberVo getMemberById(String memberId) {
+    public MemberDto getMemberById(String memberId) {
         return memberMapper.getMemberById(memberId);
     }
 
     @Override
-    public List<MemberVo> getMemberList(MemberVo memberVo) {
-        return memberMapper.getMemberList(memberVo);
+    public List<MemberDto> getMemberList(MemberDto memberDto) {
+        return memberMapper.getMemberList(memberDto);
     }
 
 //     맴버 단건조회

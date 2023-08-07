@@ -40,8 +40,8 @@
 <div id="counselWriteDiv" class="container">
     <h3 id="counselWriteh1" class="text-center">글쓰기</h3>
 
-    <form action="/upload" class="mx-auto" th:action="@{/upload}" th:object="${boardVo}" method="post"
-          id="counselWriteForm">
+    <form class="mx-auto"  th:action="@{/board/upload}" th:object="${boardDto}" method="post" id="counselWriteForm">
+
         <h5 id="counselWriteh2">자신의 이야기를 공유 해보세요</h5>
 
         <div class="form-group mb-4">
@@ -70,7 +70,7 @@
 
         <input type="hidden" th:field="*{createdDate}" th:value="${#dates.createNow()}">
         <input type="hidden" th:field="*{boardViews}">
-        <input type="hidden" th:field="*{memberVo.memberId}">
+        <input type="hidden" th:field="*{memberDto.memberId}">
 
         <button type="submit" class="btn btn-primary">글 작성하기</button>
         <button type="button" class="btn btn-secondary" onclick="location.href='@{/}'">취소하기</button>
