@@ -9,16 +9,16 @@ import java.util.List;
 @Service
 
 public class BoardServiceImpl implements BoardService {
-    private final BoardMapper boardDao;
+    private final BoardMapper boardMapper;
 
     @Autowired
-    public BoardServiceImpl(BoardMapper boardDao) {
-        this.boardDao = boardDao;
+    public BoardServiceImpl(BoardMapper boardMapper) {
+        this.boardMapper = boardMapper;
     }
 
     @Override
     public void postBoard(BoardDto boardDto) {
-        boardDao.postUpload(boardDto);
+        boardMapper.postUpload(boardDto);
 
     }
 
@@ -29,7 +29,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public List<BoardDto> getAllBoards() {
-        return boardDao.getAllBoards();
+        return boardMapper.getAllBoards();
     }
 
 

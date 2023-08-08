@@ -57,8 +57,8 @@ public class BoardController {
     @PostMapping("/upload")
     public String upload(@ModelAttribute("boardDto") BoardDto boardDto) {
         boardService.postBoard(boardDto);
-        return "views/board/boardForm";
-//        return "redirect:/board/boardHome";
+//        return "views/board/boardForm";
+        return "redirect:/board/boardHome";
     }
 
     /**

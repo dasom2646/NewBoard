@@ -40,7 +40,7 @@
 <div id="counselWriteDiv" class="container">
     <h3 id="counselWriteh1" class="text-center">글쓰기</h3>
 
-    <form class="mx-auto"  th:action="@{/board/upload}" th:object="${boardDto}" method="post" id="counselWriteForm">
+    <form class="mx-auto"  action="/upload" th:action="@{/board/upload}" th:object="${boardDto}" method="post" id="counselWriteForm">
 
         <h5 id="counselWriteh2">자신의 이야기를 공유 해보세요</h5>
 
