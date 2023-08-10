@@ -43,7 +43,7 @@ public class BoardController {
      */
     @GetMapping("/boardForm")
     public String newForm(@ModelAttribute("boardDto") BoardDto boardDto) {
-        return "views/board/boardForm2";
+        return "views/board/boardForm";
     }
 
 
