@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,11 +42,25 @@ public class BoardController {
      * 게시글 등록 페이지
      */
     @GetMapping("/boardForm")
-    public String boardForm(@ModelAttribute("boardDto") BoardDto boardDto) {
-        return "views/board/boardForm";
+    public String newForm(@ModelAttribute("boardDto") BoardDto boardDto) {
+        return "views/board/boardForm2";
     }
 
-//    /**
+
+    /**
+     * 게시글 등록 동작
+     */
+    @PostMapping("/upload")
+    public String upload(@ModelAttribute("boardDto") BoardDto boardDto) {
+
+
+
+        boardService.postBoard(boardDto);
+//        return "views/board/boardForm";
+        return "redirect:/board/boardHome";
+    }
+
+    //    /**
 //     * 게시글 수정 페이지
 //     */
 //    @GetMapping("/boardModify")
@@ -51,15 +68,10 @@ public class BoardController {
 //        return "views/board/boardModify";
 //    }
 
-    /**
-     * 게시글 등록 동작
-     */
-    @PostMapping("/upload")
-    public String upload(@ModelAttribute("boardDto") BoardDto boardDto) {
-        boardService.postBoard(boardDto);
-//        return "views/board/boardForm";
-        return "redirect:/board/boardHome";
-    }
+
+
+
+
 
     /**
      * 게시글 목록 페이지
