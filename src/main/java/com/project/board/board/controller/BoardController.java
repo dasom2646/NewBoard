@@ -42,7 +42,11 @@ public class BoardController {
      * 게시글 등록 페이지
      */
     @GetMapping("/boardForm")
-    public String newForm(@ModelAttribute("boardDto") BoardDto boardDto) {
+    public String newForm(@ModelAttribute("boardDto") BoardDto boardDto , HttpSession session) {
+        // 로그인 상태 확인
+        if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
+            return "redirect:/member/memberLoginForm";
+        }
         return "views/board/boardForm";
     }
 
@@ -51,12 +55,13 @@ public class BoardController {
      * 게시글 등록 동작
      */
     @PostMapping("/upload")
-    public String upload(@ModelAttribute("boardDto") BoardDto boardDto) {
-
-
+    public String upload(@ModelAttribute("boardDto") BoardDto boardDto,  HttpSession session) {
+        // 로그인 상태 확인
+        if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
+            return "redirect:/member/memberLoginForm";
+        }
 
         boardService.postBoard(boardDto);
-//        return "views/board/boardForm";
         return "redirect:/board/boardHome";
     }
 
