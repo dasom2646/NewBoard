@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,9 +41,13 @@ public class BoardController {
      * 게시글 등록 페이지
      */
     @GetMapping("/boardForm")
-    public String newForm(@ModelAttribute("boardDto") BoardDto boardDto , HttpSession session) {
+    public String newForm(@ModelAttribute("boardDto") BoardDto boardDto , HttpSession session, HttpServletRequest request) {
         // 로그인 상태 확인
         if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
+            // 로그인 후 돌아갈 URL 설정
+            String returnUrl = request.getRequestURI();
+            session.setAttribute("returnUrl", returnUrl);
+
             return "redirect:/member/memberLoginForm";
         }
         return "views/board/boardForm";
@@ -62,6 +65,13 @@ public class BoardController {
         }
 
         boardService.postBoard(boardDto);
+        // 글쓰기 후 로그인 전 페이지로 리디렉션
+        String returnUrl = (String) session.getAttribute("returnUrl");
+        if (returnUrl != null) {
+            session.removeAttribute("returnUrl");
+            return "redirect:" + returnUrl;
+        }
+
         return "redirect:/board/boardHome";
     }
 

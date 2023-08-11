@@ -38,7 +38,7 @@ public class MemberLoginController {
      * 로그인 동작
      */
     @PostMapping("/login")
-    public String login(@RequestParam String memberId, @RequestParam String memberPwd,  HttpSession session) {
+    public String login(@RequestParam String memberId, @RequestParam String memberPwd, HttpSession session) {
 
 
         boolean login = memberService.isLogin(memberId, memberPwd);
@@ -51,6 +51,12 @@ public class MemberLoginController {
         session.setAttribute("loggedIn", true);
         session.setAttribute("memberId", memberId);
 
+        // 로그인 후 돌아갈 URL 확인 및 리디렉션
+        String returnUrl = (String) session.getAttribute("returnUrl");
+        if (returnUrl != null) {
+            session.removeAttribute("returnUrl");
+            return "redirect:" + returnUrl;
+        }
 
         return "redirect:/";
     }
