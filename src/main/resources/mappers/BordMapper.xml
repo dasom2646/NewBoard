@@ -24,6 +24,6 @@
                , #{memberDto.memberSeq})
     </insert>
     <select id="getAllBoards" resultType="com.project.board.board.model.BoardDto">
-        SELECT * FROM TB_BOARD;
+        SELECT * FROM TB_BOARD
     </select>
 </mapper>

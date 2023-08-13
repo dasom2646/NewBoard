@@ -18,6 +18,9 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void postBoard(BoardDto boardDto) {
+
+        // boardViews 필드를 0으로 초기화
+        boardDto.setBoardViews(0);
         boardMapper.postUpload(boardDto);
 
     }

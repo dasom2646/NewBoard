@@ -28,25 +28,25 @@
             <div class="row gx-5">
                 <div class="col-xl-8">
                     <h2 class="fw-bolder fs-5 mb-4">인기글</h2>
-                    <form th:action="@{/board/boardList}" th:object="${boardDto}" method="get">
-                        <div th:each="board : ${boardList}">
-                            <div class="mb-4">
-                                <div class="small text-muted" th:text="${board.createdDate}">게시글 날짜</div>
-                                <p th:field="*{category}" >카테고리</p>
-                                <a class="link-dark" th:href="@{'/board/' + ${board.boardSeq}}"><h3
-                                        th:text="${board.boardTitle}">글제목</h3></a>
-                                <p th:text="${board.boardContent}">글내용</p>
-                                <small>조회수 <b th:text="${board.boardViews}"></b></small>
-                            </div>
-                        </div>
 
+                        <form th:action="@{/board/boardList}" th:object="${boardDto}" method="get">
+                            <div th:each="board : ${boardList}" class="mb-4">
+                                <div class="small text-muted" th:text="${board.createdDate}">게시글 날짜</div>
+                                <p th:text="${board.category}">카테고리</p>
+                                <a class="link-dark" th:href="@{/board/{boardSeq}(boardSeq=${board.boardSeq})}" th:text="${board.boardTitle}">글제목</a>
+                                <p th:text="${board.boardContent}">글내용</p>
+                                <p th:text="${board.memberDto.username}">작성자</p>
+                                <p th:text="${board.createdDate}">등록일</p>
+                                <small th:text="${board.boardViews}">조회수</small>
+                            </div>
+                        </form>
                         <div class="text-end mb-5 mb-xl-0">
                             <a class="text-decoration-none" href="#!">
                                 더보기
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
-                    </form>
+
                 </div>
             </div>
         </div>

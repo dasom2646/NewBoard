@@ -15,7 +15,7 @@ public class BoardDto {
     private String boardTitle; // 게시글 제목
     private String boardContent; // 게시글 내용
     private String createdDate; // 게시글 작성일
-    private Long boardViews; // 조회수
+    private Integer boardViews; // 조회수
     private MemberDto memberDto; // 작성자
 
 
