@@ -2,6 +2,7 @@ package com.project.board.board.controller;
 
 import com.project.board.board.model.BoardDto;
 import com.project.board.board.service.BoardService;
+import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,8 +64,13 @@ public class BoardController {
         if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
             return "redirect:/member/memberLoginForm";
         }
+        // 사용자 정보 설정
+        MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
+        boardDto.setMemberDto(loggedInUser);
 
+        // 게시글 등록
         boardService.postBoard(boardDto);
+
         // 글쓰기 후 로그인 전 페이지로 리디렉션
         String returnUrl = (String) session.getAttribute("returnUrl");
         if (returnUrl != null) {

@@ -50,6 +50,8 @@ public class MemberServiceImpl implements MemberService {
         return memberMapper.getMemberList(memberDto);
     }
 
+
+
 //     맴버 단건조회
 //    @Override
 //    public MemberVo findMemberById(Long id) {

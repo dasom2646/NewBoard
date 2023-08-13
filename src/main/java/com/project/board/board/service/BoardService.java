@@ -18,4 +18,5 @@ public interface BoardService {
     // 조회수
 
 
+
 }

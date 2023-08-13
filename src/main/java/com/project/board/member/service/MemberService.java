@@ -23,4 +23,5 @@ public interface MemberService {
     // 맴버 목록조회
 //    ArrayList<MemberVo> findAllMembers();
 
+
 }

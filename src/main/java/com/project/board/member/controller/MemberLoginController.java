@@ -47,9 +47,10 @@ public class MemberLoginController {
             return "redirect:/login?errorCode=01&memberId=" + memberId;
         }
 
-        // 로그인 성공 시 세션에 사용자 정보 저장
+        // 로그인 성공 시 사용자 정보를 가져와서 세션에 저장
+        MemberDto loggedInUser = memberService.getMemberById(memberId);
         session.setAttribute("loggedIn", true);
-        session.setAttribute("memberId", memberId);
+        session.setAttribute("loggedInUser", loggedInUser);
 
         // 로그인 후 돌아갈 URL 확인 및 리디렉션
         String returnUrl = (String) session.getAttribute("returnUrl");
