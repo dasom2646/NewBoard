@@ -13,7 +13,7 @@ public interface BoardService {
     BoardDto findPost(Long boardId);
 
     // 게시글 전체 조회
-    List<BoardDto> getAllBoards();
+    List<BoardDto> getAllBoardList();
 
     // 조회수
 

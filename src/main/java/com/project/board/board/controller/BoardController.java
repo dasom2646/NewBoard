@@ -41,7 +41,7 @@ public class BoardController {
      * 게시글 등록 페이지
      */
     @GetMapping("/boardForm")
-    public String newForm(@ModelAttribute("boardDto") BoardDto boardDto , HttpSession session, HttpServletRequest request) {
+    public String newForm(@ModelAttribute("boardDto") BoardDto boardDto, HttpSession session, HttpServletRequest request) {
         // 로그인 상태 확인
         if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
             // 로그인 후 돌아갈 URL 설정
@@ -58,7 +58,7 @@ public class BoardController {
      * 게시글 등록 동작
      */
     @PostMapping("/upload")
-    public String upload(@ModelAttribute("boardDto") BoardDto boardDto,  HttpSession session) {
+    public String upload(@ModelAttribute("boardDto") BoardDto boardDto, HttpSession session) {
         // 로그인 상태 확인
         if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
             return "redirect:/member/memberLoginForm";
@@ -84,16 +84,12 @@ public class BoardController {
 //    }
 
 
-
-
-
-
     /**
      * 게시글 목록 페이지
      */
     @GetMapping("/boardList")
     public String boardList(Model model) {
-        List<BoardDto> boardList = new ArrayList<>();
+        List<BoardDto> boardList = boardService.getAllBoardList();
         model.addAttribute("boardList", boardList);
         return "views/board/boardList";
     }

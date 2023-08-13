@@ -28,7 +28,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List<BoardDto> getAllBoards() {
+    public List<BoardDto> getAllBoardList() {
         return boardMapper.getAllBoards();
     }
 

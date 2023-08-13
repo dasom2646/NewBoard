@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -16,39 +15,30 @@
     <link rel="stylesheet" th:href="@{/resource/css/styles.css}"/>
 
 </head>
+
+
 <body class="d-flex flex-column">
 <main class="flex-shrink-0">
     <!-- Navigation-->
     <div th:replace="views/navigation"></div>
+
     <!-- Page Content-->
     <section class="py-5 bg-light">
-        <form action="/BoardList" th:action="@{/board/boardList}" th:object="${boardDto}" method="get">
-            <div class="container px-5">
-                <div class="row gx-5">
-                    <div class="col-xl-8">
-                        <h2 class="fw-bolder fs-5 mb-4">인기글</h2>
-                        <!-- News item-->
+        <div class="container px-5">
+            <div class="row gx-5">
+                <div class="col-xl-8">
+                    <h2 class="fw-bolder fs-5 mb-4">인기글</h2>
+                    <form th:action="@{/board/boardList}" th:object="${boardDto}" method="get">
                         <div th:each="board : ${boardList}">
                             <div class="mb-4">
-                                <div class="small text-muted">게시글 날짜</div>
-                                <p th:text="${board.category}">카테고리</p>
-                                <a class="link-dark" href="#!"><h3>글제목</h3></a>
+                                <div class="small text-muted" th:text="${board.createdDate}">게시글 날짜</div>
+                                <p th:field="*{category}" >카테고리</p>
+                                <a class="link-dark" th:href="@{'/board/' + ${board.boardSeq}}"><h3
+                                        th:text="${board.boardTitle}">글제목</h3></a>
                                 <p th:text="${board.boardContent}">글내용</p>
                                 <small>조회수 <b th:text="${board.boardViews}"></b></small>
                             </div>
                         </div>
-                            <!-- News item-->
-                            <div class="mb-5">
-                                <div class="small text-muted">May 5, 2023</div>
-                                <a class="link-dark" href="#!"><h3>Bootstrap 5 has officially landed</h3></a>
-                            </div>
-                            <!-- News item-->
-                            <div class="mb-5">
-                                <div class="small text-muted">Apr 21, 2023</div>
-                                <a class="link-dark" href="#!"><h3>This is another news article headline, but this one
-                                    is a
-                                    little bit longer</h3></a>
-                            </div>
 
                         <div class="text-end mb-5 mb-xl-0">
                             <a class="text-decoration-none" href="#!">
@@ -56,14 +46,13 @@
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-        </form>
+        </div>
     </section>
-
-
 </main>
+
 <!-- Footer-->
 <div th:replace="views/footer"></div>
 <!-- Bootstrap core JS-->
