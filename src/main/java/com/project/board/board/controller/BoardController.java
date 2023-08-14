@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -51,6 +52,15 @@ public class BoardController {
 
             return "redirect:/member/memberLoginForm";
         }
+        // 카테고리 목록 설정
+        List<String> categories = Arrays.asList(
+                "해외여행", "국내여행", "오늘의 책", "영화 리뷰", "뮤지컬·연극",
+                "스포츠", "나만의 맛집", "요리·레시피", "사랑·이별", "육아 이야기",
+                "직장인의 하루", "반려동물", "시사·이슈", "IT 트렌드", "사진·촬영",
+                "건강·운동", "감성 에세이", "인테리어·집들이"
+        );
+        boardDto.setCategories(categories);
+
         return "views/board/boardForm";
     }
 
@@ -99,14 +109,5 @@ public class BoardController {
         model.addAttribute("boardList", boardList);
         return "views/board/boardList";
     }
-
-    /**
-     * 게시글 조회 페이지
-     */
-    @GetMapping("/boardPostView")
-    public String boardPostView(@ModelAttribute("boardVo") BoardDto boardDto) {
-        return "views/board/boardPostView";
-    }
-
 
 }

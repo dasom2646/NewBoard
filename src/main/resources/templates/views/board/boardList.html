@@ -31,11 +31,12 @@
 
                         <form th:action="@{/board/boardList}" th:object="${boardDto}" method="get">
                             <div th:each="board : ${boardList}" class="mb-4">
+
                                 <div class="small text-muted" th:text="${board.createdDate}">게시글 날짜</div>
                                 <p th:text="${board.category}">카테고리</p>
                                 <a class="link-dark" th:href="@{/board/{boardSeq}(boardSeq=${board.boardSeq})}" th:text="${board.boardTitle}">글제목</a>
                                 <p th:text="${board.boardContent}">글내용</p>
-                                <p th:text="${board.memberDto.username}">작성자</p>
+                                <p th:text="${board.memberDto.memberId}">작성자</p>
                                 <p th:text="${board.createdDate}">등록일</p>
                                 <small th:text="${board.boardViews}">조회수</small>
                             </div>

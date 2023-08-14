@@ -5,25 +5,46 @@
 
 <mapper namespace="com.project.board.board.mapper.BoardMapper">
 
-    <insert id="postUpload" parameterType="com.project.board.board.model.BoardDto">
+    <resultMap id="boardResultMap" type="com.project.board.board.model.BoardDto">
+        <id property="boardSeq" column="BOARD_SEQ"/>
+        <result property="boardTitle" column="BOARD_TITLE"/>
+        <result property="boardContent" column="BOARD_CONTENT"/>
+        <result property="createdDate" column="CREATED_DATE"/>
+        <result property="boardViews" column="BOARD_VIEWS"/>
+        <result property="category" column="CATEGORY"/>
+        <association property="memberDto" javaType="com.project.board.member.model.MemberDto">
+            <result property="memberId" column="MEMBER_ID" />
+        </association>
+    </resultMap>
 
+    <insert id="postUpload" parameterType="com.project.board.board.model.BoardDto">
         INSERT INTO TB_BOARD ( BOARD_SEQ
-                             , BOARD_TITLE
-                             , BOARD_CONTENT
-                             , created_DATE
-                             , board_Views
-                             , category
-                             , MEMBER_SEQ)
+        , BOARD_TITLE
+        , BOARD_CONTENT
+        , created_DATE
+        , board_Views
+        , category
+        , MEMBER_SEQ)
         VALUES (
-                NEXTVAL('BOARD_SEQ')
-               , #{boardTitle}
-               , #{boardContent}
-               , CURRENT_TIMESTAMP
-               , #{boardViews}
-               , #{category}
-               , #{memberDto.memberSeq})
+        NEXTVAL('BOARD_SEQ')
+        , #{boardTitle}
+        , #{boardContent}
+        , CURRENT_TIMESTAMP
+        , #{boardViews}
+        , #{category}
+        , #{memberDto.memberSeq})
     </insert>
-    <select id="getAllBoards" resultType="com.project.board.board.model.BoardDto">
-        SELECT * FROM TB_BOARD
+    <select id="getAllBoards" resultMap="boardResultMap">
+        SELECT
+        B.BOARD_SEQ,
+        B.BOARD_TITLE,
+        B.BOARD_CONTENT,
+        B.CREATED_DATE,
+        B.BOARD_VIEWS,
+        B.CATEGORY,
+        M.MEMBER_ID
+        FROM TB_BOARD B
+        JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
     </select>
+
 </mapper>

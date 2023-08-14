@@ -8,20 +8,20 @@ VALUES ( NEXTVAL('MEMBER_SEQ')
        , 'test123');
 
 -- 게시판 데이터
-INSERT INTO TB_BOARD ( BOARD_SEQ
-                     , BOARD_TITLE
-                     , BOARD_CONTENT
-                     , created_DATE
-                     , board_Views
-                     , category
-                     , MEMBER_SEQ)
-VALUES ( NEXTVAL('BOARD_SEQ')
-       , '6살 최유월'
-       , '귀여운 게 죄라면, 유월이는 무기징역'
-       , CURRENT_TIMESTAMP
-       , 0
-       , '반려동물'
-       , 1);
+--INSERT INTO TB_BOARD ( BOARD_SEQ
+--                     , BOARD_TITLE
+--                     , BOARD_CONTENT
+--                     , created_DATE
+--                     , board_Views
+--                     , category
+--                     , MEMBER_SEQ)
+--VALUES ( NEXTVAL('BOARD_SEQ')
+--       , '6살 최유월'
+--       , '귀여운 게 죄라면, 유월이는 무기징역'
+--       , CURRENT_TIMESTAMP
+--       , 0
+--       , '반려동물'
+--       , 1);
 
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
