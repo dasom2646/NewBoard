@@ -10,12 +10,14 @@ public interface BoardService {
     void postBoard(BoardDto boardDto);
 
     // 게시글 단건 조회
-    BoardDto findPost(Long boardId);
+    BoardDto getBoardBySeq(Long boardSeq);
+
 
     // 게시글 전체 조회
     List<BoardDto> getAllBoardList();
 
-    // 조회수
+    // 게시글 단건 조회
+
 
 
 

@@ -13,7 +13,7 @@
         <result property="boardViews" column="BOARD_VIEWS"/>
         <result property="category" column="CATEGORY"/>
         <association property="memberDto" javaType="com.project.board.member.model.MemberDto">
-            <result property="memberId" column="MEMBER_ID" />
+            <result property="memberId" column="MEMBER_ID"/>
         </association>
     </resultMap>
 
@@ -46,5 +46,9 @@
         FROM TB_BOARD B
         JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
     </select>
+    <select id="getBoardBySeq" resultType="com.project.board.board.model.BoardDto">
+        SELECT * FROM TB_BOARD
+        WHERE BOARD_SEQ = #{boardSeq}
 
+    </select>
 </mapper>

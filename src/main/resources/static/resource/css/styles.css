@@ -1466,6 +1466,7 @@ progress {
     .col-xl-8 {
         flex: 0 0 auto;
         width: 66.66666667%;
+        margin:auto;
     }
     .col-xl-9 {
         flex: 0 0 auto;

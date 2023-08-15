@@ -7,10 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -110,4 +107,13 @@ public class BoardController {
         return "views/board/boardList";
     }
 
+    /**
+     * 게시글 디테일 페이지
+     */
+    @GetMapping("/boardDetail/{boardSeq}")
+    public String boardDetail(@PathVariable Long boardSeq, Model model) {
+        BoardDto board = boardService.getBoardBySeq(boardSeq);
+        model.addAttribute("board", board);
+        return "views/board/boardDetail2";
+    }
 }

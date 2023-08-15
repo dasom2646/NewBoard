@@ -8,20 +8,20 @@ VALUES ( NEXTVAL('MEMBER_SEQ')
        , 'test123');
 
 -- 게시판 데이터
---INSERT INTO TB_BOARD ( BOARD_SEQ
---                     , BOARD_TITLE
---                     , BOARD_CONTENT
---                     , created_DATE
---                     , board_Views
---                     , category
---                     , MEMBER_SEQ)
---VALUES ( NEXTVAL('BOARD_SEQ')
---       , '6살 최유월'
---       , '귀여운 게 죄라면, 유월이는 무기징역'
---       , CURRENT_TIMESTAMP
---       , 0
---       , '반려동물'
---       , 1);
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , created_DATE
+                     , board_Views
+                     , category
+                     , MEMBER_SEQ)
+VALUES ( NEXTVAL('BOARD_SEQ')
+       , '6살 최유월'
+       , '귀여운 게 죄라면, 유월이는 무기징역'
+       , CURRENT_TIMESTAMP
+       , 0
+       , '반려동물'
+       , 1);
 
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
@@ -143,4 +143,25 @@ VALUES ( NEXTVAL('BOARD_SEQ')
        , CURRENT_TIMESTAMP
        , 0
        , '해외여행'
+       , 1);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , created_DATE
+                     , board_Views
+                     , category
+                     , MEMBER_SEQ)
+VALUES ( NEXTVAL('BOARD_SEQ')
+       , '영혼의 탐색, 음악과 감동의 여정 ''소울'''
+       , '2020년 12월 25일 개봉한 픽스의 새로운 영화 ''소울''은 음악가의 꿈을 쫓는 주인공이 죽음과 삶 사이의 영혼의 세계를 여행하며 진정한 의미를 찾아가는 이야기입니다. ' ||
+		 '아름다운 애니메이션과 따뜻한 감정으로 가득한 이 작품은 우리의 인생과 가치에 대한 고민을 자연스럽게 불러일으킵니다. ' ||
+		 '개인적으로 ''소울''은 마음을 여는 영화였어요. ' ||
+		 '음악과 색감, 감동적인 이야기가 모두 완벽하게 어우러져 있었어요. 주인공의 내면의 탐색과 성장을 따라가며 저 또한 자신의 삶을 되돌아보게 되었어요. ' ||
+		 '이 작품은 우리가 평소에 간과하는 소중한 순간들을 놓치지 말아야 한다는 메시지를 전달해주었어요. ' ||
+		 '주인공의 성장과 모험을 따라가며 우리 자신도 생각하게 되는 순간들이 많아서 감동을 느낄 수 있었어요 ' ||
+		 '정말 눈과 귀, 마음이 즐거웠던 작품이었고, 감상 후 오랜 시간동안 생각이 남았답니다'
+       , CURRENT_TIMESTAMP
+       , 0
+       , '영화 리뷰'
        , 1);
