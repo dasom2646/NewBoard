@@ -27,23 +27,38 @@
         <div class="container px-5">
             <div class="row gx-5">
                 <div class="col-xl-8">
-                    <h2 class="fw-bolder fs-5 mb-4">인기글</h2>
+                    <h2 class="fw-bolder fs-5 mb-4">전체글</h2>
 
                     <form th:action="@{/board/boardList}" th:object="${boardDto}" method="get">
                         <div th:each="board : ${boardList}" class="mb-4">
 
+                            <p th:text="'[' + ${board.category} + '] '">카테고리</p>
+                            <a class="link-dark" th:href="@{/boardDetail/{boardSeq}(boardSeq=${board.boardSeq})}"
+                               th:text="${board.boardTitle}">글제목</a>
+                            <p class="truncate" th:text="${board.boardContent}">글내용</p>
 
-                            <a class="link-dark" th:href="@{/boardDetail/{boardSeq}(boardSeq=${board.boardSeq})}" th:text="${board.boardTitle}">글제목</a>
+                            <div class="small text-muted" th:text="${board.memberDto.memberId + ' · ' + #dates.format(board.createdDate, 'yyyy.MM.dd HH:mm') + ' · 조회 ' + board.boardViews}"></div>
 
-                            <p th:text="${board.boardContent}">글내용</p>
-                            <p th:text="${board.memberDto.memberId}">작성자</p>
-                            <div class="small text-muted" th:text="${board.createdDate}">등록일</div>
-                            <p>조회 <span th:text="${board.boardViews}">0</span></p>
-                            <p th:text="${board.category}">카테고리</p>
+
+<!--                            <div class="small text-muted"-->
+<!--                                 th:text="${board.memberDto.memberId + ' · ' + board.createdDate + ' · 조회 ' + board.boardViews}"></div>-->
+
                             <hr>
                         </div>
                     </form>
+                    <script th:inline="javascript">
+                        // 길이 제한을 위한 스크립트
+                        var contentElements = document.querySelectorAll(".truncate");
 
+                        contentElements.forEach(function(element) {
+                            var maxLength = 150; // 최대 길이 설정
+                            var content = element.textContent;
+
+                            if (content.length > maxLength) {
+                                element.textContent = content.substring(0, maxLength) + " ..."; // 길이 초과시 ...을 추가하여 표시
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>

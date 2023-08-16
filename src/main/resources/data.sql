@@ -165,3 +165,4 @@ VALUES ( NEXTVAL('BOARD_SEQ')
        , 0
        , '영화 리뷰'
        , 1);
+

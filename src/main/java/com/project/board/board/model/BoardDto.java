@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -19,7 +21,7 @@ public class BoardDto {
     private String category; // 게시글 카테고리
     private String boardTitle; // 게시글 제목
     private String boardContent; // 게시글 내용
-    private String createdDate; // 게시글 작성일
+    private Timestamp createdDate; // 게시글 작성일
     private Integer boardViews; // 조회수
     private MemberDto memberDto; // 작성자
     private List<String> categories; // 카테고리 목록

@@ -45,6 +45,7 @@
         M.MEMBER_ID
         FROM TB_BOARD B
         JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
+        ORDER BY BOARD_SEQ DESC
     </select>
     <select id="getBoardBySeq" resultType="com.project.board.board.model.BoardDto">
         SELECT * FROM TB_BOARD
