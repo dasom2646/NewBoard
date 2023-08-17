@@ -23,27 +23,17 @@
     <section class="py-5">
         <div class="container px-5 my-5">
             <div class="row gx-5">
-                <div class="col-lg-3">
-                    <div class="d-flex align-items-center mt-lg-5 mb-4">
-                        <img class="img-fluid rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg"
-                             alt="..."/>
-                        <div class="ms-3">
-                            <div class="fw-bold">Valerie Luna</div>
-                            <div class="text-muted">News, Business</div>
-                        </div>
-                    </div>
-                </div>
 
 
                 <div class="col-lg-9">
                     <!-- Post title-->
                     <h2 class="fw-bolder mb-1" th:text="${board.boardTitle}">글제목</h2>
                     <!-- Post categories-->
-                    <p th:text="${board.category}">카테고리</p>
-                    <!-- Post meta content-->
-                    <p th:text="${board.memberDto.memberId}">작성자</p>
+                    <p th:text="'[' + ${board.category} + '] '">카테고리</p>
+
                     <div class="text-muted fst-italic mb-2"
-                         th:text="${#dates.format(board.createdDate, 'yyyy.MM.dd HH:mm')}">게시글 날짜
+                         th:text="${'by ' + board.memberDto.memberId +' · ' + #dates.format(board.createdDate, 'yyyy.MM.dd HH:mm') + ' · 조회 ' + board.boardViews}">
+                        게시글 날짜
                     </div>
 
                     <!-- Preview image figure-->
@@ -52,11 +42,9 @@
                     </figure>
                     <!-- Post content-->
                     <section class="mb-5">
-                        <p class="fs-5 mb-4" th:text="${board.boardContent}">글내용</p>
-
+                        <pre class="fs-5 mb-4" th:text="${board.boardContent}">글내용</pre>
                     </section>
                 </div>
-
 
                 <!-- Comments section-->
                 <section>
@@ -119,6 +107,12 @@
             </div>
         </div>
     </section>
+    <a th:href="@{/board/boardList}">목록으로 돌아가기</a>
+    <!-- 이전/다음 버튼 -->
+    <div>
+        <a th:href="@{/board/boardDetail/{boardSeq}(boardSeq=${previousBoardSeq})}">이전 글</a>
+        <a th:href="@{/board/boardDetail/{boardSeq}(boardSeq=${nextBoardSeq})}">다음 글</a>
+    </div>
 </main>
 <!-- Footer-->
 <div th:replace="views/footer"></div>

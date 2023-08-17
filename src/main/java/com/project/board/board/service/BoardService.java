@@ -16,7 +16,8 @@ public interface BoardService {
     // 게시글 전체 조회
     List<BoardDto> getAllBoardList();
 
-    // 게시글 단건 조회
+    // 조회수
+    BoardDto getAndIncreaseViews(Long boardSeq);
 
 
 

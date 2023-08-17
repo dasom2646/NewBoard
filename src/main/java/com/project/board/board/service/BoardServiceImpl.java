@@ -43,5 +43,12 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.getAllBoards();
     }
 
+    @Override
+    public BoardDto getAndIncreaseViews(Long boardSeq) {
+        BoardDto board = boardMapper.getBoardBySeq(boardSeq); // 게시글 조회
+        boardMapper.increaseViews(boardSeq); // 조회수 증가
+        return board;
+    }
+
 
 }

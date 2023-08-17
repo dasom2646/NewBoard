@@ -60,4 +60,10 @@
         JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
         WHERE B.BOARD_SEQ = #{boardSeq}
     </select>
+
+    <update id="increaseViews">
+        UPDATE TB_BOARD
+        SET BOARD_VIEWS = BOARD_VIEWS + 1
+        WHERE BOARD_SEQ = #{boardSeq}
+    </update>
 </mapper>

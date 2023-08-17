@@ -112,7 +112,7 @@ public class BoardController {
      */
     @GetMapping("/boardDetail/{boardSeq}")
     public String boardDetail(@PathVariable Long boardSeq, Model model) {
-        BoardDto board = boardService.getBoardBySeq(boardSeq);
+        BoardDto board = boardService.getAndIncreaseViews(boardSeq); //조회수 증가
         model.addAttribute("board", board);
         return "views/board/boardDetail2";
     }
