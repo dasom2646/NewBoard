@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-
-
+    <title>Modern Business - Start Bootstrap Template</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" th:href="@{/resource/assets/favicon.ico}"/>
     <!-- Bootstrap icons-->
@@ -14,38 +13,86 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" th:href="@{/resource/css/styles.css}"/>
 
-        <title th:text="${board.title}">Board Detail</title>
-
 </head>
-
-
-<body class="d-flex flex-column">
+<body class="d-flex flex-column h-100">
 <main class="flex-shrink-0">
+
     <!-- Navigation-->
     <div th:replace="views/navigation"></div>
-
     <!-- Page Content-->
-
-    <body>
-    <section class="py-5 bg-light">
-        <div class="container px-5">
+    <section class="py-5">
+        <div class="container px-5 my-5">
             <div class="row gx-5">
-                <div class="col-xl-8">
-                    <h2 class="fw-bolder fs-5 mb-4" th:text="${board.boardTitle}">글제목</h2>
-                    <div class="small text-muted" th:text="${board.createdDate}">게시글 날짜</div>
-                    <p th:text="${board.category}">카테고리</p>
-                    <p th:text="${board.boardContent}">글내용</p>
-                    <div>
-                        <p th:text="${board.memberDto.memberId}">작성자</p>
-                        <p th:text="${board.createdDate}">등록일</p>
-                        <small>조회 <span th:text="${board.boardViews}">0</span></small>
+
+                <div class="col-lg-9">
+                    <!-- Post title-->
+                    <h2 class="fw-bolder mb-1" th:text="${board.boardTitle}">글제목</h2>
+                    <!-- Post categories-->
+                    <p th:text="'[' + ${board.category} + '] '">카테고리</p>
+
+                    <div class="text-muted fst-italic mb-2"
+                         th:text="${'by ' + board.memberDto.memberId +' · ' + #dates.format(board.createdDate, 'yyyy.MM.dd HH:mm') + ' · 조회 ' + board.boardViews}">
+                        게시글 날짜
                     </div>
+
+                    <!-- Preview image figure-->
+                    <figure class="mb-4"><img class="img-fluid rounded"
+                                              src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..."/>
+                    </figure>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <pre class="fs-5 mb-4" th:text="${board.boardContent}">글내용</pre>
+                    </section>
                 </div>
+
+                <!-- Comments section-->
+                <section>
+                    <div class="card bg-light">
+                        <div class="card-body">
+
+                            <!-- Comment form-->
+                            <form class="mb-4">
+                                <textarea class="form-control" rows="3"
+                                          placeholder="Join the discussion and leave a comment!"></textarea>
+                            </form>
+                            <!-- Comment with nested comments-->
+                            <div class="d-flex mb-4">
+                                <!-- Parent comment-->
+
+                                <div class="ms-3">
+                                    <div class="fw-bold">닉넴 아이디</div>
+                                    댓글
+                                </div>
+                                <!-- Child comment 1-->
+                                <div class="d-flex mt-4">
+                                    <div class="ms-3">
+                                        <div class="fw-bold">닉넴 아이디</div>
+                                        대댓
+                                    </div>
+                                </div>
+                                <!-- Child comment 2-->
+                                <div class="d-flex mt-4">
+                                    <div class="ms-3">
+                                        <div class="fw-bold">닉넴 아이디</div>
+                                        대댓
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single comment-->
+                        <div class="d-flex">
+                            <div class="ms-3">
+                                <div class="fw-bold">닉넴 아이디</div>
+                                댓글
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </section>
+    <a th:href="@{/board/boardList}">목록으로 돌아가기</a>
 </main>
-
 <!-- Footer-->
 <div th:replace="views/footer"></div>
 <!-- Bootstrap core JS-->

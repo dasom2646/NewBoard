@@ -104,7 +104,8 @@ public class BoardController {
     public String boardList(Model model) {
         List<BoardDto> boardList = boardService.getAllBoardList();
         model.addAttribute("boardList", boardList);
-        return "views/board/boardList";
+//        return "views/board/boardList";
+        return "views/board/list";
     }
 
     /**
@@ -114,6 +115,6 @@ public class BoardController {
     public String boardDetail(@PathVariable Long boardSeq, Model model) {
         BoardDto board = boardService.getAndIncreaseViews(boardSeq); //조회수 증가
         model.addAttribute("board", board);
-        return "views/board/boardDetail2";
+        return "views/board/boardDetail";
     }
 }
