@@ -12,7 +12,7 @@ public interface BoardMapper {
     void postUpload(BoardDto boardDto);
 
       // 게시글 단건 조회
-    BoardDto getBoardBySeq(Long boardId);
+    BoardDto getBoardBySeq(Long boardSeq);
 
     // 게시글 전체 조회
     List<BoardDto> getAllBoards();

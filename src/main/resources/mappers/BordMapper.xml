@@ -47,9 +47,17 @@
         JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
         ORDER BY BOARD_SEQ DESC
     </select>
-    <select id="getBoardBySeq" resultType="com.project.board.board.model.BoardDto">
-        SELECT * FROM TB_BOARD
-        WHERE BOARD_SEQ = #{boardSeq}
-
+    <select id="getBoardBySeq" resultMap="boardResultMap" parameterType="long">
+        SELECT
+        B.BOARD_SEQ,
+        B.BOARD_TITLE,
+        B.BOARD_CONTENT,
+        B.CREATED_DATE,
+        B.BOARD_VIEWS,
+        B.CATEGORY,
+        M.MEMBER_ID
+        FROM TB_BOARD B
+        JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
+        WHERE B.BOARD_SEQ = #{boardSeq}
     </select>
 </mapper>
