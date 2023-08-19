@@ -52,3 +52,8 @@ li {
 .title_article .wrap_article_list {
     border-bottom: 1px solid;
 }
+
+/* 마우스 오버 시 밑줄 생성하기 */
+.title_article:hover {
+    text-decoration: underline;
+}
