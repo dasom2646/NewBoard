@@ -39,7 +39,7 @@
 <div id="counselWriteDiv" class="container">
     <h3 id="counselWriteh1" class="text-center">글쓰기</h3>
 
-    <form th:action="@{/board/upload}" th:object="${boardDto}" method="post">
+    <form th:action="@{/board/upload}" th:object="${boardDto}" method="post" enctype="multipart/form-data">
 
         <h5 id="counselWriteh2">자신의 이야기를 공유 해보세요</h5>
 
@@ -78,6 +78,8 @@
             <textarea th:field="*{boardContent}" class="form-control p-3" rows="10" placeholder="내용을 작성해주세요"></textarea>
         </div>
 
+
+        <input type="file" id="file" name="file">
         <button type="submit" class="btn btn-primary">글 작성하기</button>
         <button type="button" class="btn btn-secondary" onclick="location.href='@{/}'">취소하기</button>
     </form>

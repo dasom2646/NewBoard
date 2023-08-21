@@ -26,6 +26,10 @@ public class BoardDto {
     private MemberDto memberDto; // 작성자
     private List<String> categories; // 카테고리 목록
 
+    private String filename; // 파일명
+    private byte[] fileData; // 파일 데이터
+
+
     public List<String> getCategories() {
         return Arrays.asList(
                 "해외여행", "국내여행", "오늘의 책", "영화 리뷰", "뮤지컬·연극",

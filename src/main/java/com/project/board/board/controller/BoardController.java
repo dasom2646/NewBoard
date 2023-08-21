@@ -8,12 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @Controller
@@ -66,7 +69,9 @@ public class BoardController {
      * 게시글 등록 동작
      */
     @PostMapping("/upload")
-    public String upload(@ModelAttribute("boardDto") BoardDto boardDto, HttpSession session) {
+    public String upload(@ModelAttribute("boardDto") BoardDto boardDto,
+                         @RequestParam("file") MultipartFile file,
+                         HttpSession session) {
         // 로그인 상태 확인
         if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
             return "redirect:/member/memberLoginForm";
@@ -74,6 +79,26 @@ public class BoardController {
         // 사용자 정보 설정
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
         boardDto.setMemberDto(loggedInUser);
+
+        if (!file.isEmpty()) {
+            try {
+                // UUID 생성
+                UUID uuid = UUID.randomUUID();
+                String originalFilename = file.getOriginalFilename();
+                String extension = originalFilename.substring(originalFilename.lastIndexOf(".")); // 확장자 추출
+                String newFilename = uuid.toString() + extension; // 새 파일명 생성
+
+                // 파일 데이터를 바이트 배열로 변환하여 DTO에 저장
+                boardDto.setFilename(newFilename);
+                boardDto.setFileData(file.getBytes()); // 파일 데이터를 바이트 배열로 변환하여 DTO에 저장
+                // 새로운 파일명 설정
+                boardDto.setFilename(newFilename);
+            } catch (IOException e) {
+                e.printStackTrace();
+                // 파일 업로드 실패 시 예외 처리
+            }
+        }
+
 
         // 게시글 등록
         boardService.postBoard(boardDto);

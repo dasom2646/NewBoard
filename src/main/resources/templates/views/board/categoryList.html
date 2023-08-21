@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Modern Business - Start Bootstrap Template</title>
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" th:href="@{/resource/assets/favicon.ico}"/>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" th:href="@{/resource/css/styles.css}"/>
+    <!-- list CSS-->
+    <link rel="stylesheet" th:href="@{/resource/css/list.css}"/>
+</head>
+
+
+<body class="d-flex flex-column">
+<main class="flex-shrink-0">
+    <!-- Navigation-->
+    <div th:replace="views/navigation"></div>
+
+    <div class="wrap_contents">
+        <div id="wrapArticle" class="wrap_article">
+            <!-- 선택된 카테고리 표시 -->
+            <div th:if="${selectedCategory}">
+                <h2>선택된 카테고리: <span th:text="${selectedCategory}"></span></h2>
+            </div>
+            <h2 class="fw-bolder fs-5 mb-4">글목록</h2>
+
+
+                <div class="wrap_article_list">
+                    <ul class="list_article" th:each="post : ${posts}">
+                        <li th:each="board : ${boardList}">
+
+                            <a class="link-dark"
+                               th:href="@{/board/boardDetail/{boardSeq}(boardSeq=${board.boardSeq})}">
+                                <p th:text="'[' + ${board.category} + '] '">카테고리</p>
+                                <span class="title_article" th:text="${board.boardTitle}">제목</span>
+                                <p class="truncate" th:text="${board.boardContent}">글내용</p>
+                                <div class="small text-muted"
+                                     th:text="${board.memberDto.memberId + ' · ' + #dates.format(board.createdDate, 'yyyy.MM.dd HH:mm') + ' · 조회 ' + board.boardViews}"></div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            <script th:inline="javascript">
+                // 길이 제한을 위한 스크립트
+                var contentElements = document.querySelectorAll(".truncate");
+
+                contentElements.forEach(function(element) {
+                    var maxLength = 150; // 최대 길이 설정
+                    var content = element.textContent;
+
+                    if (content.length > maxLength) {
+                        element.textContent = content.substring(0, maxLength) + " ..."; // 길이 초과시 ...을 추가하여 표시
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+
+</main>
+<!-- Footer-->
+<div th:replace="views/footer"></div>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script th:src="@{/resource/js/scripts.js}"></script>
+</body>
+</html>
