@@ -1,6 +1,7 @@
 package com.project.board.board.service;
 
 import com.project.board.board.model.BoardDto;
+import com.project.board.board.model.CommentDto;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public interface BoardService {
     // 조회수
     BoardDto getAndIncreaseViews(Long boardSeq);
 
+    BoardDto getBoardWithComments(Long boardSeq);
 
-
-
+    void addComment(Long boardSeq, CommentDto commentDto);
 }

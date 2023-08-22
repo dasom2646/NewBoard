@@ -1,6 +1,7 @@
 package com.project.board.board.controller;
 
 import com.project.board.board.model.BoardDto;
+import com.project.board.board.model.CommentDto;
 import com.project.board.board.service.BoardService;
 import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
@@ -141,5 +142,22 @@ public class BoardController {
         BoardDto board = boardService.getAndIncreaseViews(boardSeq); //조회수 증가
         model.addAttribute("board", board);
         return "views/board/boardDetail";
+    }
+
+    @PostMapping("/addComment")
+    public String addComment(@RequestParam("boardSeq") Long boardSeq,
+                             @RequestParam("content") String content,
+                             HttpSession session) {
+        if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
+            return "redirect:/member/memberLoginForm";
+        }
+        MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
+
+        CommentDto commentDto = new CommentDto();
+        commentDto.setContent(content);
+        commentDto.setMemberDto(loggedInUser);
+        boardService.addComment(boardSeq, commentDto);
+
+        return "redirect:/board/boardDetail/" + boardSeq;
     }
 }

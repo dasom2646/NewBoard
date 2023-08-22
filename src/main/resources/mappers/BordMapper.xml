@@ -26,8 +26,8 @@
         , category
         , MEMBER_SEQ
         , FILENAME
-        , FILE_DATA)
-        VALUES (
+        , FILE_DATA
+        ) VALUES (
         NEXTVAL('BOARD_SEQ')
         , #{boardTitle}
         , #{boardContent}
@@ -70,4 +70,29 @@
         SET BOARD_VIEWS = BOARD_VIEWS + 1
         WHERE BOARD_SEQ = #{boardSeq}
     </update>
+    <!-- 게시글과 댓글을 함께 조회 -->
+    <select id="getBoardWithComments" parameterType="Long" resultType="com.project.board.board.model.BoardDto">
+        SELECT
+        B.BOARD_SEQ,
+        B.BOARD_TITLE,
+        B.BOARD_CONTENT,
+        B.CREATED_DATE,
+        B.BOARD_VIEWS,
+        B.CATEGORY,
+        B.MEMBER_SEQ,
+        B.FILENAME,
+        B.FILE_DATA,
+        C.COMMENT_SEQ,
+        C.CONTENT AS COMMENT_CONTENT,
+        C.CREATED_DATE AS COMMENT_CREATED_DATE,
+        C.MEMBER_SEQ AS COMMENT_MEMBER_SEQ
+        FROM TB_BOARD B
+        LEFT JOIN TB_COMMENT C ON B.BOARD_SEQ = C.BOARD_SEQ
+        WHERE B.BOARD_SEQ = #{boardSeq}
+    </select>
+    <select id="getCommentsByBoardSeq" resultType="com.project.board.board.model.CommentDto">
+        SELECT COMMENT_SEQ, CONTENT, CREATED_DATE, MEMBER_SEQ
+        FROM TB_COMMENT
+        WHERE BOARD_SEQ = #{boardSeq}
+    </select>
 </mapper>

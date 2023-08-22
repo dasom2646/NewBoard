@@ -2,6 +2,7 @@ package com.project.board.board.service;
 
 import com.project.board.board.mapper.BoardMapper;
 import com.project.board.board.model.BoardDto;
+import com.project.board.board.model.CommentDto;
 import com.project.board.member.mapper.MemberMapper;
 import com.project.board.member.service.MemberService;
 import com.project.board.member.service.MemberServiceImpl;
@@ -48,6 +49,16 @@ public class BoardServiceImpl implements BoardService {
         BoardDto board = boardMapper.getBoardBySeq(boardSeq); // 게시글 조회
         boardMapper.increaseViews(boardSeq); // 조회수 증가
         return board;
+    }
+
+    @Override
+    public BoardDto getBoardWithComments(Long boardSeq) {
+        return null;
+    }
+
+    @Override
+    public void addComment(Long boardSeq, CommentDto commentDto) {
+
     }
 
 
