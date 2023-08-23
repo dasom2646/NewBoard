@@ -10849,3 +10849,7 @@ html {
     background-repeat: no-repeat;
     min-height: 15rem;
 }
+dl, li, menu, ol, ul {
+    list-style: none;
+     text-decoration: none;
+}

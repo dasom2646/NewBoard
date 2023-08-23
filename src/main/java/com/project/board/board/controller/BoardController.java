@@ -3,6 +3,7 @@ package com.project.board.board.controller;
 import com.project.board.board.model.BoardDto;
 import com.project.board.board.model.CommentDto;
 import com.project.board.board.service.BoardService;
+import com.project.board.board.service.CommentService;
 import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +24,16 @@ import java.util.UUID;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
-
     private final BoardService boardService;
+    private final CommentService commentService;
+
 
     @Autowired
-    public BoardController(BoardService boardService) {
+    public BoardController(BoardService boardService, CommentService commentService) {
         this.boardService = boardService;
-    }
+        this.commentService = commentService;
 
+    }
 
     // 로그인 상태 확인
     private boolean isLoggedIn(HttpSession session) {
@@ -147,7 +150,11 @@ public class BoardController {
     @GetMapping("/boardDetail/{boardSeq}")
     public String boardDetail(@PathVariable Long boardSeq, Model model) {
         BoardDto board = boardService.getAndIncreaseViews(boardSeq); //조회수 증가
+
+        // 게시글에 해당하는 댓글 목록 가져오기
+        List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
         model.addAttribute("board", board);
+        model.addAttribute("comments", comments); // 댓글 목록 추가
         return "views/board/boardDetail";
     }
 

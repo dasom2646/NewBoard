@@ -50,43 +50,34 @@
                     <div class="card bg-light">
                         <div class="card-body">
 
-                            <!-- Comment form-->
-                            <div class="d-flex mb-4">
+                            <!-- 댓글 작성 폼 -->
+                            <form class="mb-4" th:action="@{/comment/addComment/{boardSeq}(boardSeq=${boardSeq})}"
+                                  method="post">
+                                <input type="hidden" name="boardSeq" th:value="${boardSeq}"/>
+                                <textarea name="commentContent" class="form-control" rows="3"
+                                          placeholder="댓글을 입력하세요"></textarea>
+                                <button type="submit">댓글 작성</button>
+                            </form>
+                            <!-- 댓글 목록 출력 -->
+                            <div class="d-flex">
+                                <div class="ms-3">
+                                    <div class="fw-bold">
+                                        <p>작성자: <span ></span></p>
+                                        <!-- 작성자 아이디 표시 -->
+                                    </div>
 
-
-                                <div class="comment-form">
-                                    <!-- 댓글 목록 출력 -->
-                                    <h3>댓글 목록</h3>
                                     <ul>
                                         <li th:each="comment : ${comments}">
                                             <p th:text="${comment.content}"></p>
                                         </li>
                                     </ul>
                                 </div>
-                                <div>
-                                    <!-- 댓글 작성 폼 -->
-                                    <form th:action="@{/comment/addComment/{boardSeq}(boardSeq=${boardSeq})}"
-                                          method="post">
-                                        <input type="hidden" name="boardSeq" th:value="${boardSeq}"/>
-                                        <textarea name="commentContent" placeholder="댓글을 입력하세요"></textarea>
-                                        <button type="submit">댓글 작성</button>
-                                    </form>
-
-                                </div>
-                                <div>
-                                    <h4>댓글 목록</h4>
-
-                                </div>
                             </div>
-
-
                         </div>
                     </div>
+                </section>
             </div>
         </div>
-    </section>
-    </div>
-    </div>
     </section>
     <a th:href="@{/board/boardList}">목록으로 돌아가기</a>
 </main>

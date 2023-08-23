@@ -44,6 +44,7 @@ public class CommentController {
         commentDto.setContent(commentContent);
         commentDto.setMemberDto(loggedInUser);
         commentDto.setBoardDto(board);
+
         // 댓글 저장
         commentService.addComment(boardSeq, commentDto);
 
