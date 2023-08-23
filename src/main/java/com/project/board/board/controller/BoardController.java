@@ -151,29 +151,4 @@ public class BoardController {
         return "views/board/boardDetail";
     }
 
-    /**
-     * 댓글 등록 동작
-     */
-    @PostMapping("/addComment")
-    public String addComment(@PathVariable Long boardSeq,
-                             @RequestParam String commentContent,
-                             HttpSession session) {
-        // 로그인 상태 확인
-        if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
-            return "redirect:/member/memberLoginForm";
-        }
-
-        // 댓글 작성자 정보 가져오기
-        MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
-
-        // CommentDto 생성 및 설정
-        CommentDto commentDto = new CommentDto();
-        commentDto.setContent(commentContent);
-        commentDto.setMemberDto(loggedInUser);
-
-        // 댓글 저장
-        boardService.addComment(boardSeq, commentDto);
-
-        return "redirect:/board/boardDetail/" + boardSeq;
-    }
 }

@@ -54,14 +54,13 @@
                             <div class="d-flex mb-4">
 
                                 <!-- 댓글 작성 폼 -->
-                                <form th:action="@{/board/addComment/{boardSeq}(boardSeq=${boardSeq})}"
-                                      th:object="${commentDto}" method="post">
-                                    <div>
-                                        <textarea  placeholder="댓글을 입력하세요"></textarea>
-
-                                    </div>
-                                    <button type="submit">댓글 작성</button>
-                                </form>
+                                <div class="comment-form">
+                                    <form th:action="@{/board/addComment}" method="post">
+                                        <input type="hidden" name="boardSeq" th:value="${boardSeq}" />
+                                        <textarea name="commentContent" placeholder="댓글을 입력하세요"></textarea>
+                                        <button type="submit">댓글 작성</button>
+                                    </form>
+                                </div>
                                 <div>
                                     <h4>댓글 목록</h4>
 

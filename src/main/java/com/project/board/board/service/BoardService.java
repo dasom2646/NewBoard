@@ -22,8 +22,7 @@ public interface BoardService {
 
     BoardDto getBoardWithComments(Long boardSeq);
 
-    // 댓글저장
-    void addComment(Long boardSeq, CommentDto commentDto);
+
 
 
 

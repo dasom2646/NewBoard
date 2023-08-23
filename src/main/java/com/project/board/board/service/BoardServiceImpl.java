@@ -18,12 +18,12 @@ import java.util.List;
 
 public class BoardServiceImpl implements BoardService {
     private final BoardMapper boardMapper;
-    private final CommentMapper commentMapper; // CommentMapper 주입
+
 
     @Autowired
-    public BoardServiceImpl(BoardMapper boardMapper, CommentMapper commentMapper) {
+    public BoardServiceImpl(BoardMapper boardMapper) {
         this.boardMapper = boardMapper;
-        this.commentMapper = commentMapper;
+
     }
 
     // 게시판 글 등록 (저장)
@@ -61,13 +61,5 @@ public class BoardServiceImpl implements BoardService {
         return null;
     }
 
-    @Override
-    public void addComment(Long boardSeq, CommentDto commentDto) {
-        BoardDto board = boardMapper.getBoardBySeq(boardSeq);
-        if (board != null) {
-            commentDto.setCreatedDate(new Timestamp(System.currentTimeMillis()));
-            commentMapper.insertComment(commentDto); // CommentMapper를 사용하여 댓글 저장
-        }
-    }
 
 }

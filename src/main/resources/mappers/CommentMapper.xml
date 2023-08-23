@@ -17,7 +17,7 @@
         , #{content}
         , CURRENT_TIMESTAMP
         , #{memberDto.memberSeq}
-        , #{boardSeq})
+        , #{boardDto.boardSeq})
     </insert>
 
 </mapper>

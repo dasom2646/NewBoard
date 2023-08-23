@@ -17,5 +17,5 @@ public class CommentDto {
     private String content; // 댓글 내용
     private Timestamp createdDate; // 댓글 작성일
     private MemberDto memberDto; // 댓글 작성자 MemberDto를 사용하여 작성자 정보 저장
-
+    private BoardDto boardDto; // 댓글이 속한 게시글 정보 저장
 }
