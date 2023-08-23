@@ -53,11 +53,19 @@
                             <!-- Comment form-->
                             <div class="d-flex mb-4">
 
-                                <!-- 댓글 작성 폼 -->
+
                                 <div class="comment-form">
-
-
-                                    <form th:action="@{/board/addComment/{boardSeq}(boardSeq=${boardSeq})}"
+                                    <!-- 댓글 목록 출력 -->
+                                    <h3>댓글 목록</h3>
+                                    <ul>
+                                        <li th:each="comment : ${comments}">
+                                            <p th:text="${comment.content}"></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <!-- 댓글 작성 폼 -->
+                                    <form th:action="@{/comment/addComment/{boardSeq}(boardSeq=${boardSeq})}"
                                           method="post">
                                         <input type="hidden" name="boardSeq" th:value="${boardSeq}"/>
                                         <textarea name="commentContent" placeholder="댓글을 입력하세요"></textarea>

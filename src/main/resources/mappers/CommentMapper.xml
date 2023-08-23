@@ -20,4 +20,10 @@
         , #{boardDto.boardSeq})
     </insert>
 
+
+    <select id="getCommentsForBoard" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
+        SELECT * FROM TB_COMMENT WHERE board_seq = #{boardSeq}
+    </select>
+
+
 </mapper>
