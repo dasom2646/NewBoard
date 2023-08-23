@@ -31,6 +31,13 @@ public class BoardController {
         this.boardService = boardService;
     }
 
+
+    // 로그인 상태 확인
+    private boolean isLoggedIn(HttpSession session) {
+        return session.getAttribute("loggedIn") != null && (boolean) session.getAttribute("loggedIn");
+    }
+
+
     /**
      * 게시판 메인 페이지
      */
@@ -46,7 +53,7 @@ public class BoardController {
     @GetMapping("/boardForm")
     public String newForm(@ModelAttribute("boardDto") BoardDto boardDto, HttpSession session, HttpServletRequest request) {
         // 로그인 상태 확인
-        if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
+        if (!isLoggedIn(session)) {
             // 로그인 후 돌아갈 URL 설정
             String returnUrl = request.getRequestURI();
             session.setAttribute("returnUrl", returnUrl);
@@ -144,20 +151,5 @@ public class BoardController {
         return "views/board/boardDetail";
     }
 
-    @PostMapping("/addComment")
-    public String addComment(@RequestParam("boardSeq") Long boardSeq,
-                             @RequestParam("content") String content,
-                             HttpSession session) {
-        if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
-            return "redirect:/member/memberLoginForm";
-        }
-        MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
 
-        CommentDto commentDto = new CommentDto();
-        commentDto.setContent(content);
-        commentDto.setMemberDto(loggedInUser);
-        boardService.addComment(boardSeq, commentDto);
-
-        return "redirect:/board/boardDetail/" + boardSeq;
-    }
 }

@@ -53,27 +53,42 @@
                             <!-- Comment form-->
                             <div class="d-flex mb-4">
                                 <!-- 댓글 작성 폼 -->
+                                <!-- 댓글 작성 폼 -->
+                                <form th:action="@{/board/addComment}" method="post">
+                                    <!-- 게시글 번호 파라미터 -->
+                                    <input type="hidden" name="boardSeq" th:value="${board.boardSeq}"/>
 
-                                    <form th:action="@{/board/addComment}" method="post">
-                                        <!-- 게시글 번호 파라미터 -->
-                                        <input type="hidden" name="boardSeq" th:value="${boardSeq}" />
+                                    <!-- 댓글 내용 입력 -->
+                                    <textarea name="content" rows="4" cols="50"></textarea>
 
-                                        <!-- 댓글 내용 입력 -->
-                                        <textarea name="content" rows="4" cols="50"></textarea>
+                                    <!-- 댓글 추가 버튼 -->
+                                    <button type="submit">댓글 추가</button>
+                                </form>
 
-                                        <!-- 댓글 추가 버튼 -->
-                                        <button type="submit">댓글 추가</button>
-                                    </form>
-                                </div>
+                                <hr>
 
-
+                                <!-- 댓글 목록 표시 -->
+                                <div>
+                                    <h3>댓글 목록</h3>
+                                    <ul>
+                                        <th:block th:each="comment : ${board.comments}">
+                                            <li>
+                                                <span th:text="${comment.memberDto.memberId}"></span>: <span
+                                                    th:text="${comment.content}"></span>
+                                            </li>
+                                        </th:block>
+                                    </ul>
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
-                </section>
             </div>
         </div>
+    </section>
+    </div>
+    </div>
     </section>
     <a th:href="@{/board/boardList}">목록으로 돌아가기</a>
 </main>
