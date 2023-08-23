@@ -18,7 +18,8 @@
     </resultMap>
 
     <insert id="postUpload" parameterType="com.project.board.board.model.BoardDto">
-        INSERT INTO TB_BOARD ( BOARD_SEQ
+        INSERT INTO TB_BOARD (
+        BOARD_SEQ
         , BOARD_TITLE
         , BOARD_CONTENT
         , created_DATE
@@ -90,9 +91,6 @@
         LEFT JOIN TB_COMMENT C ON B.BOARD_SEQ = C.BOARD_SEQ
         WHERE B.BOARD_SEQ = #{boardSeq}
     </select>
-    <select id="getCommentsByBoardSeq" resultType="com.project.board.board.model.CommentDto">
-        SELECT COMMENT_SEQ, CONTENT, CREATED_DATE, MEMBER_SEQ
-        FROM TB_COMMENT
-        WHERE BOARD_SEQ = #{boardSeq}
-    </select>
+
+
 </mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.board.board.mapper.CommentMapper">
+    <insert id="insertComment" parameterType="com.project.board.board.model.CommentDto" >
+
+        INSERT INTO TB_COMMENT (
+        COMMENT_SEQ
+        , CONTENT
+        , CREATED_DATE
+        , MEMBER_SEQ
+        , BOARD_SEQ
+        ) VALUES (
+        NEXTVAL('COMMENT_SEQ')
+        , #{content}
+        , CURRENT_TIMESTAMP
+        , #{memberDto.memberSeq}
+        , #{boardSeq})
+    </insert>
+
+</mapper>

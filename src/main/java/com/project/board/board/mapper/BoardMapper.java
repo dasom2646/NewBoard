@@ -1,7 +1,9 @@
 package com.project.board.board.mapper;
 
 import com.project.board.board.model.BoardDto;
+import com.project.board.board.model.CommentDto;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,5 +21,10 @@ public interface BoardMapper {
 
     // 조회수
     void increaseViews(Long boardSeq);
+    // 댓글목록
+    List<CommentDto> getCommentsByBoardSeq(Long boardSeq);
+
+    // 댓글 저장
+//    void insertComment(@Param("commentDto") CommentDto commentDto, @Param("boardSeq") Long boardSeq );
 
 }

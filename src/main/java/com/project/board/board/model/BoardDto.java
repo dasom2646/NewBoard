@@ -4,12 +4,12 @@ package com.project.board.board.model;
 import com.project.board.member.model.MemberDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
+
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
-import java.util.Date;
+
 import java.util.List;
 
 @Data
@@ -28,7 +28,7 @@ public class BoardDto {
 
     private String filename; // 파일명
     private byte[] fileData; // 파일 데이터
-
+    private List<CommentDto> comments; // 댓글
 
     public List<String> getCategories() {
         return Arrays.asList(

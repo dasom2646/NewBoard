@@ -1,12 +1,14 @@
 package com.project.board.board.model;
 
 import com.project.board.member.model.MemberDto;
+import com.project.board.board.model.BoardDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
