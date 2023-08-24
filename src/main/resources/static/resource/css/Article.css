@@ -1,0 +1,36 @@
+div {
+    display: block;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+body {
+    background: #fff;
+    color: #333;
+}
+
+.item_type_text {
+    font-size: 11pt;
+    letter-spacing: .8px;
+    line-height: 22pt;
+}
+
+.item_type_text {
+    margin: 0 auto;
+    overflow-x: hidden;
+    white-space: normal; /* 공백과 줄바꿈 처리 */
+}
+
+p, pre {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.wrap_article {
+    min-width: min-width: 1200px;
+}
+

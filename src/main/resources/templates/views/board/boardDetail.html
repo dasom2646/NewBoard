@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" th:href="@{/resource/css/styles.css}"/>
-
+    <link rel="stylesheet" th:href="@{/resource/css/Article.css}"/>
 </head>
 <body class="d-flex flex-column h-100">
 <main class="flex-shrink-0">
@@ -34,17 +34,17 @@
                          th:text="${'by ' + board.memberDto.memberId +' · ' + #dates.format(board.createdDate, 'yyyy.MM.dd HH:mm') + ' · 조회 ' + board.boardViews}">
                         게시글 날짜
                     </div>
-
+<div class="wrap_article"></div>
                     <!-- Preview image figure-->
-                    <figure class="mb-4"><img class="img-fluid rounded"
-                                              src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..."/>
+                    <figure class="mb-4">
+                        <img class="img-fluid rounded" alt="..."/>
                     </figure>
                     <!-- Post content-->
-                    <section class="mb-5">
-                        <pre class="fs-5 mb-4" th:text="${board.boardContent}">글내용</pre>
-                    </section>
+                    <div class="item_type_text">
+                        <pre class="item_type_text" th:utext="${#strings.replace(board.boardContent, '\n', '<br>')}">글내용</pre>
+                    </div>
                 </div>
-
+            </div>
                 <!-- Comments section-->
                 <section>
                     <div class="card bg-light">
