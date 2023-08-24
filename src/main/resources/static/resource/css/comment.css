@@ -40,7 +40,6 @@ div {
     color: #959595;
     display: flex;
     flex-direction: column;
-    font-family: "Noto Sans DemiLight",Malgun Gothic,sans-serif;
     margin: 52px 0;
     padding-bottom: 8px;
 }
@@ -61,7 +60,6 @@ div {
     border-radius: 42px;
     color: #666;
     display: inline-flex;
-    font-family: "SF Pro Light",sans-serif;
     font-size: 13px;
     padding: 8px 23px;
 }
@@ -92,7 +90,7 @@ body {
     justify-content: space-between;
     padding: 32px 0 70px;
 }
-blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul{
+blockquote, body, button, code, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul{
     margin: 0;
     padding: 0;
     text-rendering: inherit;
@@ -107,3 +105,6 @@ button {
 button, input, select, textarea {
     vertical-align: middle;
 }
+.content_wrap{
+  height: 100vh; /* 화면 높이의 100%로 설정 */
+  }
