@@ -157,3 +157,13 @@ button, input, select, textarea {
      width: 800px;
 
 }
+
+
+#textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none; /* 이 속성은 textarea의 사이즈 조절 핸들을 숨깁니다. */
+  padding: 10px;
+  box-sizing: border-box;
+  }

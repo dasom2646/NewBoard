@@ -11,7 +11,7 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" th:href="@{/resource/css/styles.css}"/>
+    <!--    <link rel="stylesheet" th:href="@{/resource/css/styles.css}"/>-->
     <link rel="stylesheet" th:href="@{/resource/css/Article.css}"/>
 
 
@@ -28,7 +28,7 @@
 
                 <div class="col-lg-9">
                     <!-- Post title-->
-                    <h2 class="fw-bolder mb-1" th:text="${board.boardTitle}">글제목</h2>
+                    <h2 class="title" th:text="${board.boardTitle}">글제목</h2>
                     <!-- Post categories-->
                     <p th:text="'[' + ${board.category} + '] '">카테고리</p>
 
@@ -48,8 +48,10 @@
                     </div>
                 </div>
 
-                <div id="comment_all">
-                    <div class="info_state open_comment">
+                <div>
+                    <div id="comment_all">
+                        <div>
+                            <div class="info_state open_comment">
                         <span class="wrap_comment_btn">
                             <button class="btn_like">
                                 <svg class="like_icon" xmlns="http://www.w3.org/2000/svg" id="Layer_1"
@@ -67,71 +69,75 @@
                                 <span class="num_comment">댓글 수</span>
                             </button>
                         </span>
-                    </div>
-                    <div class="info_comment">
-                        <div class="comment_head">
-                            <strong class="tit_comment">댓글
-                                <span class="txt_num">0 댓글달린 숫자</span>
-                            </strong>
-                        </div>
-                        <div class="comment_content">
-                            <!--        <div class="comment_num">-->
-                            <!--            <strong class="tit_none">작성된 댓글이 없습니다.</strong>-->
-                            <!--            <span class="txt_none">첫 번째 댓글을 남겨보세요!</span>-->
-                            <!--        </div>-->
+                            </div>
+                            <div class="info_comment">
+                                <div class="comment_head">
+                                    <strong class="tit_comment">댓글
+                                        <span class="txt_num">0 댓글달린 숫자</span>
+                                    </strong>
+                                </div>
+                                <div class="comment_content">
+                                    <!--        <div class="comment_none">-->
+                                    <!--            <strong class="tit_none">작성된 댓글이 없습니다.</strong>-->
+                                    <!--            <span class="txt_none">첫 번째 댓글을 남겨보세요!</span>-->
+                                    <!--        </div>-->
 
-                            <ul class="comment_list">
-                                <li class="comment_wrap" th:each="comment : ${comments}">
-                                    <div class="cont_info">
-                                        <div class="info_profile">
-                                            <div class="tit_memberid">맴버아이디</div>
-                                            <span class="txt_time">댓글 날짜시간</span>
-                                            <p th:text="${comment.content}">댓글</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="comment_write_wrap">
-                            <div class="comment_write">
-                                <form th:action="@{/comment/addComment/{boardSeq}(boardSeq=${boardSeq})}"
-                                      method="post">
-
-                                    <div class="box_area">
-                                        <!--                    <div class="nologin">지금 로그인하고 댓글을 작성해보세요!-->
-                                        <!--                        누르면 손모양 -> 로그인페이지 넘어가기-->
-                                        <!--                    </div>-->
-                                        <div class="link_profile">
-                                            <img alt="내프로필 이미지 ">
-                                            <strong class="txt_profile">유저 아이디</strong>
-                                        </div>
-                                        <div class="editor_wrap">
-
-                                            <input type="hidden" name="boardSeq" th:value="${boardSeq}"/>
-                                            <textarea name="commentContent" rows="3" placeholder="댓글을 입력하세요"></textarea>
-                                        </div>
-                                        <div class="editor_footer">
-                                            <div class="wrap_btn">
-                                                <button class="submit_btn" type="submit">등록</button>
+                                    <ul class="comment_list">
+                                        <li class="comment_wrap" th:each="comment : ${comments}">
+                                            <div class="cont_info">
+                                                <div class="info_profile">
+                                                    <div class="tit_memberid">맴버아이디</div>
+                                                    <span class="txt_time">댓글 날짜시간</span>
+                                                    <p th:text="${comment.content}">댓글</p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="comment_write_wrap">
+                                    <div class="comment_write">
+                                        <form th:action="@{/comment/addComment/{boardSeq}(boardSeq=${boardSeq})}"
+                                              method="post">
+
+                                            <!--                                    <div class="box_area">-->
+                                            <!--                    <div class="nologin">지금 로그인하고 댓글을 작성해보세요!-->
+                                            <!--                        누르면 손모양 -> 로그인페이지 넘어가기-->
+                                            <!--                    </div>-->
+                                            <div class="link_profile">
+                                                <img alt="내프로필 이미지 ">
+                                                <strong class="txt_profile">유저 아이디</strong>
+                                            </div>
+                                            <div class="editor_wrap">
+
+                                                <input type="hidden" name="boardSeq" th:value="${boardSeq}"/>
+                                                <textarea id="textarea" name="commentContent" rows="3"
+                                                          placeholder="댓글을 입력하세요"></textarea>
+                                            </div>
+                                            <div class="editor_footer">
+                                                <div class="wrap_btn">
+                                                    <button class="submit_btn" type="submit">등록</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>>
-
-    <a th:href="@{/board/boardList}">목록으로 돌아가기</a>
+    </div>
+    <div>
+        <a th:href="@{/board/boardList}">목록으로 돌아가기</a>
+    </div>
 </main>
 <!-- Footer-->
 <div th:replace="views/footer"></div>
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script th:src="@{/resource/js/scripts.js}"></script>
+<!--<script th:src="@{/resource/js/scripts.js}"></script>-->
 </body>
 </html>

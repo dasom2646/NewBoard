@@ -47,7 +47,7 @@ public class BoardController {
     @GetMapping("/boardHome")
     public String boardHome(@ModelAttribute("boardDto") BoardDto boardDto) {
 
-        return "views/board/boardHome";
+        return "views/board/boardDetail2";
     }
 
     /**
@@ -155,7 +155,7 @@ public class BoardController {
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
         model.addAttribute("board", board);
         model.addAttribute("comments", comments); // 댓글 목록 추가
-        return "views/board/boardDetail";
+        return "views/board/boardDetail2";
     }
 
 }
