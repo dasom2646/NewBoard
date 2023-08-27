@@ -5,6 +5,8 @@ div {
 body, button, input, select, td, textarea, th {
     font-size: 14px;
     line-height: 1.5;
+    height: 100%;
+   overflow-y: auto;
 }
 body {
     background: #fff;
@@ -15,16 +17,14 @@ body {
     font-size: 11pt;
     letter-spacing: .8px;
     line-height: 22pt;
- height: 400px; /* 원하는 높이로 조절 */
+    height: 700px; /* 원하는 높이로 조절 */
     overflow-y: auto; /* 내용이 높이를 넘어가면 스크롤 표시 */
-
-}
-
-.item_type_text {
     margin: 0 auto;
     overflow-x: hidden;
     white-space: normal; /* 공백과 줄바꿈 처리 */
+
 }
+
 
 p, pre {
     display: block;
@@ -97,7 +97,7 @@ p, pre {
     padding-bottom: 30px;
 }
 
-.article_contents .wrap_comment_btn .btn_like .btn_comment {
+.article_contents {
     align-items: center;
     background-color: #fff;
     border: 1px solid #bbb;
@@ -107,7 +107,13 @@ p, pre {
     font-size: 13px;
     padding: 8px 23px;
 }
-.article_contents .info_state {
+.article_contents {
+    border-top: 1px solid #eee;
+    margin: 0 auto;
+    padding: 32px 0;
+    width: 800px;
+}
+.info_state {
     border-top: 1px solid #eee;
     margin: 0 auto;
     padding: 32px 0;
@@ -136,13 +142,7 @@ blockquote, body, button, code, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, i
     padding: 0;
     text-rendering: inherit;
 }
-button {
-    background-color: transparent;
-    border: 0;
-    border-radius: 0;
-    cursor: pointer;
-    outline: none;
-}
+
 button, input, select, textarea {
     vertical-align: middle;
 }
@@ -166,4 +166,56 @@ button, input, select, textarea {
   resize: none; /* 이 속성은 textarea의 사이즈 조절 핸들을 숨깁니다. */
   padding: 10px;
   box-sizing: border-box;
+  }
+.content_wrap{
+     width: 800px;
+    margin: 0 auto;
+}
+.comment_write{
+  border: 1px solid #bbb;}
+
+.editor_footer {
+  border-top: 1px solid #bbb;
+  }
+
+  .editor_wrap {
+   border-top: 1px solid #bbb;
+   }
+
+  .wrap_comment_btn{
+  display:flex;
+   justify-content: space-between;
+      align-items: center;
+       width: 100%; /* 원하는 너비 설정 */
+          margin: 0 auto;
+  }
+
+
+
+  button {
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+      cursor: pointer;
+      outline: none;
+  }
+a{
+cursor: pointer;
+    text-decoration: none; /* 밑줄 제거 */
+    color: black;
+
+
+  }
+  .list_btn{
+  padding-bottom: 20px;
+    padding-top: 40px;
+  }
+  .wrap_btn{
+  display:flex;
+  justify-content: flex-end;\
+
+  }
+  .info_article{
+
+  color: #6c757d !important;
   }

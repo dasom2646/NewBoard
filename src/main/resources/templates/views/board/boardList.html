@@ -37,7 +37,8 @@
                             <a class="link-dark" th:href="@{/board/boardDetail/{boardSeq}(boardSeq=${board.boardSeq})}">
                                 <span th:text="${board.boardTitle}">제목</span>
                             </a>
-                            <p class="truncate" th:text="${board.boardContent}">글내용</p>
+                            <pre class="truncate"
+                                 th:utext="${#strings.replace(board.boardContent, '\n', '<br>')}">글내용</pre>
 
                             <div class="small text-muted"
                                  th:text="${board.memberDto.memberId + ' · ' + #dates.format(board.createdDate, 'yyyy.MM.dd HH:mm') + ' · 조회 ' + board.boardViews}"></div>

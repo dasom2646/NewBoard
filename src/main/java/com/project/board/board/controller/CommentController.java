@@ -48,7 +48,7 @@ public class CommentController {
         // 댓글 저장
         commentService.addComment(boardSeq, commentDto);
 
-        return "redirect:/comment/commentDetail2/" + boardSeq;
+        return "redirect:/comment/commentDetail/" + boardSeq;
     }
 
     /**
@@ -62,6 +62,6 @@ public class CommentController {
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
         model.addAttribute("board", board);
         model.addAttribute("comments", comments);
-        return "views/board/boardDetail2";
+        return "views/board/boardDetail";
     }
 }

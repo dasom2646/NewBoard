@@ -244,18 +244,7 @@ sup {
     top: -0.5em;
 }
 
-a {
-    color: var(--bs-link-color);
 
-}
-a:hover {
-    color: var(--bs-link-hover-color);
-}
-
-a:not([href]):not([class]), a:not([href]):not([class]):hover {
-    color: inherit;
-    text-decoration: none;
-}
 
 pre,
 code,
@@ -886,7 +875,7 @@ progress {
 .g-5,
 .gx-5 {
     --bs-gutter-x: 3rem;
-}
+}gx-5
 
 .g-5,
 .gy-5 {
