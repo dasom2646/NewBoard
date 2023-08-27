@@ -11,6 +11,7 @@ body, button, input, select, td, textarea, th {
 body {
     background: #fff;
     color: #333;
+      overflow: hidden; /* 기존 스크롤 막기 */
 }
 
 .item_type_text {
@@ -22,6 +23,7 @@ body {
     margin: 0 auto;
     overflow-x: hidden;
     white-space: normal; /* 공백과 줄바꿈 처리 */
+    padding-top:20px;
 
 }
 
@@ -170,6 +172,7 @@ button, input, select, textarea {
 .content_wrap{
      width: 800px;
     margin: 0 auto;
+    padding-top:80px;
 }
 .comment_write{
   border: 1px solid #bbb;}
