@@ -2,8 +2,10 @@ package com.project.board.board.controller;
 
 import com.project.board.board.model.BoardDto;
 import com.project.board.board.model.CommentDto;
+import com.project.board.board.model.LikeDto;
 import com.project.board.board.service.BoardService;
 import com.project.board.board.service.CommentService;
+import com.project.board.board.service.LikeService;
 import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +28,14 @@ import java.util.UUID;
 public class BoardController {
     private final BoardService boardService;
     private final CommentService commentService;
+    private final LikeService likeService;
 
 
     @Autowired
-    public BoardController(BoardService boardService, CommentService commentService) {
+    public BoardController(BoardService boardService, CommentService commentService, LikeService likeService) {
         this.boardService = boardService;
         this.commentService = commentService;
+        this.likeService = likeService;
 
     }
 
@@ -84,7 +88,7 @@ public class BoardController {
                          @RequestParam("file") MultipartFile file,
                          HttpSession session) {
         // 로그인 상태 확인
-        if (session.getAttribute("loggedIn") == null || !(boolean) session.getAttribute("loggedIn")) {
+        if (!isLoggedIn(session)) {
             return "redirect:/member/memberLoginForm";
         }
         // 사용자 정보 설정

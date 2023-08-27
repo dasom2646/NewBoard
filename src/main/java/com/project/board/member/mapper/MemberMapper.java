@@ -12,6 +12,8 @@ public interface MemberMapper {
     // 맴버 저장
     void addMember(MemberDto memberDto);
 
+    // 맴버 시퀀스 조회
+    MemberDto getMemberBySeq(Long memberSeq);
     // 맴버 조회
     MemberDto getMemberById(String memberId);
 

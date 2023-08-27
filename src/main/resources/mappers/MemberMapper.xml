@@ -5,41 +5,48 @@
 
 <mapper namespace="com.project.board.member.mapper.MemberMapper">
 
-<!--    <resultMap id="memberResultSet" type="MemberVo">-->
-<!--        <result property="memberSeq" column="MEMBER_SEQ"/>-->
-<!--        <result property="memberId" column="MEMBER_ID"/>-->
-<!--        <result property="memberName" column="MEMBER_NAME"/>-->
-<!--        <result property="memberPwd" column="MEMBER_PWD"/>-->
-<!--    </resultMap>-->
+    <!--    <resultMap id="memberResultSet" type="MemberVo">-->
+    <!--        <result property="memberSeq" column="MEMBER_SEQ"/>-->
+    <!--        <result property="memberId" column="MEMBER_ID"/>-->
+    <!--        <result property="memberName" column="MEMBER_NAME"/>-->
+    <!--        <result property="memberPwd" column="MEMBER_PWD"/>-->
+    <!--    </resultMap>-->
 
     <insert id="addMember" parameterType="com.project.board.member.model.MemberDto">
         INSERT INTO TB_MEMBER ( MEMBER_SEQ
-                              , MEMBER_ID
-                              , MEMBER_NAME
-                              , MEMBER_PWD)
+        , MEMBER_ID
+        , MEMBER_NAME
+        , MEMBER_PWD)
         VALUES (
-                NEXTVAL('MEMBER_SEQ')
-               , #{memberId}
-               , #{memberName}
-               , #{memberPwd})
+        NEXTVAL('MEMBER_SEQ')
+        , #{memberId}
+        , #{memberName}
+        , #{memberPwd})
     </insert>
 
-    <select id="getMemberById" parameterType="com.project.board.member.model.MemberDto" resultType="com.project.board.member.model.MemberDto">
+    <select id="getMemberById" parameterType="com.project.board.member.model.MemberDto"
+            resultType="com.project.board.member.model.MemberDto">
         SELECT MEMBER_SEQ
-             , MEMBER_ID
-             , MEMBER_NAME
-             , MEMBER_PWD
+        , MEMBER_ID
+        , MEMBER_NAME
+        , MEMBER_PWD
         FROM TB_MEMBER
         WHERE MEMBER_ID = #{memberId}
     </select>
 
-    <select id="getMemberList" parameterType="com.project.board.member.model.MemberDto" resultType="com.project.board.member.model.MemberDto">
+    <select id="getMemberList" parameterType="com.project.board.member.model.MemberDto"
+            resultType="com.project.board.member.model.MemberDto">
         SELECT MEMBER_SEQ
-             , MEMBER_ID
-             , MEMBER_NAME
-             , MEMBER_PWD
+        , MEMBER_ID
+        , MEMBER_NAME
+        , MEMBER_PWD
         FROM TB_MEMBER
     </select>
-
+    <select id="getMemberBySeq" resultType="com.project.board.member.model.MemberDto">
+        SELECT MEMBER_SEQ
+        *
+        FROM TB_MEMBER
+        WHERE MEMBER_SEQ = #{memberSeq}
+    </select>
 
 </mapper>
