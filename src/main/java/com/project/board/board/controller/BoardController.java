@@ -157,8 +157,12 @@ public class BoardController {
 
         // 게시글에 해당하는 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
+        // 댓글 수량 계산
+        int commentCount = comments.size();
+
         model.addAttribute("board", board);
         model.addAttribute("comments", comments); // 댓글 목록 추가
+        model.addAttribute("commentCount", commentCount); // 댓글 수량 추가
         return "views/board/boardDetail";
     }
 

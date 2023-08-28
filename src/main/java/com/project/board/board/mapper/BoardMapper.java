@@ -13,7 +13,7 @@ public interface BoardMapper {
     // 게시판 글 등록 (저장)
     void postUpload(BoardDto boardDto);
 
-      // 게시글 단건 조회
+    // 게시글 단건 조회
     BoardDto getBoardBySeq(Long boardSeq);
 
     // 게시글 전체 조회
@@ -21,10 +21,6 @@ public interface BoardMapper {
 
     // 조회수
     void increaseViews(Long boardSeq);
-    // 댓글목록
-    List<CommentDto> getCommentsByBoardSeq(Long boardSeq);
 
-    // 댓글 저장
-//    void insertComment(@Param("commentDto") CommentDto commentDto, @Param("boardSeq") Long boardSeq );
 
 }
