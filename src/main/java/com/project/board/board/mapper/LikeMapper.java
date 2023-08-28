@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface LikeMapper {
     void insertLike(LikeDto likeDto);
 
+    int countLikesByBoardSeq(Long boardSeq);
 }

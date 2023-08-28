@@ -26,4 +26,6 @@ public class LikeServiceImpl implements LikeService {
     public void createLike(Long boardSeq, LikeDto likeDto) {
         likeMapper.insertLike(likeDto);
     }
+
+
 }

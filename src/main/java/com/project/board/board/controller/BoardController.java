@@ -159,7 +159,7 @@ public class BoardController {
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
         model.addAttribute("board", board);
         model.addAttribute("comments", comments); // 댓글 목록 추가
-        return "views/board/boardDetail2";
+        return "views/board/boardDetail";
     }
 
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -32,7 +33,7 @@ public class LikeController {
      * 좋아요 동작
      */
     @PostMapping("addLike/{boardSeq}")
-    public String addLike(@PathVariable Long boardSeq,HttpSession session){
+    public String addLike(@PathVariable Long boardSeq,HttpSession session, Model model){
 
         // 댓글 작성자 정보 가져오기
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
@@ -40,12 +41,12 @@ public class LikeController {
         // 해당 게시글 정보 가져오기
         BoardDto board = boardService.getBoardBySeq(boardSeq);
 
-
         LikeDto likeDto = new LikeDto();
         likeDto.setBoardDto(board);
         likeDto.setMemberDto(loggedInUser);
-
         likeService.createLike(boardSeq, likeDto);
-        return "redirect:/comment/commentDetail2/" + boardSeq;
+
+
+        return "redirect:/comment/commentDetail/" + boardSeq;
     }
 }

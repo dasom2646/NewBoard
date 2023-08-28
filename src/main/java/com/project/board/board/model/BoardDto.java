@@ -30,6 +30,9 @@ public class BoardDto {
     private byte[] fileData; // 파일 데이터
     private List<CommentDto> comments; // 댓글
 
+    private Integer likeCount; // 좋아요 수량 필드 추가
+
+
     public List<String> getCategories() {
         return Arrays.asList(
                 "해외여행", "국내여행", "오늘의 책", "영화 리뷰", "뮤지컬·연극",
