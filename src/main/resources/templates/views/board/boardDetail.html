@@ -78,7 +78,7 @@
                     <span class="num_comment" th:text="${commentCount}">0</span>
                 </button>
             </div>
-            <div class="comment_content">
+            <div class="comment_content hidden" >
                 <!--        <div class="comment_none">-->
                 <!--            <strong class="tit_none">작성된 댓글이 없습니다.</strong>-->
                 <!--            <span class="txt_none">첫 번째 댓글을 남겨보세요!</span>-->
@@ -100,12 +100,6 @@
                     <div class="comment_write">
                         <form th:action="@{/comment/addComment/{boardSeq}(boardSeq=${boardSeq})}"
                               method="post">
-
-                            <!--  <div class="box_area">
-                                  <div class="nologin">지금 로그인하고 댓글을 작성해보세요!
-                                      누르면 손모양 -> 로그인페이지 넘어가기
-                                  </div>
-                              </div>-->
 
                             <div class="link_profile">
                                 <img alt="내프로필 이미지 ">
@@ -140,5 +134,24 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <!--<script th:src="@{/resource/js/scripts.js}"></script>-->
+
+<script th:inline="javascript">
+    /* ... (이전 JavaScript 코드) */
+
+    // 댓글 버튼 클릭 시 댓글 목록 토글
+    var commentButton = document.querySelector('.btn_comment');
+    var commentContent = document.querySelector('.comment_content');
+
+    commentButton.addEventListener('click', function() {
+        commentContent.classList.toggle('hidden');
+    });
+</script>
+
+
+
+
+
+
+
 </body>
 </html>

@@ -222,3 +222,8 @@ cursor: pointer;
 
   color: #6c757d !important;
   }
+
+
+  .hidden {
+      display: none;
+  }
