@@ -70,5 +70,45 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.getBoardsByCategory(category);
     }
 
+    public String getAdjustedButtonText(String category) {
+        if (category.equals("해외여행")) {
+            return "지구한바퀴";
+        } else if (category.equals("국내여행")) {
+            return "방방곡곡";
+        } else if (category.equals("오늘의 책")) {
+            return "오늘의";
+        } else if (category.equals("영화 리뷰")) {
+            return "취향저격";
+        } else if (category.equals("뮤지컬·연극")) {
+            return "문화생활";
+        } else if (category.equals("스포츠")) {
+            return "스포츠";
+        } else if (category.equals("나만의 맛집")) {
+            return "나만의";
+        } else if (category.equals("요리·레시피")) {
+            return "요리·레시피";
+        } else if (category.equals("사랑·이별")) {
+            return "사랑·이별";
+        } else if (category.equals("육아 이야기")) {
+            return "육아";
+        } else if (category.equals("직장인의 하루")) {
+            return "직장인의";
+        } else if (category.equals("반려동물")) {
+            return "반려동물";
+        } else if (category.equals("시사·이슈")) {
+            return "시사·이슈";
+        } else if (category.equals("IT 트렌드")) {
+            return "IT";
+        } else if (category.equals("사진·촬영")) {
+            return "사진·촬영";
+        } else if (category.equals("건강·운동")) {
+            return "건강·운동";
+        } else if (category.equals("감성 에세이")) {
+            return "감성 에세이";
+        } else if (category.equals("인테리어·집들이")) {
+            return "인테리어";
 
+        }
+        return category;
+    }
 }

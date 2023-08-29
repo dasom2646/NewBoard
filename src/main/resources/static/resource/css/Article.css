@@ -15,13 +15,13 @@ body {
 }
 
 .item_type_text {
-    font-size: 11pt;
-    letter-spacing: .8px;
-    line-height: 22pt;
+    font-size: 12pt;
+    letter-spacing: .7px;
+    line-height: 18pt;
     height: 700px; /* 원하는 높이로 조절 */
-    overflow-y: auto; /* 내용이 높이를 넘어가면 스크롤 표시 */
+    /*overflow-y: auto; /* 내용이 높이를 넘어가면 스크롤 표시 */
     margin: 0 auto;
-    overflow-x: hidden;
+   /* overflow-x: hidden;*/
     white-space: normal; /* 공백과 줄바꿈 처리 */
     padding-top:20px;
 
@@ -54,6 +54,7 @@ p, pre {
     overflow: visible;
     padding: 0;
     position: relative;
+    height:30px;
 }
 .comment_write .editor_wrap {
     font-size: 13px;
@@ -177,20 +178,16 @@ button, input, select, textarea {
 .comment_write{
   border: 1px solid #bbb;}
 
-.editor_footer {
-  border-top: 1px solid #bbb;
-  }
 
-  .editor_wrap {
-   border-top: 1px solid #bbb;
-   }
+
 
   .wrap_comment_btn{
   display:flex;
    justify-content: space-between;
-      align-items: center;
-       width: 100%; /* 원하는 너비 설정 */
-          margin: 0 auto;
+   align-items: center;
+   padding: 32px 0 70px;
+   margin: 0 auto;
+   width:760px
   }
 
 
@@ -214,10 +211,27 @@ cursor: pointer;
     padding-top: 40px;
   }
   .wrap_btn{
-  display:flex;
-  justify-content: flex-end;\
+  height:30px;}
 
+  .submit_btn{
+    border: 1px solid #bbb;
+     border-radius: 32px;
+     color: #666;
+     font-size: 12px;
+     height: 32px;
+     line-height: 28px;
+     width: 52px;
   }
+
+
+  .editor_footer {
+    align-items: center;
+       border-top: 1px solid #eee;
+       display: flex;
+       height: 62px;
+       justify-content: space-between;
+       padding: 0 21px;
+    }
   .info_article{
 
   color: #6c757d !important;
@@ -231,3 +245,28 @@ cursor: pointer;
     margin: 0 auto;
     width: 800px;
   }
+  .comment_list{
+  border-bottom: 1px solid #ddd;
+
+  }
+  .wrap_comment_btn{
+   border-bottom: 1px solid #ddd;
+  }
+
+.btn_like{
+align-items: center;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 42px;
+    color: #666;
+    font-size: 13px;
+    padding: 5px 17px;
+}
+.btn_comment{
+  background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 42px;
+    color: #666;
+    font-size: 13px;
+    padding: 5px 17px;
+}

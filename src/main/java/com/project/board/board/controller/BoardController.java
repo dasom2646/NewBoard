@@ -51,7 +51,7 @@ public class BoardController {
     @GetMapping("/boardHome")
     public String boardHome(@ModelAttribute("boardDto") BoardDto boardDto) {
 
-        return "views/board/boardDetail2";
+        return "views/board/boardList";
     }
 
     /**
