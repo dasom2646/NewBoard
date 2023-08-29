@@ -61,8 +61,13 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public BoardDto getBoardWithComments(Long boardSeq) {
-        return null;
+    public List<String> getAllCategories() {
+        return boardMapper.getAllCategories();
+    }
+
+    @Override
+    public List<BoardDto> getBoardsByCategory(String category) {
+        return boardMapper.getBoardsByCategory(category);
     }
 
 

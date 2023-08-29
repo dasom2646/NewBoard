@@ -22,5 +22,9 @@ public interface BoardMapper {
     // 조회수
     void increaseViews(Long boardSeq);
 
+    List<String> getAllCategories();
+    List<BoardDto> getBoardsByCategory(String category);
+
+
 
 }

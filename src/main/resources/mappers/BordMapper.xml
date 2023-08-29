@@ -92,5 +92,11 @@
         WHERE B.BOARD_SEQ = #{boardSeq}
     </select>
 
+    <select id="getAllCategories" resultType="java.lang.String">
+        SELECT DISTINCT category FROM TB_BOARD;
+    </select>
 
+    <select id="getBoardsByCategory"  resultType="com.project.board.board.model.BoardDto">
+        SELECT * FROM board WHERE category = #{category};
+    </select>
 </mapper>

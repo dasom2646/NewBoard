@@ -20,10 +20,11 @@ public interface BoardService {
     // 조회수
     BoardDto getAndIncreaseViews(Long boardSeq);
 
-    BoardDto getBoardWithComments(Long boardSeq);
+    // 모든 카테고리
+    List<String> getAllCategories();
 
-
-
+    // 카테고리별 글 가져오기
+    List<BoardDto> getBoardsByCategory(String category);
 
 
 }
