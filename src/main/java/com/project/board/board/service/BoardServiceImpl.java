@@ -49,6 +49,12 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.getAllBoards();
     }
 
+    //  작성자로 전체 조회
+    @Override
+    public List<BoardDto> getBoardByMemberSeq(Long memberSeq) {
+        return boardMapper.getAllBoardByMemberSeq(memberSeq);
+    }
+
     @Override
     public BoardDto getAndIncreaseViews(Long boardSeq) {
 

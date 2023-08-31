@@ -19,12 +19,15 @@ public interface BoardMapper {
     // 게시글 전체 조회
     List<BoardDto> getAllBoards();
 
+    // 게시글 작성자로 전체 조회
+    List<BoardDto> getAllBoardByMemberSeq(Long memberSeq);
+
     // 조회수
     void increaseViews(Long boardSeq);
 
     List<String> getAllCategories();
-    List<BoardDto> getBoardsByCategory(String category);
 
+    List<BoardDto> getBoardsByCategory(String category);
 
 
 }

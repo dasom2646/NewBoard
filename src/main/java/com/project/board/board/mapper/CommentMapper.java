@@ -13,4 +13,7 @@ public interface CommentMapper {
 
     // 해당 게시글에 대한 댓글 목록 가져오기
     List<CommentDto> getCommentsForBoard(@Param("boardSeq") Long boardSeq);
+
+    // 작성자로 조회
+    List<CommentDto> getAllCommentsByMemberSeq(Long memberSeq);
 }

@@ -27,4 +27,10 @@ public class CommentServiceImpl implements CommentService {
     public List<CommentDto> getCommentsForBoard(Long boardSeq) {
         return commentMapper.getCommentsForBoard(boardSeq);
     }
+
+    // 작성자로 조회
+    @Override
+    public List<CommentDto> getCommentsByMemberSeq(Long memberSeq) {
+        return commentMapper.getAllCommentsByMemberSeq(memberSeq);
+    }
 }

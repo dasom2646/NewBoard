@@ -26,4 +26,8 @@
     </select>
 
 
+    <select id="getAllCommentsByMemberSeq" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
+        SELECT * FROM TB_COMMENT WHERE MEMBER_SEQ = #{memberSeq}
+    </select>
+
 </mapper>

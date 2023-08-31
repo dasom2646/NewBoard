@@ -52,6 +52,13 @@
         JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
         ORDER BY BOARD_SEQ DESC
     </select>
+
+    <select id="getAllBoardByMemberSeq" resultType="com.project.board.board.model.BoardDto">
+        SELECT * FROM TB_BOARD
+        WHERE MEMBER_SEQ = #{memberDto.memberSeq}
+    </select>
+
+
     <select id="getBoardBySeq" resultMap="boardResultMap" parameterType="long">
         SELECT
         B.BOARD_SEQ,
@@ -96,7 +103,7 @@
         SELECT DISTINCT category FROM TB_BOARD;
     </select>
 
-    <select id="getBoardsByCategory"  resultType="com.project.board.board.model.BoardDto">
-        SELECT * FROM board WHERE category = #{category};
+    <select id="getBoardsByCategory" resultType="com.project.board.board.model.BoardDto">
+        SELECT * FROM TB_BOARD WHERE category = #{category};
     </select>
 </mapper>
