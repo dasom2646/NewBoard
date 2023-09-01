@@ -1,0 +1,96 @@
+*, :after, :before {
+    box-sizing: inherit;
+}
+button{
+    cursor: pointer;
+}
+a:hover {
+    color: #1dc078;
+    
+}
+a {
+   /* color:  #363636;*/
+   color: #7ac142
+   text-decoration: none;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header_menu > * {
+    margin-right: 20px; /* 각 메뉴 아이템 간격 추가 */
+
+
+}
+
+.header_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* 부모의 가로 폭을 100%로 설정 */
+    margin-bottom: 20px; /* 메뉴 아래에 간격 추가 */
+     cursor: pointer;
+}
+
+.header_right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.header_right {
+    margin-left: auto;
+}
+
+.header_buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+}
+
+
+.btn_login,
+.btn_join {
+    padding: 8px;
+    margin-right: 10px;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 35px;
+    color: #666;
+    font-size: 13px;
+   /*     padding: 5px 17px;*/
+}
+.btn_join {
+color: #7ac142
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: auto; /* 검색창을 메뉴와 오른쪽으로 이동 */
+}
+  #search-input {
+    flex: 1;
+    border: none;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .icon {
+    cursor: pointer;
+    padding: 5px;
+        margin-right: 5px;
+  }
+  .header_inner{
+     padding: 64px 0 20px;
+     background: #FFFFFF;
+     border-bottom: 1px solid #EAEDEF;
+  }
+  .btn_join{
+     background-color: #9abf7f;
+     color:#fff;
+   }
+

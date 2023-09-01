@@ -22,7 +22,7 @@ public class HomeController {
     public String home(Model model) {
         List<String> categories = boardService.getAllCategories();
         model.addAttribute("categories", categories);
-        return "views/home";
+        return "views/newHome";
     }
     @GetMapping("/category/{categoryName}")
     public String showCategory(@PathVariable String categoryName, Model model) {

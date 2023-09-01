@@ -1,3 +1,7 @@
+.text-center {
+    text-align: center !important;
+}
+
 .button-container {
   display: flex;
   flex-direction: column; /* 열 방향으로 배치 */
