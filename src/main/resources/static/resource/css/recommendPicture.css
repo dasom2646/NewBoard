@@ -120,51 +120,5 @@ font-size: 18px;
      color:#fff;
    }
 
-.recommend_pic{
-    margin:100px;
-}
+/* main 사진부분 */
 
-.pic_info-wrap {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4개의 섹션을 가로로 나열 */
-    gap: 20px; /* 각 섹션 사이의 간격 설정 */
-}
-.pic_article{
-    position: relative;
-    display: flex;
-    width: 100%;
-    min-width: 0px;
-    flex-flow: column;
-
-}
-.pic_details{
-    overflow: hidden;
-    position: relative;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-     height: 200px;
-
-}
-
-
-.pic_title{
-    font-size: 16px;
-    line-height: 24px;
-    margin-top: 10px;
-    }
-
-.btn_pic{
-
-    color: #259c72;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 700;
-    border: none;
-    background: none;
-    padding: 20px 0px;
-}
-.btn_more{
-display:flex;
-justify-content: flex-end;
-}

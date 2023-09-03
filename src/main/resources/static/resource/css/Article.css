@@ -12,6 +12,10 @@ body {
     background: #fff;
     color: #333;
 
+        max-width: 1400px;
+        margin: 0 auto;
+
+
 }
 
 .item_type_text {
