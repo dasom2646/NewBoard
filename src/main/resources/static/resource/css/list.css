@@ -65,3 +65,7 @@ li {
 .list_name{
 display:flex;
 }
+
+.truncate{
+white-space:pre-line;
+}

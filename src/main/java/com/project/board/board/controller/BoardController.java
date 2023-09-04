@@ -111,6 +111,9 @@ public class BoardController {
             } catch (IOException e) {
                 e.printStackTrace();
                 // 파일 업로드 실패 시 예외 처리
+
+
+                // 파일이 저장되는 절대경로 지정 실제 파일 쓰기 만들기(팩스처럼)
             }
         }
 
@@ -125,8 +128,8 @@ public class BoardController {
             return "redirect:" + returnUrl;
         }
 
-        // return "redirect:/board/list";//
-        return "views/board/list";
+        return "redirect:/board/boardList";
+
     }
 
     //    /**

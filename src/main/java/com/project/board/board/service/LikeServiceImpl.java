@@ -23,8 +23,8 @@ public class LikeServiceImpl implements LikeService {
     }
 
     @Override
-    public void createLike(Long boardSeq, LikeDto likeDto) {
-        likeMapper.insertLike(likeDto);
+    public int createLike(Long boardSeq, LikeDto likeDto) {
+        return likeMapper.insertLike(likeDto);
     }
 
 

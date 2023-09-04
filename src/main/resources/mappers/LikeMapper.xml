@@ -21,15 +21,15 @@
 
     <insert id="insertLike" parameterType="com.project.board.board.model.LikeDto">
         INSERT INTO TB_LIKE (
-        LIKE_SEQ
-        , MEMBER_SEQ
-        , BOARD_SEQ
-        , CREATED_AT
+            LIKE_SEQ
+            , MEMBER_SEQ
+            , BOARD_SEQ
+            , CREATED_AT
         ) VALUES (
-        NEXTVAL('LIKE_SEQ')
-        , #{memberDto.memberSeq}
-        , #{boardDto.boardSeq}
-        , CURRENT_TIMESTAMP
+            NEXTVAL('LIKE_SEQ')
+            , #{memberDto.memberSeq}
+            , #{boardDto.boardSeq}
+            , CURRENT_TIMESTAMP
         )
     </insert>
 
