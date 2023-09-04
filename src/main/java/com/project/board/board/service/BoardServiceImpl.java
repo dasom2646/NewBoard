@@ -65,6 +65,11 @@ public class BoardServiceImpl implements BoardService {
 
         return board;
     }
+    // 사진 게시글4개
+    @Override
+    public List<BoardDto> getLatestFourBoards() {
+        return boardMapper.findTop4ByOrderByBoardSeqDesc();
+    }
 
     @Override
     public List<String> getAllCategories() {

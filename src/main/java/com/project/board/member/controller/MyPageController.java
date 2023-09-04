@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequestMapping("/mypage")
+@RequestMapping("/myPage")
 public class MyPageController {
 
     private final MemberService memberService;
@@ -29,11 +29,12 @@ public class MyPageController {
         this.commentService = commentService;
     }
 
-    @GetMapping
+    @GetMapping("showMyPage")
     public String showMyPage(@RequestParam("memberSeq") Long memberSeq, Model model) {
         List<BoardDto> myBoards = boardService.getBoardByMemberSeq(memberSeq);
         List<CommentDto> myComments = commentService.getCommentsByMemberSeq(memberSeq);
-// 가져온 글과 댓글을 모델에 담아 뷰로 전달한다
+
+        // 가져온 글과 댓글을 모델에 담아 뷰로 전달한다
         model.addAttribute("myBoards", myBoards);
         model.addAttribute("myComments", myComments);
         return "view/member/mypage";

@@ -2,19 +2,17 @@ div {
     display: block;
 }
 
-body, button, input, select, td, textarea, th {
+/*body, button, input, select, td, textarea, th {
     font-size: 14px;
     line-height: 1.5;
-    height: 100%;
    overflow-y: auto;
-}
+}*/
+
 body {
     background: #fff;
     color: #333;
-
-        max-width: 1400px;
-        margin: 0 auto;
-
+    max-width: 1400px;
+    margin: 0 auto;
 
 }
 
@@ -50,6 +48,7 @@ p, pre {
 .comment_write .box_area {
     background-color: #fff;
     border: 1px solid #ddd;
+    border-radius: 4px;
     box-sizing: border-box;
     position: relative;
     width: 800px;
@@ -144,11 +143,7 @@ body, button, input, select, td, textarea, th {
     justify-content: space-between;
     padding: 32px 0 70px;
 }
-blockquote, body, button, code, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul{
-    margin: 0;
-    padding: 0;
-    text-rendering: inherit;
-}
+
 
 button, input, select, textarea {
     vertical-align: middle;
@@ -228,49 +223,53 @@ cursor: pointer;
   }
 
 
-  .editor_footer {
-    align-items: center;
-       border-top: 1px solid #eee;
-       display: flex;
-       height: 62px;
-       justify-content: space-between;
-       padding: 0 21px;
-    }
-  .info_article{
+.editor_footer {
+   align-items: center;
+   border-top: 1px solid #eee;
+   display: flex;
+   height: 62px;
+   justify-content: space-between;
+   padding: 0 21px;
+}
 
-  color: #6c757d !important;
-  }
+.info_article{
+    color: #6c757d !important;
+}
 
 
-  .hidden {
+.hidden {
       display: none;
-  }
-  .list_btn{
+}
+
+.list_btn{
     margin: 0 auto;
     width: 800px;
-  }
-  .comment_list{
-  border-bottom: 1px solid #ddd;
+}
 
-  }
-  .wrap_comment_btn{
-   border-bottom: 1px solid #ddd;
-  }
+.comment_list{
+    border-bottom: 1px solid #ddd;
+
+}
+.wrap_comment_btn{
+    border-bottom: 1px solid #ddd;
+}
 
 .btn_like{
 align-items: center;
     background-color: #fff;
     border: 1px solid #bbb;
-    border-radius: 42px;
+    border-radius: 15px;
     color: #666;
     font-size: 13px;
     padding: 5px 17px;
 }
 .btn_comment{
-  background-color: #fff;
+    background-color: #fff;
     border: 1px solid #bbb;
-    border-radius: 42px;
+    border-radius: 15px;
     color: #666;
     font-size: 13px;
     padding: 5px 17px;
+    display: flex;
+    align-items: center;
 }

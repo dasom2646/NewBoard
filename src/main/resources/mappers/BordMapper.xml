@@ -106,4 +106,13 @@
     <select id="getBoardsByCategory" resultType="com.project.board.board.model.BoardDto">
         SELECT * FROM TB_BOARD WHERE category = #{category};
     </select>
+    <select id="findTop4ByOrderByBoardSeqDesc" resultMap="boardResultMap">
+        SELECT * FROM TB_BOARD
+        ORDER BY board_seq DESC
+        LIMIT 4
+    </select>
+
+
+
+
 </mapper>

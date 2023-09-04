@@ -22,9 +22,11 @@ public interface BoardMapper {
     // 게시글 작성자로 전체 조회
     List<BoardDto> getAllBoardByMemberSeq(Long memberSeq);
 
+
     // 조회수
     void increaseViews(Long boardSeq);
-
+    // 사진 게시글4개
+    List<BoardDto> findTop4ByOrderByBoardSeqDesc();
     List<String> getAllCategories();
 
     List<BoardDto> getBoardsByCategory(String category);

@@ -23,14 +23,16 @@ body{
 button{
     cursor: pointer;
 }
-a:hover {
+/*a:hover {
     color: #1dc078;
-    
-}
+
+}*/
 a {
    /* color:  #363636;*/
-   color: #7ac142
    text-decoration: none;
+}
+.header_left a:hover{
+   color: #1dc078;
 }
 .container {
     max-width: 1200px;
@@ -154,7 +156,7 @@ font-size: 18px;
     }
 
 .btn_pic{
-
+    text-decoration: none;
     color: #259c72;
     cursor: pointer;
     font-size: 16px;

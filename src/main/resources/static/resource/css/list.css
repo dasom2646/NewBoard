@@ -9,7 +9,7 @@
 
 .wrap_contents {
     background-color: #fff;
-    border-top: 1px solid #ddd;
+
 }
 
 div {
@@ -46,7 +46,8 @@ li {
 }
 .title_article{
     font-size: 20px;
-    font-weight: normal;
+    font-weight: bold;
+    line-height: 2;
 }
 
 .title_article .wrap_article_list {
@@ -55,5 +56,12 @@ li {
 
 /* 마우스 오버 시 밑줄 생성하기 */
 .title_article:hover {
-    text-decoration: underline;
+ color: #7ac142
+}
+
+.article_title{
+    padding-bottom:10px;
+}
+.list_name{
+display:flex;
 }

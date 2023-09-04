@@ -11,7 +11,7 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link rel="stylesheet" th:href="@{/resource/css/styles.css}"/>
+
     <link rel="stylesheet" th:href="@{/resource/css/Article.css}"/>
     <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
 
@@ -36,6 +36,8 @@
                     게시글 날짜
                 </div>
                 <div class="item_type_text">
+                    <img src="/board/getImage?filename=<%= boardDto.getFilename() %>" alt="게시글 이미지" />
+
                     <pre class="item_type_text"
                          th:utext="${#strings.replace(board.boardContent, '\n', '<br>')}">글내용</pre>
                 </div>
@@ -113,7 +115,7 @@
             </div>
         </div>
         <div class="list_btn">
-            <a th:href="@{/board/boardList}">목록으로 돌아가기</a>
+            <a th:href="@{/board/boardList}">목록으로</a>
         </div>
     </div>
 

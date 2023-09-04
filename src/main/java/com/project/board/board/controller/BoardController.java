@@ -125,7 +125,8 @@ public class BoardController {
             return "redirect:" + returnUrl;
         }
 
-        return "redirect:/board/boardHome";
+        // return "redirect:/board/list";//
+        return "views/board/list";
     }
 
     //    /**
@@ -144,7 +145,6 @@ public class BoardController {
     public String boardList(Model model) {
         List<BoardDto> boardList = boardService.getAllBoardList();
         model.addAttribute("boardList", boardList);
-//        return "views/board/boardList";
         return "views/board/list";
     }
 
@@ -165,5 +165,14 @@ public class BoardController {
         model.addAttribute("commentCount", commentCount); // 댓글 수량 추가
         return "views/board/boardDetail";
     }
+
+     // 사진 게시글4개
+     @GetMapping("/picLatest")
+     public String picLatestBoards(Model model) {
+         List<BoardDto> latestBoards = boardService.getLatestFourBoards();
+         model.addAttribute("latestBoards", latestBoards);
+         return "views/newHome";
+     }
+
 
 }

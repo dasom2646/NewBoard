@@ -22,6 +22,8 @@ public interface BoardService {
     // 조회수
     BoardDto getAndIncreaseViews(Long boardSeq);
 
+    // 사진 게시글4개
+    List<BoardDto> getLatestFourBoards();
     // 모든 카테고리
     List<String> getAllCategories();
 
