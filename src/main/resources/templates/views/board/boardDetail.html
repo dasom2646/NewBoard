@@ -33,8 +33,8 @@
                      th:text="${'by ' + board.memberDto.memberId +' · ' + #dates.format(board.createdDate, 'yyyy.MM.dd HH:mm') + ' · 조회 ' + board.boardViews}">
                     게시글 날짜
                 </div>
-                <div class="item_type_text">
-                    <img src="" alt="게시글 이미지"/>
+                <div class="item_text">
+                    <img src="${imageUrl}" alt="게시글 이미지">
 
                     <pre class="item_type_text"
                          th:utext="${#strings.replace(board.boardContent, '\n', '<br>')}">글내용</pre>

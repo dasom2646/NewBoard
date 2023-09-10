@@ -10,6 +10,10 @@ import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -169,14 +174,23 @@ public class BoardController {
 
         // 게시글에 해당하는 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
+
         // 댓글 수량 계산
         int commentCount = comments.size();
+
+        // 이미지 파일의 파일명 (이미지 파일이 boardDto에 있는 경우)
+        String imageFilename = board.getFilename();
+
+        // 이미지 파일의 URL을 생성
+        String imageUrl = "/image?filename=" + imageFilename;
 
         model.addAttribute("board", board);
         model.addAttribute("comments", comments); // 댓글 목록 추가
         model.addAttribute("commentCount", commentCount); // 댓글 수량 추가
+        model.addAttribute("imageUrl", imageUrl); // 이미지 URL 추가
         return "views/board/boardDetail";
     }
+
 
     // 사진 게시글4개
     @GetMapping("/picLatest")
