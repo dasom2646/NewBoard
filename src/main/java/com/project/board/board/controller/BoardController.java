@@ -9,6 +9,7 @@ import com.project.board.board.service.LikeService;
 import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,6 +40,9 @@ public class BoardController {
         this.likeService = likeService;
 
     }
+
+    @Value("${file.dir}")
+    private String fileDir;
 
     // 로그인 상태 확인
     private boolean isLoggedIn(HttpSession session) {
@@ -103,18 +108,22 @@ public class BoardController {
                 String extension = originalFilename.substring(originalFilename.lastIndexOf(".")); // 확장자 추출
                 String newFilename = uuid.toString() + extension; // 새 파일명 생성
 
+                // 파일을 저장할 경로 설정
+                String filePath = fileDir + newFilename; // fileDir에 파일명을 붙여 경로 설정
+
+
                 // 파일 데이터를 바이트 배열로 변환하여 DTO에 저장
                 boardDto.setFilename(newFilename);
                 boardDto.setFileData(file.getBytes()); // 파일 데이터를 바이트 배열로 변환하여 DTO에 저장
+
                 // 새로운 파일명 설정
-                boardDto.setFilename(newFilename);
+                File destFile = new File(filePath);
+                file.transferTo(destFile);
             } catch (IOException e) {
                 e.printStackTrace();
                 // 파일 업로드 실패 시 예외 처리
-
-
-                // 파일이 저장되는 절대경로 지정 실제 파일 쓰기 만들기(팩스처럼)
             }
+
         }
 
 
@@ -169,13 +178,13 @@ public class BoardController {
         return "views/board/boardDetail";
     }
 
-     // 사진 게시글4개
-     @GetMapping("/picLatest")
-     public String picLatestBoards(Model model) {
-         List<BoardDto> latestBoards = boardService.getLatestFourBoards();
-         model.addAttribute("latestBoards", latestBoards);
-         return "views/newHome";
-     }
+    // 사진 게시글4개
+    @GetMapping("/picLatest")
+    public String picLatestBoards(Model model) {
+        List<BoardDto> latestBoards = boardService.getLatestFourBoards();
+        model.addAttribute("latestBoards", latestBoards);
+        return "views/newHome";
+    }
 
 
 }
