@@ -26,7 +26,7 @@ public class BoardDto {
     private Integer boardViews; // 조회수
 
     private String memberId; // 작성자
-    private long memberSeq; // 맴버 시퀀스
+    private Long memberSeq; // 맴버 시퀀스
 
 
     private List<String> categories; // 카테고리 목록

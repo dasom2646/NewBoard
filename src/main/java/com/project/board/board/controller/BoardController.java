@@ -103,8 +103,8 @@ public class BoardController {
         }
         // 사용자 정보 설정
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
-
-        boardDto.setMemberSeq(loggedInUser.getMemberSeq());
+       boardDto.setMemberSeq(loggedInUser.getMemberSeq());
+       // todo 에러 해결
 
         if (!file.isEmpty()) {
             try {
@@ -174,7 +174,6 @@ public class BoardController {
 
         // 게시글에 해당하는 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
-
 
         // 댓글 수량 계산
         int commentCount = comments.size();

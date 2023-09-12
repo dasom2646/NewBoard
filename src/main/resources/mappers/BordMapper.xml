@@ -11,10 +11,10 @@
             , BOARD_TITLE
             , BOARD_CONTENT
             , created_DATE
-            , board_Views
-            , category
-            , MEMBER_SEQ
+            , BOARD_VIEWS
+            , CATEGORY
             , FILENAME
+            , MEMBER_SEQ
         ) VALUES (
              NEXTVAL('BOARD_SEQ')
             , #{boardTitle}
@@ -22,8 +22,9 @@
             , CURRENT_TIMESTAMP
             , #{boardViews}
             , #{category}
-            , #{memberSeq}
             , #{filename}
+            , #{memberSeq}
+        )
     </insert>
     <select id="getAllBoards" resultType="com.project.board.board.model.BoardDto">
         SELECT

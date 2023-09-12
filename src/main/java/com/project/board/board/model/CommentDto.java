@@ -17,7 +17,7 @@ public class CommentDto {
     private String content; // 댓글 내용
     private Timestamp createdDate; // 댓글 작성일
 
-    private long memberSeq; // 맴버 시퀀스
+    private Long memberSeq; // 맴버 시퀀스
 
     private BoardDto boardDto; // 댓글이 속한 게시글 정보 저장
 }
