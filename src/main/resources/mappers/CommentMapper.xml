@@ -16,7 +16,7 @@
         NEXTVAL('COMMENT_SEQ')
         , #{content}
         , CURRENT_TIMESTAMP
-        , #{memberDto.memberSeq}
+        , #{memberSeq}
         , #{boardDto.boardSeq})
     </insert>
 

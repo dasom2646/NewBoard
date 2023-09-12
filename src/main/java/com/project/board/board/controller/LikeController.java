@@ -44,10 +44,8 @@ public class LikeController {
 
         LikeDto likeDto = new LikeDto();
         likeDto.setBoardDto(board);
-        likeDto.setMemberDto(loggedInUser);
-        // todo setMemberDto 바꾸기
+        likeDto.setMemberSeq(loggedInUser.getMemberSeq());
         likeService.createLike(boardSeq, likeDto);
-
 
         return "redirect:/comment/commentDetail/" + boardSeq;
     }
@@ -70,8 +68,7 @@ public class LikeController {
 
         LikeDto likeDto = new LikeDto();
         likeDto.setBoardDto(board);
-        likeDto.setMemberDto(loggedInUser);
-
+        likeDto.setMemberSeq(loggedInUser.getMemberSeq());
         Map<String, Object> resultMap = new HashMap<>();
         resultMap.put("isSuccess", true);
 

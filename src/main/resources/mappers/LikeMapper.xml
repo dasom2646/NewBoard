@@ -5,19 +5,6 @@
 
 
 <mapper namespace="com.project.board.board.mapper.LikeMapper">
-    <!--    <insert id="insertLike" parameterType="com.project.board.board.model.LikeDto">-->
-    <!--        INSERT INTO lTB_LIKE (-->
-    <!--        LIKE_SEQ-->
-    <!--        , MEMBER_SEQ-->
-    <!--        , BOARD_SEQ-->
-    <!--        , CREATED_AT-->
-    <!--        ) VALUES (-->
-    <!--        NEXTVAL('LIKE_SEQ')-->
-    <!--        , #{memberDto.memberSeq}-->
-    <!--        , #{boardDto.boardSeq}-->
-    <!--        , CURRENT_TIMESTAMP-->
-    <!--        )-->
-    <!--    </insert>-->
 
     <insert id="insertLike" parameterType="com.project.board.board.model.LikeDto">
         INSERT INTO TB_LIKE (
@@ -27,7 +14,7 @@
             , CREATED_AT
         ) VALUES (
             NEXTVAL('LIKE_SEQ')
-            , #{memberDto.memberSeq}
+            , #{memberSeq}
             , #{boardDto.boardSeq}
             , CURRENT_TIMESTAMP
         )

@@ -38,12 +38,9 @@ public class CommentController {
         // 해당 게시글 정보 가져오기
         BoardDto board = boardService.getBoardBySeq(boardSeq);
 
-
-        // CommentDto 생성 및 설정
         CommentDto commentDto = new CommentDto();
         commentDto.setContent(commentContent);
-        commentDto.setMemberDto(loggedInUser);
-        // todo 바꾸기
+        commentDto.setMemberSeq(loggedInUser.getMemberSeq());
         commentDto.setBoardDto(board);
 
         // 댓글 저장
