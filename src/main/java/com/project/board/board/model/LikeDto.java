@@ -12,6 +12,10 @@ import java.sql.Timestamp;
 public class LikeDto {
     private Long likeSeq;
     private MemberDto memberDto; // 맴버 정보
+    // todo     private long memberSeq; // 맴버 시퀀스
+
     private BoardDto boardDto; // 게시글 정보
     private Timestamp createdAt; //좋아요시간
+
+    // todo   private String createdAt;
 }

@@ -40,7 +40,9 @@
                                  th:utext="${#strings.replace(board.boardContent, '\n', '<br>')}">글내용</pre>
 
                             <div class="small text-muted"
-                                 th:text="${board.memberDto.memberId + ' · ' + #dates.format(board.createdDate, 'yyyy.MM.dd HH:mm') + ' · 조회 ' + board.boardViews}"></div>
+                                 th:text="${'by ' + board.memberId +' · ' + board.createdDate + ' · 조회 ' + board.boardViews}">
+
+                            </div>
 
                             <hr>
                         </div>

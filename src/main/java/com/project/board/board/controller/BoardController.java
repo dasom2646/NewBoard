@@ -103,7 +103,8 @@ public class BoardController {
         }
         // 사용자 정보 설정
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
-        boardDto.setMemberDto(loggedInUser);
+
+        boardDto.setMemberSeq(loggedInUser.getMemberSeq());
 
         if (!file.isEmpty()) {
             try {
@@ -119,7 +120,6 @@ public class BoardController {
 
                 // 파일 데이터를 바이트 배열로 변환하여 DTO에 저장
                 boardDto.setFilename(newFilename);
-                boardDto.setFileData(file.getBytes()); // 파일 데이터를 바이트 배열로 변환하여 DTO에 저장
 
                 // 새로운 파일명 설정
                 File destFile = new File(filePath);
@@ -174,6 +174,7 @@ public class BoardController {
 
         // 게시글에 해당하는 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
+
 
         // 댓글 수량 계산
         int commentCount = comments.size();

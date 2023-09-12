@@ -43,6 +43,7 @@ public class CommentController {
         CommentDto commentDto = new CommentDto();
         commentDto.setContent(commentContent);
         commentDto.setMemberDto(loggedInUser);
+        // todo 바꾸기
         commentDto.setBoardDto(board);
 
         // 댓글 저장

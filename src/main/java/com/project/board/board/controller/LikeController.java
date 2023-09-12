@@ -45,6 +45,7 @@ public class LikeController {
         LikeDto likeDto = new LikeDto();
         likeDto.setBoardDto(board);
         likeDto.setMemberDto(loggedInUser);
+        // todo setMemberDto 바꾸기
         likeService.createLike(boardSeq, likeDto);
 
 

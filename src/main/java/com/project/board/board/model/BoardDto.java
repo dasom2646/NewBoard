@@ -22,13 +22,16 @@ public class BoardDto {
     private String category; // 게시글 카테고리
     private String boardTitle; // 게시글 제목
     private String boardContent; // 게시글 내용
-    private Timestamp createdDate; // 게시글 작성일
+    private String createdDate; // 게시글 작성일
     private Integer boardViews; // 조회수
-    private MemberDto memberDto; // 작성자
-    private List<String> categories; // 카테고리 목록
 
+    private String memberId; // 작성자
+    private long memberSeq; // 맴버 시퀀스
+
+
+    private List<String> categories; // 카테고리 목록
     private String filename; // 파일명
-    private byte[] fileData; // 파일 데이터
+
 
 
     private List<CommentDto> comments; // 댓글

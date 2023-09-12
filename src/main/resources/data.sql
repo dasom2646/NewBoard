@@ -158,6 +158,7 @@ INSERT INTO TB_BOARD ( BOARD_SEQ
                      , created_DATE
                      , board_Views
                      , category
+                     , FILENAME
                      , MEMBER_SEQ)
 VALUES (NEXTVAL('BOARD_SEQ'),
        '영혼의 탐색, 음악과 감동의 여정 ''소울''',
@@ -172,4 +173,5 @@ VALUES (NEXTVAL('BOARD_SEQ'),
        CURRENT_TIMESTAMP,
        0,
        '영화 리뷰',
+       '091e3e80-b9f9-47e0-9725-ca8ab11e600e.jpg',
        1);
