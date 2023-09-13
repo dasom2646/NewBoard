@@ -20,7 +20,7 @@ body {
     font-size: 12pt;
     letter-spacing: .7px;
     line-height: 18pt;
-    height: 700px; /* 원하는 높이로 조절 */
+/*    height: 700px; *//* 원하는 높이로 조절 */
     /*overflow-y: auto; /* 내용이 높이를 넘어가면 스크롤 표시 */
     margin: 0 auto;
    /* overflow-x: hidden;*/
@@ -279,9 +279,10 @@ align-items: center;
  white-space:pre-line;
  }
  .item_img{
-  display: flex;
-         justify-content: center;
-         align-items: center;
-         height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 20px;
      }
 

@@ -95,6 +95,8 @@ public class BoardServiceImpl implements BoardService {
             return "취향저격";
         } else if (category.equals("뮤지컬·연극")) {
             return "문화생활";
+        } else if (category.equals("엔터테인먼트")) {
+            return "엔터테인먼트";
         } else if (category.equals("스포츠")) {
             return "스포츠";
         } else if (category.equals("나만의 맛집")) {
@@ -113,8 +115,6 @@ public class BoardServiceImpl implements BoardService {
             return "시사·이슈";
         } else if (category.equals("IT 트렌드")) {
             return "IT";
-        } else if (category.equals("사진·촬영")) {
-            return "사진·촬영";
         } else if (category.equals("건강·운동")) {
             return "건강·운동";
         } else if (category.equals("감성 에세이")) {
