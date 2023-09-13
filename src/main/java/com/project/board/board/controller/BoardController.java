@@ -103,8 +103,6 @@ public class BoardController {
         }
         // 사용자 정보 설정
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
-       boardDto.setMemberSeq(loggedInUser.getMemberSeq());
-       // todo 에러 해결
 
         if (!file.isEmpty()) {
             try {
@@ -130,7 +128,7 @@ public class BoardController {
             }
 
         }
-
+        boardDto.setMemberSeq(loggedInUser.getMemberSeq());
 
         // 게시글 등록
         boardService.postBoard(boardDto);

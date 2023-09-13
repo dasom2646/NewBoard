@@ -233,7 +233,8 @@ cursor: pointer;
 }
 
 .info_article{
-    color: #6c757d !important;
+    color: #6c757d;
+    margin-bottom: 40px;
 }
 
 
@@ -277,3 +278,10 @@ align-items: center;
 .item_type_text{
  white-space:pre-line;
  }
+ .item_img{
+  display: flex;
+         justify-content: center;
+         align-items: center;
+         height: auto;
+     }
+
