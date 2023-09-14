@@ -82,8 +82,11 @@
                 <li class="comment_wrap" th:each="comment : ${comments}">
                     <div class="cont_info">
                         <div class="info_profile">
-                            <div class="tit_memberid">맴버아이디</div>
-                            <span class="txt_time">댓글 날짜시간</span>
+                            <div class="tit_memberid" >
+                               <span>by</span>
+                                <span th:text="${comment.memberId}"></span>
+                            </div>
+                            <span class="txt_time" th:text="${comment.createdDate}"></span>
                             <p th:text="${comment.content}">댓글</p>
                         </div>
                     </div>

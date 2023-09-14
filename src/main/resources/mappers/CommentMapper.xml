@@ -20,14 +20,33 @@
         , #{boardDto.boardSeq})
     </insert>
 
-
-    <select id="getCommentsForBoard" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
-        SELECT * FROM TB_COMMENT WHERE board_seq = #{boardSeq}
+ <!--   <select id="getCommentsForBoard" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
+        SELECT COMMENT_SEQ, CONTENT, TO_CHAR(CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE, MEMBER_SEQ, BOARD_SEQ
+        FROM TB_COMMENT
+        WHERE BOARD_SEQ = #{boardSeq}
+        ORDER BY BOARD_SEQ DESC
     </select>
+-->
+    <select id="getCommentsForBoard" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
+        SELECT C.COMMENT_SEQ, C.CONTENT, TO_CHAR(C.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE,
+        C.MEMBER_SEQ, C.BOARD_SEQ, M.MEMBER_ID
+        FROM TB_COMMENT C
+        LEFT JOIN TB_MEMBER M ON C.MEMBER_SEQ = M.MEMBER_SEQ
+        WHERE C.BOARD_SEQ = #{boardSeq}
+        ORDER BY C.CREATED_DATE ASC
+    </select>
+
+
+
+
+
+
+
 
 
     <select id="getAllCommentsByMemberSeq" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
         SELECT * FROM TB_COMMENT WHERE MEMBER_SEQ = #{memberSeq}
+
     </select>
 
 </mapper>
