@@ -563,3 +563,31 @@ VALUES (NEXTVAL('BOARD_SEQ')
       , '영화 리뷰'
       , '8ff098a7-76f0-44ec-b70e-c53a37295e8d.jpg'
       , 2);
+
+
+
+
+
+-- 댓글 데이터
+
+INSERT INTO TB_COMMENT ( COMMENT_SEQ
+                      , CONTENT
+                      , CREATED_DATE
+                      , MEMBER_SEQ
+                      , BOARD_SEQ)
+VALUES ( NEXTVAL('COMMENT_SEQ')
+       , '저는 피아노 연기하는 부분이 정말 좋았어요 영화 끝나고 나서도 생각날 정도예요!'
+       , CURRENT_TIMESTAMP
+       , 2
+       , 17);
+
+INSERT INTO TB_COMMENT ( COMMENT_SEQ
+                      , CONTENT
+                      , CREATED_DATE
+                      , MEMBER_SEQ
+                      , BOARD_SEQ)
+VALUES ( NEXTVAL('COMMENT_SEQ')
+       , '김혜수, 염정아, 조인성 이라니!! 안봐도 재밌을것 같아요! 조인성씨는 약간 제2의 모가디슈를 연상시키네요ㅎㅎ'
+       , CURRENT_TIMESTAMP
+       , 1
+       , 16);
