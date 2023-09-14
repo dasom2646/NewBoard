@@ -1,3 +1,17 @@
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+
+
 .text-center {
     text-align: center !important;
 }

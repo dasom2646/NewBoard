@@ -1,9 +1,39 @@
+
+@font-face {
+    font-family: 'Cafe24Simplehae';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Simplehae.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+ .text_by{
+      font-family: 'Cafe24Supermagic-Bold-v1.0';
+      color:#6E6E6E;
+ }
+
+body, bottom, p, pre, div   {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
 .wrap_article_list li{
     background-color: #fbfbfb;
     border-bottom: 1px solid #eee;
     box-sizing: border-box;
     min-height: 180px;
-    padding: 30px 20px;
+    padding: 20px 20px;
     position: relative;
 }
 

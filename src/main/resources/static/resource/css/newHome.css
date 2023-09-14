@@ -1,6 +1,19 @@
 *, :after, :before {
     box-sizing: inherit;
 }
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+body, bottom, p, pre, div   {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+
 @font-face {
     font-family: 'TTTtangsbudaejjigaeB';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
@@ -8,10 +21,11 @@
     font-style: normal;
 }
 
+
 .logo{
- font-family: 'TTTtangsbudaejjigaeB';
-     font-size: 25px;
-     line-height: 1;
+    font-family: 'TTTtangsbudaejjigaeB';
+    font-size: 25px;
+    line-height: 1;
     margin-right: 10px;
     color: #2F3438;
 }

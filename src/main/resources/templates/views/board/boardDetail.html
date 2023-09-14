@@ -13,7 +13,6 @@
     <!-- Header-->
     <div th:replace="views/fragments/headerLoggedIn"></div>
 
-
     <div class="content_wrap">
         <div class="article_wrap">
             <div class="article_main">
@@ -21,16 +20,23 @@
                 <div class="article_category">
                     <p th:text="'[' + ${board.category} + '] '">카테고리</p>
                 </div>
-                <div class="info_article"
-                     th:text="${'by ' + board.memberId +' · ' + board.createdDate + ' · 조회 ' + board.boardViews}">
-                    게시글 날짜
+                <div class="text_muted">
+                    <p>
+                        <span class="text_by">by</span>
+                        <span th:text="${board.memberId}"></span>
+                        <span>&#8231;</span>
+                        <span th:text="${board.createdDate}"></span>
+                        <span>&#8231;</span>
+                        <span th:text="${'조회 ' + board.boardViews}"></span>
+                    </p>
                 </div>
                 <div class="item_img">
-                    <img th:src="${'/image?filename=' + board.filename}" alt="게시글 이미지" style="max-width: 100%; max-height: 500px;">
+                    <img th:src="${'/image?filename=' + board.filename}" alt="게시글 이미지"
+                         style="max-width: 100%; max-height: 500px;">
                 </div>
                 <div class="item_text">
                     <pre class="item_type_text"
-                         th:utext="${#strings.replace(board.boardContent, '\n', '<br>')}">글내용</pre>
+                         th:utext="${board.boardContent}">글내용</pre>
                 </div>
             </div>
         </div>
