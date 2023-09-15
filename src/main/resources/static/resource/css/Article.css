@@ -19,24 +19,19 @@
 
 
 
- .text_by{
-      font-family: 'Cafe24Supermagic-Bold-v1.0';
-      color:#6E6E6E;
- }
+.text_by{
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    color:#6E6E6E;
+    font-size: 16px;
+}
 
-body, bottom, p, pre, div   {
+body, bottom, p, pre, div, textarea   {
  font-family: 'Noto Sans KR', sans-serif;
 }
 
 div {
     display: block;
 }
-
-/*body, button, input, select, td, textarea, th {
-    font-size: 14px;
-    line-height: 1.5;
-   overflow-y: auto;
-}*/
 
 body {
     background: #fff;
@@ -50,10 +45,7 @@ body {
     font-size: 12pt;
     letter-spacing: .7px;
     line-height: 18pt;
-/*    height: 700px; *//* 원하는 높이로 조절 */
-    /*overflow-y: auto; /* 내용이 높이를 넘어가면 스크롤 표시 */
     margin: 0 auto;
-   /* overflow-x: hidden;*/
     white-space: normal; /* 공백과 줄바꿈 처리 */
     padding-top:20px;
 
@@ -203,7 +195,7 @@ vertical-align: middle;
     width: 100%;
     height: 100%;
     border: none;
-    resize: none; /* 이 속성은 textarea의 사이즈 조절 핸들을 숨깁니다. */
+    resize: none; /* textarea의 사이즈 조절 핸들숨김 */
     padding: 10px;
     box-sizing: border-box;
 }
@@ -217,14 +209,11 @@ vertical-align: middle;
     border: 1px solid #bbb;
 }
 
-
-
-
 .wrap_comment_btn{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    padding: 32px 0 70px;
+    padding: 32px 0 30px;
     margin: 0 auto;
     width:760px
 }
@@ -240,14 +229,18 @@ button {
 }
 a{
 cursor: pointer;
-    text-decoration: none; /* 밑줄 제거 */
+    text-decoration: none;
     color: black;
 
 
 }
 .list_btn{
     padding-bottom: 20px;
-    padding-top: 40px;
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 800px;
+    font-size: 15px;
+
 }
 .wrap_btn{
     height:30px;
@@ -255,21 +248,24 @@ cursor: pointer;
 
 .submit_btn{
     border: 1px solid #bbb;
-    border-radius: 32px;
+    border-radius: 20px;
     color: #666;
-    font-size: 12px;
+    font-size: 14px;
     height: 32px;
     line-height: 28px;
     width: 52px;
-}
 
+}
+.submit_btn a:hover {
+    color: #1dc078;
+}
 
 .editor_footer {
    align-items: center;
    border-top: 1px solid #eee;
    display: flex;
+   justify-content: flex-end;
    height: 62px;
-   justify-content: space-between;
    padding: 0 21px;
 }
 
@@ -283,17 +279,12 @@ cursor: pointer;
       display: none;
 }
 
-.list_btn{
-    margin: 0 auto;
-    width: 800px;
-}
 
 .comment_list{
     border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 20px;
 
-}
-.wrap_comment_btn{
-    border-bottom: 1px solid #ddd;
 }
 
 .btn_like{
@@ -328,4 +319,3 @@ cursor: pointer;
     height: auto;
     margin-bottom: 20px;
 }
-

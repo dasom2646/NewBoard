@@ -97,11 +97,11 @@
                 <div class="comment_write">
                     <form th:action="@{/comment/addComment/{boardSeq}(boardSeq=${boardSeq})}"
                           method="post">
-
+<!--
                         <div class="link_profile">
                             <img alt="내프로필 이미지 ">
                             <strong class="txt_profile">유저 아이디</strong>
-                        </div>
+                        </div>-->
                         <div class="editor_wrap">
                             <input type="hidden" name="boardSeq" th:value="${boardSeq}"/>
                             <textarea id="textarea" name="commentContent" rows="3"
