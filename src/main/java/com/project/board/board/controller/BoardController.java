@@ -86,7 +86,7 @@ public class BoardController {
         );
         boardDto.setCategories(categories);
 
-        return "views/board/boardForm";
+        return "views/board/boardForm2";
     }
 
 
