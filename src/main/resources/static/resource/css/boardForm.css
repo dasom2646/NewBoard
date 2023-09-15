@@ -1,0 +1,34 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+.btn_write{
+    font-family: 'Noto Sans KR', sans-serif;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: #12B886;
+    color: #FFFFFF;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.text_title1{
+    font-family: 'Noto Sans KR', sans-serif;
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    outline: none;
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 70px;
+    resize: none; /* textarea의 사이즈 조절 핸들숨김 */
+    padding: 10px;
+    box-sizing: border-box;
+    align-items: center;
+}

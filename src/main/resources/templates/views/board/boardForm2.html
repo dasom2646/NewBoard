@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>글쓰기</title>
     <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
+    <link rel="stylesheet" th:href="@{/resource/css/boardForm.css}"/>
+
 
 </head>
 <body>
@@ -15,13 +17,13 @@
 <!--<div th:replace="views/fragments/headerLoggedIn"></div>-->
 
 <div id="counselWriteDiv" class="container">
-    <h3 id="counselWriteh1" class="text-center">글쓰기</h3>
+    <h3 id="counselWriteh1" class="text_center">글쓰기</h3>
 
     <form th:action="@{/board/upload}" th:object="${boardDto}" method="post" enctype="multipart/form-data">
 
         <h5 id="counselWriteh2">자신의 이야기를 공유 해보세요</h5>
 
-        <div class="form-group mb-4">
+        <div class="text_tag">
             <select th:field="*{category}">
                 <option value="" disabled selected>카테고리 선택</option>
                 <option value="해외여행">해외여행</option>
@@ -46,30 +48,29 @@
             </select>
         </div>
 
-        <div class="form-group mb-4">
-            <label class="form-label">제목</label>
-            <input type="text" th:field="*{boardTitle}" class="form-control" placeholder="제목을 작성해주세요">
+        <div class="text_title">
+            <textarea class="text_title1" th:field="*{boardTitle}"
+                      placeholder="제목을 작성해주세요"></textarea>
         </div>
 
-        <div class="form-group mb-4">
-            <label class="form-label">내용</label>
-            <textarea id="editor" th:field="*{boardContent}" class="form-control p-3"
+        <div class="text_content">
+            <!--      <label class="form-label">내용</label>-->
+            <textarea id="editor" th:field="*{boardContent}"
                       placeholder="내용을 작성해주세요"></textarea>
         </div>
 
 
         <input type="file" id="file" name="file" class="form-control-file">
         <div class="btn_wrap">
-        <button type="submit" class="btn_write">글 작성하기</button>
-        <button type="button" class="btn_cancel" onclick="location.href='@{/}'">취소하기</button>
+            <button type="button" class="btn_cancel" onclick="location.href='@{/}'">취소하기</button>
+            <button type="submit" class="btn_write">글 작성하기</button>
+
         </div>
     </form>
 
 </div>
 
-<!--<script th:src="@{/resource/js/jquery-3.7.1.min.js}"></script>-->
-<!--<script th:src="@{ckeditor5/build/ckeditor.js}"></script>-->
-<script  th:src="@{/ckeditor5/build/ckeditor.js}"></script>
+<script th:src="@{/ckeditor5/build/ckeditor.js}"></script>
 <script>
     ClassicEditor
         .create(document.querySelector('#editor'))
