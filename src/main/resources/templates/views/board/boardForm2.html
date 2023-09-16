@@ -9,23 +9,37 @@
     <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
     <link rel="stylesheet" th:href="@{/resource/css/boardForm.css}"/>
 
+    <style>
+        .ck.ck-editor{
 
+        max-width: 1000px;
+        }
+        .ck-editor__editable {
+            min-height: 400px;
+        }
+    </style>
+
+    </style>
 </head>
 <body>
 
 <!-- Header-->
 <!--<div th:replace="views/fragments/headerLoggedIn"></div>-->
 
-<div id="counselWriteDiv" class="container">
+<div id="counselWriteDiv" class="form_container">
     <h3 id="counselWriteh1" class="text_center">글쓰기</h3>
 
-    <form th:action="@{/board/upload}" th:object="${boardDto}" method="post" enctype="multipart/form-data">
+    <form class="tag_wrap" th:action="@{/board/upload}" th:object="${boardDto}" method="post"
+          enctype="multipart/form-data">
 
         <h5 id="counselWriteh2">자신의 이야기를 공유 해보세요</h5>
 
         <div class="text_tag">
+            <label>
+                어떤 글 인가요?
+            </label>
             <select th:field="*{category}">
-                <option value="" disabled selected>카테고리 선택</option>
+                <option value="">카테고리 선택</option>
                 <option value="해외여행">해외여행</option>
                 <option value="국내여행">국내여행</option>
                 <option value="오늘의 책">오늘의 책</option>
@@ -63,7 +77,7 @@
         <input type="file" id="file" name="file" class="form-control-file">
         <div class="btn_wrap">
             <button type="button" class="btn_cancel" onclick="location.href='@{/}'">취소하기</button>
-            <button type="submit" class="btn_write">글 작성하기</button>
+            <button type="submit" class="btn_write">작성하기</button>
 
         </div>
     </form>

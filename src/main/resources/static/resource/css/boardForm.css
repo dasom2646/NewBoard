@@ -3,32 +3,116 @@
 .notosanskr * {
     font-family: 'Noto Sans KR', sans-serif;
 }
-
-
-
+.form_container{
+    margin: auto;
+    max-width: 1000px;
+}
 .btn_write{
     font-family: 'Noto Sans KR', sans-serif;
-    align-items: center;
+    display:flex;
+    padding: 8px;
     cursor: pointer;
-    outline: none;
-    border: none;
     background: #12B886;
     color: #FFFFFF;
-    border-radius: 4px;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 70px;
+    height: 30px;
     align-items: center;
+    justify-content: space-around;
+    font-weight: 800;
+}
+
+
+.btn_cancel{
+    font-family: 'Noto Sans KR', sans-serif;
+    display:flex;
+    padding: 8px;
+    cursor: pointer;
+    margin-right: 8px;
+    background-color: #fff;
+    color: #666;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 70px;
+    height: 30px;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 500;
+
+
 }
 
 .text_title1{
     font-family: 'Noto Sans KR', sans-serif;
     display: block;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     outline: none;
     border: 1px solid #ddd;
-    width: 100%;
-    height: 70px;
+    width:  1000px;
+    height: 60px;
     resize: none; /* textarea의 사이즈 조절 핸들숨김 */
     padding: 10px;
     box-sizing: border-box;
     align-items: center;
 }
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: "Noto Sansf KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #444;
+  background-color: #fff;
+  padding: .6em 1.4em .5em .8em;
+  margin: 0;
+  border: 1px solid #aaa;
+  border-radius: .5em;
+}
+
+select:hover {
+  border-color: #888;
+}
+
+select:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+select:disabled {
+  opacity: 0.5;
+}
+
+label {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+
+  color: #444;
+
+  margin-right: 0.5em;
+}
+
+.text_tag {
+margin-bottom: 10px;
+}
+
+body {
+  margin: 0;
+}
+
+.btn_wrap{
+    display: flex;
+    justify-content: flex-end;
+}
+
+

@@ -67,7 +67,7 @@
                         <path d="M8 11H8.009M11.991 11H12M15.991 11H16" stroke="#1C274C" stroke-width="2"
                               stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    댓글 <span class="num_comment" >0</span>
+                    댓글 <span class="num_comment">0</span>
                 </button>
             </div>
             <!-- 댓글이 없을 경우 이 부분을 표시 -->
@@ -82,7 +82,7 @@
                 <li class="comment_wrap" th:each="comment : ${comments}">
                     <div class="cont_info">
                         <div class="info_profile">
-                            <div class="tit_memberid" >
+                            <div class="tit_memberid">
                                 <span class="text_by">by</span>
                                 <span th:text="${comment.memberId}"></span>
                             </div>
@@ -97,11 +97,11 @@
                 <div class="comment_write">
                     <form th:action="@{/comment/addComment/{boardSeq}(boardSeq=${boardSeq})}"
                           method="post">
-<!--
-                        <div class="link_profile">
-                            <img alt="내프로필 이미지 ">
-                            <strong class="txt_profile">유저 아이디</strong>
-                        </div>-->
+                        <!--<div class="link_profile">
+                                <img alt="내프로필 이미지 ">
+                                <strong class="txt_profile">유저 아이디</strong>
+                            </div>-->
+
                         <div class="editor_wrap">
                             <input type="hidden" name="boardSeq" th:value="${boardSeq}"/>
                             <textarea id="textarea" name="commentContent" rows="3"
