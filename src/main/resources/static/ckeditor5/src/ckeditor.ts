@@ -11,7 +11,7 @@ import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CKBox } from '@ckeditor/ckeditor5-ckbox';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
-import { FontBackgroundColor, FontColor, FontFamily } from '@ckeditor/ckeditor5-font';
+import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
 import {
 	Image,
@@ -44,6 +44,7 @@ class Editor extends ClassicEditor {
 		FontBackgroundColor,
 		FontColor,
 		FontFamily,
+		FontSize,
 		Heading,
 		Image,
 		ImageCaption,
@@ -66,24 +67,23 @@ class Editor extends ClassicEditor {
 	public static override defaultConfig = {
 		toolbar: {
 			items: [
-				'heading',
 				'|',
+				'heading',
+				'blockQuote',
 				'bold',
 				'italic',
 				'fontFamily',
+				'fontSize',
 				'fontColor',
 				'fontBackgroundColor',
 				'bulletedList',
 				'numberedList',
-				'|',
 				'outdent',
 				'indent',
-				'|',
-				'blockQuote',
 				'insertTable',
+				'link',
 				'imageUpload',
 				'mediaEmbed',
-				'link',
 				'undo',
 				'redo'
 			]

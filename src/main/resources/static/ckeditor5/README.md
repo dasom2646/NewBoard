@@ -49,7 +49,7 @@ Follow the guides available on https://ckeditor.com/docs/ckeditor5/latest/framew
 ## FAQ
 | Where is the place to report bugs and feature requests?
 
-You can create an issue on https://github.com/ckeditor/ckeditor5/issues including the build id - `pyet36kt35p3-s9a75wugerey`. Make sure that the question / problem is unique, please look for a possibly asked questions in the search box. Duplicates will be closed.
+You can create an issue on https://github.com/ckeditor/ckeditor5/issues including the build id - `7m1ra9oadgga-d51br66ux7d`. Make sure that the question / problem is unique, please look for a possibly asked questions in the search box. Duplicates will be closed.
 
 | Where can I learn more about the CKEditor 5 framework?
 
