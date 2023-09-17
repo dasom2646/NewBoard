@@ -1,7 +1,6 @@
 package com.project.board.board.service;
 
 import com.project.board.board.model.BoardDto;
-import com.project.board.board.model.CommentDto;
 
 import java.util.List;
 

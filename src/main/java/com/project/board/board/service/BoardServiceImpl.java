@@ -1,17 +1,13 @@
 package com.project.board.board.service;
 
 import com.project.board.board.mapper.BoardMapper;
-import com.project.board.board.mapper.CommentMapper;
 import com.project.board.board.model.BoardDto;
-import com.project.board.board.model.CommentDto;
-import com.project.board.member.mapper.MemberMapper;
-import com.project.board.member.model.MemberDto;
-import com.project.board.member.service.MemberService;
-import com.project.board.member.service.MemberServiceImpl;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Safelist;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -46,8 +42,16 @@ public class BoardServiceImpl implements BoardService {
     // 게시글 전체 조회
     @Override
     public List<BoardDto> getAllBoardList() {
-        return boardMapper.getAllBoards();
+        List<BoardDto> boardList = boardMapper.getAllBoards();
+
+        // HTML 태그를 제거
+        for (BoardDto boardDto : boardList) {
+            String cleanedContent = Jsoup.clean(boardDto.getBoardContent(), Safelist.none());
+            boardDto.setBoardContent(cleanedContent);
+        }
+        return boardList;
     }
+
 
     //  작성자로 전체 조회
     @Override
@@ -65,7 +69,6 @@ public class BoardServiceImpl implements BoardService {
 
         return board;
     }
-
 
 
     // 사진 게시글4개
