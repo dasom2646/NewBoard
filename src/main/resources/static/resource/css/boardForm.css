@@ -111,6 +111,7 @@ body {
 }
 
 .btn_wrap{
+    margin-top: 20px;
     display: flex;
     justify-content: flex-end;
 }
