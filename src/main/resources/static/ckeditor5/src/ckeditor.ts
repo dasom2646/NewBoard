@@ -8,7 +8,6 @@ import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Bold, Italic } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
-import { CKBox } from '@ckeditor/ckeditor5-ckbox';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
 import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
@@ -18,8 +17,7 @@ import {
 	ImageCaption,
 	ImageStyle,
 	ImageToolbar,
-	ImageUpload,
-	PictureEditing
+	ImageUpload
 } from '@ckeditor/ckeditor5-image';
 import { Indent } from '@ckeditor/ckeditor5-indent';
 import { Link } from '@ckeditor/ckeditor5-link';
@@ -38,7 +36,6 @@ class Editor extends ClassicEditor {
 		Autoformat,
 		BlockQuote,
 		Bold,
-		CKBox,
 		CloudServices,
 		Essentials,
 		FontBackgroundColor,
@@ -58,7 +55,6 @@ class Editor extends ClassicEditor {
 		MediaEmbed,
 		Paragraph,
 		PasteFromOffice,
-		PictureEditing,
 		Table,
 		TableToolbar,
 		TextTransformation
@@ -67,8 +63,8 @@ class Editor extends ClassicEditor {
 	public static override defaultConfig = {
 		toolbar: {
 			items: [
-				'|',
 				'heading',
+				'|',
 				'blockQuote',
 				'bold',
 				'italic',
@@ -80,10 +76,12 @@ class Editor extends ClassicEditor {
 				'numberedList',
 				'outdent',
 				'indent',
+				'|',
 				'insertTable',
-				'link',
 				'imageUpload',
+				'link',
 				'mediaEmbed',
+				'|',
 				'undo',
 				'redo'
 			]
