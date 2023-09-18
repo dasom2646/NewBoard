@@ -47,6 +47,10 @@ public class BoardServiceImpl implements BoardService {
         // HTML 태그를 제거
         for (BoardDto boardDto : boardList) {
             String cleanedContent = Jsoup.clean(boardDto.getBoardContent(), Safelist.none());
+            cleanedContent = cleanedContent.replaceAll("&nbsp;"," ");
+            cleanedContent = cleanedContent.replaceAll("&lt;","<");
+            cleanedContent = cleanedContent.replaceAll("&gt;",">");
+
             boardDto.setBoardContent(cleanedContent);
         }
         return boardList;
