@@ -49,6 +49,24 @@ public class CommentController {
         return "redirect:/comment/commentDetail/" + boardSeq;
     }
 
+    @PostMapping("/addReply/{boardSeq}/{parentCommentId}")
+    public String addReply(@PathVariable Long boardSeq,
+                           @PathVariable Long parentCommentSeq,
+                           @RequestParam String replyContent,
+                           HttpSession session) {
+        MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
+
+        CommentDto replyDto = new CommentDto();
+        replyDto.setContent(replyContent);
+        replyDto.setMemberSeq(loggedInUser.getMemberSeq());
+
+        commentService.addReply(boardSeq, parentCommentSeq, replyDto);
+
+        return "redirect:/comment/commentDetail/" + boardSeq;
+    }
+
+
+
     /**
      * 게시글 댓글 목록 페이지
      */

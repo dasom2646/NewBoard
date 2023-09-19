@@ -21,4 +21,5 @@ public class CommentDto {
     private Long memberSeq; // 맴버 시퀀스
 
     private BoardDto boardDto; // 댓글이 속한 게시글 정보 저장
+    private Long parentCommentSeq; // 부모 댓글 시퀀스 (대댓글인 경우에만 사용)
 }

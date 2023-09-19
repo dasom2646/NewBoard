@@ -11,9 +11,14 @@ public interface CommentMapper {
     // 댓글 저장
     void insertComment(CommentDto commentDto);
 
+    // 대댓글
+    void insertReply(@Param("boardSeq") Long boardSeq, @Param("parentCommentSeq") Long parentCommentSeq, @Param("commentDto") CommentDto commentDto);
+
     // 해당 게시글에 대한 댓글 목록 가져오기
     List<CommentDto> getCommentsForBoard(@Param("boardSeq") Long boardSeq);
 
     // 작성자로 조회
     List<CommentDto> getAllCommentsByMemberSeq(Long memberSeq);
+
+
 }

@@ -24,6 +24,11 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    public void addReply(Long boardSeq, Long parentCommentSeq, CommentDto commentDto) {
+        commentMapper.insertReply(boardSeq, parentCommentSeq, commentDto);
+    }
+
+    @Override
     public List<CommentDto> getCommentsForBoard(Long boardSeq) {
         return commentMapper.getCommentsForBoard(boardSeq);
     }

@@ -89,7 +89,10 @@
                                 <span class="txt_time" th:text="${comment.createdDate}"></span>
                                 <p th:text="${comment.content}">댓글</p>
                                 <button class="btn_reply" type="button">댓글달기</button>
-
+                                <form class="reply_form" th:id="'replyForm_' + ${comment.commentSeq}" style="display: none;">
+                                    <textarea class="reply_text" rows="3"></textarea>
+                                    <button class="btn_submit_reply" type="button">등록</button>
+                                </form>
 
                             </div>
                         </div>
@@ -171,6 +174,40 @@
         });
     }
 
+</script>
+// 대댓글 작성 버튼 클릭 시 해당 폼 표시
+<script>
+    document.querySelectorAll('.btn_reply').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const commentWrap = this.closest('.comment_wrap');
+            const replyForm = commentWrap.querySelector('.reply_form');
+            replyForm.style.display = 'block';
+        });
+    });
+
+    // 대댓글 등록 버튼 클릭 시 처리
+    document.querySelectorAll('.btn_submit_reply').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const commentWrap = this.closest('.comment_wrap');
+            const replyForm = commentWrap.querySelector('.reply_form');
+            const replyText = replyForm.querySelector('.reply_text').value;
+
+            // Ajax 또는 서버로 대댓글 전송 후, 성공 시 아래 코드 실행
+            // 아래 코드는 대댓글 작성 후, 작성한 대댓글을 댓글 목록에 추가하는 예시입니다.
+            const commentList = commentWrap.parentElement;
+            const commentItem = document.createElement('li');
+            commentItem.innerHTML = `
+                <div class="cont_info">
+                    <!-- 대댓글 정보 표시 -->
+                    <p>${replyText}</p>
+                </div>
+            `;
+            commentList.appendChild(commentItem);
+
+            // 대댓글 폼 숨기기
+            replyForm.style.display = 'none';
+        });
+    });
 </script>
 
 </body>

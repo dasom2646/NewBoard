@@ -28,11 +28,8 @@ public class BoardDto {
     private String memberId; // 작성자
     private Long memberSeq; // 맴버 시퀀스
 
-
     private List<String> categories; // 카테고리 목록
     private String filename; // 파일명
-
-
 
     private List<CommentDto> comments; // 댓글
 
