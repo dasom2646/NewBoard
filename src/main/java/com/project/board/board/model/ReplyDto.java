@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 public class ReplyDto {
     private Long replySeq;
     private String content;
+    private String createdDate;
+
     private Long memberSeq;
     private CommentDto parentComment;
 }

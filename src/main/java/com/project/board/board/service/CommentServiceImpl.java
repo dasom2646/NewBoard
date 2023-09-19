@@ -33,6 +33,11 @@ public class CommentServiceImpl implements CommentService {
         return commentMapper.getCommentsForBoard(boardSeq);
     }
 
+    @Override
+    public List<CommentDto> getRepliesForBoard(Long boardSeq) {
+        return commentMapper.getRepliesForBoard(boardSeq);
+    }
+
     // 작성자로 조회
     @Override
     public List<CommentDto> getCommentsByMemberSeq(Long memberSeq) {

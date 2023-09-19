@@ -53,4 +53,21 @@
 
     </select>
 
+    <!-- 대댓글을 가져오는 쿼리 -->
+  <!--  <select id="getRepliesForBoard" resultType="com.project.board.board.model.CommentDto">
+        SELECT REPLY_SEQ AS commentSeq, CONTENT, TO_CHAR(C.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE,
+        MEMBER_ID AS memberId, MEMBER_SEQ AS memberSeq, BOARD_SEQ AS boardDto.boardSeq
+        FROM TB_COMMENT_REPLY
+        WHERE BOARD_SEQ = #{boardSeq}
+        ORDER BY CREATED_DATE ASC
+    </select>-->
+    <select id="getRepliesForBoard" resultType="com.project.board.board.model.CommentDto">
+    SELECT R.REPLY_SEQ AS commentSeq, R.CONTENT, TO_CHAR(R.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE,
+    R.MEMBER_SEQ, R.BOARD_SEQ, M.MEMBER_ID
+    FROM TB_COMMENT_REPLY R
+    LEFT JOIN TB_MEMBER M ON R.MEMBER_SEQ = M.MEMBER_SEQ
+    WHERE R.BOARD_SEQ = #{boardSeq}
+    ORDER BY R.CREATED_DATE ASC
+</select>
+
 </mapper>

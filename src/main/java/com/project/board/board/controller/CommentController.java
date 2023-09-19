@@ -76,8 +76,12 @@ public class CommentController {
         BoardDto board = boardService.getBoardBySeq(boardSeq);
         // 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
+        List<CommentDto> replies = commentService.getRepliesForBoard(boardSeq);
+
+
         model.addAttribute("board", board);
         model.addAttribute("comments", comments);
+        model.addAttribute("replies", replies); // 대댓글 목록 추가
         return "views/board/boardDetail";
     }
 }
