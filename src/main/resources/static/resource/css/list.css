@@ -92,10 +92,25 @@ li {
 .article_title{
     padding-bottom:10px;
 }
-.list_name{
-display:flex;
-}
+
 
 .truncate{
-white-space:pre-line;
+    white-space:pre-line;
+}
+
+.info_head{
+    width: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    padding: 0 20px;
+
+ }
+ .list_count{
+     font-size:15px;
+ }
+
+ .list_name{
+    font-size: 20px;
+    font-weight: bold;
 }

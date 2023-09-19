@@ -15,6 +15,8 @@ public interface BoardService {
     // 게시글 전체 조회
     List<BoardDto> getAllBoardList();
 
+    int getTotalBoardCount(); // 전체 게시글 수량 조회 메서드
+
     // 게시글 작성자로 전체 조회
     List<BoardDto> getBoardByMemberSeq(Long memberSeq);
 

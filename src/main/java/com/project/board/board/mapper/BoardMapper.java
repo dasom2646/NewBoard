@@ -19,6 +19,8 @@ public interface BoardMapper {
     // 게시글 전체 조회
     List<BoardDto> getAllBoards();
 
+    int getTotalBoardCount();
+
     // 게시글 작성자로 전체 조회
     List<BoardDto> getAllBoardByMemberSeq(Long memberSeq);
 

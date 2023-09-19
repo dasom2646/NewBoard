@@ -100,4 +100,9 @@
         LIMIT 4
     </select>
 
+    <!-- 전체 게시글 수량 조회 -->
+    <select id="getTotalBoardCount" resultType="int">
+        SELECT COUNT(*) FROM TB_BOARD
+    </select>
+
 </mapper>

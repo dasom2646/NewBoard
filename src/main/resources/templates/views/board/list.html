@@ -19,8 +19,10 @@
 
     <div class="wrap_contents">
         <div id="wrapArticle" class="wrap_article">
-
-            <h2 class="list_name">글목록</h2>
+            <div class="info_head">
+                <span class="list_name">글목록</span>
+                <span class="list_count" th:text="${totalBoardCount}"></span>
+            </div>
 
             <form th:action="@{/board/boardList}" th:object="${boardDto}" method="get">
 

@@ -56,6 +56,11 @@ public class BoardServiceImpl implements BoardService {
         return boardList;
     }
 
+    @Override
+    public int getTotalBoardCount() {
+        return boardMapper.getTotalBoardCount();
+    }
+
 
     //  작성자로 전체 조회
     @Override

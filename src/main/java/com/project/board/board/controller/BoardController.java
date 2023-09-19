@@ -152,7 +152,10 @@ public class BoardController {
     @GetMapping("/boardList")
     public String boardList(Model model) {
         List<BoardDto> boardList = boardService.getAllBoardList();
+        int totalBoardCount = boardService.getTotalBoardCount();
+
         model.addAttribute("boardList", boardList);
+        model.addAttribute("totalBoardCount", totalBoardCount);
         return "views/board/list";
     }
 
