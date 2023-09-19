@@ -22,14 +22,16 @@
 
     <!-- 대댓글 추가를 위한 쿼리 -->
     <insert id="insertReply">
-        INSERT INTO TB_COMMENT (
-        CONTENT
+        INSERT INTO TB_COMMENT_REPLY (
+        REPLY_SEQ
+        , CONTENT
         , CREATED_DATE
         , MEMBER_SEQ
         , BOARD_SEQ
         , PARENT_COMMENT_SEQ
         ) VALUES (
-        #{commentDto.content}
+        NEXTVAL('REPLY_SEQ')
+        , #{commentDto.content}
         , CURRENT_TIMESTAMP
         , #{commentDto.memberSeq}
         , #{boardSeq}

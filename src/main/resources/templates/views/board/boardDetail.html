@@ -89,10 +89,15 @@
                                 <span class="txt_time" th:text="${comment.createdDate}"></span>
                                 <p th:text="${comment.content}">댓글</p>
                                 <button class="btn_reply" type="button">댓글달기</button>
-                                <form class="reply_form" th:id="'replyForm_' + ${comment.commentSeq}" style="display: none;">
-                                    <textarea class="reply_text" rows="3"></textarea>
-                                    <button class="btn_submit_reply" type="button">등록</button>
+                                <form class="reply_form" th:id="'replyForm_' + ${comment.commentSeq}"
+                                      style="display: none;"
+                                      th:action="@{/comment/addReply/{boardSeq}/{parentCommentSeq}(boardSeq=${board.boardSeq},parentCommentSeq=${comment.commentSeq})}"
+                                      method="post">
+                                    <textarea class="reply_text" rows="3" name="replyContent"
+                                              th:name="replyContent"></textarea>
+                                    <button class="btn_submit_reply" type="submit">등록</button>
                                 </form>
+
 
                             </div>
                         </div>

@@ -49,7 +49,7 @@ public class CommentController {
         return "redirect:/comment/commentDetail/" + boardSeq;
     }
 
-    @PostMapping("/addReply/{boardSeq}/{parentCommentId}")
+    @PostMapping("/addReply/{boardSeq}/{parentCommentSeq}")
     public String addReply(@PathVariable Long boardSeq,
                            @PathVariable Long parentCommentSeq,
                            @RequestParam String replyContent,

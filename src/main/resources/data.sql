@@ -613,7 +613,7 @@ VALUES ( NEXTVAL('COMMENT_SEQ')
        , '저는 피아노 연기하는 부분이 정말 좋았어요 영화 끝나고 나서도 생각날 정도예요!'
        , CURRENT_TIMESTAMP
        , 2
-       , 17);
+       , 18);
 
 INSERT INTO TB_COMMENT ( COMMENT_SEQ
                       , CONTENT
@@ -624,4 +624,4 @@ VALUES ( NEXTVAL('COMMENT_SEQ')
        , '김혜수, 염정아, 조인성 이라니!! 안봐도 재밌을것 같아요! 조인성씨는 약간 제2의 모가디슈를 연상시키네요ㅎㅎ'
        , CURRENT_TIMESTAMP
        , 1
-       , 16);
+       , 17);
