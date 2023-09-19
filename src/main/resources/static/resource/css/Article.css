@@ -71,6 +71,7 @@ p, pre {
 li {
     list-style: none;
     text-decoration: none;
+
 }
 
 
@@ -91,6 +92,7 @@ li {
 .comment_write .editor_wrap {
     font-size: 13px;
     position: relative;
+    height: 120px;
 }
 .info_comment .comment_head {
     border-bottom: 1px solid #ddd;
@@ -196,7 +198,7 @@ vertical-align: middle;
     height: 100%;
     border: none;
     resize: none; /* textarea의 사이즈 조절 핸들숨김 */
-    padding: 10px;
+    padding: 20px;
     box-sizing: border-box;
 }
 .content_wrap{
@@ -215,7 +217,7 @@ vertical-align: middle;
     align-items: center;
     padding: 32px 0 30px;
     margin: 0 auto;
-    width:760px
+    width:800px
 }
 
 
@@ -235,11 +237,10 @@ cursor: pointer;
 
 }
 .list_btn{
-    padding-bottom: 20px;
-    padding-top: 20px;
     margin: 0 auto;
     width: 800px;
     font-size: 15px;
+    padding: 25px 0 20px 0px;
 
 }
 .wrap_btn{
@@ -281,9 +282,8 @@ cursor: pointer;
 
 
 .comment_list{
-    border-bottom: 1px solid #ddd;
-    border-top: 1px solid #ddd;
-    padding: 20px;
+   /* border-top: 1px solid #eee;*/
+    padding: 20px 0;
 
 }
 
@@ -317,5 +317,60 @@ cursor: pointer;
     justify-content: center;
     align-items: center;
     height: auto;
-    margin-bottom: 20px;
+    margin: 40px 0 30px 0px;
 }
+.comment_container{
+    margin: 0 auto;
+    width: 800px;
+}
+.comment_list{
+    display: block;
+    width: 100%;
+    margin: 36px 0;
+    width: 100%;
+}
+.comment_list{
+    color: #111;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.comment_list>li {
+    border-top: 1px solid #eee;
+}
+
+
+.btn_reply {
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.btn_reply {
+    color: #959595;
+    margin-top: 14px;
+}
+button {
+
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.txt_time{
+    color: #959595;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+.comment_wrap{
+    padding-left: 25px;
+    padding-top: 30px;
+
+}
+
+
