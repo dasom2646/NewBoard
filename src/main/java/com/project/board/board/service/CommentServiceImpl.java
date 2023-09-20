@@ -34,8 +34,8 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<CommentDto> getRepliesForBoard(Long boardSeq) {
-        return commentMapper.getRepliesForBoard(boardSeq);
+    public List<CommentDto> getRepliesForComment(Long commentSeq) {
+        return commentMapper.getRepliesForComment(commentSeq);
     }
 
     // 작성자로 조회

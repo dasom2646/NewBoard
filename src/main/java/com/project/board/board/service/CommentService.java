@@ -16,7 +16,7 @@ public interface CommentService {
     List<CommentDto> getCommentsForBoard(Long boardSeq);
 
     // 대댓글 전체 조회
-    List<CommentDto> getRepliesForBoard(Long boardSeq);
+    List<CommentDto> getRepliesForComment(Long commentSeq);
 
     // 작성자로 조회
     List<CommentDto> getCommentsByMemberSeq(Long memberSeq);

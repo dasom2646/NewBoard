@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/comment")
@@ -76,12 +78,16 @@ public class CommentController {
         BoardDto board = boardService.getBoardBySeq(boardSeq);
         // 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
-        List<CommentDto> replies = commentService.getRepliesForBoard(boardSeq);
-
+        // 대댓글을 특정 댓글에 연결하여 가져오기
+        Map<Long, List<CommentDto>> replyMap = new HashMap<>();
+        for (CommentDto comment : comments) {
+            List<CommentDto> replies = commentService.getRepliesForComment(comment.getCommentSeq());
+            replyMap.put(comment.getCommentSeq(), replies);
+        }
 
         model.addAttribute("board", board);
         model.addAttribute("comments", comments);
-        model.addAttribute("replies", replies); // 대댓글 목록 추가
+        model.addAttribute("replyMap", replyMap); // 대댓글을 댓글에 연결하여 전달
         return "views/board/boardDetail";
     }
 }

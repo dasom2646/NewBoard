@@ -20,5 +20,5 @@ public interface CommentMapper {
     // 작성자로 조회
     List<CommentDto> getAllCommentsByMemberSeq(Long memberSeq);
 
-    List<CommentDto> getRepliesForBoard(Long boardSeq);
+    List<CommentDto> getRepliesForComment(Long commentSeq);
 }

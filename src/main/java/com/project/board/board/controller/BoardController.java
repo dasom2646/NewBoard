@@ -18,9 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Slf4j
 @Controller
@@ -168,7 +166,13 @@ public class BoardController {
 
         // 게시글에 해당하는 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
-        List<CommentDto> replies = commentService.getRepliesForBoard(boardSeq);
+        // 대댓글을 특정 댓글에 연결하여 가져오기
+        Map<Long, List<CommentDto>> replyMap = new HashMap<>();
+        for (CommentDto comment : comments) {
+            List<CommentDto> replies = commentService.getRepliesForComment(comment.getCommentSeq());
+            replyMap.put(comment.getCommentSeq(), replies);
+        }
+
 
         // 댓글 수량 계산
         int commentCount = comments.size();
@@ -181,7 +185,7 @@ public class BoardController {
 
         model.addAttribute("board", board);
         model.addAttribute("comments", comments); // 댓글 목록 추가
-        model.addAttribute("replies", replies); // 대댓글 목록 추가
+        model.addAttribute("replyMap", replyMap); // 대댓글을 댓글에 연결하여 전달
 
         model.addAttribute("commentCount", commentCount); // 댓글 수량 추가
         model.addAttribute("imageUrl", imageUrl); // 이미지 URL 추가
