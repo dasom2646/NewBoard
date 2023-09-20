@@ -32,6 +32,7 @@
                                 <span>글쓰기</span>
                             </a>
                         </div>
+
                     </div>
                     <div class="header_right">
                         <div class="search-container">
@@ -51,14 +52,11 @@
                                     th:onclick="|location.href='@{/member/logout}'|">로그아웃
                             </button>
 
-                          <!--  <a th:onclick="|location.href='@{/mypage/posts/{memberSeq}(memberSeq=${session.memberSeq})}'|">Go to
-                                마이페이지</a>-->
                                     <button class="btn_join" type="button"
                                            th:onclick="|location.href='@{/mypage/posts/{memberSeq}(memberSeq=${session.memberSeq})}'|">
                                         마이페이지
                                     </button>
-                            <!-- 마이페이지로 이동하는 Thymeleaf 버튼 -->
-                            <!--  th:href="@{/mypage/posts/{memberSeq}(memberSeq=${memberSeq})}">-->
+
                         </div>
                     </div>
                 </div>

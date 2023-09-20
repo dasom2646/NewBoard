@@ -8,17 +8,8 @@
     <title>스토리플레이트 StoryPlate</title>
     <link rel="stylesheet" th:href="@{/resource/css/keywords.css}"/>
     <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
-
+    <link rel="stylesheet" th:href="@{/resource/css/login.css}"/>
 </head>
-
-<!-- Header-->
-<!--<div th:if="${session.loggedIn}">
-    <div th:replace="views/fragments/LoggedIn"></div>
-
-</div>
-<div th:unless="${session.loggedIn}">
-    <div th:replace="views/fragments/LoggedOut"></div>
-</div>-->
 
 
 <!-- Header-->
@@ -34,7 +25,9 @@
 
 <main>
     <div class="home_wrap">
-
+        <a th:onclick="|location.href='@{/lo}'|">
+            <span>로그</span>
+        </a>
         <!-- picture section-->
         <div class="recommend_pic">
 

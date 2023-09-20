@@ -35,4 +35,9 @@ public class HomeController {
         Long memberSeq = (Long) session.getAttribute("memberSeq");
         return "views/newHome";
     }
+
+    @GetMapping("/lo")
+    public String log() {
+        return "views/member/login";
+    }
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StoryPlate_Login</title>
+    <link rel="stylesheet" th:href="@{/resource/css/login.css}"/>
+
+</head>
+
+<!-- Header-->
+<header>
+    <div class="container">
+        <div class="header_login">
+
+            <div class="logo_login">
+                <a th:onclick="|location.href='@{/}'|"><span>스토리플레이트</span></a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="login_wrap">
+                <div class="login_container">
+                    <div class="login_form">
+                        <div class="login_id">
+                            <div class="icon_wrap">
+                                <div class="icon_id">
+                                    <span>0</span>
+                                    <input type="text" class="input_text" placeholder="아이디">
+                                    <span class="icon_delete">x</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="login_pw">
+                            <div class="icon_wrap">
+                                <div class="icon_id">
+                                    <span>0</span>
+                                    <input type="password" class="input_text" placeholder="비밀번호">
+                                    <span class="icon_delete">x</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn_login">
+                        <button type="submit" class="btn_click">
+                            <span class="btn_loginTxt">로그인</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+
+</html>
