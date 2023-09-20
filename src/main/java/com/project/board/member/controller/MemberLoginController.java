@@ -27,7 +27,6 @@ public class MemberLoginController {
     }
 
 
-
     /**
      * 로그인 페이지
      */
@@ -43,7 +42,6 @@ public class MemberLoginController {
     @PostMapping("/login")
     public String login(@RequestParam String memberId, @RequestParam String memberPwd, HttpSession session) {
 
-
         boolean login = memberService.isLogin(memberId, memberPwd);
 
         if (!login) { // 로그인 실패 시 loginForm.html 화면 유지하면서 실패 메시지 표시
@@ -54,6 +52,7 @@ public class MemberLoginController {
         MemberDto loggedInUser = memberService.getMemberById(memberId);
         session.setAttribute("loggedIn", true);
         session.setAttribute("loggedInUser", loggedInUser);
+        session.setAttribute("memberSeq", loggedInUser.getMemberSeq());
 
         // 로그인 후 돌아갈 URL 확인 및 리디렉션
         String returnUrl = (String) session.getAttribute("returnUrl");

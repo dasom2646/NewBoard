@@ -50,27 +50,24 @@
                             <button class="btn_login" type="button"
                                     th:onclick="|location.href='@{/member/logout}'|">로그아웃
                             </button>
-                            <button class="btn_join" type="button"
-                                    th:onclick="redirectToMyPage()">마이페이지
-                            </button>
-                          <!--  th:href="@{/mypage/posts/{memberSeq}(memberSeq=${memberSeq})}">-->
+
+                          <!--  <a th:onclick="|location.href='@{/mypage/posts/{memberSeq}(memberSeq=${session.memberSeq})}'|">Go to
+                                마이페이지</a>-->
+                                    <button class="btn_join" type="button"
+                                           th:onclick="|location.href='@{/mypage/posts/{memberSeq}(memberSeq=${session.memberSeq})}'|">
+                                        마이페이지
+                                    </button>
+                            <!-- 마이페이지로 이동하는 Thymeleaf 버튼 -->
+                            <!--  th:href="@{/mypage/posts/{memberSeq}(memberSeq=${memberSeq})}">-->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        function redirectToMyPage() {
-        var memberSeq =
-           location.href = '/mypage/posts/${memberSeq}'; // 마이페이지 URL로 이동
-       }
-       }
-    </script>
 
 
 </header>
-
 
 
 </html>

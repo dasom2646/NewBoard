@@ -12,12 +12,25 @@
 </head>
 
 <!-- Header-->
+<!--<div th:if="${session.loggedIn}">
+    <div th:replace="views/fragments/LoggedIn"></div>
+
+</div>
+<div th:unless="${session.loggedIn}">
+    <div th:replace="views/fragments/LoggedOut"></div>
+</div>-->
+
+
+<!-- Header-->
 <div th:if="${session.loggedIn}">
     <div th:replace="views/fragments/LoggedIn"></div>
+    <!-- 사용자가 로그인한 경우에만 아래 내용이 표시됨 -->
+    <div th:text="${session.memberSeq}"></div>
 </div>
 <div th:unless="${session.loggedIn}">
     <div th:replace="views/fragments/LoggedOut"></div>
 </div>
+
 <body>
 
 <main>

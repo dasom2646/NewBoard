@@ -10,6 +10,4 @@ public class MemberDto {
     private String memberId; // 로그인 ID
     private String memberName; // 사용자 이름
     private String memberPwd; // 사용자 비밀번호
-
-
 }

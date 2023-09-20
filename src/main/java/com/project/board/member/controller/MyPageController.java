@@ -21,17 +21,18 @@ public class MyPageController {
     private final MemberService memberService;
     private final BoardService boardService;
     private final CommentService commentService;
+
     @Autowired
     public MyPageController(MemberService memberService, BoardService boardService, CommentService commentService) {
         this.memberService = memberService;
         this.boardService = boardService;
         this.commentService = commentService;
     }
+
     @GetMapping("/posts/{memberSeq}")
     public String myPage(@PathVariable Long memberSeq, Model model) {
 
         List<BoardDto> myPosts = boardService.getBoardByMemberSeq(memberSeq);
-
         model.addAttribute("myPosts", myPosts);
         return "views/member/myPage";
     }
