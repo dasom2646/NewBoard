@@ -23,13 +23,13 @@ public class HomeController {
         // 세션에서 로그인 상태 확인
         boolean isLoggedIn = session.getAttribute("isLoggedIn") != null && (boolean) session.getAttribute("isLoggedIn");
 
-        if (isLoggedIn) {
+       /* if (isLoggedIn) {
             // 로그인된 경우
             model.addAttribute("loggedIn", true);
         } else {
             // 로그인되지 않은 경우
             model.addAttribute("loggedIn", false);
-        }
+        }*/
 
         return "views/newHome";
     }

@@ -50,6 +50,10 @@ public class MemberServiceImpl implements MemberService {
         return memberMapper.getMemberList(memberDto);
     }
 
+    @Override
+    public MemberDto getMemberBySeq(Long memberSeq) {
+        return memberMapper.getMemberBySeq(memberSeq);
+    }
 
 
 //     맴버 단건조회

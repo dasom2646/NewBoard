@@ -42,7 +42,7 @@
 
     <select id="getAllBoardByMemberSeq" resultType="com.project.board.board.model.BoardDto">
         SELECT * FROM TB_BOARD
-        WHERE MEMBER_SEQ = #{memberDto.memberSeq}
+        WHERE MEMBER_SEQ = #{memberSeq}
     </select>
 
 

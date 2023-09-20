@@ -48,8 +48,8 @@ div {
 .wrap_article {
     margin: 0 auto;
     overflow: hidden;
-   /* padding: 30px 0 111px;*/
-   padding-top:60px
+    padding: 30px 0 111px;
+/*   padding-top:60px*/
     width: 1000px;
 }
 /* .wrap_article_list {

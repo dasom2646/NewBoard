@@ -1,5 +1,6 @@
 package com.project.board.member.service;
 
+import com.project.board.board.model.BoardDto;
 import com.project.board.member.model.MemberDto;
 
 import java.util.List;
@@ -16,12 +17,5 @@ public interface MemberService {
 
     List<MemberDto> getMemberList(MemberDto memberDto);
 
-    // 맴버 단건 조회
-//    MemberVo findMemberById(Long id);
-
-
-    // 맴버 목록조회
-//    ArrayList<MemberVo> findAllMembers();
-
-
+    MemberDto getMemberBySeq(Long memberSeq);
 }

@@ -51,16 +51,26 @@
                                     th:onclick="|location.href='@{/member/logout}'|">로그아웃
                             </button>
                             <button class="btn_join" type="button"
-                                    th:onclick="|location.href='/myPage/showMyPage?memberSeq=${memberSeq}'|">마이페이지
+                                    th:onclick="redirectToMyPage()">마이페이지
                             </button>
-
+                          <!--  th:href="@{/mypage/posts/{memberSeq}(memberSeq=${memberSeq})}">-->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function redirectToMyPage() {
+        var memberSeq =
+           location.href = '/mypage/posts/${memberSeq}'; // 마이페이지 URL로 이동
+       }
+       }
+    </script>
+
+
 </header>
+
 
 
 </html>
