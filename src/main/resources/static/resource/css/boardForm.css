@@ -6,6 +6,7 @@
 .form_container{
     margin: auto;
     max-width: 1000px;
+    padding-top: 60px;
 }
 .btn_write{
     font-family: 'Noto Sans KR', sans-serif;

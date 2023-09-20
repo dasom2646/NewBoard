@@ -4,6 +4,7 @@ import com.project.board.member.model.MemberDto;
 import com.project.board.member.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,8 @@ public class MemberLoginController {
     public MemberLoginController(MemberService memberService) {
         this.memberService = memberService;
     }
+
+
 
     /**
      * 로그인 페이지

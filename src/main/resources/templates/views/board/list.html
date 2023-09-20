@@ -15,7 +15,12 @@
 <main class="flex-shrink-0">
 
     <!-- Header-->
-    <div th:replace="views/fragments/headerLoggedOut"></div>
+    <div th:if="${session.loggedIn}">
+        <div th:replace="views/fragments/LoggedIn"></div>
+    </div>
+    <div th:unless="${session.loggedIn}">
+        <div th:replace="views/fragments/LoggedOut"></div>
+    </div>
 
     <div class="wrap_contents">
         <div id="wrapArticle" class="wrap_article">

@@ -4,6 +4,7 @@ import com.project.board.board.model.BoardDto;
 import com.project.board.board.service.BoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,14 +18,19 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    @Autowired
-    private BoardService boardService;
-
     @GetMapping("/")
-    public String home() {
+    public String home(HttpSession session, Model model) {
+        // 세션에서 로그인 상태 확인
+        boolean isLoggedIn = session.getAttribute("isLoggedIn") != null && (boolean) session.getAttribute("isLoggedIn");
+
+        if (isLoggedIn) {
+            // 로그인된 경우
+            model.addAttribute("loggedIn", true);
+        } else {
+            // 로그인되지 않은 경우
+            model.addAttribute("loggedIn", false);
+        }
+
         return "views/newHome";
     }
-
-
-
 }

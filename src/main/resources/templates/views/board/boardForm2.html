@@ -23,7 +23,12 @@
 <body>
 
 <!-- Header-->
-<!--<div th:replace="views/fragments/headerLoggedIn"></div>-->
+<div th:if="${session.loggedIn}">
+    <div th:replace="views/fragments/LoggedIn"></div>
+</div>
+<div th:unless="${session.loggedIn}">
+    <div th:replace="views/fragments/LoggedOut"></div>
+</div>
 
 <div id="counselWriteDiv" class="form_container">
     <h3 id="counselWriteh1" class="text_center">글쓰기</h3>
