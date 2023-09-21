@@ -33,7 +33,7 @@ public class MemberLoginController {
     @GetMapping("/memberLoginForm")
     public String loginForm(@ModelAttribute("memberDto") MemberDto memberDto) {
 
-        return "views/member/login";
+        return "views/member/loginForm";
     }
 
     /**
