@@ -1,0 +1,31 @@
+.counseldiv2 {
+    width: 1080px;
+}
+
+.counseltableh3 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.counseltable > li > a:hover {
+    color: #00bbff;
+}
+
+.counseltable > li > a.active {
+    color: #00bbff;
+}
+
+.pagination > a.active {
+    color: #00bbff;
+    border-bottom: 2px solid #00bbff;
+}
+
+.writing {
+    position: fixed;
+    right: calc(50% - 514px);
+    bottom: 33px;
+    cursor: pointer;
+}
+.phoneText{
+    opacity: 0;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StoryPlate</title>
+    <link rel="stylesheet" th:href="@{/resource/css/keywords.css}"/>
+    <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
+
+</head>
+
+<!-- Header-->
+<header>
+    <div class="container">
+        <div class="header_wrap">
+            <div class="header_inner">
+                <div class="header_menu">
+                    <div class="header_left">
+
+                        <div class="logo">
+                            <a th:onclick="|location.href='@{/}'|">
+                                <span>스토리플레이트</span>
+                            </a>
+                        </div>
+                        <div class="btn_main">
+                            <a th:onclick="|location.href='@{/board/boardList}'|">
+                                <span>전체글</span>
+                            </a>
+                            <a th:onclick="|location.href='@{/board/boardForm}'|">
+                                <span>글쓰기</span>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="header_right">
+                        <div class="search-container">
+                            <input type="text" id="search-input" placeholder="검색어를 입력하세요">
+                            <span id="search-icon" class="icon" onclick="performSearch()">
+                             <svg width="25px" height="35px" viewBox="0 0 24 24" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.5 18.5L22 22" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M6.75 3.27093C8.14732 2.46262 9.76964 2 11.5 2C16.7467 2 21 6.25329 21 11.5C21 16.7467 16.7467 21 11.5 21C6.25329 21 2 16.7467 2 11.5C2 9.76964 2.46262 8.14732 3.27093 6.75"
+                                      stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="header_buttons">
+                            <button class="btn_login" type="button"
+                                    th:onclick="|location.href='@{/member/logout}'|">로그아웃
+                            </button>
+
+                                    <button class="btn_join" type="button"
+                                           th:onclick="|location.href='@{/mypage/posts/{memberSeq}(memberSeq=${session.memberSeq})}'|">
+                                        마이페이지
+                                    </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+
+</html>

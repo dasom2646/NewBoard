@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.board.board.mapper.CommentMapper">
+    <insert id="insertComment" parameterType="com.project.board.board.model.CommentDto">
+
+        INSERT INTO TB_COMMENT (
+        COMMENT_SEQ
+        , CONTENT
+        , CREATED_DATE
+        , MEMBER_SEQ
+        , BOARD_SEQ
+        ) VALUES (
+        NEXTVAL('COMMENT_SEQ')
+        , #{content}
+        , CURRENT_TIMESTAMP
+        , #{memberSeq}
+        , #{boardDto.boardSeq})
+    </insert>
+
+    <!-- 대댓글 추가를 위한 쿼리 -->
+    <insert id="insertReply">
+        INSERT INTO TB_COMMENT_REPLY (
+        REPLY_SEQ
+        , CONTENT
+        , CREATED_DATE
+        , MEMBER_SEQ
+        , BOARD_SEQ
+        , PARENT_COMMENT_SEQ
+        ) VALUES (
+        NEXTVAL('REPLY_SEQ')
+        , #{commentDto.content}
+        , CURRENT_TIMESTAMP
+        , #{commentDto.memberSeq}
+        , #{boardSeq}
+        , #{parentCommentSeq})
+    </insert>
+
+
+    <select id="getCommentsForBoard" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
+        SELECT C.COMMENT_SEQ, C.CONTENT, TO_CHAR(C.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE,
+        C.MEMBER_SEQ, C.BOARD_SEQ, M.MEMBER_ID
+        FROM TB_COMMENT C
+        LEFT JOIN TB_MEMBER M ON C.MEMBER_SEQ = M.MEMBER_SEQ
+        WHERE C.BOARD_SEQ = #{boardSeq}
+        ORDER BY C.CREATED_DATE ASC
+    </select>
+
+    <select id="getAllCommentsByMemberSeq" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
+        SELECT * FROM TB_COMMENT WHERE MEMBER_SEQ = #{memberSeq}
+
+    </select>
+
+
+    <select id="getRepliesForComment" resultType="com.project.board.board.model.CommentDto">
+        SELECT * FROM TB_COMMENT_REPLY WHERE PARENT_COMMENT_SEQ = #{commentSeq}
+    </select>
+
+</mapper>

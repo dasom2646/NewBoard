@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.board.board.mapper.BoardMapper">
+
+    <insert id="postUpload" parameterType="com.project.board.board.model.BoardDto">
+        INSERT INTO TB_BOARD (
+            BOARD_SEQ
+            , BOARD_TITLE
+            , BOARD_CONTENT
+            , created_DATE
+            , BOARD_VIEWS
+            , CATEGORY
+            , FILENAME
+            , MEMBER_SEQ
+        ) VALUES (
+             NEXTVAL('BOARD_SEQ')
+            , #{boardTitle}
+            , #{boardContent}
+            , CURRENT_TIMESTAMP
+            , #{boardViews}
+            , #{category}
+            , #{filename}
+            , #{memberSeq}
+        )
+    </insert>
+    <select id="getAllBoards" resultType="com.project.board.board.model.BoardDto">
+        SELECT
+            B.BOARD_SEQ,
+            B.BOARD_TITLE,
+            B.BOARD_CONTENT,
+            TO_CHAR(B.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE ,
+            B.BOARD_VIEWS,
+            B.CATEGORY,
+            M.MEMBER_ID
+        FROM TB_BOARD B
+        JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
+        ORDER BY BOARD_SEQ DESC
+    </select>
+
+    <select id="getAllBoardByMemberSeq" resultType="com.project.board.board.model.BoardDto">
+        SELECT
+        BOARD_TITLE,
+        BOARD_CONTENT,
+        TO_CHAR(CREATED_DATE, 'YYYY.MM.DD') as CREATED_DATE ,
+        BOARD_VIEWS,
+        CATEGORY,
+
+        FROM TB_BOARD
+        WHERE MEMBER_SEQ = #{memberSeq}
+    </select>
+
+
+    <select id="getBoardBySeq" parameterType="long" resultType="com.project.board.board.model.BoardDto">
+        SELECT
+            B.BOARD_SEQ,
+            B.BOARD_TITLE,
+            B.BOARD_CONTENT,
+            TO_CHAR(B.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE ,
+            B.BOARD_VIEWS,
+            B.CATEGORY,
+            B.FILENAME,
+            M.MEMBER_ID
+        FROM TB_BOARD B
+        JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
+        WHERE B.BOARD_SEQ = #{boardSeq}
+    </select>
+
+    <update id="increaseViews">
+        UPDATE TB_BOARD
+        SET BOARD_VIEWS = BOARD_VIEWS + 1
+        WHERE BOARD_SEQ = #{boardSeq}
+    </update>
+
+    <!-- 게시글과 댓글을 함께 조회 -->
+    <select id="getBoardWithComments" parameterType="Long" resultType="com.project.board.board.model.BoardDto">
+        SELECT
+            B.BOARD_SEQ,
+            B.BOARD_TITLE,
+            B.BOARD_CONTENT,
+            TO_CHAR(B.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE,
+            B.BOARD_VIEWS,
+            B.CATEGORY,
+            B.MEMBER_SEQ,
+            B.FILENAME,
+            C.COMMENT_SEQ,
+            C.CONTENT AS COMMENT_CONTENT,
+            C.CREATED_DATE AS COMMENT_CREATED_DATE,
+            C.MEMBER_SEQ AS COMMENT_MEMBER_SEQ
+        FROM TB_BOARD B
+        LEFT JOIN TB_COMMENT C ON B.BOARD_SEQ = C.BOARD_SEQ
+        WHERE B.BOARD_SEQ = #{boardSeq}
+    </select>
+
+    <select id="getAllCategories" resultType="java.lang.String">
+        SELECT DISTINCT category FROM TB_BOARD;
+    </select>
+
+    <select id="getBoardsByCategory" resultType="com.project.board.board.model.BoardDto">
+        SELECT * FROM TB_BOARD WHERE category = #{category};
+    </select>
+    <select id="findTop4ByOrderByBoardSeqDesc" resultType="com.project.board.board.model.BoardDto">
+        SELECT * FROM TB_BOARD
+        ORDER BY board_seq DESC
+        LIMIT 4
+    </select>
+
+    <!-- 전체 게시글 수량 조회 -->
+    <select id="getTotalBoardCount" resultType="int">
+        SELECT COUNT(*) FROM TB_BOARD
+    </select>
+
+</mapper>

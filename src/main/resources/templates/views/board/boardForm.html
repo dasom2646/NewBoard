@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+
+
+    <title>글쓰기</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
+
+
+    <link href="@{/resource/assets/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/resource/css/post.css}">
+
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" th:href="@{/resource/assets/favicon.ico}"/>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" th:href="@{/resource/css/styles.css}"/>
+    <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
+
+</head>
+<body>
+
+<!-- Header-->
+<!--<div th:replace="views/fragments/headerLoggedIn"></div>-->
+
+<div id="counselWriteDiv" class="container">
+    <h3 id="counselWriteh1" class="text-center">글쓰기</h3>
+
+    <form th:action="@{/board/upload}" th:object="${boardDto}" method="post" enctype="multipart/form-data">
+
+        <h5 id="counselWriteh2">자신의 이야기를 공유 해보세요</h5>
+
+        <div class="form-group mb-4">
+            <select th:field="*{category}">
+                <option value="" disabled selected>카테고리 선택</option>
+                <option value="해외여행">해외여행</option>
+                <option value="국내여행">국내여행</option>
+                <option value="오늘의 책">오늘의 책</option>
+                <option value="영화 리뷰">영화 리뷰</option>
+                <option value="뮤지컬·연극">뮤지컬·연극</option>
+                <option value="엔터테인먼트">엔터테인먼트</option>
+                <option value="스포츠">스포츠</option>
+                <option value="나만의 맛집">나만의 맛집</option>
+                <option value="요리·레시피">요리·레시피</option>
+                <option value="사랑·이별">사랑·이별</option>
+                <option value="육아 이야기">육아 이야기</option>
+                <option value="직장인의 하루">직장인의 하루</option>
+                <option value="반려동물">반려동물</option>
+                <option value="감성 에세">감성 에세이</option>
+                <option value="시사·이슈">시사·이슈</option>
+                <option value="IT 트렌드">IT 트렌드</option>
+                <option value="건강·운동">건강·운동</option>
+                <option value="인테리어·집들이">인테리어·집들이</option>
+
+            </select>
+        </div>
+
+        <div class="form-group mb-4">
+            <label class="form-label">제목</label>
+            <input type="text" th:field="*{boardTitle}" class="form-control" placeholder="제목을 작성해주세요">
+        </div>
+
+        <div class="form-group mb-4">
+            <label class="form-label">내용</label>
+            <textarea th:field="*{boardContent}" class="form-control p-3" rows="10" placeholder="내용을 작성해주세요"></textarea>
+        </div>
+
+
+        <input type="file" id="file" name="file" class="form-control-file">
+        <button type="submit" class="btn btn-primary">글 작성하기</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='@{/}'">취소하기</button>
+    </form>
+
+</div>
+
+<script th:src="@{/resource/js/jquery-3.7.1.min.js}"></script>
+
+</body>
+</html>
+

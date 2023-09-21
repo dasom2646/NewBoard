@@ -1,0 +1,43 @@
+ul {
+    list-style: initial;
+}
+
+#counselWriteh1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#counselWriteForm {
+    width: 700px;
+}
+
+.counselWriteTable {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+textarea {
+    resize: none;
+}
+
+textarea::placeholder {
+    font-size: 14px;
+}
+
+#counselWriteh3 {
+    margin-bottom: 16px;
+}
+
+.counselWriteUl {
+    font-size: 15px;
+}
+
+.counselWriteUlIn {
+    font-size: 12px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+#agreement {
+    cursor: pointer;
+}
