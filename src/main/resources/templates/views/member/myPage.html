@@ -10,27 +10,58 @@
     <div th:replace="views/fragments/LoggedIn"></div>
 </div>
 
-<body>
+<!--
+ 이미지미리보기
+ 이미지 업로드
+ 제거버튼
+ 닉네임 수정칸 수정 버튼
+ 작성한 글
+     -카테고리, 제목,조회수, 입력날짜, 댓글
+ 댓글 단 글
+     -댓글 작성한 보드 제목 댓글
+ 비번 바꾸기
+ -->
 
-<table>
+
+<body>
+<div class="profile">
+    <div class="image_wrap">
+        <img src="">
+        <button class="btn_upload">이미지 업로드</button>
+        <button class="btn_cancel">이미지 제거</button>
+    </div>
+    <div class="profile">
+        <span>닉네임</span>
+        <p>소개글</p>
+        <button class="btn_update"></button>
+    </div>
+</div>
+<table class="menu_tab">
+    <tbody>
+    <tr>
+        <td>작성한 글</td>
+        <td>댓글 단 글</td>
+    </tr>
+    </tbody>
+</table>
+<table class="searchList">
     <thead>
     <tr>
-        <th>날짜</th>
+        <th>카테고리</th>
         <th>제목</th>
-        <th>조회수</th>
-        <th>댓글수</th>
+        <th>댓글</th>
+        <th>작성일</th>
+        <th>조회</th>
     </tr>
     </thead>
     <tbody>
-
-    <tr th:each="post : ${myPosts}">
-        <td th:text="${post.createdDate}"></td>
-        <td th:text="${post.boardTitle}"></td>
-        <td th:text="${post.boardViews}"></td>
-    </tr>
-
+    <tr>카테고리</tr>
+    <tr>제목</tr>
+    <tr>댓글</tr>
+    <tr>작성일</tr>
+    <tr>조회</tr>
     </tbody>
-</table>
 
+</table>
 </body>
 </html>
