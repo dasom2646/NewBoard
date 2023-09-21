@@ -36,8 +36,4 @@ public class HomeController {
         return "views/newHome";
     }
 
-    @GetMapping("/lo")
-    public String log() {
-        return "views/member/login";
-    }
-}
+  }

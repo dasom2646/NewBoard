@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link th:href="@{/resource/css/bootstrap.min.css}"
           href="/resource/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         .container {
             max-width: 560px;
@@ -22,7 +23,7 @@
     </div>
     <form action="/login" th:action="@{/member/login}" th:object="${memberDto}" method="post">
         <div>
-            <label for="loginId">로그인 ID</label>
+            <label for="loginId"></label>
             <input type="text" id="loginId" th:field="*{memberId}" class="form-control">
         </div>
 

@@ -24,7 +24,7 @@ public class MemberJoinController {
 
     @GetMapping("/memberJoinForm")
     public String addForm(@ModelAttribute("memberDto") MemberDto memberDto) {
-        return "views/member/memberJoinForm";
+        return "views/member/login2";
     }
 
     @PostMapping("/add")
