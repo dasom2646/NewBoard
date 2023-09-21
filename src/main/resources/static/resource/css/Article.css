@@ -1,0 +1,375 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+@font-face {
+    font-family: 'Cafe24Simplehae';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Simplehae.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+
+.text_by{
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    color:#6E6E6E;
+    font-size: 16px;
+}
+
+body, bottom, p, pre, div, textarea   {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+div {
+    display: block;
+}
+
+body {
+    background: #fff;
+    color: #333;
+    max-width: 1400px;
+    margin: 0 auto;
+
+}
+
+.item_type_text {
+    font-size: 12pt;
+    letter-spacing: .7px;
+    line-height: 18pt;
+    margin: 0 auto;
+    white-space: normal; /* 공백과 줄바꿈 처리 */
+    padding-top:20px;
+
+}
+
+
+p, pre {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.wrap_article {
+    min-width: min-width: 1200px;
+}
+
+
+/*!
+* comment
+*/
+
+li {
+    list-style: none;
+    text-decoration: none;
+
+}
+
+
+.comment_write .box_area {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+    width: 800px;
+}
+.link_profile {
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    height:30px;
+}
+.comment_write .editor_wrap {
+    font-size: 13px;
+    position: relative;
+    height: 120px;
+}
+.info_comment .comment_head {
+    border-bottom: 1px solid #ddd;
+    height: 30px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    width: 800px;
+}
+.info_comment {
+    background-color: #fff;
+    padding: 0 0 124px;
+    position: relative;
+    height: 30px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    width: 800px;
+}
+.comment_head .tit_comment {
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: -1px;
+    padding-top: 4px;
+}
+.comment_none {
+    align-items: center;
+    color: #959595;
+    display: flex;
+    flex-direction: column;
+    margin: 52px 0;
+    padding-bottom: 8px;
+}
+.comment_none .txt_none {
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 4px;
+}
+.article_contents .info_state.open_comment .wrap_comment_btn {
+    padding-bottom: 30px;
+}
+
+.article_contents {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 42px;
+    color: #666;
+    display: inline-flex;
+    font-size: 13px;
+    padding: 8px 23px;
+}
+.article_contents {
+    border-top: 1px solid #eee;
+    margin: 0 auto;
+    padding: 32px 0;
+    width: 800px;
+}
+.info_state {
+    border-top: 1px solid #eee;
+    margin: 0 auto;
+    padding: 32px 0;
+    width: 800px;
+}
+.article_contents .wrap_comment_btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0 70px;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.article_contents .info_state.open_comment .wrap_comment_btn {
+    padding-bottom: 30px;
+}
+.article_contents .wrap_comment_btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0 70px;
+}
+
+
+button, input, select, textarea {
+vertical-align: middle;
+}
+
+.info_state {
+    background-color: #fff;
+    padding: 0 0 124px;
+    position: relative;
+    height: 30px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    width: 800px;
+
+}
+
+
+#textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none; /* textarea의 사이즈 조절 핸들숨김 */
+    padding: 20px;
+    box-sizing: border-box;
+}
+.content_wrap{
+    width: 800px;
+    margin: 0 auto;
+    padding-top:80px;
+}
+
+.comment_write{
+    border: 1px solid #bbb;
+}
+
+.wrap_comment_btn{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0 30px;
+    margin: 0 auto;
+    width:800px
+}
+
+
+
+button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+}
+a{
+cursor: pointer;
+    text-decoration: none;
+    color: black;
+
+
+}
+.list_btn{
+    margin: 0 auto;
+    width: 800px;
+    font-size: 15px;
+    padding: 25px 0 20px 0px;
+
+}
+.wrap_btn{
+    height:30px;
+}
+
+.submit_btn{
+    border: 1px solid #bbb;
+    border-radius: 20px;
+    color: #666;
+    font-size: 14px;
+    height: 32px;
+    line-height: 28px;
+    width: 52px;
+
+}
+.submit_btn a:hover {
+    color: #1dc078;
+}
+
+.editor_footer {
+   align-items: center;
+   border-top: 1px solid #eee;
+   display: flex;
+   justify-content: flex-end;
+   height: 62px;
+   padding: 0 21px;
+}
+
+.info_article{
+    color: #6c757d;
+    margin-bottom: 40px;
+}
+
+
+.hidden {
+      display: none;
+}
+
+
+.comment_list{
+   /* border-top: 1px solid #eee;*/
+    padding: 20px 0;
+
+}
+
+.btn_like{
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 15px;
+    color: #666;
+    font-size: 13px;
+    padding: 5px 17px;
+}
+
+.btn_comment{
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 15px;
+    color: #666;
+    font-size: 13px;
+    padding: 5px 17px;
+    display: flex;
+    align-items: center;
+}
+
+.item_type_text{
+    white-space:pre-line;
+}
+
+.item_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 40px 0 30px 0px;
+}
+.comment_container{
+    margin: 0 auto;
+    width: 800px;
+}
+.comment_list{
+    display: block;
+    width: 100%;
+    margin: 36px 0;
+    width: 100%;
+}
+.comment_list{
+    color: #111;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+.comment_list>li {
+    border-top: 1px solid #eee;
+}
+
+
+.btn_reply {
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.btn_reply {
+    color: #959595;
+    margin-top: 14px;
+}
+button {
+
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.txt_time{
+    color: #959595;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+.comment_wrap{
+    padding-left: 25px;
+    padding-top: 30px;
+
+}
+

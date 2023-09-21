@@ -1,0 +1,117 @@
+
+@font-face {
+    font-family: 'Cafe24Simplehae';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Simplehae.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Supermagic-Bold-v1.0';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/Cafe24Supermagic-Bold-v1.0.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+ .text_by{
+      font-family: 'Cafe24Supermagic-Bold-v1.0';
+      color:#6E6E6E;
+ }
+
+body, bottom, p, pre, div   {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+.wrap_article_list li{
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+    min-height: 180px;
+    padding: 20px 20px;
+    position: relative;
+}
+
+.wrap_contents {
+    background-color: #fff;
+
+}
+
+div {
+    display: block;
+}
+.wrap_article {
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 30px 0 111px;
+/*   padding-top:60px*/
+    width: 1000px;
+}
+/* .wrap_article_list {
+    float: left;
+    overflow: hidden;
+    width: 700px;
+} */
+dl, li, menu, ol, ul {
+    list-style: none;
+     text-decoration: none;
+}
+a {
+    color: #333;
+
+}
+ a, a:active, a:hover {
+    text-decoration: none;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.wrap_article_list li+li {
+    margin: 14px 0 0;
+}
+.title_article{
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 2;
+}
+
+.title_article .wrap_article_list {
+    border-bottom: 1px solid;
+}
+
+/* 마우스 오버 시 밑줄 생성하기 */
+.title_article:hover {
+ color: #7ac142
+}
+
+.article_title{
+    padding-bottom:10px;
+}
+
+
+.truncate{
+    white-space:pre-line;
+}
+
+.info_head{
+    width: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    padding: 0 20px;
+
+ }
+ .list_count{
+     font-size:15px;
+ }
+
+ .list_name{
+    font-size: 20px;
+    font-weight: bold;
+}

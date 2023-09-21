@@ -1,0 +1,186 @@
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+body, bottom, p, pre, div   {
+ font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+@font-face {
+    font-family: 'TTTtangsbudaejjigaeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/TTTtangsbudaejjigaeB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.logo{
+    font-family: 'TTTtangsbudaejjigaeB';
+    font-size: 25px;
+    line-height: 1;
+    margin-right: 10px;
+    color: #2F3438;
+}
+
+.home_wrap{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+button{
+    cursor: pointer;
+}
+/*a:hover {
+    color: #1dc078;
+
+}*/
+a {
+   /* color:  #363636;*/
+   text-decoration: none;
+}
+.header_left a:hover{
+   color: #1dc078;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header_menu > * {
+    margin-right: 20px; /* 각 메뉴 아이템 간격 추가 */
+
+
+}
+
+.header_menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* 부모의 가로 폭을 100%로 설정 */
+    margin-bottom: 20px; /* 메뉴 아래에 간격 추가 */
+     cursor: pointer;
+}
+.header_left {
+    display: flex;
+
+}
+.header_right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.header_right {
+    margin-left: auto;
+}
+
+.header_buttons {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+}
+.btn_main{
+font-size: 18px;
+    line-height: 1;
+    font-weight: bold;
+    color: #2F3438;
+
+}
+
+.btn_login,
+.btn_join {
+    padding: 8px;
+    margin-right: 8px;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    color: #666;
+    font-size: 15px;
+   /*     padding: 5px 17px;*/
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: auto; /* 검색창을 메뉴와 오른쪽으로 이동 */
+}
+  #search-input {
+    flex: 1;
+    border: none;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .icon {
+    cursor: pointer;
+    padding: 5px;
+        margin-right: 5px;
+  }
+  .header_inner{
+     padding: 64px 0 10px;
+     background: #fff;
+     border-bottom: 1px solid #EAEDEF;
+  }
+  .btn_join{
+     background-color: #9abf7f;
+     color:#fff;
+   }
+
+.recommend_pic{
+    margin:100px;
+}
+
+.pic_info-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4개의 섹션을 가로로 나열 */
+    gap: 20px; /* 각 섹션 사이의 간격 설정 */
+}
+.pic_article{
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-width: 0px;
+    flex-flow: column;
+
+}
+.pic_details{
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+     height: 200px;
+
+}
+
+
+.pic_title{
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 10px;
+    }
+
+.btn_pic{
+    text-decoration: none;
+    color: #259c72;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 700;
+    border: none;
+    background: none;
+    padding: 20px 0px;
+}
+.btn_more{
+display:flex;
+justify-content: flex-end;
+}

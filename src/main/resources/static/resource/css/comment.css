@@ -1,0 +1,110 @@
+div {
+    display: block;
+}
+.comment_write .box_area {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    position: relative;
+    width: 700px;
+}
+.link_profile {
+    overflow: visible;
+    padding: 0;
+    position: relative;
+}
+.comment_write .editor_wrap {
+    font-size: 13px;
+    position: relative;
+}
+.info_comment .comment_head {
+    border-bottom: 1px solid #ddd;
+    height: 30px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    width: 700px;
+}
+.info_comment {
+    background-color: #fff;
+    padding: 0 0 124px;
+    position: relative;
+}
+.comment_head .tit_comment {
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: -1px;
+    padding-top: 4px;
+}
+.comment_none {
+    align-items: center;
+    color: #959595;
+    display: flex;
+    flex-direction: column;
+    margin: 52px 0;
+    padding-bottom: 8px;
+}
+.comment_none .txt_none {
+    display: block;
+    font-size: 12px;
+    line-height: 20px;
+    margin-top: 4px;
+}
+.article_contents .info_state.open_comment .wrap_comment_btn {
+    padding-bottom: 30px;
+}
+
+.article_contents .wrap_comment_btn .btn_like .btn_comment {
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    border-radius: 42px;
+    color: #666;
+    display: inline-flex;
+    font-size: 13px;
+    padding: 8px 23px;
+}
+.article_contents .info_state {
+    border-top: 1px solid #eee;
+    margin: 0 auto;
+    padding: 32px 0;
+    width: 700px;
+}
+.article_contents .wrap_comment_btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0 70px;
+}
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+}
+body {
+    background: #fff;
+    color: #333;
+}
+.article_contents .info_state.open_comment .wrap_comment_btn {
+    padding-bottom: 30px;
+}
+.article_contents .wrap_comment_btn {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0 70px;
+}
+blockquote, body, button, code, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul{
+    margin: 0;
+    padding: 0;
+    text-rendering: inherit;
+}
+button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+}
+button, input, select, textarea {
+    vertical-align: middle;
+}
+.content_wrap{
+  height: 100vh; /* 화면 높이의 100%로 설정 */
+  }
