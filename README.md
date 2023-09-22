@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-### 스토리플레이트 게시판프로젝트
-=======
-# NewBoard
 
+# NewBoard 스토리플레이트
 ## database
 - h2 db 사용
 - 인베디드 메모리 방식으로 사용
@@ -13,5 +10,3 @@
 > JDBC URL: jdbc:h2:mem:h2-new-board-db <br>
 > User Name: sa <br>
 > Password:	 
-
->>>>>>> feature/post
