@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>마이페이지</title>
+    <link rel="stylesheet" th:href="@{/resource/css/myPage.css}"/>
 </head>
 <!-- Header-->
 <div th:if="${session.loggedIn}">
@@ -11,26 +12,60 @@
 </div>
 
 <body>
+<div class="profile_container">
+    <div class="profile">
+        <div class="image_wrap">
+            <img src="/resource/KakaoTalk_20230919_134726450.png">
+            <div class="btn_img">
+                <button class="btn_upload">이미지 업로드</button>
+                <button class="btn_delete">이미지 제거</button>
+            </div>
+        </div>
+        <div class="profile_inner">
+            <div class="profile_modify">
+                <div >
+                    <input type="text" placeholder="닉네임바꾸기">
+                </div>
+                <button class="btn_update">수정</button>
+            </div>
+            <div class="menu_wrap">
+                <div class="btn_menu">
+                    <a>
+                        <span class="btn_post">작성한 글</span>
+                    </a>
+                    <a>
+                        <span class="btn_comment">댓글 단 글</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<table>
-    <thead>
-    <tr>
-        <th>날짜</th>
-        <th>제목</th>
-        <th>조회수</th>
-        <th>댓글수</th>
-    </tr>
-    </thead>
-    <tbody>
+    <div class="menu_container">
+        <div class="menu_list">
+            <table class="searchList">
+                <thead class="list_Header">
+                <tr>
+                    <th class="category">카테고리</th>
+                    <th class="title">제목</th>
+                    <th class="comment">댓글</th>
+                    <th class="date">작성일</th>
+                    <th class="count">조회</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>카테고리</td>
+                    <td>제목</td>
+                    <td>댓글</td>
+                    <td>작성일</td>
+                    <td>조회</td>
+                </tbody>
 
-    <tr th:each="post : ${myPosts}">
-        <td th:text="${post.createdDate}"></td>
-        <td th:text="${post.boardTitle}"></td>
-        <td th:text="${post.boardViews}"></td>
-    </tr>
-
-    </tbody>
-</table>
+            </table>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

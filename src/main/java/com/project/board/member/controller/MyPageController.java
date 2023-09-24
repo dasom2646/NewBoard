@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/mypage")
+@RequestMapping("/myPage")
 public class MyPageController {
 
     private final MemberService memberService;
@@ -28,13 +28,21 @@ public class MyPageController {
         this.boardService = boardService;
         this.commentService = commentService;
     }
+    @GetMapping("/main")
+    public String myPage() {
+
+
+        return "views/member/myPage";
+    }
+
+
 
     @GetMapping("/posts/{memberSeq}")
     public String myPage(@PathVariable Long memberSeq, Model model) {
 
         List<BoardDto> myPosts = boardService.getBoardByMemberSeq(memberSeq);
         model.addAttribute("myPosts", myPosts);
-        return "views/member/myPage";
+        return "views/member/myPosts";
     }
 }
 

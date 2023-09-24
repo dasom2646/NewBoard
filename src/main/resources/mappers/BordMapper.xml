@@ -42,12 +42,11 @@
 
     <select id="getAllBoardByMemberSeq" resultType="com.project.board.board.model.BoardDto">
         SELECT
-        BOARD_TITLE,
-        BOARD_CONTENT,
-        TO_CHAR(CREATED_DATE, 'YYYY.MM.DD') as CREATED_DATE ,
-        BOARD_VIEWS,
-        CATEGORY,
-
+        BOARD_TITLE
+        , BOARD_CONTENT
+        , CATEGORY
+        , TO_CHAR(CREATED_DATE, 'YYYY.MM.DD') as CREATED_DATE
+        , BOARD_VIEWS
         FROM TB_BOARD
         WHERE MEMBER_SEQ = #{memberSeq}
     </select>
