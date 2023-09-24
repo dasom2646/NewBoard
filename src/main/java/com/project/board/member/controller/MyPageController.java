@@ -28,13 +28,6 @@ public class MyPageController {
         this.boardService = boardService;
         this.commentService = commentService;
     }
-    @GetMapping("/main")
-    public String myPage() {
-
-
-        return "views/member/myPage";
-    }
-
 
 
     @GetMapping("/posts/{memberSeq}")
@@ -42,7 +35,14 @@ public class MyPageController {
 
         List<BoardDto> myPosts = boardService.getBoardByMemberSeq(memberSeq);
         model.addAttribute("myPosts", myPosts);
-        return "views/member/myPosts";
+        return "views/member/myPage";
+    }
+
+    @GetMapping("/myComments/{memberSeq}")
+    public String myComments(@PathVariable Long memberSeq, Model model) {
+        List<CommentDto> myComments = commentService.getCommentsByMemberSeq(memberSeq);
+        model.addAttribute("myComments", myComments);
+        return "views/member/myComments";
     }
 }
 

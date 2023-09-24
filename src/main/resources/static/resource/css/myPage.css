@@ -15,7 +15,7 @@ img {
     flex-direction: column;
 }
 .profile_container{
-    width: 800px;
+    width:1000px;
     margin-top:50px;
     margin-left: auto;
     margin-right: auto;
@@ -85,9 +85,21 @@ img {
 
 }
 
-.menu_wrap a:hover {
-    color: #1dc078;
+.btn_comment {
     cursor: pointer;
+
+    }
+
+.btn_comment :hover{
+        color: #1dc078;
+        }
+.btn_post{
+color: #1dc078;
+    cursor: pointer;
+}
+
+
+
 
 
 }
@@ -95,14 +107,7 @@ img {
     padding-left: 20px;
 }
 
-.btn_post{
-    padding: 0 10px 0 10px;
 
-
-}
-.btn_comment{
-    padding: 0 10px 0 10px;
-}
 
 .profile_modify {
     height: 50px;
@@ -118,6 +123,9 @@ img {
     padding-left: 50px;
 }
 
+.list_main{
+text-align: inherit;
+}
 
-    text-align: center;
-    padding: 6px 10px 3px 10px;
+
+

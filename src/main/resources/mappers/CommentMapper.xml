@@ -40,18 +40,53 @@
 
 
     <select id="getCommentsForBoard" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
-        SELECT C.COMMENT_SEQ, C.CONTENT, TO_CHAR(C.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE,
-        C.MEMBER_SEQ, C.BOARD_SEQ, M.MEMBER_ID
+        SELECT
+        C.COMMENT_SEQ
+        , C.CONTENT
+        , TO_CHAR(C.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE
+        , C.MEMBER_SEQ
+        , C.BOARD_SEQ
+        , M.MEMBER_ID
         FROM TB_COMMENT C
         LEFT JOIN TB_MEMBER M ON C.MEMBER_SEQ = M.MEMBER_SEQ
         WHERE C.BOARD_SEQ = #{boardSeq}
         ORDER BY C.CREATED_DATE ASC
     </select>
+    <select id="getAllCommentsByMemberSeq" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
+        SELECT
+        C.COMMENT_SEQ,
+        C.CONTENT,
+        TO_CHAR(C.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE,
+        C.MEMBER_SEQ,
+        C.BOARD_SEQ,
+        B.BOARD_TITLE,
+        B.CATEGORY,
+        B.BOARD_CONTENT,
+        B.CREATED_DATE as BOARD_CREATED_DATE,
+        B.BOARD_VIEWS,
+        M.MEMBER_ID
+        FROM TB_COMMENT C
+        LEFT JOIN TB_MEMBER M ON C.MEMBER_SEQ = M.MEMBER_SEQ
+        LEFT JOIN TB_BOARD B ON C.BOARD_SEQ = B.BOARD_SEQ
+        WHERE C.BOARD_SEQ = #{boardSeq}
+        ORDER BY C.CREATED_DATE ASC
+    </select>
 
+
+
+
+
+
+<!--
     <select id="getAllCommentsByMemberSeq" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
         SELECT * FROM TB_COMMENT WHERE MEMBER_SEQ = #{memberSeq}
-
     </select>
+-->
+
+
+
+
+
 
 
     <select id="getRepliesForComment" resultType="com.project.board.board.model.CommentDto">
