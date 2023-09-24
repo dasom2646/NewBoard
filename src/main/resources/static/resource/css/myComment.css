@@ -79,35 +79,29 @@ img {
 }
 
 .btn_menu{
-  font-size: 17px;
+    font-size: 17px;
     font-weight: bold;
 
+}
+
+.btn_post {
+    cursor: pointer;
 
 }
 
-.btn_comment {
-    cursor: pointer;
-
-    }
-
-.btn_comment:hover{
-        color: #1dc078;
-        }
-.btn_post{
-color: #1dc078;
-    cursor: pointer;
+.btn_post:hover{
+    color: #1dc078;
 }
 
-
-
-
+.btn_comment{
+    color: #1dc078;
+    cursor: pointer;
+}
 
 }
 .menu_container{
     padding-left: 20px;
 }
-
-
 
 .profile_modify {
     height: 50px;
