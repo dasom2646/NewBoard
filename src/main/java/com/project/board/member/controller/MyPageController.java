@@ -40,6 +40,7 @@ public class MyPageController {
 
     @GetMapping("/myComments/{memberSeq}")
     public String myComments(@PathVariable Long memberSeq, Model model) {
+
         List<CommentDto> myComments = commentService.getCommentsByMemberSeq(memberSeq);
         model.addAttribute("myComments", myComments);
         return "views/member/myComments";

@@ -76,7 +76,6 @@ public class BoardController {
                 "건강·운동", "감성 에세이", "인테리어·집들이"
         );
         boardDto.setCategories(categories);
-
         return "views/board/boardForm2";
     }
 
@@ -88,10 +87,12 @@ public class BoardController {
     public String upload(@ModelAttribute("boardDto") BoardDto boardDto,
                          @RequestParam("file") MultipartFile file,
                          HttpSession session) {
+
         // 로그인 상태 확인
         if (!isLoggedIn(session)) {
             return "redirect:/member/memberLoginForm";
         }
+
         // 사용자 정보 설정
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
 
@@ -117,8 +118,8 @@ public class BoardController {
                 e.printStackTrace();
                 // 파일 업로드 실패 시 예외 처리
             }
-
         }
+
         boardDto.setMemberSeq(loggedInUser.getMemberSeq());
 
         // 게시글 등록
@@ -130,9 +131,7 @@ public class BoardController {
             session.removeAttribute("returnUrl");
             return "redirect:" + returnUrl;
         }
-
         return "redirect:/board/boardList";
-
     }
 
     //    /**
@@ -142,7 +141,6 @@ public class BoardController {
 //    public String upload(@ModelAttribute("boardVo") BoardVo boardVo) {
 //        return "views/board/boardModify";
 //    }
-
 
     /**
      * 게시글 목록 페이지
@@ -171,8 +169,8 @@ public class BoardController {
         for (CommentDto comment : comments) {
             List<CommentDto> replies = commentService.getRepliesForComment(comment.getCommentSeq());
             replyMap.put(comment.getCommentSeq(), replies);
-        }
 
+        }
 
         // 댓글 수량 계산
         int commentCount = comments.size();
@@ -182,7 +180,6 @@ public class BoardController {
 
         // 이미지 파일의 URL을 생성
         String imageUrl = "/image?filename=" + imageFilename;
-
         model.addAttribute("board", board);
         model.addAttribute("comments", comments); // 댓글 목록 추가
         model.addAttribute("replyMap", replyMap); // 대댓글을 댓글에 연결하여 전달
@@ -192,7 +189,6 @@ public class BoardController {
         return "views/board/boardDetail";
     }
 
-
     // 사진 게시글4개
     @GetMapping("/picLatest")
     public String picLatestBoards(Model model) {
@@ -200,6 +196,4 @@ public class BoardController {
         model.addAttribute("latestBoards", latestBoards);
         return "views/newHome";
     }
-
-
 }
