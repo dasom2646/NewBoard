@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -40,12 +41,17 @@ public class MemberLoginController {
      * 로그인 동작
      */
     @PostMapping("/login")
-    public String login(@RequestParam String memberId, @RequestParam String memberPwd, HttpSession session) {
+    public String login(@RequestParam String memberId, @RequestParam String memberPwd, HttpSession session, RedirectAttributes redirectAttributes) {
 
         boolean login = memberService.isLogin(memberId, memberPwd);
 
-        if (!login) { // 로그인 실패 시 loginForm.html 화면 유지하면서 실패 메시지 표시
+     /*   if (!login) { // 로그인 실패 시 loginForm.html 화면 유지하면서 실패 메시지 표시
             return "redirect:/login?errorCode=01&memberId=" + memberId;
+        }*/
+        if (!login) { // 로그인 실패 시
+            // 실패 메시지를 RedirectAttributes를 사용하여 전달
+            redirectAttributes.addFlashAttribute("loginFailedMessage", "아이디 또는 비밀번호를 확인하세요.");
+            return "redirect:/member/memberLoginForm";
         }
 
         // 로그인 성공 시 사용자 정보를 가져와서 세션에 저장

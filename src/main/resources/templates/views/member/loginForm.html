@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>StoryPlate_Login</title>
     <link rel="stylesheet" th:href="@{/resource/css/login.css}"/>
-
+    <link rel="stylesheet" th:href="@{/resource/css/modal.css}"/>
 </head>
 
 <body>
@@ -76,9 +76,15 @@
                             </div>
                         </div>
                         <div class="btn_login">
-                            <button type="submit" class="btn_click">
+                            <button type="submit" class="btn_click" id="loginButton">
                                 <span class="btn_loginTxt">로그인</span>
                             </button>
+                            <div id="myModal" class="modal">
+                                <div class="modal-content">
+                                    <span class="close" id="closeModal">&times;</span>
+                                    <p id="modalMessage">아이디 또는 비밀번호를 확인하세요.</p>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -88,6 +94,34 @@
 
     </div>
 </div>
+
+
+<script>
+    // 로그인 버튼 클릭 시 서버 요청 시뮬레이션 (실제로는 서버 요청을 보내야 함)
+  document.getElementById("loginButton").onclick = function() {
+      // 여기에서 실제 로그인 로직을 수행하고 결과를 확인합니다.
+      const isLoginSuccessful = Math.random() < 0.5; // 랜덤 결과로 시뮬레이션
+
+      if (!isLoginSuccessful) {
+          // 로그인 실패 시 모달 창 열고 실패 메시지 표시
+          document.getElementById("myModal").style.display = "block";
+          document.getElementById("modalMessage").textContent = "아이디 또는 비밀번호를 확인하세요.";
+      }
+  }
+
+  // 모달 닫기
+  document.getElementById("closeModal").onclick = function() {
+      document.getElementById("myModal").style.display = "none";
+  }
+
+  // 모달 외부 클릭 시 닫기
+  window.onclick = function(event) {
+      if (event.target == document.getElementById("myModal")) {
+          document.getElementById("myModal").style.display = "none";
+      }
+  }
+
+</script>
 
 </body>
 

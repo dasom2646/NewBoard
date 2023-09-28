@@ -89,21 +89,15 @@
 </div>
 
 <script th:src="@{/ckeditor5/build/ckeditor.js}"></script>
-<script>
-    ClassicEditor.create( document.querySelector( '#editor' ), {
-              ckfinder : {
-          uploadUrl: '/image/upload'
 
-      }
-  } );
-</script>
-<!--<script>
+
+<script>
     ClassicEditor
         .create(document.querySelector('#editor'))
         .catch(error => {
             console.error(error);
         });
-</script>-->
+</script>
 
 </body>
 </html>
