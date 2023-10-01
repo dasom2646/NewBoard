@@ -107,6 +107,7 @@
                                 </span>
                                         <input type="password" class="input_text" id="password" th:field="*{memberPwd}"
                                                placeholder="비밀번호">
+
                                         <button class="btn_x" type="button"
                                                 th:onclick="|document.getElementById('password').value='';|"
                                                 style="background: transparent; border: none; outline: none;">
@@ -124,7 +125,14 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 에러 메시지 표시 -->
+                        <div class="error-message">
+                            <div th:if="${#fields.hasErrors('memberName')}">이름을 입력하세요.</div>
+                            <div th:if="${#fields.hasErrors('memberId')}">아이디를 입력하세요.</div>
+                            <div th:if="${#fields.hasErrors('memberPwd')}">비밀번호를 입력하세요.</div>
+                        </div>
                         <div class="btn_join">
+
                             <button type="submit" class="btn_click">
                                 <span class="btn_joinTxt">회원가입</span>
                             </button>
@@ -132,12 +140,53 @@
                     </form>
                 </div>
             </div>
-
         </div>
-
-
     </div>
 </div>
+<script>
+    document.querySelector('form').addEventListener('submit', function (event) {
+        const nameField = document.getElementById('name');
+        const loginIdField = document.getElementById('loginId');
+        const passwordField = document.getElementById('password');
+        const errorMessages = document.querySelectorAll('.error-message div');
+
+        // 모든 에러 메시지를 숨깁니다.
+        errorMessages.forEach(function (errorMessage) {
+            errorMessage.style.display = 'none';
+        });
+
+        let hasError = false; // 에러 여부를 나타내는 변수
+
+        // 이름 필드가 비어 있는 경우
+        if (nameField.value.trim() === '') {
+            errorMessages[0].style.display = 'block';
+            hasError = true;
+        }
+
+        // 이름 필드는 비어 있지 않지만 아이디 필드가 비어 있는 경우
+        if (loginIdField.value.trim() === '' && !hasError) {
+            errorMessages[1].style.display = 'block';
+            hasError = true;
+        }
+
+        // 이름과 아이디 필드는 모두 비어 있지 않지만 비밀번호 필드가 비어 있는 경우
+        if (passwordField.value.trim() === '' && !hasError) {
+            errorMessages[2].style.display = 'block';
+            hasError = true;
+        }
+
+        // 에러가 있을 경우 폼 제출을 방지합니다.
+        if (hasError) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+
+
+
+
+
 
 </body>
 

@@ -34,14 +34,18 @@
                                               stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                 </span>
-                                        <input type="text" class="input_text" id="loginId" th:field="*{memberId}" placeholder="아이디">
-                                        <button type="button" th:onclick="|document.getElementById('loginId').value='';|"
+                                        <input type="text" class="input_text" id="loginId" th:field="*{memberId}"
+                                               placeholder="아이디">
+                                        <button type="button"
+                                                th:onclick="|document.getElementById('loginId').value='';|"
                                                 style="background: transparent; border: none; outline: none;">
                                             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="24" height="24" fill="white"/>
-                                                <path d="M7 17L16.8995 7.10051" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M7 7.00001L16.8995 16.8995" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M7 17L16.8995 7.10051" stroke="#000000" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M7 7.00001L16.8995 16.8995" stroke="#000000"
+                                                      stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
                                         </button>
                                     </div>
@@ -61,30 +65,31 @@
                                               stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
                                     </svg>
                                 </span>
-                                        <input type="password" class="input_text" id="password" th:field="*{memberPwd}" placeholder="비밀번호">
-                                        <button class="btn_x" type="button" th:onclick="|document.getElementById('password').value='';|"
+                                        <input type="password" class="input_text" id="password" th:field="*{memberPwd}"
+                                               placeholder="비밀번호">
+                                        <button class="btn_x" type="button"
+                                                th:onclick="|document.getElementById('password').value='';|"
                                                 style="background: transparent; border: none; outline: none;">
                                             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="24" height="24" fill="white"/>
-                                                <path d="M7 17L16.8995 7.10051" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M7 7.00001L16.8995 16.8995" stroke="#000000" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M7 17L16.8995 7.10051" stroke="#000000" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M7 7.00001L16.8995 16.8995" stroke="#000000"
+                                                      stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
                                         </button>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="error_message">
+
                             </div>
                         </div>
                         <div class="btn_login">
                             <button type="submit" class="btn_click" id="loginButton">
                                 <span class="btn_loginTxt">로그인</span>
                             </button>
-                            <div id="myModal" class="modal">
-                                <div class="modal-content">
-                                    <span class="close" id="closeModal">&times;</span>
-                                    <p id="modalMessage">아이디 또는 비밀번호를 확인하세요.</p>
-                                </div>
-                            </div>
                         </div>
                     </form>
                 </div>
@@ -96,33 +101,5 @@
 </div>
 
 
-<script>
-    // 로그인 버튼 클릭 시 서버 요청 시뮬레이션 (실제로는 서버 요청을 보내야 함)
-  document.getElementById("loginButton").onclick = function() {
-      // 여기에서 실제 로그인 로직을 수행하고 결과를 확인합니다.
-      const isLoginSuccessful = Math.random() < 0.5; // 랜덤 결과로 시뮬레이션
-
-      if (!isLoginSuccessful) {
-          // 로그인 실패 시 모달 창 열고 실패 메시지 표시
-          document.getElementById("myModal").style.display = "block";
-          document.getElementById("modalMessage").textContent = "아이디 또는 비밀번호를 확인하세요.";
-      }
-  }
-
-  // 모달 닫기
-  document.getElementById("closeModal").onclick = function() {
-      document.getElementById("myModal").style.display = "none";
-  }
-
-  // 모달 외부 클릭 시 닫기
-  window.onclick = function(event) {
-      if (event.target == document.getElementById("myModal")) {
-          document.getElementById("myModal").style.display = "none";
-      }
-  }
-
-</script>
-
 </body>
-
 </html>
