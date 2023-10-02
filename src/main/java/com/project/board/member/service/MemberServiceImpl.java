@@ -39,6 +39,13 @@ public class MemberServiceImpl implements MemberService {
         return false;
     }
 
+    @Override
+    public boolean isMemberIdExists(String memberId) {
+        int count = memberMapper.countMemberId(memberId);
+        return count > 0;
+    }
+
+
     //맴버 조회
     @Override
     public MemberDto getMemberById(String memberId) {

@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>StoryPlate_회원가입</title>
     <link rel="stylesheet" th:href="@{/resource/css/join.css}"/>
-<style>
-    .error_message{
-        display: inline-block;
-        font-size: 12px;
-        line-height: 16px;
-        color: #ff003e;
-        vertical-align: middle;
-        margin-top: 10px;
-    }
-</style>
+    <style>
+        .error_message{
+            display: inline-block;
+            font-size: 12px;
+            line-height: 16px;
+            color: #ff003e;
+            vertical-align: middle;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -133,10 +133,8 @@
                                 </div>
                             </div>
                             <!-- 에러 메시지 표시 -->
-                            <div class="error-message">
-                                <div th:if="${#fields.hasErrors('memberName')}">이름을 입력하세요.</div>
-                                <div th:if="${#fields.hasErrors('memberId')}">아이디를 입력하세요.</div>
-                                <div th:if="${#fields.hasErrors('memberPwd')}">비밀번호를 입력하세요.</div>
+                            <div th:if="${errorMessage}" class="error_message">
+                                <span th:text="${errorMessage}"></span>
                             </div>
                         </div>
 
@@ -152,7 +150,7 @@
     </div>
 </div>
 
-<script>
+<!--<script>
     document.querySelector('form').addEventListener('submit', function (event) {
         const nameField = document.getElementById('name');
         const loginIdField = document.getElementById('loginId');
@@ -189,13 +187,7 @@
             event.preventDefault();
         }
     });
-</script>
-
-
-
-
-
-
+</script>-->
 
 
 </body>

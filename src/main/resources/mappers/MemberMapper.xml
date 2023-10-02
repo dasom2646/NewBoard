@@ -17,8 +17,7 @@
         , #{memberPwd})
     </insert>
 
-    <select id="getMemberById" parameterType="com.project.board.member.model.MemberDto"
-            resultType="com.project.board.member.model.MemberDto">
+    <select id="getMemberById" resultType="com.project.board.member.model.MemberDto">
         SELECT MEMBER_SEQ
         , MEMBER_ID
         , MEMBER_NAME
@@ -27,8 +26,7 @@
         WHERE MEMBER_ID = #{memberId}
     </select>
 
-    <select id="getMemberList" parameterType="com.project.board.member.model.MemberDto"
-            resultType="com.project.board.member.model.MemberDto">
+    <select id="getMemberList" resultType="com.project.board.member.model.MemberDto">
         SELECT MEMBER_SEQ
         , MEMBER_ID
         , MEMBER_NAME
@@ -40,6 +38,10 @@
         *
         FROM TB_MEMBER
         WHERE MEMBER_SEQ = #{memberSeq}
+    </select>
+
+    <select id="countMemberId" resultType="int" parameterType="string">
+        SELECT COUNT(*) FROM TB_MEMBER WHERE MEMBER_ID = #{memberId}
     </select>
 
 </mapper>
