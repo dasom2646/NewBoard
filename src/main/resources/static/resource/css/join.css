@@ -166,25 +166,22 @@ position: relative;
     }
 
 .icon_id{
-
     display: flex;
     align-items: center;
-
-
 }
 .join{
     display: flex;
     align-items: center;
-      width: 460px;
+    width: 460px;
     flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
-        cursor: pointer;
+    cursor: pointer;
 
 }
 .join_p{
-margin:0 auto
+    margin:0 auto
 }
 .btn_link{
- cursor: pointer;
+    cursor: pointer;
 }

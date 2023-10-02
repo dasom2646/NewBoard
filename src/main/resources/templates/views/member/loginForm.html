@@ -7,7 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>StoryPlate_Login</title>
     <link rel="stylesheet" th:href="@{/resource/css/login.css}"/>
-    <link rel="stylesheet" th:href="@{/resource/css/modal.css}"/>
+
+
+   <style>
+       .error_message{
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    color: #ff003e;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+   </style>
+
 </head>
 
 <body>
@@ -82,8 +95,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="error_message">
-
+                            <!-- 에러 메시지 표시 -->
+                            <div th:if="${errorMessage}" class="error_message">
+                                <span th:text="${errorMessage}"></span>
                             </div>
                         </div>
                         <div class="btn_login">
