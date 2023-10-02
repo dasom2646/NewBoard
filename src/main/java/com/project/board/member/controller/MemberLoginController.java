@@ -59,6 +59,7 @@ public class MemberLoginController {
         if (login) {
             // 로그인 성공 시 사용자 정보를 가져와서 세션에 저장
             MemberDto loggedInUser = memberService.getMemberById(memberId);
+            session.setAttribute("loggedIn",true);
             session.setAttribute("loggedInUser", loggedInUser);
             session.setAttribute("memberSeq", loggedInUser.getMemberSeq());
 
