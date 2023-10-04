@@ -20,6 +20,8 @@ public interface BoardService {
     // 게시글 작성자로 전체 조회
     List<BoardDto> getBoardByMemberSeq(Long memberSeq);
 
+
+
     // 조회수
     BoardDto getAndIncreaseViews(Long boardSeq);
 

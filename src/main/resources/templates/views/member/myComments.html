@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>마이페이지</title>
-    <link rel="stylesheet" th:href="@{/resource/css/myPage.css}"/>
+    <title>댓글단글</title>
+    <link rel="stylesheet" th:href="@{/resource/css/myComment.css}"/>
 </head>
 <!-- Header-->
 <div th:if="${session.loggedIn}">
@@ -31,14 +31,11 @@
             <div class="menu_wrap">
                 <div class="btn_menu">
                     <a  th:onclick="|location.href='@{/myPage/posts/{memberSeq}(memberSeq=${session.memberSeq})}'|">
-                        <span class="btn_post" >작성한 글</span>
+                        <span class="btn_post">작성한 글</span>
                     </a>
-                    <a th:onclick="|location.href='@{/myPage/myComments/{memberSeq}(memberSeq=${session.memberSeq})}'|">
-                        <span class="btn_comment" >댓글 단 글</span>
+                    <a  th:onclick="|location.href='@{/myPage/myComments/{memberSeq}(memberSeq=${session.memberSeq})}'|">
+                        <span class="btn_comment">댓글 단 글</span>
                     </a>
-                    <!--     <a th:onclick="|location.href='@{/myPage/myComments/{memberSeq}(memberSeq=${session.memberSeq})}'|">
-                        <span class="btn_comment" >댓글 단 글</span>
-                    </a>-->
                 </div>
             </div>
         </div>
@@ -57,12 +54,12 @@
                 </tr>
                 </thead>
                 <tbody class="list_main">
-                <tr th:each="post : ${myPosts}">
-                    <td th:text="${post.category}">카테고리</td>
-                    <td th:text="${post.boardTitle}">제목</td>
+                <tr th:each="comment : ${myComments}">
+                    <td th:text="${comment.category}">카테고리</td>
+                    <td th:text="${comment.boardTitle}">제목</td>
                     <td>0</td>
-                    <td th:text="${post.createdDate}">작성일</td>
-                    <td th:text="${post.boardViews}"조회</td>
+                    <td th:text="${comment.createdDate}">작성일</td>
+                    <td th:text="${comment.boardViews}"조회</td>
                 </tr>
                 </tbody>
 

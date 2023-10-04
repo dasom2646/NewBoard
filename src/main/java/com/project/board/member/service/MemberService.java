@@ -13,9 +13,13 @@ public interface MemberService {
     // 맴버 로그인
     boolean isLogin(String memberId, String memberPwd);
 
+    // 아이디 중복검사
+    boolean isMemberIdExists(String memberId);
+
     MemberDto getMemberById(String memberId);
 
     List<MemberDto> getMemberList(MemberDto memberDto);
 
     MemberDto getMemberBySeq(Long memberSeq);
 }
+

@@ -1,0 +1,131 @@
+img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #bbb;
+
+}
+
+.image_wrap{
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.profile_container{
+    width:1000px;
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.btn_img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btn_upload{
+    margin-bottom: 5px;
+    height: 25px;
+    font-weight: bold;
+    border: none;
+    background: #1dc078;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+
+.btn_delete{
+    height: 20px;
+    font-weight: bold;
+    border: none;
+    background: #eee;
+    color: #363636;;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+
+.profile{
+    padding-left: 20px;
+    padding-top: 40px;
+    border-bottom: 1px solid #EAEDEF;
+    display: flex;
+    height: 300px;
+    }
+
+
+
+.profile P{
+
+    padding-left: 20px;
+    display: block;
+
+}
+.btn_update{
+    outline: none;
+    padding: 0px;
+    border: none;
+    display: inline;
+    line-height: 1.5;
+    text-decoration: underline;
+    background: none;
+    cursor: pointer;
+
+}
+
+.btn_menu{
+  font-size: 17px;
+    font-weight: bold;
+
+
+}
+
+.btn_comment {
+    cursor: pointer;
+
+    }
+
+.btn_comment:hover{
+        color: #1dc078;
+        }
+.btn_post{
+color: #1dc078;
+    cursor: pointer;
+}
+
+
+
+
+
+}
+.menu_container{
+    padding-left: 20px;
+}
+
+
+
+.profile_modify {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.profile_inner{
+    width: 400px;
+    padding-top: 200px;
+    padding-left: 50px;
+}
+
+.list_main{
+text-align: inherit;
+}
+
+
+
