@@ -47,6 +47,7 @@
         , C.MEMBER_SEQ
         , C.BOARD_SEQ
         , M.MEMBER_ID
+        , M.MEMBER_NICKNAME
         FROM TB_COMMENT C
         LEFT JOIN TB_MEMBER M ON C.MEMBER_SEQ = M.MEMBER_SEQ
         WHERE C.BOARD_SEQ = #{boardSeq}

@@ -34,7 +34,8 @@
             TO_CHAR(B.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE ,
             B.BOARD_VIEWS,
             B.CATEGORY,
-            M.MEMBER_ID
+            M.MEMBER_ID,
+            M.MEMBER_NICKNAME
         FROM TB_BOARD B
         JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
         ORDER BY BOARD_SEQ DESC
@@ -61,7 +62,8 @@
             B.BOARD_VIEWS,
             B.CATEGORY,
             B.FILENAME,
-            M.MEMBER_ID
+            M.MEMBER_ID,
+            M.MEMBER_NICKNAME
         FROM TB_BOARD B
         JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
         WHERE B.BOARD_SEQ = #{boardSeq}

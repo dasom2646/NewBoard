@@ -96,25 +96,25 @@ button {
      box-sizing: border-box;
      text-align: left;
  }
- .join_nickname{
-     position: relative;
-         display: block;
-         height: 100%;
-         border: 1px solid #dadada;
-          padding: 10px 8px 10px;
-         border-radius: 6px;
-         box-sizing: border-box;
-         text-align: left;
+.join_nickname{
+    position: relative;
+    display: block;
+    height: 100%;
+    border: 1px solid #dadada;
+    padding: 10px 8px 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    text-align: left;
 }
 .join_id{
     position: relative;
-        display: block;
-        height: 100%;
-        border: 1px solid #dadada;
-         padding: 10px 8px 10px;
-        border-radius: 6px;
-        box-sizing: border-box;
-        text-align: left;
+    display: block;
+    height: 100%;
+    border: 1px solid #dadada;
+    padding: 10px 8px 10px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    text-align: left;
 }
 
 .join_pw{

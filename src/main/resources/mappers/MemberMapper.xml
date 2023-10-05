@@ -23,6 +23,7 @@
         SELECT MEMBER_SEQ
         , MEMBER_ID
         , MEMBER_NAME
+        , MEMBER_NICKNAME
         , MEMBER_PWD
         FROM TB_MEMBER
         WHERE MEMBER_ID = #{memberId}
@@ -32,6 +33,7 @@
         SELECT MEMBER_SEQ
         , MEMBER_ID
         , MEMBER_NAME
+        , MEMBER_NICKNAME
         , MEMBER_PWD
         FROM TB_MEMBER
     </select>
