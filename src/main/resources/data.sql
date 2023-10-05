@@ -1,19 +1,23 @@
 INSERT INTO TB_MEMBER ( MEMBER_SEQ
                       , MEMBER_ID
                       , MEMBER_NAME
+                      , MEMBER_NICKNAME
                       , MEMBER_PWD)
 VALUES ( NEXTVAL('MEMBER_SEQ')
        , 'test'
        , '테스터'
+       , '나는야테스터'
        , 'test123');
 
 INSERT INTO TB_MEMBER ( MEMBER_SEQ
                       , MEMBER_ID
                       , MEMBER_NAME
+                      , MEMBER_NICKNAME
                       , MEMBER_PWD)
 VALUES ( NEXTVAL('MEMBER_SEQ')
        , 'spring'
-       , '봄봄'
+       , '김봄'
+       , '봄이오나요'
        , 'spring123');
 
 

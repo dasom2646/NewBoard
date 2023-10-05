@@ -12,7 +12,8 @@ public class MemberDto {
 
     @NotBlank(message = "이름을 입력해 주세요.")
     private String memberName; // 사용자 이름
-
+    @NotBlank(message = "별명을 입력해 주세요.")
+    private String memberNickname; // 사용자 이름
     @NotBlank(message = "아이디를 입력해 주세요.")
     private String memberId; // 로그인 ID
 

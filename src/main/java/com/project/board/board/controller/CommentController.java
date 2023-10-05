@@ -76,8 +76,10 @@ public class CommentController {
     public String commentDetail(@PathVariable Long boardSeq, Model model) {
         // 게시글 정보 가져오기
         BoardDto board = boardService.getBoardBySeq(boardSeq);
+
         // 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
+
         // 대댓글을 특정 댓글에 연결하여 가져오기
         Map<Long, List<CommentDto>> replyMap = new HashMap<>();
         for (CommentDto comment : comments) {
