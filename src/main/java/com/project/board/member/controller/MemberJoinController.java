@@ -34,6 +34,7 @@ public class MemberJoinController {
     @PostMapping("/add")
     public String save(@ModelAttribute("memberDto") MemberDto memberDto, Model model) {
         String memberId = memberDto.getMemberId();
+        String memberNickname = memberDto.getMemberNickname();
         String memberPwd = memberDto.getMemberPwd();
         String memberName = memberDto.getMemberName();
         // 아이디나 비밀번호가 비어있는지 확인
@@ -42,13 +43,24 @@ public class MemberJoinController {
             model.addAttribute("errorMessage", "이름을 입력하세요");
             return "views/member/joinForm";
         }
+
+        if (memberNickname.isEmpty() || memberNickname.length() < 2) {
+            model.addAttribute("errorMessage", "별명은 최소 2글자 이상 입력해야 합니다");
+            return "views/member/joinForm";
+        }
+        // 중복 검사
+        if (memberService.isMembermemberNicknameExists(memberNickname)) {
+            model.addAttribute("errorMessage", "이미 사용 중인 별명입니다");
+            return "views/member/joinForm";
+        }
+
         if (memberId.isEmpty()) {
             model.addAttribute("errorMessage", "아이디를 입력하세요");
             return "views/member/joinForm";
         }
         // 아이디가 영문자로만 이루어져 있지 않은 경우
-        if (!memberId.matches("^[a-zA-Z]*$")) {
-            model.addAttribute("errorMessage", "아이디는 영문만 입력 가능합니다");
+        if (!memberId.matches("^[a-zA-Z0-9]*$")|| memberId.length() < 4) {
+            model.addAttribute("errorMessage", "아이디는 최소4글자이상 영문 또는 영문+숫자 조합으로 입력하세요");
             return "views/member/joinForm";
         }
         // 중복 검사

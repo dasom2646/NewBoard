@@ -47,5 +47,8 @@
     <select id="countMemberId" resultType="int" parameterType="string">
         SELECT COUNT(*) FROM TB_MEMBER WHERE MEMBER_ID = #{memberId}
     </select>
+  <select id="countMemberNickname" resultType="int" parameterType="string">
+        SELECT COUNT(*) FROM TB_MEMBER WHERE MEMBER_NICKNAME = #{memberNickname}
+    </select>
 
 </mapper>

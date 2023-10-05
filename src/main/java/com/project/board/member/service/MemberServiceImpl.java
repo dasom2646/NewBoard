@@ -45,6 +45,12 @@ public class MemberServiceImpl implements MemberService {
         return count > 0;
     }
 
+    @Override
+    public boolean isMembermemberNicknameExists(String memberNickname) {
+        int count = memberMapper.countMemberNickname(memberNickname);
+        return count > 0;
+    }
+
 
     //맴버 조회
     @Override

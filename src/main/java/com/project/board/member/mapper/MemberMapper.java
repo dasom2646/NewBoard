@@ -23,6 +23,7 @@ public interface MemberMapper {
 
     // 멤버 목록 조회
     List<MemberDto> getMemberList(MemberDto memberDto);
-
+    // 아이디 중복검사
     int countMemberId(@Param("memberId") String memberId);
+    int countMemberNickname(@Param("memberNickname") String memberNickname);
 }

@@ -15,7 +15,8 @@ public interface MemberService {
 
     // 아이디 중복검사
     boolean isMemberIdExists(String memberId);
-
+    // 닉네임 중복검사
+    boolean isMembermemberNicknameExists(String memberNickname);
     MemberDto getMemberById(String memberId);
 
     List<MemberDto> getMemberList(MemberDto memberDto);
