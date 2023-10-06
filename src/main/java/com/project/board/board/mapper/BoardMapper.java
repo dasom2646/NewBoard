@@ -19,6 +19,10 @@ public interface BoardMapper {
     // 게시글 전체 조회
     List<BoardDto> getAllBoards();
 
+
+    List<BoardDto> getBoardListWithPaging(@Param("offset") int offset, @Param("pageSize") int pageSize);
+
+
     int getTotalBoardCount();
 
     // 게시글 작성자로 전체 조회

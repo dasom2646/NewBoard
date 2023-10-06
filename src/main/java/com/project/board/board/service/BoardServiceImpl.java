@@ -61,6 +61,15 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.getTotalBoardCount();
     }
 
+    // 페이징 처리된 게시글 목록
+    @Override
+    public List<BoardDto> getBoardListWithPaging(int page) {
+        // 페이징 처리된 게시글 목록을 가져오는 메서드
+        int pageSize = 8; // 페이지당 게시글 수
+        int offset = (page - 1) * pageSize;
+        return boardMapper.getBoardListWithPaging(offset, pageSize);
+    }
+
 
     //  작성자로 전체 조회
     @Override

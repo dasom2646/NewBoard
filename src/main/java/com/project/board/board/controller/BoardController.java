@@ -138,12 +138,15 @@ public class BoardController {
      * 게시글 목록 페이지
      */
     @GetMapping("/boardList")
-    public String boardList(Model model) {
-        List<BoardDto> boardList = boardService.getAllBoardList();
+    public String boardList(@RequestParam(name = "page", defaultValue = "1") int page,Model model) {
+        List<BoardDto> boardList = boardService.getBoardListWithPaging(page);
         int totalBoardCount = boardService.getTotalBoardCount();
+        int totalPages = (int) Math.ceil((double) totalBoardCount / 8); // 페이지 수 계산
 
         model.addAttribute("boardList", boardList);
         model.addAttribute("totalBoardCount", totalBoardCount);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", totalPages);
         return "views/board/list";
     }
 

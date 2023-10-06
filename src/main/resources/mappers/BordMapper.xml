@@ -41,6 +41,26 @@
         ORDER BY BOARD_SEQ DESC
     </select>
 
+
+
+    <select id="getBoardListWithPaging" resultType="com.project.board.board.model.BoardDto">
+        SELECT
+        B.BOARD_SEQ,
+        B.BOARD_TITLE,
+        B.BOARD_CONTENT,
+        TO_CHAR(B.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE ,
+        B.BOARD_VIEWS,
+        B.CATEGORY,
+        M.MEMBER_ID,
+        M.MEMBER_NICKNAME
+        FROM TB_BOARD B
+        JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
+        ORDER BY BOARD_SEQ DESC
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+
+
     <select id="getAllBoardByMemberSeq" resultType="com.project.board.board.model.BoardDto">
         SELECT
         BOARD_TITLE
