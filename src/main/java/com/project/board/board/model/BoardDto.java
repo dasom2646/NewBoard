@@ -30,7 +30,7 @@ public class BoardDto {
     private Long memberSeq; // 맴버 시퀀스
 
     private List<String> categories; // 카테고리 목록
-    private String filename; // 파일명
+    private String filename; // 사진파일명
 
     private List<CommentDto> comments; // 댓글
 

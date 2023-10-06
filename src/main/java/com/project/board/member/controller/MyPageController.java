@@ -29,7 +29,9 @@ public class MyPageController {
         this.commentService = commentService;
     }
 
-
+    /**
+     * 마이페이지
+     */
     @GetMapping("/posts/{memberSeq}")
     public String myPage(@PathVariable Long memberSeq, Model model) {
 
@@ -37,7 +39,9 @@ public class MyPageController {
         model.addAttribute("myPosts", myPosts);
         return "views/member/myPage";
     }
-
+    /**
+     * 마이페이지  내가 댓글단 글 모음
+     */
     @GetMapping("/myComments/{memberSeq}")
     public String myComments(@PathVariable Long memberSeq, Model model) {
 

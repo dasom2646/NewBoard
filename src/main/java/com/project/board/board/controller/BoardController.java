@@ -46,14 +46,6 @@ public class BoardController {
     }
 
 
-/*    *//**
-     * 게시판 메인 페이지
-     *//*
-    @GetMapping("/boardHome")
-    public String boardHome(@ModelAttribute("boardDto") BoardDto boardDto) {
-
-        return "views/board/list";
-    }*/
 
     /**
      * 게시글 등록 페이지

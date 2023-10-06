@@ -54,10 +54,6 @@ public class MemberJoinController {
             return "views/member/joinForm";
         }
 
-        if (memberId.isEmpty()) {
-            model.addAttribute("errorMessage", "아이디를 입력하세요");
-            return "views/member/joinForm";
-        }
         // 아이디가 영문자로만 이루어져 있지 않은 경우
         if (!memberId.matches("^[a-zA-Z0-9]*$")|| memberId.length() < 4) {
             model.addAttribute("errorMessage", "아이디는 최소4글자이상 영문 또는 영문+숫자 조합으로 입력하세요");

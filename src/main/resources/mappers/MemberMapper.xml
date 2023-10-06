@@ -9,12 +9,14 @@
         INSERT INTO TB_MEMBER ( MEMBER_SEQ
         , MEMBER_ID
         , MEMBER_NICKNAME
+        , MEMBER_FILENAME
         , MEMBER_NAME
-        , MEMBER_PWD)
-        VALUES (
+        , MEMBER_PWD
+        ) VALUES (
         NEXTVAL('MEMBER_SEQ')
         , #{memberId}
         , #{memberNickname}
+        , #{memberFilename}
         , #{memberName}
         , #{memberPwd})
     </insert>
@@ -24,6 +26,7 @@
         , MEMBER_ID
         , MEMBER_NAME
         , MEMBER_NICKNAME
+        , MEMBER_FILENAME
         , MEMBER_PWD
         FROM TB_MEMBER
         WHERE MEMBER_ID = #{memberId}
@@ -34,6 +37,7 @@
         , MEMBER_ID
         , MEMBER_NAME
         , MEMBER_NICKNAME
+        , MEMBER_FILENAME
         , MEMBER_PWD
         FROM TB_MEMBER
     </select>
