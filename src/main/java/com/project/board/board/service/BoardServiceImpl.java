@@ -67,7 +67,19 @@ public class BoardServiceImpl implements BoardService {
         // 페이징 처리된 게시글 목록을 가져오는 메서드
         int pageSize = 8; // 페이지당 게시글 수
         int offset = (page - 1) * pageSize;
-        return boardMapper.getBoardListWithPaging(offset, pageSize);
+
+        List<BoardDto> boardList = boardMapper.getBoardListWithPaging(offset, pageSize);
+
+        // HTML 태그를 제거
+        for (BoardDto boardDto : boardList) {
+            String cleanedContent = Jsoup.clean(boardDto.getBoardContent(), Safelist.none());
+            cleanedContent = cleanedContent.replaceAll("&nbsp;", " ");
+            cleanedContent = cleanedContent.replaceAll("&lt;", "<");
+            cleanedContent = cleanedContent.replaceAll("&gt;", ">");
+
+            boardDto.setBoardContent(cleanedContent);
+        }
+        return boardList;
     }
 
 
@@ -105,7 +117,7 @@ public class BoardServiceImpl implements BoardService {
         return boardMapper.getBoardsByCategory(category);
     }
 
-    public String getAdjustedButtonText(String category) {
+   /* public String getAdjustedButtonText(String category) {
         if (category.equals("해외여행")) {
             return "지구한바퀴";
         } else if (category.equals("국내여행")) {
@@ -145,5 +157,5 @@ public class BoardServiceImpl implements BoardService {
 
         }
         return category;
-    }
+    }*/
 }
