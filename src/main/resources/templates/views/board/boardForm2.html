@@ -86,11 +86,18 @@
 </div>
 
 <script th:src="@{/ckeditor5/build/ckeditor.js}"></script>
-
+<script th:src="@{/ckeditor5/UploadAdapter.js}"></script>
 
 <script>
+    function MyCustomUploadAdapterPlugin(editor) {
+    editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+        return new UploadAdapter(loader)
+    }
+}
     ClassicEditor
-        .create(document.querySelector('#editor'))
+        .create(document.querySelector('#editor'),{
+        extraPlugins: [MyCustomUploadAdapterPlugin]
+        })
         .catch(error => {
             console.error(error);
         });
