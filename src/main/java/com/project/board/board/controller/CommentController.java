@@ -37,6 +37,8 @@ public class CommentController {
         // 댓글 작성자 정보 가져오기
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
 
+        // todo 로그인풀렸경우 로그인페이지로 리턴
+
         // 해당 게시글 정보 가져오기
         BoardDto board = boardService.getBoardBySeq(boardSeq);
 
