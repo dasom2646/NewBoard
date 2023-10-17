@@ -88,7 +88,7 @@ public class BoardController {
         // 사용자 정보 설정
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
 
-        if (!file.isEmpty()) {
+       /* if (!file.isEmpty()) {
             try {
                 // UUID 생성
                 UUID uuid = UUID.randomUUID();
@@ -110,7 +110,7 @@ public class BoardController {
                 e.printStackTrace();
                 // 파일 업로드 실패 시 예외 처리
             }
-        }
+        }*/
 
         boardDto.setMemberSeq(loggedInUser.getMemberSeq());
 

@@ -9,12 +9,21 @@
     <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
     <link rel="stylesheet" th:href="@{/resource/css/boardForm.css}"/>
 
-    <style>
-    .ck.ck-editor{ max-width: 1000px;}
-    .ck-editor__editable { min-height: 500px;}
-    .ck-editor__editable p { margin: 0}
-    .ck-content { font-size: 14px; }
-    </style>
+    <!--  <style>
+      .ck.ck-editor{ max-width: 1000px;}
+      .ck-editor__editable { min-height: 500px;}
+      .ck-editor__editable p { margin: 0}
+      .ck-content { font-size: 14px; }
+      </style>
+  -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+    <script th:src="@{/summernote/summernote-lite.js}"></script>
+    <script th:src="@{/summernote/summernote-ko-KR.js}"></script>
+    <link rel="stylesheet" th:href="@{/summernote/summernote-lite.css}">
 
 </head>
 <body>
@@ -70,12 +79,13 @@
 
         <div class="text_content">
             <!--      <label class="form-label">내용</label>-->
-            <textarea id="editor" th:field="*{boardContent}"
-                      placeholder="내용을 작성해주세요"></textarea>
+            <!-- <textarea id="editor" th:field="*{boardContent}"
+                       placeholder="내용을 작성해주세요"></textarea> -->
+            <textarea id="summernote" th:field="*{boardContent}"></textarea>
         </div>
 
 
-        <input hidden="" type="file" id="file" name="file" class="form-control-file">
+        <input type="file" id="file" name="file" class="form-control-file">
         <div class="btn_wrap">
             <button type="button" class="btn_cancel" onclick="location.href='@{/}'">취소하기</button>
             <button type="submit" class="btn_write">작성하기</button>
@@ -85,7 +95,7 @@
 
 </div>
 
-<script th:src="@{/ckeditor5/build/ckeditor.js}"></script>
+<!--<script th:src="@{/ckeditor5/build/ckeditor.js}"></script>
 <script th:src="@{/ckeditor5/UploadAdapter.js}"></script>
 
 <script>
@@ -101,7 +111,84 @@
         .catch(error => {
             console.error(error);
         });
+</script>-->
+<!--<script>
+
+    $('#summernote').summernote({
+        placeholder: '내용을 작성해주세요',
+        height: 500,
+        minHeight: null,
+        maxHeight: null,
+
+        lang: "ko-KR"
+    });
+</script>-->
+
+<!--<script>
+    $(document).ready(function() {
+      $('#summernote').summernote({
+        placeholder: '내용을 작성해주세요',
+        minHeight: 500,
+        lang: "ko-KR",
+        callbacks: {
+          onImageUpload: function(files) {
+            uploadSummernoteImageFile(files[0], this);
+          }
+        }
+      });
+    });
+
+    function uploadSummernoteImageFile(file, editor) {
+      data = new FormData();
+      data.append("file", file);
+      $.ajax({
+        data: data,
+        type: "POST",
+        url: "/uploadSummernoteImageFile",
+        contentType: false,
+        processData: false,
+        success: function(data) {
+          $(editor).summernote('insertImage', data.url);
+        }
+      });
+    }
+</script>-->
+<script>
+    $(document).ready(function() {
+      $('#summernote').summernote({
+        placeholder: '내용을 작성해주세요',
+        minHeight: 500,
+        lang: "ko-KR",
+       callbacks : {
+					onImageUpload : function(files, editor, welEditable) {
+						for (var i = 0; i < files.length; i++) {
+							sendFile(files[i], this);
+						}
+					}
+				}
+			});
+		});
+
+    function sendFile(file, editor) {
+    var form_data = new FormData();
+      data.append("file", file);
+      $.ajax({
+        data: form_data,
+        type: "POST",
+        url: "/upload",
+        cache : false,
+        contentType: false,
+        enctype : 'multipart/form-data',
+        processData: false,
+        success: function(url) {
+          $(editor).summernote('insertImage', url, function($image) {
+						$image.css('width', "25%");
+					});
+				}
+			});
+		}
 </script>
+
 
 </body>
 </html>
