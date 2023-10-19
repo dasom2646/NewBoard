@@ -5,7 +5,6 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,16 +38,17 @@ public class ImageController {
         }
     }
 
-    @PostMapping("/image/upload") // 엔드포인트 경로 수정
+    @PostMapping("/image/upload")
     public ResponseEntity<String> handleImageUpload(@RequestParam("upload") MultipartFile file) {
         try {
-            // 이미지를 저장하고 저장된 이미지의 URL을 생성합니다.
+            // 이미지를 저장하고 저장된 이미지의 URL을 생성
             String imageUrl = saveImageToServer(file);
             return ResponseEntity.ok().body(imageUrl);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("이미지 업로드 실패: " + e.getMessage());
         }
     }
+
     private String saveImageToServer(MultipartFile file) {
         String uniqueFileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
         try {
