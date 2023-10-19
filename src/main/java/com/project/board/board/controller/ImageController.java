@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 
-@Controller
+@RestController
 public class ImageController {
 
     private final String fileDir = "C:/Users/choid/NBproject/file/"; // 이미지 디렉토리 경로
@@ -39,7 +39,7 @@ public class ImageController {
         }
     }
 
-    @PostMapping("/image/upload")
+    @PostMapping("/image/upload") // 엔드포인트 경로 수정
     public ResponseEntity<String> handleImageUpload(@RequestParam("upload") MultipartFile file) {
         try {
             // 이미지를 저장하고 저장된 이미지의 URL을 생성합니다.
