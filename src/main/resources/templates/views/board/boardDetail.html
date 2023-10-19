@@ -36,12 +36,12 @@
                     </p>
                 </div>
                 <div class="item_img">
-                    <img th:src="${'/image?filename=' + board.filename}" alt="게시글 이미지"
+                    <img th:if="${board.filename != null}" th:src="${'/image?filename=' + board.filename}" alt="게시글 이미지"
                          style="max-width: 100%; max-height: 500px;">
                 </div>
                 <div class="item_text">
-                    <pre class="item_type_text"
-                         th:utext="${board.boardContent}">글내용</pre>
+                    <p class="item_type_text"
+                         th:utext="${board.boardContent}">글내용</p>
                 </div>
             </div>
         </div>
