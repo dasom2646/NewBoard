@@ -88,29 +88,6 @@ public class BoardController {
         // 사용자 정보 설정
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
 
-       /* if (!file.isEmpty()) {
-            try {
-                // UUID 생성
-                UUID uuid = UUID.randomUUID();
-                String originalFilename = file.getOriginalFilename();
-                String extension = originalFilename.substring(originalFilename.lastIndexOf(".")); // 확장자 추출
-                String newFilename = uuid.toString() + extension; // 새 파일명 생성
-
-                // 파일을 저장할 경로 설정
-                String filePath = fileDir + newFilename; // fileDir에 파일명을 붙여 경로 설정
-
-
-                // 파일 데이터를 바이트 배열로 변환하여 DTO에 저장
-                boardDto.setFilename(newFilename);
-
-                // 새로운 파일명 설정
-                File destFile = new File(filePath);
-                file.transferTo(destFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-                // 파일 업로드 실패 시 예외 처리
-            }
-        }*/
 
         boardDto.setMemberSeq(loggedInUser.getMemberSeq());
 

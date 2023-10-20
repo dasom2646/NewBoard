@@ -6,6 +6,7 @@ import com.project.board.member.model.MemberDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoardDto {
@@ -34,7 +36,7 @@ public class BoardDto {
 
     private List<CommentDto> comments; // 댓글
 
-    public List<String> getCategories() {
+    public static List<String> getCategories() {
         return Arrays.asList(
                 "해외여행", "국내여행", "오늘의책", "영화리뷰", "뮤지컬연극",
                 "엔터테인먼트", "스포츠", "나만의맛집", "요리레시피", "사랑이별", "육아이야기",

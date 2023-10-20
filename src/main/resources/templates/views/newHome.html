@@ -121,7 +121,9 @@
             </div>
             <div class="keyword_list">
                 <div class="button-row">
-                    <button class="custom-button">지구한바퀴<br>해외여행</button>
+                    <a th:each="category : ${categories}" th:href="@{'/category/' + ${category}}">
+                        <button class="custom-button" th:text="${category}"></button></a>
+                   <!-- <button class="custom-button">지구한바퀴<br>해외여행</button>
                     <button class="custom-button">방방곡곡<br>국내여행</button>
                     <button class="custom-button ">오늘의<br>책</button>
                     <button class="custom-button ">취향저격<br>영화</button>
@@ -143,7 +145,7 @@
                     <button class="custom-button">건강·운동</button>
                     <button class="custom-button">인테리어<br>집들이</button>
 
-                </div>
+                </div>-->
             </div>
         </div>
 
