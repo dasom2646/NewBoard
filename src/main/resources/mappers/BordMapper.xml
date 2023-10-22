@@ -119,9 +119,27 @@
         SELECT DISTINCT category FROM TB_BOARD;
     </select>
 
+
     <select id="getBoardsByCategory" resultType="com.project.board.board.model.BoardDto">
-        SELECT * FROM TB_BOARD WHERE category = #{category};
+        SELECT
+        B.BOARD_SEQ,
+        B.BOARD_TITLE,
+        B.BOARD_CONTENT,
+        TO_CHAR(B.CREATED_DATE, 'YYYY.MM.DD HH24:MI') as CREATED_DATE ,
+        B.BOARD_VIEWS,
+        B.CATEGORY,
+        M.MEMBER_ID,
+        M.MEMBER_NICKNAME
+        FROM TB_BOARD B
+        JOIN TB_MEMBER M ON B.MEMBER_SEQ = M.MEMBER_SEQ
+        WHERE category = #{category};
+
     </select>
+
+
+
+
+
     <select id="findTop4ByOrderByBoardSeqDesc" resultType="com.project.board.board.model.BoardDto">
         SELECT * FROM TB_BOARD
         ORDER BY board_seq DESC
