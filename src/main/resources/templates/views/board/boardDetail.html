@@ -48,7 +48,7 @@
                 </div>
                 <div class="item_text">
                     <p class="item_type_text"
-                         th:utext="${board.boardContent}">글내용</p>
+                       th:utext="${board.boardContent}">글내용</p>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                 <ul class="comment_list" th:if="${comments.size() > 0}">
                     <li class="comment_wrap" th:each="comment : ${comments}">
                         <!-- 댓글 -->
-                        <div class="cont_info">
+                        <!--<div class="cont_info">
                             <div class="info_profile">
                                 <div class="tit_memberid">
                                     <span class="text_by">by</span>
@@ -103,34 +103,29 @@
                                 <p th:text="${comment.content}">댓글</p>
                                 <button class="btn_reply" type="button">댓글달기</button>
                             </div>
+                        </div>-->
+                        <!-- 댓글 -->
+                        <div class="cont_info">
+                            <div class="info_profile">
+                                <div class="tit_memberid">
+                                    <span class="text_by">by</span>
+                                    <span th:text="${comment.memberNickname}"></span>
+                                </div>
+                                <span class="txt_time" th:text="${comment.createdDate}"></span>
+                                <p th:text="${comment.content}">댓글</p>
+                                <button class="btn_reply" type="button" onclick="showReplyForm(${comment.commentSeq})">댓글달기</button>
+                            </div>
                         </div>
 
-                        <!-- 대댓글 목록 -->
-                        <ul class="reply_list">
-                            <li class="reply_wrap" th:each="reply : ${replies}">
-                                <div class="cont_info">
-                                    <div class="info_profile">
-                                        <div class="tit_memberid">
-                                            <span class="text_by">by</span>
-                                            <span th:text="${reply.memberId}"></span>
-                                        </div>
-                                        <span class="txt_time" th:text="${reply.createdDate}"></span>
-                                        <p th:text="${reply.content}">대댓글</p>
-                                        <!-- 대댓글에 대한 댓글달기 버튼 추가 -->
-                                        <button class="btn_reply" type="button">댓글달기</button>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <!-- 대댓글 작성 폼 (초기에는 숨겨진 상태) -->
+                        <div th:if="${replyFormVisible}" th:id="'replyForm_' + ${comment.commentSeq}" style="display:none">
+                            <form th:action="@{/addReply}" method="post">
+                                <input type="hidden" name="parentCommentSeq" th:value="${comment.commentSeq}" />
+                                <textarea name="content" rows="4" cols="50"></textarea>
+                                <button type="submit">대댓글 작성</button>
+                            </form>
+                        </div>
 
-                        <!-- 댓글에 대한 대댓글 폼 -->
-                        <form class="reply_form" th:id="'replyForm_' + ${comment.commentSeq}"
-                              style="display: none;"
-                              th:action="@{/comment/addReply/{boardSeq}/{parentCommentSeq}(boardSeq=${board.boardSeq},parentCommentSeq=${comment.commentSeq})}"
-                              method="post">
-                            <textarea class="reply_text" rows="3" name="replyContent" th:name="replyContent"></textarea>
-                            <button class="btn_submit_reply" type="submit">등록</button>
-                        </form>
                     </li>
                 </ul>
 

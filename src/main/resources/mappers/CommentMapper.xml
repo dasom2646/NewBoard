@@ -20,24 +20,7 @@
         , #{boardDto.boardSeq})
     </insert>
 
-    <!-- 대댓글 추가를 위한 쿼리 -->
-    <insert id="insertReply">
-        INSERT INTO TB_COMMENT_REPLY (
-        REPLY_SEQ
-        , CONTENT
-        , CREATED_DATE
-        , MEMBER_SEQ
-        , BOARD_SEQ
-        , PARENT_COMMENT_SEQ
-        ) VALUES (
-        NEXTVAL('REPLY_SEQ')
-        , #{commentDto.content}
-        , CURRENT_TIMESTAMP
-        , #{commentDto.memberSeq}
-        , #{boardSeq}
-        , #{parentCommentSeq})
-    </insert>
-
+    
 
     <select id="getCommentsForBoard" parameterType="Long" resultType="com.project.board.board.model.CommentDto">
         SELECT
@@ -54,7 +37,8 @@
         ORDER BY C.CREATED_DATE ASC
     </select>
 
-    <!--댓글 작성자로 글 찾기-->
+<!--
+    &lt;!&ndash;댓글 작성자로 글 찾기&ndash;&gt;
     <select id="getAllCommentsByMemberSeq"  resultType="com.project.board.board.model.CommentDto">
         SELECT
         B.CATEGORY
@@ -66,6 +50,7 @@
         LEFT JOIN TB_BOARD B ON C.BOARD_SEQ = B.BOARD_SEQ
         WHERE C.BOARD_SEQ = #{boardSeq}
     </select>
+-->
 
 
 
