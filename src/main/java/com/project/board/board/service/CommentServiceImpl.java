@@ -23,10 +23,7 @@ public class CommentServiceImpl implements CommentService {
         commentMapper.insertComment(commentDto);
     }
 
-    @Override
-    public void addReply(Long boardSeq, Long parentCommentSeq, CommentDto commentDto) {
-        commentMapper.insertReply(boardSeq, parentCommentSeq, commentDto);
-    }
+
 
     @Override
     public List<CommentDto> getCommentsForBoard(Long boardSeq) {
@@ -38,9 +35,9 @@ public class CommentServiceImpl implements CommentService {
         return commentMapper.getRepliesForComment(commentSeq);
     }
 
-    // 작성자로 조회
+  /*  // 작성자로 조회
     @Override
     public List<CommentDto> getCommentsByMemberSeq(Long memberSeq) {
         return commentMapper.getAllCommentsByMemberSeq(memberSeq);
-    }
+    }*/
 }

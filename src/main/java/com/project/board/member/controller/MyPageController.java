@@ -39,16 +39,16 @@ public class MyPageController {
         model.addAttribute("myPosts", myPosts);
         return "views/member/myPage";
     }
-    /**
+   /* *//**
      * 마이페이지  내가 댓글단 글 모음
-     */
+     *//*
     @GetMapping("/myComments/{memberSeq}")
     public String myComments(@PathVariable Long memberSeq, Model model) {
 
-        List<CommentDto> myComments = commentService.getCommentsByMemberSeq(memberSeq);
+        List<CommentDto> myComments = commentServic.getCommentsByMemberSeq(memberSeq);
         model.addAttribute("myComments", myComments);
         return "views/member/myComments";
-    }
+    }*/
 }
 
 
