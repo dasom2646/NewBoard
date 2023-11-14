@@ -38,5 +38,7 @@ public interface BoardService {
     // 카테고리별 글 가져오기
     List<BoardDto> getBoardsByCategory(String category);
 
+    // 게시글 수정
+    void updateBoard(BoardDto boardDto);
 
 }

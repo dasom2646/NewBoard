@@ -22,7 +22,7 @@ public interface BoardMapper {
 
     List<BoardDto> getBoardListWithPaging(@Param("offset") int offset, @Param("pageSize") int pageSize);
 
-    List<BoardDto> getBoardListByPage(@Param("offset") int offset, @Param("pageSize") int pageSize);
+
     int getTotalBoardCount();
 
     // 게시글 작성자로 전체 조회
@@ -37,5 +37,8 @@ public interface BoardMapper {
 
     List<BoardDto> getBoardsByCategory(String category);
 
+    // 게시글 수절
+    void updateBoard(BoardDto boardDto);
+    
 
 }

@@ -127,6 +127,11 @@ public class BoardServiceImpl implements BoardService {
         return boardList;
     }
 
+    @Override
+    public void updateBoard(BoardDto boardDto) {
+        boardMapper.updateBoard(boardDto);
+    }
+
 
     // 게시글 전체 조회
 

@@ -7,7 +7,7 @@
     <link rel="stylesheet" th:href="@{/resource/css/Article.css}"/>
     <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
     <style>
-        .note-editable img {
+        .item_text img {
               margin: 10px;
               max-width:800px;
 
@@ -57,7 +57,6 @@
         <div id="comment_all">
 
             <div class="wrap_comment_btn" th:object="${board}">
-
                 <!--<form id="likeForm" th:action="@{/like/addLike/{boardSeq}(boardSeq=${boardSeq})}" method="post">-->
                 <input type="hidden" name="likeSeq" th:value="${likeSeq}">
                 <button class="btn_like" th:onclick="|likeClick2('${board.boardSeq}')|">
@@ -70,7 +69,6 @@
                     <span class="num_like"></span>
                 </button>
                 <!--</form>-->
-
 
                 <button class="btn_comment" type="button">
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,18 +91,6 @@
                 <ul class="comment_list" th:if="${comments.size() > 0}">
                     <li class="comment_wrap" th:each="comment : ${comments}">
                         <!-- 댓글 -->
-                        <!--<div class="cont_info">
-                            <div class="info_profile">
-                                <div class="tit_memberid">
-                                    <span class="text_by">by</span>
-                                    <span th:text="${comment.memberNickname}"></span>
-                                </div>
-                                <span class="txt_time" th:text="${comment.createdDate}"></span>
-                                <p th:text="${comment.content}">댓글</p>
-                                <button class="btn_reply" type="button">댓글달기</button>
-                            </div>
-                        </div>-->
-                        <!-- 댓글 -->
                         <div class="cont_info">
                             <div class="info_profile">
                                 <div class="tit_memberid">
@@ -125,7 +111,6 @@
                                 <button type="submit">대댓글 작성</button>
                             </form>
                         </div>
-
                     </li>
                 </ul>
 
@@ -139,7 +124,6 @@
                                         <img alt="내프로필 이미지 ">
                                         <strong class="txt_profile">유저 아이디</strong>
                                     </div>-->
-
                                 <div class="editor_wrap">
                                     <input type="hidden" name="boardSeq" th:value="${boardSeq}"/>
                                     <textarea id="textarea" name="commentContent" rows="3"

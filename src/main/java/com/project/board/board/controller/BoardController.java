@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -45,8 +46,6 @@ public class BoardController {
         return session.getAttribute("loggedIn") != null && (boolean) session.getAttribute("loggedIn");
     }
 
-
-
     /**
      * 게시글 등록 페이지
      */
@@ -71,24 +70,23 @@ public class BoardController {
         return "views/board/boardForm2";
     }
 
-
     /**
      * 게시글 등록 동작
      */
     @PostMapping("/upload")
     public String upload(@ModelAttribute("boardDto") BoardDto boardDto,
                          @RequestParam("file") MultipartFile file,
+                         RedirectAttributes redirectAttributes,
                          HttpSession session) {
 
         // 로그인 상태 확인
         if (!isLoggedIn(session)) {
+            // 로그인 페이지로 리다이렉트하면서 현재 요청의 정보를 유지
             return "redirect:/member/memberLoginForm";
         }
 
         // 사용자 정보 설정
         MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
-
-
         boardDto.setMemberSeq(loggedInUser.getMemberSeq());
 
         // 게시글 등록
@@ -102,7 +100,6 @@ public class BoardController {
         }
         return "redirect:/board/boardList";
     }
-
     //    /**
 //     * 게시글 수정 페이지
 //     */
