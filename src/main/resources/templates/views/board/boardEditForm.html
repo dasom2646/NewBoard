@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>글쓰기</title>
+    <title>글 수정</title>
     <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
     <link rel="stylesheet" th:href="@{/resource/css/boardForm.css}"/>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4189f00ca6b80610dff344aa6dea7548"></script>
@@ -36,12 +36,12 @@
 </div>
 
 <div id="counselWriteDiv" class="form_container">
-    <h3 id="counselWriteh1" class="text_center">글쓰기</h3>
+    <h3 id="counselWriteh1" class="text_center">글 수정</h3>
 
     <form class="tag_wrap" th:action="@{/board/upload}" th:object="${boardDto}" method="post"
           enctype="multipart/form-data">
 
-        <h5 id="counselWriteh2">자신의 이야기를 공유 해보세요</h5>
+        <h5 id="counselWriteh2">이야기를 자유롭게 수정해보세요</h5>
 
         <div class="text_tag">
             <label>
@@ -67,7 +67,7 @@
                 <option value="IT트렌드">IT 트렌드</option>
                 <option value="건강운동">건강·운동</option>
                 <option value="인테리어집들이">인테리어·집들이</option>
-
+                <option th:each="cat : ${boardDto.categories}" th:value="${cat}" th:text="${cat}"></option>
             </select>
         </div>
 
@@ -85,7 +85,7 @@
         <div id="map" style="width:500px;height:400px;"></div>
         <div class="btn_wrap">
             <button type="button" class="btn_cancel" onclick="location.href='@{/}'">취소하기</button>
-            <button type="submit" class="btn_write">작성하기</button>
+            <button type="submit" class="btn_write">수정하기</button>
         </div>
     </form>
 

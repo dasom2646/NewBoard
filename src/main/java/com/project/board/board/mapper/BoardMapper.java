@@ -39,6 +39,6 @@ public interface BoardMapper {
 
     // 게시글 수절
     void updateBoard(BoardDto boardDto);
-    
+
 
 }

@@ -128,8 +128,19 @@ public class BoardController {
      * 게시글 디테일 페이지
      */
     @GetMapping("/boardDetail/{boardSeq}")
-    public String boardDetail(@PathVariable Long boardSeq, Model model) {
+    public String boardDetail(@PathVariable Long boardSeq, Model model, HttpSession session) {
         BoardDto board = boardService.getAndIncreaseViews(boardSeq); //조회수 증가
+
+        // 현재 로그인한 사용자의 시퀀스
+        Long loggedInUserSeq = (Long) session.getAttribute("loggedInUserSeq");
+
+        // 게시글 작성자의 시퀀스
+        Long boardAuthorSeq = board.getMemberSeq();
+
+        // 현재 로그인한 사용자가 게시글 작성자인 경우 수정 버튼을 보여줌
+        boolean canEdit = loggedInUserSeq != null && loggedInUserSeq.equals(boardAuthorSeq);
+
+
 
         // 게시글에 해당하는 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
@@ -156,6 +167,10 @@ public class BoardController {
 
         model.addAttribute("commentCount", commentCount); // 댓글 수량 추가
         model.addAttribute("imageUrl", imageUrl); // 이미지 URL 추가
+
+        // 수정 권한이 있는 경우에만 수정 버튼 표시
+        model.addAttribute("canEdit", canEdit);
+
         return "views/board/boardDetail";
     }
 
@@ -166,4 +181,36 @@ public class BoardController {
         model.addAttribute("latestBoards", latestBoards);
         return "views/newHome";
     }
+    // 게시글 수정
+    @GetMapping("/edit/{boardSeq}")
+    public String editForm(@PathVariable Long boardSeq, Model model) {
+        // 게시글 수정 폼을 띄우기 전에 현재 게시글의 정보를 불러옴
+        BoardDto board = boardService.getBoardBySeq(boardSeq);
+        model.addAttribute("boardDto", board);
+        return "views/board/boardEditForm";
+    }
+
+    @PostMapping("/update")
+    public String updateBoard(@ModelAttribute("boardDto") BoardDto boardDto,
+                              @RequestParam("file") MultipartFile file,
+                              RedirectAttributes redirectAttributes,
+                              HttpSession session) {
+
+        // 로그인 상태 확인
+        if (!isLoggedIn(session)) {
+            // 로그인 페이지로 리다이렉트하면서 현재 요청의 정보를 유지
+            return "redirect:/member/memberLoginForm";
+        }
+
+        // 사용자 정보 설정
+        MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
+        boardDto.setMemberSeq(loggedInUser.getMemberSeq());
+
+        // 게시글 수정
+        boardService.updateBoard(boardDto);
+
+        // 수정 후 게시글 상세 페이지로 리다이렉션
+        return "redirect:/board/boardDetail/" + boardDto.getBoardSeq();
+    }
+
 }
