@@ -25,6 +25,7 @@ import java.util.*;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+
     private final BoardService boardService;
     private final CommentService commentService;
     private final LikeService likeService;
@@ -181,7 +182,7 @@ public class BoardController {
         model.addAttribute("latestBoards", latestBoards);
         return "views/newHome";
     }
-    // 게시글 수정
+    // 게시글 수정 todo 게시글 수정 버튼 안보임
     @GetMapping("/edit/{boardSeq}")
     public String editForm(@PathVariable Long boardSeq, Model model) {
         // 게시글 수정 폼을 띄우기 전에 현재 게시글의 정보를 불러옴
