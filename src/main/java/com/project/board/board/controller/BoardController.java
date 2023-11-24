@@ -101,19 +101,25 @@ public class BoardController {
         }
         return "redirect:/board/boardList";
     }
-    //    /**
-//     * 게시글 수정 페이지
-//     */
-//    @GetMapping("/boardModify")
-//    public String upload(@ModelAttribute("boardVo") BoardVo boardVo) {
-//        return "views/board/boardModify";
-//    }
+
+    /**
+     * 게시글 수정 페이지
+     */
+    // todo 게시글 수정 버튼 안보임
+    @GetMapping("/edit/{boardSeq}")
+    public String editForm(@PathVariable Long boardSeq, Model model) {
+        // 게시글 수정 폼을 띄우기 전에 현재 게시글의 정보를 불러옴
+        BoardDto board = boardService.getBoardBySeq(boardSeq);
+        model.addAttribute("boardDto", board);
+        return "views/board/boardEditForm";
+    }
+
 
     /**
      * 게시글 목록 페이지
      */
     @GetMapping("/boardList")
-    public String boardList(@RequestParam(name = "page", defaultValue = "1") int page,Model model) {
+    public String boardList(@RequestParam(name = "page", defaultValue = "1") int page, Model model) {
         List<BoardDto> boardList = boardService.getBoardListWithPaging(page);
         int totalBoardCount = boardService.getTotalBoardCount();
         int totalPages = (int) Math.ceil((double) totalBoardCount / 8); // 페이지 수 계산
@@ -140,7 +146,6 @@ public class BoardController {
 
         // 현재 로그인한 사용자가 게시글 작성자인 경우 수정 버튼을 보여줌
         boolean canEdit = loggedInUserSeq != null && loggedInUserSeq.equals(boardAuthorSeq);
-
 
 
         // 게시글에 해당하는 댓글 목록 가져오기
@@ -182,14 +187,7 @@ public class BoardController {
         model.addAttribute("latestBoards", latestBoards);
         return "views/newHome";
     }
-    // 게시글 수정 todo 게시글 수정 버튼 안보임
-    @GetMapping("/edit/{boardSeq}")
-    public String editForm(@PathVariable Long boardSeq, Model model) {
-        // 게시글 수정 폼을 띄우기 전에 현재 게시글의 정보를 불러옴
-        BoardDto board = boardService.getBoardBySeq(boardSeq);
-        model.addAttribute("boardDto", board);
-        return "views/board/boardEditForm";
-    }
+
 
     @PostMapping("/update")
     public String updateBoard(@ModelAttribute("boardDto") BoardDto boardDto,
