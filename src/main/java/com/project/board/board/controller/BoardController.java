@@ -102,7 +102,6 @@ public class BoardController {
         return "redirect:/board/boardList";
     }
 
-
     /**
      * 게시글 목록 페이지
      */
@@ -126,14 +125,6 @@ public class BoardController {
     public String boardDetail(@PathVariable Long boardSeq, Model model, HttpSession session) {
         BoardDto board = boardService.getAndIncreaseViews(boardSeq); //조회수 증가
 
-        // 게시글 작성자의 시퀀스 가져오기
-        Long boardAuthorSeq = board.getMemberSeq();
-
-        // 현재 로그인한 사용자의 시퀀스 가져오기
-        MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
-
-
-
         // 게시글에 해당하는 댓글 목록 가져오기
         List<CommentDto> comments = commentService.getCommentsForBoard(boardSeq);
 
@@ -155,16 +146,11 @@ public class BoardController {
         String imageUrl = "/image?filename=" + imageFilename;
 
         model.addAttribute("board", board);
-
-
         model.addAttribute("comments", comments); // 댓글 목록 추가
         model.addAttribute("replyMap", replyMap); // 대댓글을 댓글에 연결하여 전달
-
         model.addAttribute("commentCount", commentCount); // 댓글 수량 추가
         model.addAttribute("imageUrl", imageUrl); // 이미지 URL 추가
 
-        // 게시글 작성자의 시퀀스를 모델에 추가
-        model.addAttribute("boardAuthorSeq", boardAuthorSeq);
 
         return "views/board/boardDetail";
     }
@@ -176,42 +162,5 @@ public class BoardController {
         model.addAttribute("latestBoards", latestBoards);
         return "views/newHome";
     }
-
-    /**
-     * 게시글 수정 페이지
-     */
-    @GetMapping("/edit/{boardSeq}")
-    public String editForm(@PathVariable Long boardSeq, Model model, HttpSession session, HttpServletRequest request) {
-        // 로그인 상태 확인
-        if (!isLoggedIn(session)) {
-            // 로그인 후 돌아갈 URL 설정
-            String returnUrl = request.getRequestURI();
-            session.setAttribute("returnUrl", returnUrl);
-
-            return "redirect:/member/memberLoginForm";
-        }
-
-        // 게시글 가져오기
-        BoardDto board = boardService.getAndIncreaseViews(boardSeq);
-
-        // 현재 로그인한 사용자와 게시글 작성자가 같은지 확인
-        MemberDto loggedInUser = (MemberDto) session.getAttribute("loggedInUser");
-        if (loggedInUser.getMemberSeq().equals(board.getMemberSeq())) {
-            // 카테고리 목록 설정
-            List<String> categories = Arrays.asList(
-                    "해외여행", "국내여행", "오늘의책", "영화리뷰", "뮤지컬연극",
-                    "엔터테인먼트", "스포츠", "나만의 맛집", "요리레시피", "사랑이별", "육아이야기",
-                    "직장인의하루", "반려동물", "시사이슈", "IT트렌드",
-                    "건강운동", "감성에세이", "인테리어집들이"
-            );
-            board.setCategories(categories);
-            model.addAttribute("boardDto", board);
-
-            return "views/board/boardEditForm";
-        } else {
-            // 권한이 없는 경우 에러 페이지 또는 다른 처리를 수행할 수 있음
-            return "error/403";
-        }
-    }
-
+// todo 마이페이지 이미지 업로드 , 닉네임 수정 목록 모양 다듬기
 }

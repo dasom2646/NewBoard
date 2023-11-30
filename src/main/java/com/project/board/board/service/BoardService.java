@@ -29,16 +29,14 @@ public interface BoardService {
     // 조회수
     BoardDto getAndIncreaseViews(Long boardSeq);
 
-    // 사진 게시글4개
-    List<BoardDto> getLatestFourBoards();
-
     // 모든 카테고리
     List<String> getAllCategories();
 
     // 카테고리별 글 가져오기
     List<BoardDto> getBoardsByCategory(String category);
 
-    // 게시글 수정
-    void updateBoard(BoardDto boardDto);
+
+    // 사진 게시글4개
+    List<BoardDto> getLatestFourBoards();
 
 }

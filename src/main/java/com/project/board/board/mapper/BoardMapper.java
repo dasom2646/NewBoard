@@ -37,8 +37,5 @@ public interface BoardMapper {
 
     List<BoardDto> getBoardsByCategory(String category);
 
-    // 게시글 수절
-    void updateBoard(BoardDto boardDto);
-
 
 }

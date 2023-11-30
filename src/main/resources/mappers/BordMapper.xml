@@ -151,15 +151,4 @@
         SELECT COUNT(*) FROM TB_BOARD
     </select>
 
-
-    <update id="updateBoard" parameterType="com.project.board.board.model.BoardDto">
-        UPDATE TB_BOARD
-        SET BOARD_TITLE = #{title},
-        BOARD_CONTENT = #{content},
-        FILENAME = #{filename} <!-- 추가 -->
-        WHERE BOARD_SEQ = #{boardSeq}
-    </update>
-
-
-
 </mapper>

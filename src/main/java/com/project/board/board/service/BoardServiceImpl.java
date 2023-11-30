@@ -91,15 +91,12 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public BoardDto getAndIncreaseViews(Long boardSeq) {
-
-
         BoardDto board = boardMapper.getBoardBySeq(boardSeq); // 게시글 조회
         boardMapper.increaseViews(boardSeq); // 조회수 증가
         // 게시글의 좋아요 수 계산
 
         return board;
     }
-
 
     // 사진 게시글4개
     @Override
@@ -114,7 +111,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public List<BoardDto> getBoardsByCategory(String category) {
-        List<BoardDto> boardList= boardMapper.getBoardsByCategory(category);
+        List<BoardDto> boardList = boardMapper.getBoardsByCategory(category);
         // HTML 태그를 제거
         for (BoardDto boardDto : boardList) {
             String cleanedContent = Jsoup.clean(boardDto.getBoardContent(), Safelist.none());
@@ -126,14 +123,6 @@ public class BoardServiceImpl implements BoardService {
         }
         return boardList;
     }
-
-    @Override
-    public void updateBoard(BoardDto boardDto) {
-        boardMapper.updateBoard(boardDto);
-    }
-
-
-    // 게시글 전체 조회
 
 
 }
