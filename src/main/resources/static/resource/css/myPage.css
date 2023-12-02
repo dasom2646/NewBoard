@@ -124,8 +124,13 @@ color: #1dc078;
 }
 
 .list_main{
-text-align: inherit;
+    text-align: inherit;
 }
 
-
-
+.searchList{
+    margin: auto;
+    width: 1000px;
+}
+.list_main{
+text-align: center;
+}
