@@ -100,7 +100,7 @@ li {
 }
 
 .info_head{
-    width: 100px;
+    width: 120px;
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
