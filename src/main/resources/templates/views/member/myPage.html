@@ -17,7 +17,7 @@
         <div class="image_wrap">
            <!-- <img src="/resource/KakaoTalk_20230919_134726450.png">-->
 
-            <!-- 프로필 이미지 업로드 폼 -->
+      <!--      &lt;!&ndash; 프로필 이미지 업로드 폼 &ndash;&gt;
             <div class="btn_img">
             <form th:action="@{/uploadProfile}" method="post" enctype="multipart/form-data">
 
@@ -26,8 +26,21 @@
             </form>
             </div>
 
-              <!--  <button class="btn_upload">이미지 업로드</button>
-                <button class="btn_delete">이미지 제거</button>-->
+ -->
+            <!-- 프로필 이미지 업로드 폼 -->
+            <div class="btn_img">
+                <form th:action="@{/uploadProfile}" method="post" enctype="multipart/form-data">
+                    <input type="file" name="profileImage" class="choose_file" accept="image/*">
+                    <button type="submit" class="btn_upload">이미지 업로드</button>
+                </form>
+            </div>
+
+            <!-- 프로필 이미지 삭제 버튼 -->
+            <div class="btn_img">
+                <form th:action="@{/deleteProfile}" method="post">
+                    <button type="submit" class="btn_delete">이미지 제거</button>
+                </form>
+            </div>
 
         </div>
         <div class="profile_inner">

@@ -49,6 +49,7 @@ public class MyPageController {
         model.addAttribute("myComments", myComments);
         return "views/member/myComments";
     }*/
+
 }
 
 

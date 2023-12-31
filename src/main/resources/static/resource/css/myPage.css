@@ -135,7 +135,3 @@ color: #1dc078;
 text-align: center;
 }
 
-/* 레이블에 대한 스타일 조정 */
-.choose_file {
-    content: none; /* 레이블 끝에 추가되는 "선택된 파일 없음" 텍스트를 없앰 */
-}
