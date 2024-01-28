@@ -42,8 +42,7 @@
         FROM TB_MEMBER
     </select>
     <select id="getMemberBySeq" resultType="com.project.board.member.model.MemberDto">
-        SELECT MEMBER_SEQ
-        *
+        SELECT *
         FROM TB_MEMBER
         WHERE MEMBER_SEQ = #{memberSeq}
     </select>
@@ -55,7 +54,9 @@
         SELECT COUNT(*) FROM TB_MEMBER WHERE MEMBER_NICKNAME = #{memberNickname}
     </select>
 
-    <update id="updateNickname">
+    <!--닉네임 수정-->
+
+    <update id="updateNickname" parameterType="com.project.board.member.model.MemberDto">
         UPDATE TB_MEMBER
         SET MEMBER_NICKNAME = #{newNickname}
         WHERE MEMBER_SEQ = #{memberSeq}

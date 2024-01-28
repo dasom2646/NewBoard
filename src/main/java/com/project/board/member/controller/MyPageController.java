@@ -38,6 +38,12 @@ public class MyPageController {
 
         List<BoardDto> myPosts = boardService.getBoardByMemberSeq(memberSeq);
         model.addAttribute("myPosts", myPosts);
+
+        // 사용자 객체를 가져와서 모델에 추가
+        MemberDto user = memberService.getMemberBySeq(memberSeq);
+        model.addAttribute("user", user);
+
+
         return "views/member/myPage";
     }
     /* *//**
@@ -58,6 +64,8 @@ public class MyPageController {
     public String updateNickname(@RequestParam("newNickname") String newNickname,
                                  @RequestParam("memberSeq") Long memberSeq, Model model) {
         memberService.updateNickname(memberSeq, newNickname);
+        MemberDto user = memberService.getMemberBySeq(memberSeq);
+        model.addAttribute("user", user);
         return "redirect:/myPage/posts/" + memberSeq;
     }
 }
