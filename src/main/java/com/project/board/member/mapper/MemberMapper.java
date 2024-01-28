@@ -26,4 +26,9 @@ public interface MemberMapper {
     // 아이디 중복검사
     int countMemberId(@Param("memberId") String memberId);
     int countMemberNickname(@Param("memberNickname") String memberNickname);
+
+    // 닉네임 수정
+    void updateNickname(@Param("memberSeq") Long memberSeq, @Param("newNickname") String newNickname);
+
+
 }

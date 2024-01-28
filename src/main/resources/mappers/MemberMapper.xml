@@ -55,4 +55,10 @@
         SELECT COUNT(*) FROM TB_MEMBER WHERE MEMBER_NICKNAME = #{memberNickname}
     </select>
 
+    <update id="updateNickname">
+        UPDATE TB_MEMBER
+        SET MEMBER_NICKNAME = #{newNickname}
+        WHERE MEMBER_SEQ = #{memberSeq}
+    </update>
+
 </mapper>

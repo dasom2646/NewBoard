@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -39,7 +40,7 @@ public class MyPageController {
         model.addAttribute("myPosts", myPosts);
         return "views/member/myPage";
     }
-   /* *//**
+    /* *//**
      * 마이페이지  내가 댓글단 글 모음
      *//*
     @GetMapping("/myComments/{memberSeq}")
@@ -50,6 +51,15 @@ public class MyPageController {
         return "views/member/myComments";
     }*/
 
+    /**
+     * 닉네임 수정
+     */
+    @PostMapping("/updateNickname")
+    public String updateNickname(@RequestParam("newNickname") String newNickname,
+                                 @RequestParam("memberSeq") Long memberSeq, Model model) {
+        memberService.updateNickname(memberSeq, newNickname);
+        return "redirect:/myPage/posts/" + memberSeq;
+    }
 }
 
 

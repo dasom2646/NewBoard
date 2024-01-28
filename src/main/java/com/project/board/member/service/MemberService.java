@@ -22,5 +22,10 @@ public interface MemberService {
     List<MemberDto> getMemberList(MemberDto memberDto);
 
     MemberDto getMemberBySeq(Long memberSeq);
+
+    // 닉네임 수정
+
+    void updateNickname(Long memberSeq, String newNickname);
+
 }
 

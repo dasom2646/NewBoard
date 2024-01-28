@@ -6,6 +6,7 @@ import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -66,6 +67,12 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public MemberDto getMemberBySeq(Long memberSeq) {
         return memberMapper.getMemberBySeq(memberSeq);
+    }
+    // 닉네임 수정
+    @Override
+    @Transactional
+    public void updateNickname(Long memberSeq, String newNickname) {
+        memberMapper.updateNickname(memberSeq, newNickname);
     }
 
 

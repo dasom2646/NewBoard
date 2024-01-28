@@ -28,10 +28,16 @@
         </div>
         <div class="profile_inner">
             <div class="profile_modify">
-                <div>
+                <!--<div>
                     <input type="text" placeholder="닉네임바꾸기">
                 </div>
-                <button class="btn_update">수정</button>
+                <button class="btn_update">수정</button>-->
+                <form th:action="@{/myPage/updateNickname}" method="post">
+                    <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
+                    <input type="text" name="newNickname" th:value="${user.memberNickname}" placeholder="새로운 닉네임을 입력하세요" required>
+                    <button type="submit">변경</button>
+                </form>
+
             </div>
             <div class="menu_wrap">
                 <div class="btn_menu">
