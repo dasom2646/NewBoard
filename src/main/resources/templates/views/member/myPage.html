@@ -15,11 +15,20 @@
 <div class="profile_container">
     <div class="profile">
         <div class="image_wrap">
-            <img id="profileImageDisplay" src="/resource/images/default-profile.png" >
+    <!--        <img id="profileImageDisplay" src="/resource/images/default-profile.png" >
 
-            <!-- 프로필 이미지 업로드 버튼 -->
+            &lt;!&ndash; 프로필 이미지 업로드 버튼 &ndash;&gt;
             <input type="file" id="profileImage" accept="image/*">
-            <button class="btn_upload" onclick="uploadProfileImage()"> 업로드</button>
+            <button class="btn_upload" onclick="uploadProfileImage()"> 업로드</button>-->
+
+            <!-- 프로필 사진 표시 -->
+            <img src="${user.memberFilename}" alt="프로필 사진" />
+
+            <!-- 프로필 사진 업로드 폼 -->
+            <form action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
+                <input type="file" name="profileImage" accept="image/*">
+                <button type="submit">프로필 사진 업로드</button>
+            </form>
 
             <!-- 프로필 이미지 삭제 버튼 -->
             <button class="btn_delete" onclick="deleteProfileImage()">삭제</button>

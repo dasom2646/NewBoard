@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
@@ -31,6 +32,17 @@ public class MyPageController {
     }
 
     /**
+     * 프로필 사진 등록
+     */
+    @PostMapping("/uploadProfile")
+    public String uploadProfile(@RequestParam("profileImage") MultipartFile file,
+                                @RequestParam("memberSeq") Long memberSeq) {
+        String fileName = file.getOriginalFilename();
+        memberService.uploadProfileImage(memberSeq, fileName);
+        return "redirect:/myPage/posts/" + memberSeq;
+    }
+
+    /**
      * 마이페이지
      */
     @GetMapping("/posts/{memberSeq}")
@@ -43,19 +55,9 @@ public class MyPageController {
         MemberDto user = memberService.getMemberBySeq(memberSeq);
         model.addAttribute("user", user);
 
-
         return "views/member/myPage";
     }
-    /* *//**
-     * 마이페이지  내가 댓글단 글 모음
-     *//*
-    @GetMapping("/myComments/{memberSeq}")
-    public String myComments(@PathVariable Long memberSeq, Model model) {
 
-        List<CommentDto> myComments = commentServic.getCommentsByMemberSeq(memberSeq);
-        model.addAttribute("myComments", myComments);
-        return "views/member/myComments";
-    }*/
 
     /**
      * 닉네임 수정
@@ -68,6 +70,17 @@ public class MyPageController {
         model.addAttribute("user", user);
         return "redirect:/myPage/posts/" + memberSeq;
     }
-}
 
+    /* *//**
+     * 마이페이지  내가 댓글단 글 모음
+     *//*
+    @GetMapping("/myComments/{memberSeq}")
+    public String myComments(@PathVariable Long memberSeq, Model model) {
+
+        List<CommentDto> myComments = commentServic.getCommentsByMemberSeq(memberSeq);
+        model.addAttribute("myComments", myComments);
+        return "views/member/myComments";
+    }*/
+
+}
 

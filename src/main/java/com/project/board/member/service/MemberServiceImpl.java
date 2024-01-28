@@ -76,15 +76,11 @@ public class MemberServiceImpl implements MemberService {
     }
 
 
-//     맴버 단건조회
-//    @Override
-//    public MemberVo findMemberById(Long id) {
-//        return null;
-//    }
-//
-//    // 맴버 목록 조회
-//    @Override
-//    public ArrayList<MemberVo> findAllMembers() {
-//        return null;
-//    }
+    // 프로필 사진등록
+    @Override
+    public void uploadProfileImage(Long memberSeq, String fileName) {
+
+    }
+
+
 }

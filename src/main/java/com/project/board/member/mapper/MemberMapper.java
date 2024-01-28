@@ -29,6 +29,7 @@ public interface MemberMapper {
 
     // 닉네임 수정
     void updateNickname(@Param("memberSeq") Long memberSeq, @Param("newNickname") String newNickname);
-
+    // 프로필 사진 등록
+    void updateProfileImage(Long memberSeq, String fileName);
 
 }

@@ -50,16 +50,22 @@
     <select id="countMemberId" resultType="int" parameterType="string">
         SELECT COUNT(*) FROM TB_MEMBER WHERE MEMBER_ID = #{memberId}
     </select>
-  <select id="countMemberNickname" resultType="int" parameterType="string">
+
+    <select id="countMemberNickname" resultType="int" parameterType="string">
         SELECT COUNT(*) FROM TB_MEMBER WHERE MEMBER_NICKNAME = #{memberNickname}
     </select>
 
-    <!--닉네임 수정-->
 
     <update id="updateNickname" parameterType="com.project.board.member.model.MemberDto">
         UPDATE TB_MEMBER
         SET MEMBER_NICKNAME = #{newNickname}
         WHERE MEMBER_SEQ = #{memberSeq}
+    </update>
+
+    <update id="updateProfileImage" parameterType="java.util.Map">
+        UPDATE TB_MEMBER
+        SET MEMBER_FILENAME = #{fileName}
+        HERE MEMBER_SEQ = #{memberSeq}
     </update>
 
 </mapper>
