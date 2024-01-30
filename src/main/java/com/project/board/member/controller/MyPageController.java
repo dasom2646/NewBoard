@@ -31,16 +31,6 @@ public class MyPageController {
         this.commentService = commentService;
     }
 
-    /**
-     * 프로필 사진 등록
-     */
-    @PostMapping("/uploadProfile")
-    public String uploadProfile(@RequestParam("profileImage") MultipartFile file,
-                                @RequestParam("memberSeq") Long memberSeq) {
-        String fileName = file.getOriginalFilename();
-        memberService.uploadProfileImage(memberSeq, fileName);
-        return "redirect:/myPage/posts/" + memberSeq;
-    }
 
     /**
      * 마이페이지
@@ -68,6 +58,18 @@ public class MyPageController {
         memberService.updateNickname(memberSeq, newNickname);
         MemberDto user = memberService.getMemberBySeq(memberSeq);
         model.addAttribute("user", user);
+        return "redirect:/myPage/posts/" + memberSeq;
+    }
+
+
+    /**
+     * 프로필 사진 등록
+     */
+    @PostMapping("/uploadProfile")
+    public String uploadProfile(@RequestParam("profileImage") MultipartFile file,
+                                @RequestParam("memberSeq") Long memberSeq) {
+        String fileName = file.getOriginalFilename();
+        memberService.uploadProfileImage(memberSeq, fileName);
         return "redirect:/myPage/posts/" + memberSeq;
     }
 

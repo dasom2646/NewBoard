@@ -25,10 +25,19 @@
             <img src="${user.memberFilename}" alt="프로필 사진" />
 
             <!-- 프로필 사진 업로드 폼 -->
+
             <form action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
+                <!-- 이미지 업로드 input -->
                 <input type="file" name="profileImage" accept="image/*">
+
+                <!-- 사용자의 memberSeq 전송을 위한 hidden input -->
+                <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
+
+                <!-- 이미지 업로드 버튼 -->
                 <button type="submit">프로필 사진 업로드</button>
             </form>
+
+
 
             <!-- 프로필 이미지 삭제 버튼 -->
             <button class="btn_delete" onclick="deleteProfileImage()">삭제</button>
