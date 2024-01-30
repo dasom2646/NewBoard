@@ -68,13 +68,13 @@ public class MemberServiceImpl implements MemberService {
     public MemberDto getMemberBySeq(Long memberSeq) {
         return memberMapper.getMemberBySeq(memberSeq);
     }
+
     // 닉네임 수정
     @Override
     @Transactional
     public void updateNickname(Long memberSeq, String newNickname) {
         memberMapper.updateNickname(memberSeq, newNickname);
     }
-
 
     // 프로필 사진등록
     @Override

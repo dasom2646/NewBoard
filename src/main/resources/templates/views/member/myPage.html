@@ -15,44 +15,53 @@
 <div class="profile_container">
     <div class="profile">
         <div class="image_wrap">
-    <!--        <img id="profileImageDisplay" src="/resource/images/default-profile.png" >
+            <!--        <img id="profileImageDisplay" src="/resource/images/default-profile.png" >
 
-            &lt;!&ndash; 프로필 이미지 업로드 버튼 &ndash;&gt;
-            <input type="file" id="profileImage" accept="image/*">
-            <button class="btn_upload" onclick="uploadProfileImage()"> 업로드</button>-->
+                    &lt;!&ndash; 프로필 이미지 업로드 버튼 &ndash;&gt;
+                    <input type="file" id="profileImage" accept="image/*">
+                    <button class="btn_upload" onclick="uploadProfileImage()"> 업로드</button>-->
+
+          <!--  &lt;!&ndash; 프로필 사진 표시 &ndash;&gt;
+            <img src="${user.memberFilename}" alt="프로필 사진"/>
+
+
+            &lt;!&ndash; 프로필 사진 업로드 폼 &ndash;&gt;
+            <form action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
+                <input type="file" name="profileImage" accept="image/*" onchange="previewImage(event)">
+                <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
+                <button type="submit" class="btn_upload">프로필 사진 업로드</button>
+            </form>
+
+            &lt;!&ndash; 이미지 미리 보기 영역 &ndash;&gt;
+            <img id="preview" src="#" alt="프로필 사진 미리 보기" style="display: none; max-width: 200px; max-height: 200px; border-radius: 50%;">-->
+
 
             <!-- 프로필 사진 표시 -->
-            <img src="${user.memberFilename}" alt="프로필 사진" />
+            <div id="profilePicture" class="profile-picture">
+                <img id="currentPicture" src="${user.memberFilename}" alt="프로필 사진"/>
+            </div>
 
             <!-- 프로필 사진 업로드 폼 -->
-
             <form action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
-                <!-- 이미지 업로드 input -->
-                <input type="file" name="profileImage" accept="image/*">
-
-                <!-- 사용자의 memberSeq 전송을 위한 hidden input -->
+                <input type="file" name="profileImage" accept="image/*" onchange="previewImage(event)">
                 <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
-
-                <!-- 이미지 업로드 버튼 -->
-                <button type="submit">프로필 사진 업로드</button>
+                <button type="submit" class="btn_upload">프로필 사진 업로드</button>
             </form>
 
 
 
-            <!-- 프로필 이미지 삭제 버튼 -->
+
+
+
             <button class="btn_delete" onclick="deleteProfileImage()">삭제</button>
-            
 
         </div>
         <div class="profile_inner">
             <div class="profile_modify">
-                <!--<div>
-                    <input type="text" placeholder="닉네임바꾸기">
-                </div>
-                <button class="btn_update">수정</button>-->
                 <form th:action="@{/myPage/updateNickname}" method="post">
                     <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
-                    <input type="text" name="newNickname" th:value="${user.memberNickname}" placeholder="새로운 닉네임을 입력하세요" required>
+                    <input type="text" name="newNickname" th:value="${user.memberNickname}" placeholder="새로운 닉네임을 입력하세요"
+                           required>
                     <button type="submit">변경</button>
                 </form>
 
@@ -65,7 +74,6 @@
                     <a th:onclick="|location.href='@{/myPage/myComments/{memberSeq}(memberSeq=${session.memberSeq})}'|">
                         <span class="btn_comment">댓글 단 글</span>
                     </a>
-
                 </div>
             </div>
         </div>
@@ -92,11 +100,24 @@
                     <td th:text="${post.boardViews}">조회</td>
                 </tr>
                 </tbody>
-
             </table>
         </div>
     </div>
 </div>
+<script>
+    <!--이미지 미리 보기 함수-->
 
+                // 이미지 미리 보기 함수
+                function previewImage(event) {
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        var preview = document.getElementById('currentPicture');
+                        preview.src = reader.result;
+                    }
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+
+
+</script>
 </body>
 </html>
