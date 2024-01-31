@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/myPage")
@@ -68,7 +69,8 @@ public class MyPageController {
     @PostMapping("/uploadProfile")
     public String uploadProfile(@RequestParam("profileImage") MultipartFile file,
                                 @RequestParam("memberSeq") Long memberSeq) {
-        String fileName = file.getOriginalFilename();
+        String uuid = UUID.randomUUID().toString();
+        String fileName = uuid + "_" + file.getOriginalFilename();
         memberService.uploadProfileImage(memberSeq, fileName);
         return "redirect:/myPage/posts/" + memberSeq;
     }

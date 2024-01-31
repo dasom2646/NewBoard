@@ -21,39 +21,22 @@
                     <input type="file" id="profileImage" accept="image/*">
                     <button class="btn_upload" onclick="uploadProfileImage()"> 업로드</button>-->
 
-          <!--  &lt;!&ndash; 프로필 사진 표시 &ndash;&gt;
-            <img src="${user.memberFilename}" alt="프로필 사진"/>
-
-
-            &lt;!&ndash; 프로필 사진 업로드 폼 &ndash;&gt;
-            <form action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
-                <input type="file" name="profileImage" accept="image/*" onchange="previewImage(event)">
-                <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
-                <button type="submit" class="btn_upload">프로필 사진 업로드</button>
-            </form>
-
-            &lt;!&ndash; 이미지 미리 보기 영역 &ndash;&gt;
-            <img id="preview" src="#" alt="프로필 사진 미리 보기" style="display: none; max-width: 200px; max-height: 200px; border-radius: 50%;">-->
-
-
             <!-- 프로필 사진 표시 -->
             <div id="profilePicture" class="profile-picture">
-                <img id="currentPicture" src="${user.memberFilename}" alt="프로필 사진"/>
+                <img id="currentPicture"
+                     src="${user.memberFilename ? user.memberFilename : '/resource/images/default-profile.png'}"
+                />
             </div>
+
 
             <!-- 프로필 사진 업로드 폼 -->
             <form action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
                 <input type="file" name="profileImage" accept="image/*" onchange="previewImage(event)">
-                <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
-                <button type="submit" class="btn_upload">프로필 사진 업로드</button>
+                <input type="hidden" id="memberSeq" name="memberSeq" th:value="${user.memberSeq}">
+                <button type="submit" class="btn_upload">프로필 수정</button>
+                <button class="btn_delete" onclick="deleteProfileImage()">프로필 삭제</button>
             </form>
 
-
-
-
-
-
-            <button class="btn_delete" onclick="deleteProfileImage()">삭제</button>
 
         </div>
         <div class="profile_inner">
@@ -61,8 +44,8 @@
                 <form th:action="@{/myPage/updateNickname}" method="post">
                     <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
                     <input type="text" name="newNickname" th:value="${user.memberNickname}" placeholder="새로운 닉네임을 입력하세요"
-                           required>
-                    <button type="submit">변경</button>
+                           required style="height: 20px;">
+                    <button type="submit" class="btn_change">변경</button>
                 </form>
 
             </div>
@@ -104,19 +87,52 @@
         </div>
     </div>
 </div>
+
+
+<!--<script>
+    // 이미지 미리 보기 함수
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var preview = document.getElementById('currentPicture');
+            preview.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>-->
 <script>
-    <!--이미지 미리 보기 함수-->
+    // 이미지 미리보기 함수
+function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+        var output = document.getElementById('currentPicture');
+        output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+}
 
-                // 이미지 미리 보기 함수
-                function previewImage(event) {
-                    var reader = new FileReader();
-                    reader.onload = function() {
-                        var preview = document.getElementById('currentPicture');
-                        preview.src = reader.result;
-                    }
-                    reader.readAsDataURL(event.target.files[0]);
-                }
+// 프로필 사진 업로드 함수
+function uploadProfile() {
+    var fileInput = document.querySelector('input[type="file"]');
+    var formData = new FormData();
+    formData.append('profileImage', fileInput.files[0]);
+    formData.append('memberSeq', document.getElementById('memberSeq').value);
 
+    fetch('/myPage/uploadProfile', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            // 업로드 성공 시 처리
+            console.log('프로필 사진 업로드 성공');
+        } else {
+            // 업로드 실패 시 처리
+            console.error('프로필 사진 업로드 실패');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
 
 </script>
 </body>

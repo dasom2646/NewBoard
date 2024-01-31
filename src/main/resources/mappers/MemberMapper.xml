@@ -62,10 +62,10 @@
         WHERE MEMBER_SEQ = #{memberSeq}
     </update>
 
-    <update id="updateProfileImage" parameterType="java.util.Map">
-        UPDATE TB_MEMBER
-        SET MEMBER_FILENAME = #{fileName}
-        HERE MEMBER_SEQ = #{memberSeq}
-    </update>
+    <insert id="uploadProfileImage" parameterType="com.project.board.member.model.MemberDto">
+        INSERT INTO TB_MEMBER (MEMBER_SEQ, MEMBER_FILENAME)
+        VALUES (#{memberSeq}, #{fileName})
+        ON DUPLICATE KEY UPDATE MEMBER_FILENAME = #{fileName}
+    </insert>
 
 </mapper>
