@@ -62,10 +62,14 @@
         WHERE MEMBER_SEQ = #{memberSeq}
     </update>
 
-    <insert id="uploadProfileImage" parameterType="com.project.board.member.model.MemberDto">
+ <!--   <insert id="uploadProfileImage" parameterType="com.project.board.member.model.MemberDto">
         INSERT INTO TB_MEMBER (MEMBER_SEQ, MEMBER_FILENAME)
         VALUES (#{memberSeq}, #{fileName})
-        ON DUPLICATE KEY UPDATE MEMBER_FILENAME = #{fileName}
-    </insert>
 
+    </insert>-->
+    <update id="uploadProfileImage" parameterType="com.project.board.member.model.MemberDto">
+        UPDATE TB_MEMBER
+        SET MEMBER_FILENAME = #{fileName}
+        WHERE MEMBER_SEQ = #{memberSeq}
+    </update>
 </mapper>

@@ -79,7 +79,7 @@ public class MemberServiceImpl implements MemberService {
     // 프로필 사진등록
     @Override
     public void uploadProfileImage(Long memberSeq, String fileName) {
-
+        memberMapper.uploadProfileImage(memberSeq, fileName);
     }
 
 
