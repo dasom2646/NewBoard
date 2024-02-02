@@ -69,7 +69,7 @@
     </insert>-->
     <update id="uploadProfileImage" parameterType="com.project.board.member.model.MemberDto">
         UPDATE TB_MEMBER
-        SET MEMBER_FILENAME = #{fileName}
+        SET MEMBER_FILENAME = #{memberFilename}
         WHERE MEMBER_SEQ = #{memberSeq}
     </update>
 </mapper>

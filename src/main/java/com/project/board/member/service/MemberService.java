@@ -29,7 +29,7 @@ public interface MemberService {
     void updateNickname(Long memberSeq, String newNickname);
 
     // 프로필 사진등록
-    void uploadProfileImage(Long memberSeq, String fileName);
+    void uploadProfileImage(Long memberSeq, String memberFilename);
 
 }
 

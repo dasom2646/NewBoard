@@ -70,8 +70,8 @@ public class MyPageController {
     public String uploadProfile(@RequestParam("profileImage") MultipartFile file,
                                 @RequestParam("memberSeq") Long memberSeq) {
         String uuid = UUID.randomUUID().toString();
-        String fileName = uuid + "_" + file.getOriginalFilename();
-        memberService.uploadProfileImage(memberSeq, fileName);
+        String memberFilename   = uuid + "_" + file.getOriginalFilename();
+        memberService.uploadProfileImage(memberSeq, memberFilename );
         return "redirect:/myPage/posts/" + memberSeq;
     }
 
