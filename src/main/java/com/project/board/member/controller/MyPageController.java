@@ -7,12 +7,17 @@ import com.project.board.board.service.CommentService;
 import com.project.board.member.model.MemberDto;
 import com.project.board.member.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.util.List;
 import java.util.UUID;
@@ -24,6 +29,9 @@ public class MyPageController {
     private final MemberService memberService;
     private final BoardService boardService;
     private final CommentService commentService;
+
+    @Value("${custom.upload.directory}")
+    private String uploadDir;
 
     @Autowired
     public MyPageController(MemberService memberService, BoardService boardService, CommentService commentService) {
@@ -41,6 +49,7 @@ public class MyPageController {
 
         List<BoardDto> myPosts = boardService.getBoardByMemberSeq(memberSeq);
         model.addAttribute("myPosts", myPosts);
+
 
         // 사용자 객체를 가져와서 모델에 추가
         MemberDto user = memberService.getMemberBySeq(memberSeq);
@@ -69,9 +78,17 @@ public class MyPageController {
     @PostMapping("/uploadProfile")
     public String uploadProfile(@RequestParam("profileImage") MultipartFile file,
                                 @RequestParam("memberSeq") Long memberSeq) {
-        String uuid = UUID.randomUUID().toString();
-        String memberFilename   = uuid + "_" + file.getOriginalFilename();
-        memberService.uploadProfileImage(memberSeq, memberFilename );
+
+        try {
+            String memberFilename   = UUID.randomUUID().toString()+ "_" + file.getOriginalFilename();
+            Files.copy(file.getInputStream(), Paths.get(uploadDir).resolve(memberFilename), StandardCopyOption.REPLACE_EXISTING);
+            memberService.uploadProfileImage(memberSeq, memberFilename );
+        } catch (IOException e) {
+            e.printStackTrace();
+            // 에러 처리
+        }
+
+
         return "redirect:/myPage/posts/" + memberSeq;
     }
 
