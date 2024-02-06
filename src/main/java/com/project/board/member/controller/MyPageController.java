@@ -47,13 +47,24 @@ public class MyPageController {
     @GetMapping("/posts/{memberSeq}")
     public String myPage(@PathVariable Long memberSeq, Model model) {
 
+
+        // 회원 정보 가져오기
+        MemberDto user = memberService.getMemberBySeq(memberSeq);
+        model.addAttribute("user", user);
+// todo
+        // 프로필 사진 가져오기
+        String profilePictureUrl;
+        if (user.getMemberFilename() != null) {
+            profilePictureUrl = user.getMemberFilename();
+        } else {
+            profilePictureUrl = "/resource/images/default-profile.png"; // 기본 사진 경로
+        }
+        model.addAttribute("profilePictureUrl", profilePictureUrl);
+
+
         List<BoardDto> myPosts = boardService.getBoardByMemberSeq(memberSeq);
         model.addAttribute("myPosts", myPosts);
 
-
-        // 사용자 객체를 가져와서 모델에 추가
-        MemberDto user = memberService.getMemberBySeq(memberSeq);
-        model.addAttribute("user", user);
 
         return "views/member/myPage";
     }
@@ -80,9 +91,9 @@ public class MyPageController {
                                 @RequestParam("memberSeq") Long memberSeq) {
 
         try {
-            String memberFilename   = UUID.randomUUID().toString()+ "_" + file.getOriginalFilename();
+            String memberFilename = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
             Files.copy(file.getInputStream(), Paths.get(uploadDir).resolve(memberFilename), StandardCopyOption.REPLACE_EXISTING);
-            memberService.uploadProfileImage(memberSeq, memberFilename );
+            memberService.uploadProfileImage(memberSeq, memberFilename);
         } catch (IOException e) {
             e.printStackTrace();
             // 에러 처리
