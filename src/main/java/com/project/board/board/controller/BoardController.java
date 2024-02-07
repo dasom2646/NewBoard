@@ -162,5 +162,4 @@ public class BoardController {
         model.addAttribute("latestBoards", latestBoards);
         return "views/newHome";
     }
-// todo 마이페이지 이미지 업로드 , 닉네임 수정 목록 모양 다듬기
 }

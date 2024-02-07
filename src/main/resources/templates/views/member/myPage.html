@@ -17,24 +17,11 @@
         <div class="image_wrap">
 
             <!-- 프로필 사진 표시 -->
-            <!--      <div id="profilePicture" class="profile-picture">
-                      <img id="currentPicture"
-                           th:if="${user.memberFilename != null}"
-                           th:src="${user.memberFilename}"
-                      />
-                      <img id="currentPicture"
-                           th:if="${user.memberFilename == null}"
-                           src="/resource/images/default-profile.png"
-                      />
-                  </div>-->
+
             <div id="profilePicture" class="profile-picture">
-                <img id="currentPicture"
-                     th:if="${user.memberFilename != null}"
-                     th:src="@{'${profilePictureUrl}'}"/>
-                <img id="currentPicture"
-                     th:if="${user.memberFilename == null}"
-                     src="/resource/images/default-profile.png"/>
+                <img id="currentPicture" th:src="${user.memberFilename != null ? '/image?memberFilename=' + user.getMemberFilename : '/resource/images/default-profile.png'}"/>
             </div>
+
 
 
             <!-- 프로필 사진 업로드 폼 -->

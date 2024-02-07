@@ -47,23 +47,19 @@ public class MyPageController {
     @GetMapping("/posts/{memberSeq}")
     public String myPage(@PathVariable Long memberSeq, Model model) {
 
-
         // 회원 정보 가져오기
         MemberDto user = memberService.getMemberBySeq(memberSeq);
-        model.addAttribute("user", user);
-// todo
-        // 프로필 사진 가져오기
-        String profilePictureUrl;
-        if (user.getMemberFilename() != null) {
-            profilePictureUrl = user.getMemberFilename();
-        } else {
-            profilePictureUrl = "/resource/images/default-profile.png"; // 기본 사진 경로
-        }
-        model.addAttribute("profilePictureUrl", profilePictureUrl);
-
 
         List<BoardDto> myPosts = boardService.getBoardByMemberSeq(memberSeq);
+
+        // 프로필 사진 가져오기
+        String profileImage = user.getMemberFilename();
+
+        String profileImageUrl = "/image?memberFilename=" + profileImage;
+
+        model.addAttribute("user", user);
         model.addAttribute("myPosts", myPosts);
+        model.addAttribute("profileImageUrl", profileImageUrl);
 
 
         return "views/member/myPage";
