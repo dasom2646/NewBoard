@@ -52,6 +52,8 @@ public class MyPageController {
 
         List<BoardDto> myPosts = boardService.getBoardByMemberSeq(memberSeq);
 
+
+        // todo  이미지 컨트롤러
         // 프로필 사진 가져오기
         String profileImage = user.getMemberFilename();
 
