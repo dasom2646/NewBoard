@@ -1,5 +1,6 @@
 package com.project.board.board.controller;
 
+
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,7 @@ import java.util.UUID;
 public class ImageController {
 
     private final String fileDir = "C:/Users/choid/NBproject/file/"; // 이미지 디렉토리 경로
+
 
     @GetMapping("/image")
     public ResponseEntity<Resource> loadImage(@RequestParam("filename") String filename) throws MalformedURLException {
@@ -58,4 +60,6 @@ public class ImageController {
             throw new RuntimeException("이미지 저장 실패: " + e.getMessage());
         }
     }
+
+
 }
