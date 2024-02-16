@@ -55,7 +55,15 @@ public class MyPageController {
 
         // 프로필 사진 가져오기
         String profileImage = user.getMemberFilename();
-        String profileImageUrl = "/myPage/image?memberFilename=" + profileImage;
+        String profileImageUrl = "/profileImage?memberFilename=" + profileImage;
+
+/*
+        // 프로필 사진이 없는 경우 기본 이미지 경로 설정
+        if (profileImage == null) {
+            profileImageUrl = "/resource/images/default-profile.png";
+        }
+*/
+
 
         model.addAttribute("user", user);
         model.addAttribute("myPosts", myPosts);

@@ -42,8 +42,8 @@ public class MyPageImageController {
         }
     }
 
-    @PostMapping("/uploadProfileImage")
-    public ResponseEntity<String> handleProfileImageUpload(@RequestParam("profileImage") MultipartFile file,
+    @PostMapping("/profileImage/uploadProfile")
+    public ResponseEntity<String> handleProfileImageUpload(@RequestParam("uploadProfile") MultipartFile file,
                                                            @RequestParam("memberSeq") Long memberSeq) {
         try {
             // 프로필 이미지를 저장하고 저장된 이미지의 URL을 생성

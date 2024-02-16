@@ -123,6 +123,7 @@ public class BoardController {
      */
     @GetMapping("/boardDetail/{boardSeq}")
     public String boardDetail(@PathVariable Long boardSeq, Model model, HttpSession session) {
+
         BoardDto board = boardService.getAndIncreaseViews(boardSeq); //조회수 증가
 
         // 게시글에 해당하는 댓글 목록 가져오기
@@ -141,8 +142,6 @@ public class BoardController {
 
         // 이미지 파일의 파일명 (이미지 파일이 boardDto에 있는 경우)
         String imageFilename = board.getFilename();
-
-        // 이미지 파일의 URL을 생성
         String imageUrl = "/image?filename=" + imageFilename;
 
         model.addAttribute("board", board);
