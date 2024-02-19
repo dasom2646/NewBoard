@@ -8,7 +8,7 @@ VALUES ( NEXTVAL('MEMBER_SEQ')
        , 'test'
        , '테스터'
        , '나는야테스터'
-       , '14a2ebd2-5d8d-4b3d-8604-dd9c1e9d072a_KakaoTalk_20230905_141458900_01.jpg'
+       , null
        , 'test123');
 
 INSERT INTO TB_MEMBER ( MEMBER_SEQ
