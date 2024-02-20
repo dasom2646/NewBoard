@@ -1,23 +1,206 @@
 INSERT INTO TB_MEMBER ( MEMBER_SEQ
                       , MEMBER_ID
                       , MEMBER_NAME
+                      , MEMBER_NICKNAME
+                      , MEMBER_FILENAME
                       , MEMBER_PWD)
 VALUES ( NEXTVAL('MEMBER_SEQ')
        , 'test'
        , '테스터'
+       , '나는야테스터'
+       , null
        , 'test123');
 
 INSERT INTO TB_MEMBER ( MEMBER_SEQ
                       , MEMBER_ID
                       , MEMBER_NAME
+                      , MEMBER_NICKNAME
+                      , MEMBER_FILENAME
                       , MEMBER_PWD)
 VALUES ( NEXTVAL('MEMBER_SEQ')
        , 'spring'
-       , '봄봄'
+       , '김봄'
+       , '봄이오나요'
+       , null
        , 'spring123');
 
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                      , MEMBER_ID
+                      , MEMBER_NAME
+                      , MEMBER_NICKNAME
+                      , MEMBER_FILENAME
+                      , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+       , 'hani'
+       , '이하늬'
+       , '달려라하니'
+       , null
+       , 'hani22');
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                      , MEMBER_ID
+                      , MEMBER_NAME
+                      , MEMBER_NICKNAME
+                      , MEMBER_FILENAME
+                      , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+       , 'gamer1'
+       , '나지훈'
+       , '탐험가쿠키'
+       , null
+       , 'gamer123');
 
 
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                      , MEMBER_ID
+                      , MEMBER_NAME
+                      , MEMBER_NICKNAME
+                      , MEMBER_FILENAME
+                      , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+       , 'music2'
+       , '윤세라'
+       , '세일러세라빔'
+       , null
+       , 'music456');
+
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'explorer3'
+      , '김민영'
+      , '민제로'
+      , null
+      , 'explorer789');
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'johndoe'
+      , '박현우'
+      , '시간지기쿠키'
+      , null
+      , 'johndoe1234');
+
+
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'sarahlee'
+      , '김지은'
+      , '실버G'
+      , null
+      , 'sarahlee45');
+
+
+
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'alexkim'
+      , '이서연'
+      , '한시삼분'
+      , null
+      , 'alexkim789');
+
+
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'sophiawang'
+      , '정윤우'
+      , '맛집탐정'
+      , null
+      , 'sophiawang234');
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'danielkim'
+      , '이민재'
+      , '새벽밤'
+      , null
+      , 'danielkim456');
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'chrispark'
+      , '김지훈'
+      , '은하수탐험가'
+      , null
+      , 'chrispark123');
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'lindajung'
+      , '최서영'
+      , '미소의요정'
+      , null
+      , 'lindajung5678');
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'michaelpark'
+      , '이정민'
+      , '화이트타이거'
+      , null
+      , 'michaelpark345');
+
+INSERT INTO TB_MEMBER ( MEMBER_SEQ
+                     , MEMBER_ID
+                     , MEMBER_NAME
+                     , MEMBER_NICKNAME
+                     , MEMBER_FILENAME
+                     , MEMBER_PWD)
+VALUES ( NEXTVAL('MEMBER_SEQ')
+      , 'jennychoi'
+      , '김예은'
+      , '별의여신'
+      , null
+      , 'jennychoi2345');
 -- 게시판 데이터
 INSERT INTO TB_BOARD ( BOARD_SEQ
                      , BOARD_TITLE
@@ -55,7 +238,7 @@ VALUES ( NEXTVAL('BOARD_SEQ')
          '성공에 대한 통찰과 에너지를 얻을 수 있는 책입니다.'
        , CURRENT_TIMESTAMP
        , 0
-       , '오늘의 책'
+       , '오늘의책'
        , null
        , 1);
 
@@ -76,9 +259,9 @@ VALUES ( NEXTVAL('BOARD_SEQ')
          '우리는 삶에서 긍정적인 면을 발견하고, 더 행복한 삶을 살기 위한 힌트를 얻을 수 있습니다.'
        , CURRENT_TIMESTAMP
        , 0
-       , '오늘의 책'
+       , '오늘의책'
        , '6b3b48ca-308e-44be-8344-fed4b9dff299.jpeg'
-       , 1);
+       , 10);
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
                       , BOARD_TITLE
@@ -105,9 +288,9 @@ VALUES ( NEXTVAL('BOARD_SEQ')
          '달콤한 시럽이나 생과일과 함께 즐기면 완벽한 브런치 메뉴가 될 것입니다. 조리 시간은 약 15분입니다.'
        , CURRENT_TIMESTAMP
        , 13
-       , '요리 레시피'
+       , '요리레시피'
        , '2d9bb5b9-a762-4c49-86b1-d5c55e928272.jpeg'
-       , 1);
+       , 5);
 INSERT INTO TB_BOARD ( BOARD_SEQ
                       , BOARD_TITLE
                       , BOARD_CONTENT
@@ -139,9 +322,9 @@ VALUES ( NEXTVAL('BOARD_SEQ')
          '과일만 넣어서 샐러드를 만든다면 준비 시간은 10분이면 충분합니다^^.'
        , CURRENT_TIMESTAMP
        , 5
-       , '요리 레시피'
+       , '요리레시피'
        , '589ff0a9-4b61-42ec-bf39-cd8ca5fc5aab.jpeg'
-       , 1);
+       , 7);
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
                      , BOARD_TITLE
@@ -182,7 +365,7 @@ VALUES ( NEXTVAL('BOARD_SEQ')
        , 12
        , '해외여행'
        , '96b65201-97e4-450c-904a-1afcd8eeb98f.jpeg'
-       , 1);
+       , 4);
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
                       , BOARD_TITLE
@@ -211,9 +394,9 @@ VALUES ( NEXTVAL('BOARD_SEQ')
          '정말 눈과 귀, 마음이 즐거웠던 작품이었고, 감상 후 오랜 시간동안 생각이 남았답니다'
        , CURRENT_TIMESTAMP
        , 0
-       , '영화 리뷰'
+       , '영화리뷰'
        , null
-       , 1);
+       , 6);
 
 
 
@@ -288,9 +471,9 @@ VALUES (NEXTVAL('BOARD_SEQ')
        '하지만 이 연구는 몇 가지 한계가 있다. 간호사 건강 연구가 주로 백인 여성 간호사로 구성돼 연구에서 발견된 결과가 인구 전체에 걸쳐 일관되게 나타나는지 확인하려면 추가 조사가 필요하다. 또 연구 결과는 인과관계가 아닌 연관성을 밝힌 것이다. 따라서 건강에 해로운 습관, 당뇨병 위험 등 다른 요인이 영향을 미칠 수 있다. '
      , CURRENT_TIMESTAMP
      , 43
-     , '건강·운동'
+     , '건강운동'
      , 'cb1e429f-5c44-449f-8b16-93bcbdb51c07.webp'
-     , 1);
+     , 12);
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
                      , BOARD_TITLE
@@ -321,7 +504,7 @@ VALUES (NEXTVAL('BOARD_SEQ')
       , 35
       , '스포츠'
       , 'd557885b-e801-4acb-9772-af28de5be9d1.jpg'
-      , 1);
+      , 13);
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
                      , BOARD_TITLE
@@ -410,9 +593,9 @@ VALUES (NEXTVAL('BOARD_SEQ')
          'A씨는 "보다 못한 남편이 중재에 나서며 따지기 시작하니 조금 안정을 찾는가 싶더니 또다시 남편한테 말도 안 되는 말을 했다"며 "10년 넘게 장사하면서 운이 좋았던 건지 늘 매너 좋은 손님들만 만나왔었다. 이렇게 소주로 발 씻는 손님은 처음 겪어 본다. 장사하면서 처음으로 자괴감이 든다"고 하소연했다.'
       , CURRENT_TIMESTAMP
       , 18
-      , '시사·이슈'
+      , '시사이슈'
       , 'c58c0e45-0ab4-4d42-a4cc-4eb2c4188fab.jpeg'
-      , 1);
+      , 8);
 
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
@@ -440,9 +623,9 @@ VALUES (NEXTVAL('BOARD_SEQ')
          '한편 애플은 이날 미국 캘리포니아주 쿠퍼티노에 있는 애플파크에서 아이폰15 기본모델(6.1인치형)·플러스(6.7인치형)·프로(6.1인치)·프로맥스(6.7인치)등 4종을 공개했다. 이번 시리즈는 자체 충전 단자(라이트닝)대신 안드로이드형과 같은 USB-C형 충전 단자를 아이폰 시리즈 최초로 탑재했다. 또 전 제품에 이른바 ''M자탈모''라 불리던 ''노치''를 빼고 ''다이내믹 아일랜드''를 넣었다.'
       , CURRENT_TIMESTAMP
       , 29
-      , 'IT 트렌드'
+      , 'IT트렌드'
       , '81ceded7-6907-4329-bf44-0f6247709286.gif'
-      , 1);
+      , 9);
 
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
@@ -470,7 +653,7 @@ VALUES (NEXTVAL('BOARD_SEQ')
          '애플은 이날 미국 캘리포니아주 쿠퍼티노에 있는 애플파크에서 아이폰15 기본모델(6.1인치형)·플러스(6.7인치형)·프로(6.1인치)·프로맥스(6.7인치)등 4종을 공개했다. 이번 시리즈는 자체 충전 단자(라이트닝)대신 안드로이드형과 같은 USB-C형 충전 단자를 아이폰 시리즈 최초로 탑재했다. 또 전 제품에 이른바 ''M자탈모''라 불리던 ''노치''를 빼고 ''다이내믹 아일랜드''를 넣었다.'
       , CURRENT_TIMESTAMP
       , 33
-      , 'IT 트렌드'
+      , 'IT트렌드'
       , '36092736-a801-40cd-a0d7-6ada00594021.png'
       , 1);
 
@@ -499,9 +682,9 @@ VALUES (NEXTVAL('BOARD_SEQ')
               '하지만 <치악산>은 공포영화의 여러 관습을 장르적 재미로 전혀 활용하지 못한다. 등장인물들은 맥락 없는 대사와 행동만 일삼아 관객의 공포를 추동하지 못한다.'
             , CURRENT_TIMESTAMP
             , 27
-            , '영화 리뷰'
+            , '영화리뷰'
             , '14f53f1a-95d1-41c0-83b2-3dd5e8720744.jpg'
-            , 1);
+            , 4);
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
                      , BOARD_TITLE
@@ -530,9 +713,9 @@ VALUES (NEXTVAL('BOARD_SEQ')
         '미처 털어내기 힘든 과거의 아픔을 가진 두 사람이 그 상처를 회복하게 해줄 터널의 마법을 거부한다. 대신 상대를 향한 애정을 굳게 선택하려 한다. 이때 폭발하는 감성이 이 영화가 지닌 강점이다. 2023년 안시국제애니메이션페스티벌에서 폴 그리모상(장편부문)을 받았다.'
       , CURRENT_TIMESTAMP
       , 0
-      , '영화 리뷰'
+      , '영화리뷰'
       , '743c8a4f-ca21-4bbe-af92-eef67b63348e.jpg'
-      , 1);
+      , 2);
 
 
 
@@ -561,7 +744,7 @@ VALUES (NEXTVAL('BOARD_SEQ')
       , 12
       , '엔터테인먼트'
       , '4fd3d125-3061-4df7-b9f6-af3802317ccb.jpg'
-      , 1);
+      , 3);
 
 
 
@@ -594,9 +777,9 @@ VALUES (NEXTVAL('BOARD_SEQ')
         '이같은 서사의 빈칸은 끝까지 미지의 요소로 기능하며 관객에게 긴장감을 불러일으킨다. 전혀 무서운 장면이 이어지지 않음에도 막연히 공포스러운 상황을 예측하게 만드는 의도적 숏 또한 관객의 불안을 내내 가중하며 영화 내 서스펜스의 밀도를 균일하게 유지한다. 제니퍼의 트라우마를 유발하는 현재 시점의 몇몇 포인트는 유려한 매치컷을 위해 다소 편의적으로 사용된 듯한 느낌을 준다. 올해 개최된 제19회 제천국제음악영화제의 개막작으로 라흐마니노프의 피아노 협주곡 2번이 영화 내내 인상적으로 흐른다.'
       , CURRENT_TIMESTAMP
       , 14
-      , '영화 리뷰'
+      , '영화리뷰'
       , '8ff098a7-76f0-44ec-b70e-c53a37295e8d.jpg'
-      , 2);
+      , 6);
 
 
 INSERT INTO TB_BOARD ( BOARD_SEQ
@@ -628,7 +811,247 @@ VALUES (NEXTVAL('BOARD_SEQ')
       , 14
       , '반려동물'
       , null
+      , 3);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '제주도 여행 기록: 제주의 아름다운 자연과 맛집 탐방'
+      , '<p>안녕하세요, 여행을 사랑하는 여러분!&nbsp;</p><p>오늘은 맑은 하늘 아래 아름다운 제주도 여행을 공유하려고 합니다.&nbsp;</p><p>제주도는 그 자연의 아름다움과 맛있는 음식으로 가득 찬 곳으로, 이곳을 방문하면 그 매력에 푹 빠지게 될 것입니다.^^*</p><p><strong>1. 제주의 자연 경관</strong></p><p>제주도는 그림 같은 풍경으로 가득합니다.&nbsp;</p><p>가장 먼저, 한라산을 방문해보세요. 이곳은 제주도의 최고봉이자 국립공원으로 지정된 곳으로, 힐링과 하이킹을 즐기기에 딱입니다.&nbsp;</p><p>하이킹을 마치면, 물맑은 한라산 계곡에서 시원한 물에 발을 담궈보세요.</p><p>그 다음으로, 제주의 해변을 즐겨보세요.&nbsp;</p><p>제주의 해변은 그 푸른 바다와 흰 모래가 장관을 이루며, 특히 성산일출봉 근처의 해변은 일출을 감상하기에 최적의 장소입니다.</p><p><strong>2. 제주의 맛집 탐방</strong></p><p>제주도에서는 맛있는 음식을 많이 즐길 수 있습니다. 제주 흑돼지는 제주도에서 꼭 먹어야 할 음식 중 하나입니다.&nbsp;</p><p>신선한 재료로 만든 고기 요리는 입맛을 돋우며, 현지 레스토랑에서 특별한 맛을 경험할 수 있습니다.</p><p>또한, 제주의 해산물은 맛있고 신선합니다.&nbsp;</p><p>현지 시장에서 싱싱한 해산물을 구매하거나, 바닷가에 위치한 식당에서 해산물 요리를 즐겨보세요.&nbsp;</p><p>특히 해녀들이 손수 거둔 해삼 요리는 맛과 건강에 좋습니다.</p><p><strong>3. 문화와 역사</strong></p><p>제주도에는 풍부한 문화와 역사가 녹아있습니다. 성산일출봉 근처에 위치한 성읍민속마을은 전통적인 제주 문화를 경험할 수 있는 곳입니다.&nbsp;</p><p>풍부한 역사적 유물과 전통 가옥을 감상하며, 제주의 고유한 문화를 느껴보세요.</p><p>이렇게 아름다운 자연과 풍요로운 음식, 풍부한 문화로 가득한 제주도 여행을 즐겼습니다.&nbsp;</p><p>여행은 항상 새로운 경험과 기억을 만들어줍니다. 다음 여행때 또 만나요~!</p><p>&nbsp;</p><p><br>&nbsp;</p>'
+      , CURRENT_TIMESTAMP
+      , 31
+      , '국내여행'
+      , null
       , 2);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '꿈같던 일주일간의 파리 여행 일기'
+      , '<p>파리에서 다시 한국으로 도착한 지 이제 3일 지났네요&nbsp;<br>파리를 떠난 지 얼마 되지 않아 머릿속에 여행의 아름다움과 추억들이 아직도 빛납니다.&nbsp;<br>그 동안의 모든 순간들이 마치 꿈같았던 것 같아요.<br>더 늦어지기전에 파리 여행일기를 공유해 봅니다^^~</p><p><strong>Day 1: 도시의 황금, 에펠탑</strong></p><p>제주도에서 파리로 가는 길은 조금 길고 피곤했지만, 에펠탑을 보러 도착했을 때 그 모든 피로가 사라졌습니다. 에펠탑은 파리의 아이콘 중 하나로, 노을이 비치는 그 순간의 아름다움은 어떤 말로도 표현하기 어려운 것이었습니다. 파리의 첫 밤, 저의 눈앞에 펼쳐진 파리의 황금빛은 마음 깊숙이 각인되었습니다.</p><p><strong>Day 2: 루브르 박물관에서 예술의 세계로</strong></p><p>두 번째 날, 루브르 박물관을 방문했습니다. 그 곳에서는 다양한 예술 작품과 역사적 유물을 마주했는데, 그 중에서도 ''모나리자''는 마음 속 깊이 남아있습니다. 루브르는 마치 예술의 미소가 감싸는 곳처럼 느껴져, 여기서 보낸 시간은 정말 특별한 순간이었습니다.</p><p><strong>Day 3: 몽마르트 언덕과 사크레쾨르 대성당</strong></p><p>몽마르트 언덕에 오르며 예술가들의 거리를 거닐었습니다. 화가들의 작업실과 아름다운 작품들이 곳곳에 있었고, 그곳에서 느낀 창의성과 예술의 열정은 마음에 영원히 남을 것입니다. 언덕 꼭대기에 위치한 사크레쾨르 대성당은 파리의 아름다움을 한 눈에 볼 수 있는 최고의 장소였습니다.</p><p><strong>Day 4: 프렌치 쿠지네와 파리의 맛</strong></p><p>파리에서 먹는 음식은 정말로 인상적이었습니다. 아침에는 크로와상과 커피로 시작하여, 거리의 작은 카페에서 그 아름다운 아침을 즐겼습니다. 프렌치 쿠지네 레스토랑에서의 저녁 식사는 최고의 맛으로 기억됩니다. 푸짐하고 정성 가득한 프랑스 요리를 맛보는 것은 파리 여행의 필수 활동 중 하나입니다.</p><p><strong>Day 5: 세계적인 미술과 역사, 빅토리아궁전</strong></p><p>오늘은 빅토리아 궁전을 방문했습니다. 이곳은 프랑스 역사와 문화의 중요한 장소로, 그림같은 정원과 화려한 방들은 정말로 인상적이었습니다. 미술과 역사에 대한 새로운 통찰력을 얻을 수 있었던 순간이었습니다.</p><p><strong>Day 6: 센 강을 따라 산책</strong></p><p>오늘은 파리의 대표적인 강인 센 강을 따라 산책하는 시간을 가졌습니다. 강변을 따라 걸으면서 파리의 아름다운 다리와 건물을 감상할 수 있었고, 이 도시의 다양한 얼굴을 볼 수 있었습니다. 저녁에는 센 강에서 배를 타고 파리의 야경을 감상했습니다. 불빛이 물 위에 반사되면서 파리는 마법 같은 곳으로 변했습니다.</p><p><strong>Day 7: 작별의 순간</strong></p><p>마지막 날, 파리를 떠납니다. 이 도시에서 보낸 일주일 동안 많은 것을 배우고 느낄 수 있었습니다.</p><p>시간이 멈춘 듯한 순간들, 예술과 역사의 보고, 그리고 맛있는 음식들은 이 여행을 특별하게 만들어주었습니다.</p><p>파리의 아름다움은 정말로 마음 깊숙이 남았고, 그곳에서의 경험과 추억은 저에게 새로운 시각과 통찰력을 주었습니다.</p><p>파리에서의 이 여정은 마음속에 영원히 기억될 것입니다. 이곳에서의 경험과 추억은 저에게 여행의 가치와 아름다움을 깨닫게 해주었습니다. 파리, 정말 감사합니다. 이제는 돌아가야 할 시간이 왔지만, 다음 번에 다시 찾아올 때까지 그리움으로 가득할 것입니다. 앞으로의 여행을 기대하며, 파리와의 작별 인사를 건넵니다. À la prochaine, Paris! (다음 번에, 파리!)</p>'
+      , CURRENT_TIMESTAMP
+      , 82
+      , '해외여행'
+      , null
+      , 3);
+
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '혼자 떠난 전주 여행'
+      , '<p><strong>전주 여행 일기</strong></p><p><strong>Day 1: 전주의 시작</strong></p><p>여행의 시작은 항상 설레고 기대되는 순간입니다.&nbsp;</p><p>전주로 향하는 기차 안에서는 푸른 들판과 숲이 끝없이 펼쳐져, 도심의 소란에서 벗어나 조용한 자연을 만끽하며 여행의 시작을 기다렸습니다.</p><p>전주에 도착한 첫 날, 한옥 마을의 돌담길을 걷다 보면 옛 전주의 분위기가 그대로 느껴집니다.&nbsp;</p><p>전통 가옥과 작은 상점들이 어우러져 마치 시간을 거슬러 올라가는 듯한 느낌을 주었습니다.</p><p><strong>Day 2: 전주의 역사와 문화</strong></p><p>이번 여행에서 가장 인상깊은 순간 중 하나는 한옥 마을에서의 역사 탐방이었습니다.&nbsp;</p><p>고즈넉한 곳곳에서 전통 한복을 입은 분들이 오래된 전통 공예를 전수하는 모습을 볼 수 있었습니다.&nbsp;</p><p>전주의 역사와 문화를 품은 박물관과 전통 공방에서 한복 만드는 과정을 관찰하면서, 전주의 아름다움과 전통에 대한 존경심을 느꼈습니다.</p><p><strong>Day 3: 맛과 풍경의 만남</strong></p><p>전주로 오면 빠질 수 없는 것 중 하나가 먹거리입니다.</p><p>&nbsp;오곡밥과 전주 비빔밥, 그리고 막걸리는 반드시 시식해야 할 음식이었는데, 이곳에서 맛보게 되니 정말로 특별한 맛으로 기억됩니다.</p><p>또한, 만복대교에서 바라보는 한옥 마을과 논밭의 풍경은 정말로 멋진 풍경으로 눈에 담았습니다.</p><p>&nbsp;전주의 아름다운 풍경은 사진으로도 아름답지만, 실제로 몸으로 느끼면 더욱 인상적이었습니다.</p><p><strong>Day 4: 작별 인사</strong></p><p>마지막 날, 전주를 떠나야 하는 마음이 아쉬웠습니다.&nbsp;</p><p>전주에서의 여행은 역사와 문화, 그리고 훌륭한 음식으로 가득 찼습니다. 이곳을 떠나면서도 전주의 아름다움과 풍요로움은 항상 기억될 것입니다.</p><p>전주 여행은 저에게 많은 것을 가르쳐주었습니다.&nbsp;</p><p>역사와 문화를 통해 더 깊은 이해를 얻었고, 맛있는 음식을 통해 지역의 특별함을 느낄 수 있었습니다.&nbsp;</p><p>그리고 한옥 마을과 자연의 아름다움은 평온함과 여유를 선사했습니다.</p><p>전주 여행을 통해 느낀 것은, 작은 곳에서도 큰 아름다움과 가치가 숨어있다는 것입니다.&nbsp;</p><p>다음 여행에서도 이런 소소한 순간들을 느끼며 세상의 아름다움을 더 많이 발견하고 싶습니다.</p>'
+      , CURRENT_TIMESTAMP
+      , 82
+      , '국내여행'
+      , null
+      , 4);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '아이가 6살이 되면서 아랫니가 처음으로 빠진 이야기'
+      , '<p>안녕하세요, 새벽밤입니다!&nbsp;</p><p>이번에 아이가 6살이 되면서 겪은 아랫니 떨어짐의 이야기를 공유하려고 합니다. 육아는 언제나 새로운 경험이 가득하죠, 그리고 이번 이야기 역시 그런 순간 중 하나입니다.</p><p>우리 아들은 이제 6살이 되었습니다.</p><p>성장과 변화가 빠르게 일어나는 이 시기에는 어린이의 건강에 대한 걱정도 많이 하게 됩니다.</p><p>그런데 지난 주, 아들의 아랫니 몇일전부터 흔들리더니 식사중에 아랫니가 빠졌습니다.</p><p>&nbsp;</p><h3><strong>처음으로 아랫니 떨어진 날</strong></h3><p>아들의 아랫니가 떨어진 날은 아침 식사 중이였습니다.&nbsp;</p><p>아랫니가 빠지자마자 울음을 터트렸습니다^^;;&nbsp;</p><p>하지만 몇일전부터 흔들리고 있었기에 몇일 안에 빠질거란걸 예상하고 있어서 놀랍지는 않았습니다&nbsp;</p><p>그리고 빠진후에 충분한 관리를 해야 했기 때문에 당황하지 않고 신속히 행동해야 했습니다.</p><p>아이가 이런 상황을 처음 겪을 때 부모로서 우리는 어떻게 대처해야 할까요?</p><h3><strong>1. 아이를 진정시키기</strong></h3><p>첫 번째로, 아이를 진정시켜야 했습니다.&nbsp;</p><p>아랫니 떨어짐은 아이에게 큰 충격일 수 있으므로 부모로서 우리 역시 안정적으로 대처해야 했습니다.&nbsp;</p><p>아이에게 평화로운 상황을 제공하고, 무엇이 일어나고 있는지 설명해주는 것이 중요합니다.</p><h3><strong>2. 부모 간담회</strong></h3><p>두 번째로, 우리 부부는 어떻게 대처해야 할지에 대해 이야기를 나눴어요</p><p>자연스럽게 빠진 거지만 혹시라도 잇몸에 이상이 생겼을 수도 있으니 차과를 방문, &nbsp;차후 관리 등 어떻게 대처해야 할지에 대한 간담회를 가졌습니다</p><p>아이의 건강과 안전을 최우선으로 생각했으며, 어떤 조치를 취해야 하는지 결정하는 과정이었습니다.</p><h3><strong>3. 의료 전문가와 상담</strong></h3><p>마지막으로, 아랫니가 떨어진 경우에는 의료 전문가와 상담을 받는 것이 좋습니다.&nbsp;</p><p>의사나 치과 의사는 상황을 평가하고 적절한 조치를 제안해줄 것입니다.</p><h3><strong>결론</strong></h3><p>육아는 언제나 예상치 못한 일들로 가득 차 있습니다.&nbsp;</p><p>아이가 6살이 되면서 아랫니가 처음으로 빠진 이야기는 저희 가족에게 큰 경험이었습니다.&nbsp;</p><p>하지만 우리는 평화로운 상황을 유지하고, 적절한 조치를 취함으로써 아이의 건강을 지켰습니다.&nbsp;</p><p>부모로서 아이의 안전과 건강을 위해 언제나 주의 깊게 관찰하고, 필요한 조치를 취하도록 노력하고 있습니다.</p><p><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);">아이의 유치가 처음 자랐을 때의 감동이 아직도 선명한데 벌써 유치가 빠지기 시작하는 나이가 됐다는 게 실감이 나지 않는군요</span><br><br><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);">매일매일 자라나는 아이를 볼 때마다 조금은 늦게 자라줬으면 하는 마음도 생기네요ㅎㅎ</span></p>'
+      , CURRENT_TIMESTAMP
+      , 23
+      , '육아이야기'
+      , null
+      , 11);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '오페라의 유령을 만나다! 감동과 떨림의 순간'
+      , '<p>안녕하세요, 오늘은 저의 최근 오페라 공연 경험을 공유하려고 합니다.&gt;&lt;</p><p>지난 주말, 오페라의 유령 공연을 관람하러 다녀왔는데요, 이렇게 감동적인 경험을 소개하고자 합니다.</p><h3><strong>무대에서 펼쳐지는 환상적인 이야기</strong></h3><p>오페라의 유령은 그 어떤 뮤지컬이나 연극과도 비교할 수 없는 환상적인 무대였습니다. 첫 번째로 놀라운 점은 그 무대와 음악의 조화였습니다. 음악은 굉장히 아름답고 감동적이었고, 무대는 마치 마법 같이 변해가는 것 같았습니다. 이 모든 것이 눈앞에서 펼쳐지는 것은 정말 감사한 경험이었습니다.</p><h3><strong>주인공의 열연</strong></h3><p>무대 위 주인공들의 연기 역시 놀랍지 않았을 수 없습니다. 특히, 오페라의 유령 역을 맡은 배우의 연기는 정말 빼어났습니다.&nbsp;</p><p>그의 목소리와 표정, 그리고 무엇보다 감정을 표현하는 능력은 정말 놀라웠습니다. 그의 존재가 무대를 지배하는 듯한 느낌을 받았습니다.</p><p>오페라의 유령 공연이 끝나고 나서도 여운이 계속 남았습니다.&nbsp;</p><p>공연 내내 함께한 친구들과 함께한 이야기와 공연에 대한 감상평을 나누는 시간은 정말 특별했습니다. 이 경험을 함께 나누는 것이 곧 내 삶의 한 부분이 된 것 같았습니다.</p><p>오페라의 유령은 정말로 놀라운 경험이었습니다.</p><p>&nbsp;음악, 무대, 배우들의 연기, 모든 것이 완벽하게 조화를 이루어 무엇보다도 감동을 선사했습니다.&nbsp;</p><p>이 경험은 저에게 새로운 시각과 감동을 주었으며, 다음 오페라 공연을 기대하게 만들었습니다.&nbsp;</p><p><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);">이번 기회로 뮤지컬에 푹 빠지게 된 거 같아요</span><br><br><span style="background-color:rgb(255,255,255);color:rgb(0,0,0);">다른 공연도 또 보고 싶네요^^!</span>&nbsp;</p>'
+      , CURRENT_TIMESTAMP
+      , 23
+      , '뮤지컬연극'
+      , null
+      , 15);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '봄이 찾아온다는 그 순간'
+      , '<p>봄이 찾아왔다.&nbsp;</p><p>미세먼지와 추위에 시달리던 겨울이 저절로 가라앉아가는 느낌이다.</p><p>&nbsp;나무들은 새싹을 피우며 녹색의 활력을 되찾았고, 꽃들은 천천히 꽃봉오리에서 꽃으로 피어나고 있다.</p><p>&nbsp;</p><p>봄이 오면 어릴 적의 기억이 떠오른다.&nbsp;</p><p>학교에서 꽃다운 봄이 찾아와 꽃잎을 뿌려주는 순간, 친구들과 함께 공원에서 뛰놀던 기억이다.&nbsp;</p><p>그때의 나는 마치 새처럼 자유롭게 하늘을 날았다. 이제는 그때의 순간이 그립다.</p><p>&nbsp;</p><p>봄은 새로운 시작의 상징이기도 하다. 나는 이번 봄에 어떤 변화를 맞을지 기대된다.&nbsp;</p><p>나의 목표와 꿈, 그리고 더 나은 자신을 위해 노력할 때가 온 것 같다. 봄은 꽃들이 피어나듯 나의 삶도 향기롭게 피어나기를 바란다.</p><p>&nbsp;</p><p>자연은 봄을 맞아 활기를 되찾는다. 그리고 나도 그 활기를 받아 새로운 도전에 나설 준비를 한다.&nbsp;</p><p>햇빛이 따스하게 내리쬐고, 바람은 부드럽게 스쳐가며 나를 감싸는데, 이 순간이 더욱 소중하게 느껴진다.</p><p>&nbsp;</p><p>그래, 봄이 찾아왔다. 나는 이 순간을 기록하고, 봄의 따스함과 활력을 느끼며 앞으로 나아갈 것이다.&nbsp;</p><p>봄의 감성을 간직하며, 새로운 시작을 향해 나아가는 모든 이들에게 활기찬 봄의 인사를 전한다.</p>'
+      , CURRENT_TIMESTAMP
+      , 21
+      , '감성에세이'
+      , null
+      , 13);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '우연히 발견한 음식점에서의 뜻깊은 순간'
+      ,'<p>인생은 언제나 예측 불허의 일들로 가득합니다.&nbsp;</p><p>얼마 전, 바쁜 회사 업무 끝에 우연히 발견한 음식점에서의 경험은 그런 일 중 하나였습니다. 그 순간은 나에게 큰 의미를 갖게 되었습니다.</p><p><strong>음식점의 우연한 발견</strong></p><p>한 주간의 긴 회사 업무 끝에 나는 지쳐 있었습니다.&nbsp;</p><p>하지만 그 날, 동료들과 함께 집으로 돌아가기 전에 한 장소에서 저녁을 먹기로 결정했습니다.&nbsp;</p><p>찾아본 음식점은 우연히 발견한 곳이었습니다. 외관은 평범했지만, 들어가자마자 아늑한 분위기와 유쾌한 음악이 우리를 반겨주었습니다.</p><p><strong>반주와 함께 풀어내는 이야기</strong></p><p>우리는 주문한 음식과 함께 맥주와 소주를 시키기로 했습니다. 이렇게 주문한 술은 우리의 마음을 열어주었고, 오랜만에 친한 동료들과 모인 자리에서 진솔한 이야기를 나눌 수 있었습니다. 업무 스트레스와 일상의 허무함을 잠시 잊고, 서로의 이야기에 귀를 기울였습니다.</p><p><strong>진솔한 대화와 웃음</strong></p><p>평소 회사에서는 이야기하지 못하는 주제들이 풀어졌습니다. 꿈과 목표, 어려움과 고민, 그리고 웃음이 넘치는 순간들로 가득했습니다. 우리는 서로를 더 잘 이해하고 더 깊이 연결할 수 있는 기회를 가졌습니다.</p><p><strong>의미 있는 순간</strong></p><p>그 날의 경험은 우리에게 뜻깊은 순간으로 남았습니다. 이렇게 예상치 못한 자리에서 동료들과의 진솔한 이야기와 웃음을 공유한 것은 업무 이외의 인간적인 연결을 강조하게 만들었습니다. 우연히 발견한 음식점은 우리에게 의미 있는 순간을 선사했고, 이런 순간들이 우리의 일상에 더해져야 한다는 것을 깨닫게 했습니다.</p><p>우연히 발견한 음식점에서의 이 경험은 나에게 큰 감동을 안겨주었습니다.&nbsp;</p><p>업무의 스트레스와 일상의 속박에서 벗어나, 동료들과의 진솔한 이야기와 웃음을 나눌 수 있었던 것은 큰 축복이었습니다.&nbsp;</p><p>이 경험을 통해 우리는 서로에 대해 더 잘 알게 되었고, 인간적인 연결이 얼마나 소중한지를 깨달았습니다.</p><p>&nbsp;다음에는 더 자주 이런 순간을 즐기고 싶습니다.</p>'
+      , CURRENT_TIMESTAMP
+      , 21
+      , '직장인의하루'
+      , null
+      , 13);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '6년의 사랑, 그리고 헤어짐'
+      , '<p>인생에서는 다양한 순간을 경험하게 된다.&nbsp;</p><p>이 중에서도 특별한 순간 중 하나는 6년 동안 함께한 애인과의 이별이었다.&nbsp;</p><p>그동안의 사랑과 추억을 되돌아보며, 이제는 각자의 길을 걷기로 결심한 순간을 기록하고자 한다.</p><p>&nbsp;</p><p>우리의 이야기는 6년 전, 첫 눈에 반한 순간으로 시작되었다. 그때부터 우리는 서로를 이해하고 지지해주며 성장해왔다. 함께 겪은 여행, 고난과 열악한 순간들은 우리의 사랑을 더 강하게 만들었다.</p><h3>&nbsp;</h3><p>그러나 시간이 흐르면서 우리의 관계는 변화했다.&nbsp;</p><p>처음엔 눈을 뗄 수 없는 사랑이었지만, 점차 서로에게 무관심해지고, 대화도 적어지기 시작했다.</p><p>&nbsp;우리는 변화를 인식하며 마주하기 어려운 순간들을 겪었다.</p><h3>&nbsp;</h3><p>서로에게 식어버린 마음을 느낀 순간, 우리는 함께 있는 것이 더 이상 옳지 않다는 결론에 도달했다.&nbsp;</p><p>이별은 언젠가는 피할 수 없는 현실이었다. 우리는 서로에 대한 사랑과 존경을 잊지 않고, 상호 협의하며 헤어지기로 결정했다.</p><h3>&nbsp;</h3><p>이별은 아무래도 아픔이 따라다닌다. 우리는 각자의 길로 가야 했지만, 그 동안 함께한 시간은 소중하게 간직하고자 한다. 아픔과 슬픔, 그리고 추억을 함께 나누면서 이별을 견뎌내야 했다.</p><h3>&nbsp;</h3><p>이별은 무엇보다 새로운 시작을 의미한다. 우리는 서로에게 기회를 주기로 했다.&nbsp;</p><p>각자가 개인적으로 성장하고 더 행복한 삶을 살 수 있기를 바란다. 언젠가 다시 만나게 된다면, 서로 더 나은 사람으로 만나기 위한 준비를 하고 있기를 바란다.</p><h3>&nbsp;</h3><p>이별은 언젠가는 찾아온다. 하지만 이것이 끝이 아니라 새로운 시작을 의미한다.</p><p>&nbsp;6년간의 사랑과 추억을 항상 간직하며, 서로에 대한 감사함을 잊지 않을 것이다.&nbsp;</p><p>이제는 우리의 개별적인 여정을 걷기로 했다. 이제는 새로운 시작을 위해 앞으로 나아가야 한다.</p>'
+      , CURRENT_TIMESTAMP
+      , 187
+      , '사랑이별'
+      , null
+      , 11);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '이케아와 함께하는 새로운 집으로의 여정'
+      , '<p>안녕하세요, 오늘은 새로운 집으로 이사를 가면서 시작한 인테리어 집들이 이야기를 공유하려고 합니다.&nbsp;</p><p>이케아로 직접 물건을 골라 구매하고 집을 꾸미는 과정은 정말 뿌듯하고 특별한 경험이었습니다.</p><h3><strong>새로운 집의 시작</strong></h3><p>새로운 집으로의 이사는 항상 설레고 기대되는 순간입니다. 새로운 환경에서의 삶을 시작하면서, 집을 내 스타일로 꾸미고자 결심했습니다. 이케아는 그 시작을 돕는 최고의 파트너 중 하나였습니다.</p><h3><strong>이케아로의 첫 방문</strong></h3><p>처음 이케아에 방문한 순간, 그 곳에서 이뤄질 집들이 프로젝트가 시작된 것 같았습니다.</p><p>&nbsp;집안 곳곳을 꾸미기 위한 가구와 소품, 주방 용품, 조명 등을 고르는 것은 정말 즐거웠습니다. 각 아이템은 집안의 각종 느낌과 스타일을 정의하는 중요한 역할을 했습니다.</p><h3><strong>스스로 고른 물건으로 인테리어</strong></h3><p>이케아에서 고른 물건들로 집안을 꾸미는 것은 뿌듯함과 만족감을 주었습니다.&nbsp;</p><p>나만의 선택과 스타일을 반영한 공간을 만들 수 있다는 것은 정말 특별한 일이었습니다.&nbsp;</p><p>각 물건이 자리를 찾아가는 과정은 예술 작품을 만들어내는 과정과도 비슷했습니다.</p><h3><strong>인테리어의 완성</strong></h3><p>이케아에서 고른 가구와 소품들이 집안에 자리를 찾으면서, 집안은 점차 완성되어갔습니다.&nbsp;</p><p>벽의 색상과 가구, 조명의 조합은 나만의 공간을 만들어냈습니다. 그리고 그 순간은 정말로 특별했습니다.</p><p>이케아로 인테리어 집들이를 진행하면서 집안의 모든 공간을 나만의 스타일로 꾸미는 것은 정말로 뿌듯한 경험이었습니다.&nbsp;</p><p>새로운 집에서의 시작은 항상 설레고 특별한 순간이지만, 이번에는 이케아와 함께한 인테리어가 그 순간을 더욱 특별하게 만들어주었습니다.&nbsp;</p><p>이제는 새로운 집에서 삶을 즐기며, 나만의 공간에서 행복을 찾아가고자 합니다.&nbsp;</p><p>다음 인테리어 프로젝트에서 더 많은 아이디어와 경험을 공유하겠습니다. 감사합니다.</p>'
+      , CURRENT_TIMESTAMP
+      , 83
+      , '인테리어집들이'
+      , null
+      , 7);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '중고거래에서 시작된 사랑의 이야기'
+      , '<p>안녕하세요,오늘은 중고거래를 통해 시작된 특별한 사랑 이야기를 나누려고 합니다.&nbsp;</p><p>이 이야기는 우연한 만남과 사랑의 시작을 다룹니다.</p><h3><strong>중고거래의 우연한 만남</strong></h3><p>몇 년 전, 나는 중고 물품을 사기 위해 인터넷에서 게시물을 찾고 있었습니다. 그때 만난 판매자와 연락을 주고받으며 물건을 구매하려고 했지만, 예상치 못한 문제가 발생했습니다. 상품에 문제가 있었고, 판매자와 연락을 주고받아 문제를 해결하려고 했습니다.</p><p>&nbsp;</p><p>연락 주고받는 과정에서 판매자와 나는 서로를 더 알게 되었습니다.&nbsp;</p><p>그녀는 문제에 대해 진심으로 해결하려고 노력하며, 물건 이외에도 다양한 주제에 대해 이야기하는 것을 즐겼습니다.</p><p>&nbsp;나 역시 그녀와의 대화를 통해 많은 공통 관심사를 발견하게 되었습니다.</p><h3><strong>사랑의 싹이 피기 시작하다</strong></h3><p>연락 주고받는 과정에서 우리는 서로에게 끌리기 시작했습니다. 더 자주 대화하고 시간을 보내며, 우리 간의 관계는 깊어져갔습니다. 우리의 연락은 물건 문제를 넘어서 사랑의 싹이 피어나는 곳으로 이어졌습니다.</p><p>&nbsp;</p><p>그 후 몇 달이 지나면서 우리는 공식적으로 연인이 되었습니다.&nbsp;</p><p>중고거래로 시작된 이 특별한 사랑은 서로를 더 잘 이해하고 서로에게 지지와 사랑을 주는 기회가 되었습니다.&nbsp;</p><p>우리는 과거의 문제를 훌륭하게 극복하고, 서로에게 무한한 신뢰를 주는 관계를 가지게 되었습니다.</p><p>&nbsp;</p><p>이 이야기는 중고거래를 통해 시작된 특별한 사랑을 담고 있습니다.&nbsp;</p><p>때로는 우연한 만남에서 가장 의미 있는 사랑이 시작될 수 있다는 것을 알려줍니다.&nbsp;</p><p>사랑은 우리에게 언제나 예상치 못한 곳에서 찾아올 수 있으며, 그 순간을 기다려야 합니다.&nbsp;</p><p>이야기를 통해 우리의 사랑을 믿고, 이야기를 공유하며 더 특별한 관계를 형성하길 바랍니다. 감사합니다.</p>'
+      , CURRENT_TIMESTAMP
+      , 165
+      , '사랑이별'
+      , null
+      , 12);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '새로운 시작과 오래된 이별: 회사 스카웃 이직 이야기'
+      , '<p>안녕하세요, 오늘은 회사에 스카웃되어 새로운 회사로 이직한 이야기를 공유하려고 합니다.&nbsp;</p><p>이직은 항상 설레고 기대되는 순간이지만, 동시에 오래 함께한 동료와의 이별은 아쉬움을 남기기도 합니다.&nbsp;</p><p>그럼에도 불구하고 새로운 여정과 스카웃된 경험은 기대되며 활력을 불어넣습니다.</p><h3><strong>스카웃로의 출발</strong></h3><p>새로운 회사로의 이직은 스카웃되어 찾아온 기회로 시작되었습니다.&nbsp;</p><p>그 순간은 정말로 놀랍고 뿌듯한 순간이었습니다. 이전의 회사에서의 경험과 노력이 스카웃되어 이직할 수 있는 계기가 되었습니다.</p><h3><strong>이직의 결정</strong></h3><p>이직을 고려할 때, 오래 함께한 동료들과의 이별이 아쉬움을 남기기도 했습니다. 함께 일한 동료들과의 연결은 특별한 것이었고, 그들을 떠날 때 마음이 아팠습니다. 그러나 새로운 도전과 성장을 위한 기회를 놓칠 수 없었습니다.</p><h3><strong>새로운 여정의 시작</strong></h3><p>새로운 회사로의 첫날은 기대와 긴장으로 가득했습니다.&nbsp;</p><p>새로운 동료들과의 만남, 새로운 업무, 그리고 새로운 환경에서의 적응이 필요했습니다. 그러나 이러한 도전과 새로운 여정은 활력을 주기도 했습니다.</p><p>스카웃로 이직한 경험은 새로운 도전을 의미했습니다.</p><p>&nbsp;그러나 그 경험은 더 나은 기회와 성장을 향한 발판이 되었습니다.&nbsp;</p><p>새로운 회사에서의 경험과 성장을 통해 더 나은 자신을 만들고, 새로운 동료들과 함께 더 훌륭한 일을 이루기를 기대합니다.</p><p>&nbsp;</p><p>이직과 스카웃로의 시작은 항상 혼란스럽고 감정적인 순간을 가져옵니다.&nbsp;</p><p>오래 함께한 동료들과의 이별은 아쉬움을 남기기도 하지만, 새로운 여정과 스카웃된 경험은 기대되며 활력을 불어넣는 기회로 받아들일 수도 있습니다. 이런 과정을 통해 새로운 시작이 얼마나 특별한지를 느끼며, 제 글을 읽어주셔서 감사합니다.</p>'
+      , CURRENT_TIMESTAMP
+      , 122
+      , '직장인의하루'
+      , null
+      , 8);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '초보 엄마의 이유식 도전기'
+      , '<p><span style="font-family: &quot;Noto Sans KR&quot;;">안녕하세요, 오늘은 제 경험을 통해 얻은 초보 엄마로서의 이유식 도전과 성공 이야기를 공유하려고 합니다.&nbsp;</span></p><p><span style="font-family: &quot;Noto Sans KR&quot;;">아이에게 맛있는 식사를 제공하는 것은 항상 쉽지 않지만, 엄마의 노력과 사랑으로 가능한 일이라는 것을 보여드리고자 합니다.</span></p><p><b><br></b></p><p><b>처음의 도전</b></p><p>아이가 이유식을 먹이기 시작할 때, 저는 엄마로서의 처음 도전을 시작했습니다.&nbsp;</p><p>다양한 음식을 조리하고 아이에게 제공하는 것은 흥미로운 도전이었지만, 처음에는 쉽지 않았습니다. 아이는 새로운 음식에 적응하기 어려워하며 거부하는 경우가 많았습니다.</p><p><br></p><p><b>실패와 배움 그리고 다시 도전</b></p><p>처음 몇 번의 시도에서는 실패가 연이어 나타났습니다. 아이가 먹지 않는다는 것은 어떤 엄마에게나 좌절감을 주는 순간입니다.&nbsp;</p><p><br></p><p>그러나 그 실패를 통해 무엇을 배웠습니다.&nbsp;</p><p>아이의 취향과 선호도를 이해하고, 천천히 적응하도록 기다려야 한다는 것을 깨달았습니다.</p><p><br></p><p>좌절하지 않고 다시 도전하기로 결심했습니다.</p><p>아이의 선호도와 식사 습관을 고려하여 다양한 이유식을 준비했습니다.</p><p></p><p>텍스처를 다르게 해보며 아이의 호기심을 자극하고자 노력했습니다.&nbsp;</p><p>그리고 아이가 좋아하는 음식을 이유식으로 활용해보았습니다.</p><p><br></p><p><img src="/image?filename=20fdc68c-9b85-4018-9725-273557214f44_235964188bce21e8c2fd663e7383d657.jpg" style="width: 25%; float: left;" class="note-float-left"></p><p>끝내, 저의 노력과 인내가 보람을 가져왔습니다.</p><p>아이는 처음에는 거부했던 음식들을 점차 받아들이기 시작했고, 맛있게 먹는 모습을 보여줬습니다.&nbsp;</p><p>그 순간, 아이가 건강하게 자랄 수 있도록 노력한 것이 얼마나 중요한지를 깨달았습니다.</p><p><br></p><p>&nbsp;</p><p>초보 엄마로서의 이유식 도전은 어렵고 가끔은 실패와 좌절을 경험할 수 있습니다.&nbsp;</p><p>그러나 아이의 건강과 성장을 위해 노력하는 것은 보람 있는 일입니다. </p><p>엄마의 사랑과 노력이 결국 아이에게 맛있는 식사와 건강한 성장을 제공하는 역할을 합니다.&nbsp;</p><p>다른 엄마들에게도 도움이 되기를 바라며, 공유해봅니다 다들 육아 화이팅 하자구요!</p>'
+      , CURRENT_TIMESTAMP
+      , 59
+      , '육아이야기'
+      , null
+      , 15);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '그림같던 제주도 여행'
+      , '<p>제주도로 떠난 여행 중, 오름과 함덕 서우봉 해변은 정말로 잊지 못할 아름다운 순간들이었습니다.</p><p> 아침 일찍 출발하여 푸른 하늘 아래로 펼쳐진 제주도의 환상적인 풍경을 즐길 수 있었습니다.</p><p><br></p><p><img src="/image?filename=22738ecf-91eb-42b3-b677-70a014995313_제주도 여행코스 힐링 명소 제주 오름 베스트 11.jpeg" style="width: 50%; float: right;" class="note-float-right"></p><p><b>오름 (Hallasan)</b></p><p><br></p><p></p><p>아침 일찍 출발하여 오름을 찾아 떠났습니다. </p><p>제주도의 가장 높은 산인 오름은 자연의 아름다움과 풍경으로 둘러싸여 있어 등반을</p><p> 즐기는 사람들에게 인기가 많습니다.</p><p> 등산로는 다양한 난이도와 길이로 구분되어 있어 모든 등산객에게 맞는 적절한 코스를 선택할 수 있었습니다. </p><p>우리는 가벼운 코스를 선택하여 오전 동안 오름을 탐험하였습니다.</p><p><br></p><p>오름 정상에 도착하면, 제주도의 아름다운 전망을 감상할 수 있었습니다.</p><p> 푸른 바다와 하늘, 그리고 주변의 작은 마을들이 우리 눈 앞에 펼쳐져 황홀한 순간을 선사해주었습니다. </p><p>정상에 서 있는 느낌은 정말로 특별하였고, 사진을 찍는 것도 잊을 수 없는 순간 중 하나였습니다.</p><p><br></p><p style="text-align: left;"><br></p><p style="text-align: left;"><br></p><p style="text-align: left;"><br></p><p style="text-align: left;"><br></p><p style="text-align: left;"><br></p><div style="text-align: left;"><img src="/image?filename=ba7ae026-ec1e-4f58-8284-d1a362ad3bae_5e5a79e7-fb31-4345-a76c-527f5bf4342b.jpg" style="width: 50%; float: left;" class="note-float-left"></div><div style="text-align: left;"><b style="font-size: 14px;">함덕 서우봉 해변 (함덕해수욕장)</b></div><div style="text-align: left;"><br></div><div style="text-align: left;">오름을 탐험한 후, 우리는 함덕 서우봉 해변으로 향했습니다.&nbsp;</div><p></p><p>해변에 도착하자마자, 흰 모래사장과 맑은 파도가 눈에 띄었습니다.<br></p><p>해수욕객들이 모여 햇볕을 즐기며 시간을 보내고 있었고, 해변의 아름다움은 우리를 감탄하게 했습니다.</p><p><br></p><p>함덕 서우봉 해변은 서핑과 다양한 해수 활동을 즐기기에 이상적인 장소이기도 합니다. </p><p>저희는 조그만 파도타기에 도전해보았는데, 이것 역시 재미있는 경험이었습니다.</p><p><br></p><p>바다에서 수영하거나 해변을 산책하며 해안가의 아름다운 암석을 감상하며 시간을 보낸 뒤, 해질녘을 함께하고 싶어 마지막으로 함덕 서우봉 해변에 남았습니다. 해변가에서 보는 일몰은 감동적이었고, 해가 떨어지는 순간을 함께하는 것은 정말로 로맨틱한 순간이었습니다.</p><p><br></p><p><br></p><p>이렇게 제주도의 해오름과 함덕 서우봉 해변을 방문한 여행은 정말로 특별하고 기억에 남는 순간들로 가득 차 있었습니다. </p><p>제주도의 자연 아름다움과 풍경은 정말로 인상적이었고, 이곳을 방문하는 모든 이들에게 추천하고 싶은 곳입니다. 그럼 다음 여행에서 또 만나요, 제주도!</p>'
+      , CURRENT_TIMESTAMP
+      , 89
+      , '국내여행'
+      , null
+      , 3);
+
+INSERT INTO TB_BOARD ( BOARD_SEQ
+                     , BOARD_TITLE
+                     , BOARD_CONTENT
+                     , CREATED_DATE
+                     , BOARD_VIEWS
+                     , CATEGORY
+                     , FILENAME
+                     , MEMBER_SEQ)
+VALUES (NEXTVAL('BOARD_SEQ')
+      , '65세 신인 작가 보니 가머스가 데뷔작으로 이룬 놀라운 기록'
+      , '<p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"><br></span></p><p><img src="/image?filename=ac9eb075-8519-46ef-82ea-6c00eee247c1_KakaoTalk_20231019_215508682.png" style="width: 25%; float: left;" class="note-float-left"></p><p><br></p><p><span style="color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">저 : </span><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 214, 99);">보니 가머스 (Bonnie Garmus)</span><br style="color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"><span style="color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">소설가. 올해로 예순다섯 살 생일을 맞은 문학계의 후발 주자다. </span></p><p><span style="color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">그녀의 데뷔는 세계를 놀라게 했다.&nbsp;&nbsp;</span><span style="background-color: rgb(255, 255, 255); color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;">2020년 프랑크푸르트도서전에서 가장 큰 화젯거리는 보니 가머스의 원고 『레슨 인 케미스트리』였다. “올해의 출판 센세이션”이라는 평과 함께 언론의 주목을 받았고, 영국에서 16개의 출판사가 경쟁한 뒤 데뷔작 사상 가장 높은 계약금 200만 달러(한화 약 25억)에 출판권이 계약되었다.</span></p><p><span style="color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">출간 후에는 아마존 4.7점, 굿리즈 4.5점의 기록적인 평점을 달성했다. 현재는 35개국에 판권이 수출되었고, 애플TV는 이 소설을 브리 라슨 주연의 드라마로 제작하고 있다. </span></p><p><span style="color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">또한 미국과 영국에서 카피라이터이자 크리에이티브 디렉터로 일했다. 야외 수영을 즐겨 하며, 조정 선수이기도 하다. </span></p><p><span style="color: rgb(51, 51, 51); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">캘리포니아에서 태어나 최근까지 시애틀에 살다가 두 명의 딸과 남편 그리고 강아지 99와 함께 런던으로 이사했다.</span></p><p><br></p><p><span style="background-color: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;">애플TV+ 드라마 [레슨 인 케미스트리] 원작 소설</span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">65세 신인 작가가 데뷔작으로 이룬 놀라운 기록</span><br style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"><br style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">2022년 봄, 예순다섯 살 신인 작가의 데뷔 소설 『레슨 인 케미스트리』가 출간되었다. </span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">저자는 어떤 명성도 없었고, 작가로서의 경력은 전무했다. </span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">하지만 책은 출간되자마자 뉴욕타임스, 아마존은 물론이고 슈피겔, 선데이타임스까지 각종 베스트셀러 차트의 1위를 차지했다.</span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"><br></span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"><br></span></p><p><img src="/image?filename=041f9bc1-a96c-4e98-9455-044d609eee8e_KakaoTalk_20231019_215534226.png" style="width: 25%; float: right;" class="note-float-right"></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"> </span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">곧이어 몇 달 만에 100만 부 판매를 달성하고, 뉴욕타임스와 아마존의 베스트셀러 목록에서 각각 74주와 60주 동안 내려가지 않고 장기 판매에 돌입했다.</span><span style="background-color: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;">그 기록은 지금도 매주 경신 중이다. </span></p><p><span style="background-color: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;">미국 서평그룹 굿리즈에서는 최고의 데뷔작으로 선장되기도 했다.</span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">애플TV+는 출간 전에 『레슨 인 케미스트리』의 영상화 판권을 계약하고 [캡틴 마블]의 배우 브리 라슨이 제작과 출연에 참여하며 크랭크인했다.&nbsp;</span><span style="background-color: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;">8부작 드라마는 2023년 10월 13일 전격 공개된다. 이에 출간 1주년과 애플TV+ 드라마화를 기념해 리커버판을 출간한다.</span></p><p><span style="background-color: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;"><br></span></p><p><span style="background-color: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;">이 책은 출간되기 전부터 이미 소문이 자자했다.</span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">원고 공개만으로도 35개국에 판권이 계약되었고 데뷔작으로서 영미권 사상 최고로 높은 선인세를 받았다.</span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"> </span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">출판사 열여섯 곳의 경쟁 끝에 한화 25억에 이르는 200만 달러에 출판권이 계약되었다. </span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);">출간 후에는 수많은 명사들, 스티븐 킹, 오프라 윈프리 등의 추천과 입소문을 타고 2022년 가장 많이 판매된 책이 되었다. 세상에 나온 지 1년을 조금 넘긴 지금 아마존과 굿리즈에 달린 독자들의 평점만 100만 개를 훌쩍 넘는다.</span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"><br></span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"> 독자들은 “이 책을 읽지 않는 것이 손해”, “별점이 백 점 만점이라면 천 개 달아주고 싶다”, “밤에 집어 들면 나처럼 밤을 샐 수 있다”며 소설에 과몰입했음을 아낌없이 표현했다.</span></p><p><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px; background-color: rgb(255, 255, 255);"><br></span><span style="background-color: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;">한국에서도 작가들의 추천이 잇따랐다.&nbsp;&nbsp;</span></p><p><span style="background-color: rgb(255, 255, 255); font-family: -apple-system, BlinkMacSystemFont, &quot;Apple SD Gothic Neo&quot;, &quot;Helvetica Neue&quot;, ridi-roboto, &quot;Noto Sans KR&quot;, sans-serif; font-size: 13px; letter-spacing: -0.39px;">김초엽 작가는 “롤러코스터 같은 소설. 절로 응원이 나올 수밖에”라는 평을 남겼으며, 남궁인 작가는 “맹장이 터진 줄도 모르고 밤을 새워 읽었다”, 김겨울 작가는 “주인공을 응원하면서 난관을 같이 헤쳐 나가는 재미가 쏠쏠한 소설”이라고 평했다.</span></p>'
+      , CURRENT_TIMESTAMP
+      , 66
+      , '오늘의책'
+      , null
+      , 5);
+
 
 
 
@@ -658,3 +1081,25 @@ VALUES ( NEXTVAL('COMMENT_SEQ')
        , CURRENT_TIMESTAMP
        , 1
        , 17);
+
+INSERT INTO TB_COMMENT ( COMMENT_SEQ
+                      , CONTENT
+                      , CREATED_DATE
+                      , MEMBER_SEQ
+                      , BOARD_SEQ)
+VALUES ( NEXTVAL('COMMENT_SEQ')
+       , '저도 제주도 여행했을때 함덕 서우봉 해변을 방문했었는데요 정말 물이 맑아서 놀랐어요! 사진을 보니 다시 가고싶네요ㅎㅎ'
+       , CURRENT_TIMESTAMP
+       , 15
+       , 32);
+
+INSERT INTO TB_COMMENT ( COMMENT_SEQ
+                      , CONTENT
+                      , CREATED_DATE
+                      , MEMBER_SEQ
+                      , BOARD_SEQ)
+VALUES ( NEXTVAL('COMMENT_SEQ')
+       , '제주도 숨겨진 보물같은 곳이 정말 많군요..^^ 글 잘봤습니다~'
+       , CURRENT_TIMESTAMP
+       , 4
+       , 32);

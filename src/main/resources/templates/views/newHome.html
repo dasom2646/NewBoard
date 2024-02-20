@@ -39,21 +39,6 @@
                 </a>
             </div>
             <div class="pic_info-wrap">
-                <!-- <form th:action="@{/board/picLatest}" th:object="${boardDto}" method="get">
-                         <div class="pic_article">
-                             <div class="pic_main">
-
-                                 <div th:each="board : ${latestBoards}" class="pic_details">
-                                     <img th:src="@{'/images/' + ${board.filename}}" alt="사진"/>
-                                 </div>
-
-                                 <div class="pic_title">
-                                     <p th:text="${board.boardTitle}">글 제목</p>
-                                 </div>
-                                 <a th:href="@{/board/detail/{boardSeq}(boardSeq=${board.boardSeq})}"></a>
-                             </div>
-                         </div>
-                 </form>-->
 
                 <div class="pic_article">
                     <div class="pic_main">
@@ -121,92 +106,23 @@
             </div>
             <div class="keyword_list">
                 <div class="button-row">
-                    <button class="custom-button">지구한바퀴<br>해외여행</button>
-                    <button class="custom-button">방방곡곡<br>국내여행</button>
-                    <button class="custom-button ">오늘의<br>책</button>
-                    <button class="custom-button ">취향저격<br>영화</button>
-                    <button class="custom-button ">문화생활<br>뮤지컬·연극</button>
-                    <button class="custom-button">엔터테인먼트</button>
-                    <button class="custom-button ">스포츠</button>
-                    <button class="custom-button ">나만의<br>맛집</button>
-                    <button class="custom-button ">요리·레시피</button>
-
+                    <a th:each="category : ${categories}" th:href="@{'/category/' + ${category}}">
+                        <button class="custom-button" th:text="${category}"></button>
+                    </a>
                 </div>
-                <div class="button-row">
-                    <button class="custom-button ">사랑·이별</button>
-                    <button class="custom-button">육아<br>이야기</button>
-                    <button class="custom-button">직장인의<br>하루</button>
-                    <button class="custom-button">반려동물</button>
-                    <button class="custom-button">감성 에세이</button>
-                    <button class="custom-button">시사·이슈</button>
-                    <button class="custom-button">IT<br>트렌드</button>
-                    <button class="custom-button">건강·운동</button>
-                    <button class="custom-button">인테리어<br>집들이</button>
+            </div>
+
+            <!-- Blog recommend section-->
+            <div class="slider-container">
+                <div class="recommend_articles">
+                    <div class="text-center">
+                        <h3 class="txt_brunch tit_brunch">RECOMMENDED ARTICLES</h3>
+                        <p class="desc_brunch"><span class="txt_brunch">갓 구워낸 따끈따끈한 추천글을 만나보세요</span></p>
+                    </div>
 
                 </div>
             </div>
         </div>
-
-        <!-- Blog recommend section-->
-        <div class="slider-container">
-            <div class="recommend_articles">
-                <div class="text-center">
-                    <h3 class="txt_brunch tit_brunch">RECOMMENDED ARTICLES</h3>
-                    <p class="desc_brunch"><span class="txt_brunch">갓 구워낸 따끈따끈한 추천글을 만나보세요</span></p>
-                </div>
-                <!--        <div>-->
-                <!--            <div class="slider-track">-->
-                <!--                <div class="slider-item">-->
-
-                <!--                    <a href="" class="link_slide" target="_blank">-->
-                <!--                        <div class="img_articles">-->
-                <!--                            <img src="" width="240" alt="사진">-->
-                <!--                        </div>-->
-                <!--                        <strong class="tit_subject">제목</strong>-->
-                <!--                        <p class="desc_subject">내용 </p>-->
-                <!--                        <span class="info_by"><span class="ico_by">by</span>&nbsp; memberID</span>-->
-                <!--                    </a>-->
-                <!--                </div>-->
-
-                <!--                <div class="slider-item">2</div>-->
-                <!--                <div class="slider-item">3</div>-->
-                <!--                <div class="slider-item">4</div>-->
-                <!--                <div class="slider-item">5</div>-->
-                <!--                <div class="slider-item">6</div>-->
-                <!--                <div class="slider-item">7</div>-->
-                <!--                <div class="slider-item">8</div>-->
-                <!--                <div class="slider-item">9</div>-->
-                <!--                <div class="slider-item">10</div>-->
-                <!--                <div class="slider-item">11</div>-->
-                <!--                <div class="slider-item">12</div>-->
-                <!--                <div class="slider-item">13</div>-->
-                <!--                <div class="slider-item">14</div>-->
-                <!--                <div class="slider-item">15</div>-->
-                <!--                <div class="slider-item">16</div>-->
-                <!--                <div class="slider-item">17</div>-->
-                <!--                <div class="slider-item">18</div>-->
-                <!--                <div class="slider-item">19</div>-->
-                <!--                <div class="slider-item">20</div>-->
-                <!--                <div class="slider-item">21</div>-->
-                <!--                <div class="slider-item">22</div>-->
-                <!--                <div class="slider-item">23</div>-->
-                <!--                <div class="slider-item">24</div>-->
-                <!--                <div class="slider-item">25</div>-->
-                <!--                <div class="slider-item">26</div>-->
-                <!--                <div class="slider-item">27</div>-->
-                <!--                <div class="slider-item">28</div>-->
-                <!--                <div class="slider-item">29</div>-->
-                <!--                <div class="slider-item">30</div>-->
-                <!--                &lt;!&ndash; Add more slider items as needed &ndash;&gt;-->
-                <!--            </div>-->
-                <!--            <div>-->
-                <!--                <button class="slider-prev">Previous</button>-->
-                <!--                <button class="slider-next">Next</button>-->
-                <!--            </div>-->
-                <!--        </div>-->
-            </div>
-        </div>
-    </div>
 </main>
 
 </body>

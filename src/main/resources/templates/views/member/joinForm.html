@@ -69,6 +69,37 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="join_nickname">
+                                <div class="icon_wrap">
+                                    <div class="icon_id">
+                                <span>
+                                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 13H16C17.7107 13 19.1506 14.2804 19.3505 15.9795L20 21.5M8 13C5.2421 12.3871 3.06717 10.2687 2.38197 7.52787L2 6M8 13V18C8 19.8856 8 20.8284 8.58579 21.4142C9.17157 22 10.1144 22 12 22C13.8856 22 14.8284 22 15.4142 21.4142C16 20.8284 16 19.8856 16 18V17"
+                                          stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="12" cy="6" r="4" stroke="#1C274C" stroke-width="1.5"/>
+                                    </svg>
+                                </span>
+
+                                        <input type="text" class="input_text" id="nickname" th:field="*{memberNickname}"
+                                               th:value="${usernickname}"
+                                               placeholder="별명">
+                                        <button type="button"
+                                                th:onclick="|document.getElementById('nickname').value='';|"
+                                                style="background: transparent; border: none; outline: none;">
+                                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="24" height="24" fill="white"/>
+                                                <path d="M7 17L16.8995 7.10051" stroke="#000000" stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                                <path d="M7 7.00001L16.8995 16.8995" stroke="#000000"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="join_id">
                                 <div class="icon_wrap">
                                     <div class="icon_id">
@@ -136,58 +167,21 @@
                             <div th:if="${errorMessage}" class="error_message">
                                 <span th:text="${errorMessage}"></span>
                             </div>
+
+                            <div class="btn_join">
+                                <button type="submit" class="btn_click">
+                                    <span class="btn_joinTxt">회원가입</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="btn_join">
-                            <button type="submit" class="btn_click">
-                                <span class="btn_joinTxt">회원가입</span>
-                            </button>
-                        </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!--<script>
-    document.querySelector('form').addEventListener('submit', function (event) {
-        const nameField = document.getElementById('name');
-        const loginIdField = document.getElementById('loginId');
-        const passwordField = document.getElementById('password');
-        const errorMessages = document.querySelectorAll('.error-message div');
-
-        // 모든 에러 메시지를 숨깁니다.
-        errorMessages.forEach(function (errorMessage) {
-            errorMessage.style.display = 'none';
-        });
-
-        let hasError = false; // 에러 여부를 나타내는 변수
-
-        // 이름 필드가 비어 있는 경우
-        if (nameField.value.trim() === '') {
-            errorMessages[0].style.display = 'block';
-            hasError = true;
-        }
-
-        // 이름 필드는 비어 있지 않지만 아이디 필드가 비어 있는 경우
-        if (loginIdField.value.trim() === '' && !hasError) {
-            errorMessages[1].style.display = 'block';
-            hasError = true;
-        }
-
-        // 이름과 아이디 필드는 모두 비어 있지 않지만 비밀번호 필드가 비어 있는 경우
-        if (passwordField.value.trim() === '' && !hasError) {
-            errorMessages[2].style.display = 'block';
-            hasError = true;
-        }
-
-        // 에러가 있을 경우 폼 제출을 방지합니다.
-        if (hasError) {
-            event.preventDefault();
-        }
-    });
-</script>-->
 
 
 </body>

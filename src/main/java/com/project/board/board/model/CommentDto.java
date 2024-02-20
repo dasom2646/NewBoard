@@ -18,6 +18,7 @@ public class CommentDto {
     private String createdDate; // 댓글 작성일
 
     private String memberId; // 작성자
+    private String memberNickname; // 작성자닉네임
     private Long memberSeq; // 맴버 시퀀스
 
     private BoardDto boardDto; // 댓글이 속한 게시글 정보 저장

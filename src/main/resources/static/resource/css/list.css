@@ -100,7 +100,7 @@ li {
 }
 
 .info_head{
-    width: 100px;
+    width: 120px;
     display: flex;
     align-items: flex-end;
     justify-content: space-evenly;
@@ -114,4 +114,36 @@ li {
  .list_name{
     font-size: 20px;
     font-weight: bold;
+}
+
+
+.pagination {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.pagination li {
+    margin-right: 10px;
+}
+
+.pagination a {
+    text-decoration: none;
+    padding: 5px 10px;
+
+}
+
+.pagination a.active {
+    color: #1dc078;
+}
+
+.page_icon{
+    width: 20px; /* 아이콘의 너비 조절 */
+    height: 20px; /* 아이콘의 높이 조절 */
+    fill: #000000; /* 아이콘의 색상 설정 */
+    vertical-align: middle; /* 아이콘을 수직 가운데 정렬 */
+
 }

@@ -6,6 +6,7 @@ import com.project.board.member.model.MemberDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -45,6 +46,12 @@ public class MemberServiceImpl implements MemberService {
         return count > 0;
     }
 
+    @Override
+    public boolean isMembermemberNicknameExists(String memberNickname) {
+        int count = memberMapper.countMemberNickname(memberNickname);
+        return count > 0;
+    }
+
 
     //맴버 조회
     @Override
@@ -62,16 +69,18 @@ public class MemberServiceImpl implements MemberService {
         return memberMapper.getMemberBySeq(memberSeq);
     }
 
+    // 닉네임 수정
+    @Override
+    @Transactional
+    public void updateNickname(Long memberSeq, String newNickname) {
+        memberMapper.updateNickname(memberSeq, newNickname);
+    }
 
-//     맴버 단건조회
-//    @Override
-//    public MemberVo findMemberById(Long id) {
-//        return null;
-//    }
-//
-//    // 맴버 목록 조회
-//    @Override
-//    public ArrayList<MemberVo> findAllMembers() {
-//        return null;
-//    }
+    // 프로필 사진등록
+    @Override
+    public void uploadProfileImage(Long memberSeq, String memberFilename) {
+        memberMapper.uploadProfileImage(memberSeq, memberFilename);
+    }
+
+
 }

@@ -76,10 +76,10 @@
                 <a class="article1_item_link">
                 </a>
                 <div class="article1_item_img">
-                    <img th:src="${'/image?filename=' + board.filename}" >
+                    <img th:src="${'/image?filename=' + board.filename}">
                 </div>
-                <h1 class="article1_item_title"  th:text="${board.boardTitle}">제목</h1>
-                <address class="article1_item_writer"  th:text="${'by ' + board.memberId}">글쓴이</address>
+                <h1 class="article1_item_title" th:text="${board.boardTitle}">제목</h1>
+                <address class="article1_item_writer" th:text="${'by ' + board.memberId}">글쓴이</address>
                 <footer class="article1_item_info"
                         th:text="${ board.category +' · ' + board.createdDate + ' · 조회 ' + board.boardViews}">
                     카테고리·작성일·조회

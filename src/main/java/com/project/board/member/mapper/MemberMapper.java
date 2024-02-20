@@ -14,15 +14,24 @@ public interface MemberMapper {
     void addMember(MemberDto memberDto);
 
 
-
-
     // 맴버 시퀀스 조회
     MemberDto getMemberBySeq(Long memberSeq);
+
     // 맴버 조회
     MemberDto getMemberById(String memberId);
 
     // 멤버 목록 조회
     List<MemberDto> getMemberList(MemberDto memberDto);
 
+    // 아이디 중복검사
     int countMemberId(@Param("memberId") String memberId);
+
+    int countMemberNickname(@Param("memberNickname") String memberNickname);
+
+    // 닉네임 수정
+    void updateNickname(@Param("memberSeq") Long memberSeq, @Param("newNickname") String newNickname);
+
+    // 프로필 사진 등록
+    void uploadProfileImage(@Param("memberSeq") Long memberSeq, @Param("memberFilename") String memberFilename);
+
 }

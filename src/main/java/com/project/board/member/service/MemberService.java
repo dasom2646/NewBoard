@@ -16,10 +16,20 @@ public interface MemberService {
     // 아이디 중복검사
     boolean isMemberIdExists(String memberId);
 
+    // 닉네임 중복검사
+    boolean isMembermemberNicknameExists(String memberNickname);
+
     MemberDto getMemberById(String memberId);
 
     List<MemberDto> getMemberList(MemberDto memberDto);
 
     MemberDto getMemberBySeq(Long memberSeq);
+
+    // 닉네임 수정
+    void updateNickname(Long memberSeq, String newNickname);
+
+    // 프로필 사진등록
+    void uploadProfileImage(Long memberSeq, String memberFilename);
+
 }
 

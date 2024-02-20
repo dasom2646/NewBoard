@@ -15,23 +15,28 @@ public interface BoardService {
     // 게시글 전체 조회
     List<BoardDto> getAllBoardList();
 
-    int getTotalBoardCount(); // 전체 게시글 수량 조회 메서드
+    // 전체 게시글 수량 조회
+    int getTotalBoardCount();
+
+    // 페이징 처리된 게시글 목록
+    List<BoardDto> getBoardListWithPaging(int page);
+
 
     // 게시글 작성자로 전체 조회
     List<BoardDto> getBoardByMemberSeq(Long memberSeq);
 
 
-
     // 조회수
     BoardDto getAndIncreaseViews(Long boardSeq);
 
-    // 사진 게시글4개
-    List<BoardDto> getLatestFourBoards();
     // 모든 카테고리
     List<String> getAllCategories();
 
     // 카테고리별 글 가져오기
     List<BoardDto> getBoardsByCategory(String category);
 
+
+    // 사진 게시글4개
+    List<BoardDto> getLatestFourBoards();
 
 }

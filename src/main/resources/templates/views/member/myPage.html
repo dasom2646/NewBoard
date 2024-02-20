@@ -15,30 +15,56 @@
 <div class="profile_container">
     <div class="profile">
         <div class="image_wrap">
-            <img src="/resource/KakaoTalk_20230919_134726450.png">
-            <div class="btn_img">
-                <button class="btn_upload">이미지 업로드</button>
-                <button class="btn_delete">이미지 제거</button>
+
+            <!--  &lt;!&ndash; 프로필 사진 표시 &ndash;&gt;
+              <div id="profilePicture" class="profile-picture">
+                  <img id="currentPicture"
+                       th:src="${user.memberFilename != null ? '/profileImage?memberFilename=' + user.memberFilename : '/resource/images/default-profile.png'}"/>
+
+              </div>
+
+              &lt;!&ndash; 프로필 사진 업로드 폼 &ndash;&gt;
+              <form action="/myPage/uploadProfile" method="post" enctype="multipart/form-data"
+                    onsubmit="uploadProfile(event)">
+                  <input type="file" name="profileImage" accept="image/*" onchange="previewImage(event)">
+                  <input type="hidden" id="memberSeq" name="memberSeq" th:value="${user.memberSeq}">
+                  <button type="submit" class="btn_upload">프로필 수정</button>
+                  <button class="btn_delete" onclick="deleteProfileImage()">프로필 삭제</button>
+              </form>
+  -->
+            <div class="image_wrap">
+                <!-- 프로필 사진 표시 -->
+                <div id="profilePicture" class="profile-picture">
+                    <img id="currentPicture"
+                         th:src="${user.memberFilename != null ? '/profileImage?memberFilename=' + user.memberFilename : '/resource/images/default-profile.png'}"/>
+                </div>
+
+                <!-- 프로필 사진 업로드 폼 -->
+                <form id="profileForm" action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
+                    <input type="file" id="profileImage" name="profileImage" accept="image/*">
+                    <input type="hidden" id="memberSeq" name="memberSeq" th:value="${user.memberSeq}">
+                    <button type="submit" id="updateProfileBtn" class="btn_upload" disabled>프로필 수정</button>
+                </form>
             </div>
         </div>
         <div class="profile_inner">
             <div class="profile_modify">
-                <div >
-                    <input type="text" placeholder="닉네임바꾸기">
-                </div>
-                <button class="btn_update">수정</button>
+                <form th:action="@{/myPage/updateNickname}" method="post">
+                    <input type="hidden" name="memberSeq" th:value="${user.memberSeq}">
+                    <input type="text" name="newNickname" th:value="${user.memberNickname}" placeholder="새로운 닉네임을 입력하세요"
+                           required style="height: 20px;">
+                    <button type="submit" class="btn_change">변경</button>
+                </form>
             </div>
+
             <div class="menu_wrap">
                 <div class="btn_menu">
-                    <a  th:onclick="|location.href='@{/myPage/posts/{memberSeq}(memberSeq=${session.memberSeq})}'|">
-                        <span class="btn_post" >작성한 글</span>
+                    <a th:onclick="|location.href='@{/myPage/posts/{memberSeq}(memberSeq=${session.memberSeq})}'|">
+                        <span class="btn_post">작성한 글</span>
                     </a>
                     <a th:onclick="|location.href='@{/myPage/myComments/{memberSeq}(memberSeq=${session.memberSeq})}'|">
-                        <span class="btn_comment" >댓글 단 글</span>
+                        <span class="btn_comment">댓글 단 글</span>
                     </a>
-                    <!--     <a th:onclick="|location.href='@{/myPage/myComments/{memberSeq}(memberSeq=${session.memberSeq})}'|">
-                        <span class="btn_comment" >댓글 단 글</span>
-                    </a>-->
                 </div>
             </div>
         </div>
@@ -62,14 +88,61 @@
                     <td th:text="${post.boardTitle}">제목</td>
                     <td>0</td>
                     <td th:text="${post.createdDate}">작성일</td>
-                    <td th:text="${post.boardViews}"조회</td>
+                    <td th:text="${post.boardViews}">조회</td>
                 </tr>
                 </tbody>
-
             </table>
         </div>
     </div>
 </div>
+
+
+
+<script>
+    // 이미지 미리보기 함수
+     function previewImage(event) {
+         var reader = new FileReader();
+         reader.onload = function () {
+             var output = document.getElementById('currentPicture');
+             output.src = reader.result;
+             document.getElementById('updateProfileBtn').disabled = false; // 수정 버튼 활성화
+         }
+         reader.readAsDataURL(event.target.files[0]);
+     }
+
+     // 파일 선택 시 이미지 미리보기 함수 연결
+     document.getElementById('profileImage').addEventListener('change', previewImage);
+
+ // 프로필 이미지 업로드 AJAX 함수
+     function uploadProfile(event) {
+     event.preventDefault(); // 기본 이벤트 방지
+
+     var form = event.target;
+     var formData = new FormData(form);
+       formData.append('uploadProfile', file);
+
+
+     // AJAX 요청 설정
+     $.ajax({
+         type: 'POST',
+         enctype: 'multipart/form-data',
+         url: '/profileImage/uploadProfile',
+         data: formData,
+         processData: false,
+         contentType: false,
+         cache: false, // 캐시 false로 설정
+         success: function (response) {
+             var profileImageUrl = response;
+             // 성공 메시지 출력 혹은 다른 동작 수행
+             console.log('프로필 이미지 업로드 성공:', response);
+         },
+         error: function (error) {
+             // 에러 메시지 출력 혹은 다른 동작 수행
+             console.error('프로필 이미지 업로드 실패:', error);
+         }
+     });
+ }
+</script>
 
 </body>
 </html>

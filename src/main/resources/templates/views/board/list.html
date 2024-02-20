@@ -8,6 +8,7 @@
     <!-- list CSS-->
     <link rel="stylesheet" th:href="@{/resource/css/list.css}"/>
     <link rel="stylesheet" th:href="@{/resource/css/newHome.css}"/>
+
 </head>
 
 
@@ -42,7 +43,7 @@
                                 <div class="text_muted">
                                     <p>
                                         <span class="text_by">by</span>
-                                        <span th:text="${board.memberId}"></span>
+                                        <span th:text="${board.memberNickname}"></span>
                                         <span>&#8231;</span>
                                         <span th:text="${board.createdDate}"></span>
                                         <span>&#8231;</span>
@@ -54,24 +55,49 @@
                     </ul>
                 </div>
             </form>
-            <script th:inline="javascript">
-                // 길이 제한을 위한 스크립트
-                var contentElements = document.querySelectorAll(".truncate");
 
-                contentElements.forEach(function(element) {
-                    var maxLength = 150; // 최대 길이 설정
-                    var content = element.textContent;
-
-                    if (content.length > maxLength) {
-                        element.textContent = content.substring(0, maxLength) + " ..."; // 길이 초과시 ...을 추가하여 표시
-                    }
-                });
-            </script>
         </div>
     </div>
+    <!-- 페이징 부분 추가 -->
+    <div class="page_wrap">
+        <ul class="pagination">
+            <li>
+                <a th:href="@{/board/boardList(page=1)}">처음</a>
+            </li>
 
+            <li th:if="${currentPage > 1}">
+                <a th:href="@{/board/boardList(page=${currentPage - 1})}">이전</a>
+            </li>
 
+            <th:block th:each="pageNum : ${#numbers.sequence(1, totalPages)}">
+                <li>
+                    <a th:href="@{/board/boardList(page=${pageNum})}"
+                       th:classappend="${pageNum == currentPage} ? 'active' : ''"
+                       th:text="${pageNum}"></a>
+                </li>
+            </th:block>
+            <li th:if="${currentPage < totalPages}">
+                <a th:href="@{/board/boardList(page=${currentPage + 1})}">다음</a>
+            </li>
+
+            <li th:if="${currentPage < totalPages}">
+                <a th:href="@{/board/boardList(page=${totalPages})}">마지막</a>
+            </li>
+        </ul>
+    </div>
 </main>
+<script th:inline="javascript">
+    // 길이 제한을 위한 스크립트
+    var contentElements = document.querySelectorAll(".truncate");
 
+    contentElements.forEach(function(element) {
+        var maxLength = 150; // 최대 길이 설정
+        var content = element.textContent;
+
+        if (content.length > maxLength) {
+            element.textContent = content.substring(0, maxLength) + " ..."; // 길이 초과시 ...을 추가하여 표시
+        }
+    });
+</script>
 </body>
 </html>
