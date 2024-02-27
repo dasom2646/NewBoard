@@ -15,38 +15,20 @@
 <div class="profile_container">
     <div class="profile">
         <div class="image_wrap">
-
-            <!--  &lt;!&ndash; 프로필 사진 표시 &ndash;&gt;
-              <div id="profilePicture" class="profile-picture">
-                  <img id="currentPicture"
-                       th:src="${user.memberFilename != null ? '/profileImage?memberFilename=' + user.memberFilename : '/resource/images/default-profile.png'}"/>
-
-              </div>
-
-              &lt;!&ndash; 프로필 사진 업로드 폼 &ndash;&gt;
-              <form action="/myPage/uploadProfile" method="post" enctype="multipart/form-data"
-                    onsubmit="uploadProfile(event)">
-                  <input type="file" name="profileImage" accept="image/*" onchange="previewImage(event)">
-                  <input type="hidden" id="memberSeq" name="memberSeq" th:value="${user.memberSeq}">
-                  <button type="submit" class="btn_upload">프로필 수정</button>
-                  <button class="btn_delete" onclick="deleteProfileImage()">프로필 삭제</button>
-              </form>
-  -->
-            <div class="image_wrap">
-                <!-- 프로필 사진 표시 -->
-                <div id="profilePicture" class="profile-picture">
-                    <img id="currentPicture"
-                         th:src="${user.memberFilename != null ? '/profileImage?memberFilename=' + user.memberFilename : '/resource/images/default-profile.png'}"/>
-                </div>
-
-                <!-- 프로필 사진 업로드 폼 -->
-                <form id="profileForm" action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
-                    <input type="file" id="profileImage" name="profileImage" accept="image/*">
-                    <input type="hidden" id="memberSeq" name="memberSeq" th:value="${user.memberSeq}">
-                    <button type="submit" id="updateProfileBtn" class="btn_upload" disabled>프로필 수정</button>
-                </form>
+            <!-- 프로필 사진 표시 -->
+            <div id="profilePicture" class="profile-picture">
+                <img id="currentPicture"
+                     th:src="${user.memberFilename != null ? '/profileImage?memberFilename=' + user.memberFilename : '/resource/images/default-profile.png'}"/>
             </div>
+
+            <!-- 프로필 사진 업로드 폼 -->
+            <form id="profileForm" action="/myPage/uploadProfile" method="post" enctype="multipart/form-data">
+                <input type="file" id="profileImage" name="profileImage" accept="image/*">
+                <input type="hidden" id="memberSeq" name="memberSeq" th:value="${user.memberSeq}">
+                <button type="submit" id="updateProfileBtn" class="btn_upload" disabled>프로필 수정</button>
+            </form>
         </div>
+
         <div class="profile_inner">
             <div class="profile_modify">
                 <form th:action="@{/myPage/updateNickname}" method="post">
@@ -95,8 +77,6 @@
         </div>
     </div>
 </div>
-
-
 
 <script>
     // 이미지 미리보기 함수
